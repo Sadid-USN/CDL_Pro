@@ -163,7 +163,7 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
             batch.set(docRef, quizData.toJson());
             break;
           case AppDataType.roadSign:
-            // Предполагаем, что файл содержит массив знаков
+            // Предполагаем, что файл содержит массив знаков!!!
             final signsData = RoadSignListModel.fromJson(jsonData);
             for (var sign in signsData.signs) {
               final signDocRef =
