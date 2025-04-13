@@ -87,7 +87,6 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
   Stream<QuerySnapshot> getQuizStream() {
     return _getQuizCollection(state.selectedType).snapshots();
   }
-
   CollectionReference<Map<String, dynamic>> _getQuizCollection(
     AppDataType dataType,
   ) {
@@ -151,7 +150,6 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
       if (quizFiles.isEmpty) {
         throw Exception("Нет JSON-файлов в assets!!");
       }
-
       var batch = firebaseStore.batch();
       for (var path in quizFiles) {
         final jsonString = await rootBundle.loadString(path);
