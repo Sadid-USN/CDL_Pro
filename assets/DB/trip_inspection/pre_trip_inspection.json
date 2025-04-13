@@ -1,0 +1,244 @@
+{
+  "pre_trip_inspection": [
+    {
+      "id": 1,
+      "ruTitle": "Передняя часть трака",
+      "enTitle": "Front of the Tractor",
+      "content": [
+        {
+          "ruText": "Фары, поворотники, габаритные огни — чистые, не повреждены, работают.",
+          "enText": "Headlights, turn signals, clearance lights — clean, undamaged, working.",
+          "pronunciation": "Хедлайтс, тёрн сигналз, клиранс лайтс — клин, андемиджд, вёркинг."
+        },
+        {
+          "ruText": "Лобовое стекло — без трещин, дворники и омыватель работают.",
+          "enText": "Windshield — no cracks, wipers and washer work properly.",
+          "pronunciation": "Виндшилд — ноу крэкс, вайперз энд вошер ворк проперли."
+        },
+        {
+          "ruText": "Бампер и решётка радиатора — надёжно закреплены.",
+          "enText": "Bumper and grille — securely mounted.",
+          "pronunciation": "Бампер энд грил — сикьюрли маунтед."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ruTitle": "Двигатель со стороны водителя",
+      "enTitle": "Engine Driver Side",
+      "content": [
+        {
+          "ruText": "Уровень масла, охлаждающей жидкости, жидкости ГУР — в норме, утечек нет.",
+          "enText": "Oil, coolant, and power steering fluid levels are normal, no leaks.",
+          "pronunciation": "Ойл, кулант энд пауэр стиринг флюид лэвелз ар нормал, ноу ликс."
+        },
+        {
+          "ruText": "Ремни и шланги — без трещин и износа.",
+          "enText": "Belts and hoses — no cracks or wear.",
+          "pronunciation": "Белтс энд хоузиз — ноу крэкс ор вэар."
+        },
+        {
+          "ruText": "Аккумулятор — закреплён, клеммы чистые.",
+          "enText": "Battery — securely mounted, terminals are clean.",
+          "pronunciation": "Батэри — сикьюрли маунтед, терминалз ар клин."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "ruTitle": "Двигатель со стороны пассажира",
+      "enTitle": "Engine Passenger Side",
+      "content": [
+        {
+          "ruText": "Альтернатор и водяной насос — надёжно закреплены, ремни натянуты.",
+          "enText": "Alternator and water pump — securely mounted, belts tight.",
+          "pronunciation": "Олтернэйтор энд уотер памп — сикьюрли маунтед, белтс тайт."
+        },
+        {
+          "ruText": "Воздушный компрессор — без утечек, надёжно закреплён.",
+          "enText": "Air compressor — no leaks, securely mounted.",
+          "pronunciation": "Эйр компрессор — ноу ликс, сикьюрли маунтед."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "ruTitle": "Передняя подвеска",
+      "enTitle": "Front Suspension",
+      "content": [
+        {
+          "ruText": "Рессоры, амортизаторы, U-образные болты — без повреждений.",
+          "enText": "Leaf springs, shocks, and U-bolts — no damage.",
+          "pronunciation": "Лиф спрингс, шокс энд ю-болтс — ноу дэмэдж."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "ruTitle": "Передние тормоза",
+      "enTitle": "Front Brakes",
+      "content": [
+        {
+          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
+          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
+          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+        },
+        {
+          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
+          "enText": "Brake drums and linings — no cracks, proper thickness.",
+          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "ruTitle": "Муфта трака",
+      "enTitle": "Tractor Coupling",
+      "content": [
+        {
+          "ruText": "Сцепное устройство (kingpin, fifth wheel) — смазано, без люфта.",
+          "enText": "Coupling devices (kingpin, fifth wheel) — greased, no play.",
+          "pronunciation": "Каплинг дивайсис (кингпин, фифс уил) — грисд, ноу плэй."
+        },
+        {
+          "ruText": "Электрические и пневматические соединения — надёжно подключены.",
+          "enText": "Electrical and air lines — properly connected.",
+          "pronunciation": "Электрикал энд эйр лайнз — проперли коннектед."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "ruTitle": "Боковые части трака",
+      "enTitle": "Tractor Side",
+      "content": [
+        {
+          "ruText": "Топливный бак и крышка — без утечек, крышка плотно закрыта.",
+          "enText": "Fuel tank and cap — no leaks, cap is tight.",
+          "pronunciation": "Фьюэл тэнк энд кэп — ноу ликс, кэп из тайт."
+        },
+        {
+          "ruText": "Ступеньки и поручни — надёжно закреплены, не повреждены.",
+          "enText": "Steps and handrails — securely mounted, not damaged.",
+          "pronunciation": "Степс энд хэндрейлз — сикьюрли маунтед, нот дэмэджд."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "ruTitle": "Передняя часть трейлера",
+      "enTitle": "Front of Trailer",
+      "content": [
+        {
+          "ruText": "Световые сигналы и отражатели — работают, чистые.",
+          "enText": "Lights and reflectors — working, clean.",
+          "pronunciation": "Лайтс энд рифлекторз — уёркинг, клин."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "ruTitle": "Задние колёса",
+      "enTitle": "Rear Wheels",
+      "content": [
+        {
+          "ruText": "Шины — глубина протектора минимум 2/32\", давление в норме, без повреждений.",
+          "enText": "Tires — minimum tread depth 2/32\", pressure is normal, no damage.",
+          "pronunciation": "Тайерз — минимам трэд депс 2/32\", прессур из нормал, ноу дэмэдж."
+        },
+        {
+          "ruText": "Колёсные гайки — затянуты, нет трещин на ободах.",
+          "enText": "Wheel nuts — tight, no cracks on rims.",
+          "pronunciation": "Уил натс — тайт, ноу крэкс он римз."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "ruTitle": "Подвеска ведущей оси",
+      "enTitle": "Drive Axle Suspension",
+      "content": [
+        {
+          "ruText": "Рессоры и амортизаторы — без повреждений, надёжно закреплены.",
+          "enText": "Leaf springs and shocks — no damage, securely mounted.",
+          "pronunciation": "Лиф спрингс энд шокс — ноу дэмэдж, сикьюрли маунтед."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "ruTitle": "Приводные тормоза",
+      "enTitle": "Drive Brakes",
+      "content": [
+        {
+          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
+          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
+          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+        },
+        {
+          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
+          "enText": "Brake drums and linings — no cracks, proper thickness.",
+          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "ruTitle": "Система соединения",
+      "enTitle": "Coupling System",
+      "content": [
+        {
+          "ruText": "Сцепное устройство — надёжно закреплено, без износа.",
+          "enText": "Coupling device — securely mounted, no wear.",
+          "pronunciation": "Каплинг дивайс — сикьюрли маунтед, ноу уэр."
+        },
+        {
+          "ruText": "Электрические и пневматические соединения — надёжно подключены.",
+          "enText": "Electrical and air lines — properly connected.",
+          "pronunciation": "Электрикал энд эйр лайнз — проперли коннектед."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "ruTitle": "Боковые части трейлера",
+      "enTitle": "Side of Trailer",
+      "content": [
+        {
+          "ruText": "Борта и двери — без повреждений, надёжно закреплены.",
+          "enText": "Sides and doors — no damage, securely mounted.",
+          "pronunciation": "Сайдс энд доорз — ноу дэмэдж, сикьюрли маунтед."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "ruTitle": "Подвеска трейлера",
+      "enTitle": "Trailer Suspension",
+      "content": [
+        {
+          "ruText": "Рессоры и амортизаторы — без повреждений, надёжно закреплены.",
+          "enText": "Leaf springs and shocks — no damage, securely mounted.",
+          "pronunciation": "Лиф спрингс энд шокс — ноу дэмэдж, сикьюрли маунтед."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "ruTitle": "Тормоза трейлера",
+      "enTitle": "Trailer Brakes",
+      "content": [
+        {
+          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
+          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
+          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+        },
+        {
+          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
+          "enText": "Brake drums and linings — no cracks, proper thickness.",
+          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
+        }
+      ]
+    }
+  ]
+}

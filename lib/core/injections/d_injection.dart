@@ -1,0 +1,71 @@
+
+import 'package:cdl_pro/presentation/blocs/bloc.dart';
+import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
+import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
+import 'package:talker_flutter/talker_flutter.dart';
+
+final getIt = GetIt.instance;
+
+Future<void> initDependencies() async {
+  final talker = TalkerFlutter.init(
+    settings: TalkerSettings(
+      enabled: true,
+      useConsoleLogs: true,
+      maxHistoryItems: 100,
+    ),
+  );
+  GetIt.I.registerSingleton(talker);
+  await EasyLocalization.ensureInitialized();
+  await Hive.initFlutter();
+ 
+
+  await Firebase.initializeApp();
+  final dio = Dio();
+  // interceptors Получает информацию о любом запросе, который производит клиент Dio
+  dio.interceptors.add(
+    TalkerDioLogger(
+      talker: talker,
+      settings: const TalkerDioLoggerSettings(
+        printResponseData: false,
+        printRequestHeaders: true,
+        printResponseHeaders: true,
+        printResponseMessage: true,
+      ),
+    ),
+  );
+
+  FlutterError.onError =
+      (details) => GetIt.I<Talker>().handle(details.exception, details.stack);
+
+  Bloc.observer = TalkerBlocObserver(
+      talker: talker,
+      settings: const TalkerBlocLoggerSettings(
+          printStateFullData: false, printEventFullData: false));
+
+  // ✅ Регистрируем API сервис для запросов к молитвенным временам
+ // GetIt.I.registerLazySingleton(() => PrayerTimeApi(dio: dio));
+
+  // ✅ Регистрируем сервис геолокации
+  //GetIt.I.registerLazySingleton(() => LocationGeolocatorService());
+
+  // ✅ Регистрируем PrayerTimeImpl и передаем в него зависимости
+  // GetIt.I.registerLazySingleton(
+  //   () => PrayerTimeImpl(
+  //     prayerTimeApi: GetIt.I<PrayerTimeApi>(),
+  //     locationService: GetIt.I<LocationGeolocatorService>(),
+  //     // locationIpInfoService: LocationIpInfoService(dio: dio),
+
+  //   ),
+  // );
+  GetIt.I.registerLazySingleton(() => SettingsBloc());
+  // GetIt.I.registerLazySingleton(() => PrayerTimeBloc());
+}
