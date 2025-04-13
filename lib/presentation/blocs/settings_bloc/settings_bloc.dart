@@ -149,7 +149,7 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
               .toList();
 
       if (quizFiles.isEmpty) {
-        throw Exception("Нет JSON-файлов в assets");
+        throw Exception("Нет JSON-файлов в assets!!");
       }
 
       var batch = firebaseStore.batch();
