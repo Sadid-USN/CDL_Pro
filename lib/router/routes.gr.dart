@@ -75,6 +75,22 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [QuizPage]
+class QuizRoute extends PageRouteInfo<void> {
+  const QuizRoute({List<PageRouteInfo>? children})
+    : super(QuizRoute.name, initialChildren: children);
+
+  static const String name = 'QuizRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const QuizPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})
