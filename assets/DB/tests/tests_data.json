@@ -14,16 +14,6 @@
             },
             "correct_option": "B",
             "description": "Check your mirrors and merge smoothly without slowing down traffic. Always signal."
-          },
-          "ru": {
-            "question": "Что следует делать при перестроении?",
-            "options": {
-              "A": "Перестраиваться на значительно меньшей скорости, чем поток движения.",
-              "B": "Использовать зеркала, чтобы убедиться, что в потоке есть достаточно места для безопасного вхождения.",
-              "C": "Перестраиваться без сигнала поворота."
-            },
-            "correct_option": "B",
-            "description": "Проверяйте зеркала и перестраивайтесь плавно, не замедляя движение. Всегда подавайте сигнал поворота."
           }
         },
         "2": {
@@ -36,16 +26,6 @@
             },
             "correct_option": "C",
             "description": "Keep the papers for hazardous materials in the driver door pouch. This way, they are easy to reach if needed."
-          },
-          "ru": {
-            "question": "Документы, связанные с перевозкой опасных материалов, должны храниться_",
-            "options": {
-              "A": "Прикреплёнными к солнцезащитному козырьку",
-              "B": "В коробке на прицепе",
-              "C": "В кармане водительской двери"
-            },
-            "correct_option": "C",
-            "description": "Храните документы на опасные материалы в кармане водительской двери. Так они будут легко доступны при необходимости."
           }
         },
         "3": {
@@ -58,16 +38,6 @@
             },
             "correct_option": "A",
             "description": "When you drive out of a tunnel, you might feel a strong push of wind."
-          },
-          "ru": {
-            "question": "Какая из следующих фраз о движении через туннель верна?",
-            "options": {
-              "A": "При выезде могут быть сильные порывы ветра.",
-              "B": "Выключите весь свет внутри грузовика.",
-              "C": "Держите окна открытыми для свежего воздуха."
-            },
-            "correct_option": "A",
-            "description": "Когда вы выезжаете из туннеля, вы можете почувствовать сильный порыв ветра."
           }
         },
         "4": {
@@ -80,17 +50,8 @@
             },
             "correct_option": "A",
             "description": "When a big truck turns, the back end can swing out. This is called off-tracking. A tractor with a 45-feet trailer is more likely to do this because it's longer and the way it's put together makes the back end swing out more when it turns."
-          },
-          "ru": {
-            "question": "Какое из этих транспортных средств с большей вероятностью будет испытывать смещение задней части при поворотах (off-tracking)?",
-            "options": {
-              "A": "Тягач с 45-футовым прицепом",
-              "B": "28-футовый фургон",
-              "C": "45-футовый цельный грузовик"
-            },
-            "correct_option": "A",
-            "description": "Когда большой грузовик поворачивает, его задняя часть может смещаться в сторону. Это называется off-tracking. Тягач с 45-футовым прицепом более подвержен этому из-за своей длины и конструкции, которая вызывает большее смещение задней части при поворотах."
           }
+
         },
         "5": {
           "en": {
@@ -102,16 +63,6 @@
             },
             "correct_option": "C",
             "description": "Use your horn only if it can help stop an accident from happening."
-          },
-          "ru": {
-            "question": "При каких обстоятельствах следует использовать звуковой сигнал?",
-            "options": {
-              "A": "Чтобы дать другим понять, что вы опаздываете.",
-              "B": "Чтобы поздороваться с другом на тротуаре.",
-              "C": "Если это поможет избежать аварии."
-            },
-            "correct_option": "C",
-            "description": "Используйте звуковой сигнал только в том случае, если это может помочь предотвратить аварию."
           }
         },
         "6": {
@@ -124,16 +75,6 @@
             },
             "correct_option": "A",
             "description": "A drinker can't control how fast his or her body absorbs alcohol."
-          },
-          "ru": {
-            "question": "Определите неверное утверждение относительно употребления алкоголя.",
-            "options": {
-              "A": "Человек может контролировать, насколько быстро его организм усваивает алкоголь.",
-              "B": "Алкоголь попадает напрямую из желудка в кровоток.",
-              "C": "Уровень алкоголя в крови зависит от того, как быстро вы пьёте, сколько пьёте и сколько едите."
-            },
-            "correct_option": "A",
-            "description": "Человек не может контролировать, насколько быстро его организм усваивает алкоголь."
           }
         },
         "7": {
@@ -146,16 +87,6 @@
             },
             "correct_option": "A",
             "description": "If a quarter or more of the leaves in any leaf spring are missing, your truck can't be used until it's fixed."
-          },
-          "ru": {
-            "question": "Если у вашего транспортного средства отсутствует _ или более листов в рессоре, его использование будет запрещено.",
-            "options": {
-              "A": "1/4",
-              "B": "1/2",
-              "C": "1/3"
-            },
-            "correct_option": "A",
-            "description": "Если отсутствует четверть или более листов в любой рессоре, грузовик не может использоваться, пока не будет отремонтирован."
           }
         },
         "8": {
@@ -168,16 +99,6 @@
             },
             "correct_option": "C",
             "description": "Hazardous materials are always dangerous to health and safety, no matter what kind they are. They can hurt people and the environment, so it's important to handle them carefully."
-          },
-          "ru": {
-            "question": "Выберите верное утверждение относительно перевозки опасных материалов.",
-            "options": {
-              "A": "Опасные материалы можно выбрасывать в обычные мусорные контейнеры, если ёмкости герметично закрыты.",
-              "B": "Любой грузовик, перевозящий любое количество опасных материалов, должен иметь таблички (placards).",
-              "C": "Все опасные материалы представляют угрозу для здоровья и безопасности."
-            },
-            "correct_option": "C",
-            "description": "Опасные материалы всегда представляют угрозу для здоровья и безопасности, независимо от их типа. Они могут нанести вред людям и окружающей среде, поэтому обращаться с ними нужно осторожно."
           }
         },
         "9": {
@@ -190,16 +111,6 @@
             },
             "correct_option": "B",
             "description": "An individual's body weight plays a central role in determining how alcohol disperses throughout the body. Essentially, a lighter person will have a higher concentration of alcohol in their bloodstream after consuming the same amount as someone heavier."
-          },
-          "ru": {
-            "question": "Чтобы определить, сколько алкоголя в крови человека (BAC), нужно знать:",
-            "options": {
-              "A": "Его рост.",
-              "B": "Его вес.",
-              "C": "Время суток, когда он пьёт алкоголь."
-            },
-            "correct_option": "B",
-            "description": "Вес человека играет ключевую роль в определении того, как алкоголь распределяется по организму. Лёгкий человек будет иметь более высокую концентрацию алкоголя в крови после употребления того же количества, что и человек с большим весом."
           }
         },
         "10": {
@@ -212,16 +123,6 @@
             },
             "correct_option": "A",
             "description": "The correct way to hold a steering wheel is with both hands placed on opposite sides of the wheel. This gives you the most control over the vehicle, making it safer to drive."
-          },
-          "ru": {
-            "question": "Как правильно держать рулевое колесо?",
-            "options": {
-              "A": "Двумя руками, с противоположных сторон руля.",
-              "B": "Одной рукой сверху руля, а другой на колене.",
-              "C": "Коленями, используя руки для настройки радио."
-            },
-            "correct_option": "A",
-            "description": "Правильный способ держать руль — двумя руками, с противоположных сторон. Это обеспечивает максимальный контроль над транспортным средством и делает вождение безопаснее."
           }
         },
         "11": {
@@ -234,16 +135,6 @@
             },
             "correct_option": "B",
             "description": "Using drugs can make driving unsafe and might get you into an accident or even get you arrested."
-          },
-          "ru": {
-            "question": "Какое утверждение о употреблении наркотиков является верным?",
-            "options": {
-              "A": "Употребление наркотиков безопасно, если ехать на короткие расстояния.",
-              "B": "Употребление наркотиков может привести к аварии и/или аресту.",
-              "C": "Наркотики не влияют на навыки вождения."
-            },
-            "correct_option": "B",
-            "description": "Употребление наркотиков может сделать вождение небезопасным и привести к аварии или даже аресту."
           }
         },
         "12": {
@@ -256,16 +147,6 @@
             },
             "correct_option": "B",
             "description": "If the hazardous materials being transported do not require placarding under federal and state regulations, a driver without a HazMat endorsement may operate the vehicle."
-          },
-          "ru": {
-            "question": "Укажите условия, при которых водитель без допуска на перевозку опасных материалов может управлять транспортным средством, перевозящим такие вещества.",
-            "options": {
-              "A": "Опасные материалы находятся в ящике для инструментов.",
-              "B": "Для транспортного средства не требуются предупреждающие таблички (placards).",
-              "C": "Опасные материалы находятся в герметичном и небьющемся контейнере."
-            },
-            "correct_option": "B",
-            "description": "Если перевозимые опасные материалы не требуют размещения табличек согласно федеральным и государственным правилам, водитель без допуска на перевозку опасных веществ может управлять таким транспортом."
           }
         },
         "13": {
@@ -278,16 +159,6 @@
             },
             "correct_option": "C",
             "description": "If you're driving at 55 mph on a dry road and need to stop, you'll need as much space as a football field to do so safely."
-          },
-          "ru": {
-            "question": "Какова будет ваша общая тормозная дистанция при скорости 55 миль в час на сухом покрытии?",
-            "options": {
-              "A": "Ширина стандартной полосы движения.",
-              "B": "В три раза выше баскетбольного кольца.",
-              "C": "Длина футбольного поля."
-            },
-            "correct_option": "C",
-            "description": "Если вы едете со скоростью 55 миль в час по сухой дороге и вам нужно остановиться, вам потребуется расстояние, равное длине футбольного поля, чтобы сделать это безопасно."
           }
         },
         "14": {
@@ -300,16 +171,6 @@
             },
             "correct_option": "A",
             "description": "When you see something dangerous on the road ahead, the best thing to do is turn on your emergency lights or tap your brakes to alert other drivers. Never get too close to the car in front as a shield, and don't just turn on your bright lights. This way, everyone can stay safe."
-          },
-          "ru": {
-            "question": "Что следует делать, если вы видите опасность на дороге впереди?",
-            "options": {
-              "A": "Включите аварийную сигнализацию или притормозите, чтобы предупредить других.",
-              "B": "Подъедьте ближе к впереди идущему автомобилю и используйте его как щит.",
-              "C": "Включите дальний свет, чтобы подать сигнал об опасности."
-            },
-            "correct_option": "A",
-            "description": "Когда вы видите опасность на дороге, лучше всего включить аварийные огни или слегка притормозить, чтобы предупредить других водителей. Никогда не подъезжайте слишком близко к другому автомобилю и не полагайтесь только на дальний свет. Так вы обеспечите безопасность для всех."
           }
         },
         "15": {
@@ -322,16 +183,6 @@
             },
             "correct_option": "B",
             "description": "Merging onto a road safely means finding a big enough space in traffic so you can join in without causing problems. This way, cars have room to adjust and you can blend in smoothly."
-          },
-          "ru": {
-            "question": "Какой способ слияния с дорогой является самым безопасным?",
-            "options": {
-              "A": "Посигнальте, чтобы предупредить других перед выездом.",
-              "B": "Подождите достаточно большого промежутка в потоке, чтобы въехать на дорогу.",
-              "C": "Двигайтесь задним ходом перед выездом."
-            },
-            "correct_option": "B",
-            "description": "Безопасное слияние с дорогой означает нахождение достаточно большого промежутка в потоке транспорта, чтобы присоединиться, не создавая помех. Так другим водителям будет проще подстроиться, и вы спокойно вольётесь в поток."
           }
         },
         "16": {
@@ -344,16 +195,6 @@
             },
             "correct_option": "C",
             "description": "The weight limit is determined by the state in which you are operating."
-          },
-          "ru": {
-            "question": "Какое утверждение о загрузке груза является верным?",
-            "options": {
-              "A": "Груз весом менее 100 фунтов можно не закреплять.",
-              "B": "Груз должен проверяться каждые 100 миль.",
-              "C": "Закон штата определяет допустимый весовой лимит."
-            },
-            "correct_option": "C",
-            "description": "Ограничение по весу груза определяется законом того штата, в котором вы находитесь."
           }
         },
         "17": {
@@ -366,17 +207,8 @@
             },
             "correct_option": "C",
             "description": "If your wheels are tugging when you start driving, simply take your foot off the accelerator pedal."
-          },
-          "ru": {
-            "question": "Что следует делать, если ведущие колёса начинают проскальзывать при трогании с места?",
-            "options": {
-              "A": "Выключите двигатель.",
-              "B": "Увеличьте обороты двигателя.",
-              "C": "Уберите ногу с педали акселератора."
-            },
-            "correct_option": "C",
-            "description": "Если колёса начинают проскальзывать при трогании, просто уберите ногу с педали газа."
           }
+
         },
         "18": {
           "en": {
@@ -388,16 +220,6 @@
             },
             "correct_option": "C",
             "description": "If your truck is carrying a heavy load and it's making you slow down while going uphill, you should switch to a lower gear. This helps your truck gain more power to move up the hill easier."
-          },
-          "ru": {
-            "question": "Что следует делать, если тяжёлый груз замедляет движение при подъёме?",
-            "options": {
-              "A": "Значительно увеличить скорость.",
-              "B": "Включить аварийные огни и остановиться.",
-              "C": "Переключиться на пониженную передачу."
-            },
-            "correct_option": "C",
-            "description": "Если ваш грузовик замедляется при подъёме в гору из-за тяжёлого груза, переключитесь на пониженную передачу. Это поможет двигателю легче справляться с нагрузкой и преодолеть подъём."
           }
         },
         "19": {
@@ -410,16 +232,6 @@
             },
             "correct_option": "C",
             "description": "When parking on a straight, level, four-lane divided highway, place one within 10 feet of the rear of the vehicle, one about 100 feet to the rear, and one about 200 feet behind your vehicle for safety."
-          },
-          "ru": {
-            "question": "Как правильно расставить отражающие треугольники при остановке на обочине прямого, ровного, четырёхполосного шоссе с разделительной полосой?",
-            "options": {
-              "A": "Один в пределах 10 футов перед автомобилем, один примерно в 50 футах позади и один примерно в 250 футах позади.",
-              "B": "Один в пределах 5 футов позади автомобиля, один примерно в 50 футах позади и один примерно в 150 футах перед автомобилем.",
-              "C": "Один в пределах 10 футов позади автомобиля, один примерно в 100 футах позади и один примерно в 200 футах позади."
-            },
-            "correct_option": "C",
-            "description": "При остановке на прямом, ровном, четырёхполосном шоссе с разделительной полосой установите один треугольник в пределах 10 футов позади автомобиля, второй — примерно в 100 футах, и третий — в 200 футах сзади для обеспечения безопасности."
           }
         },
         "20": {
@@ -432,16 +244,6 @@
             },
             "correct_option": "B",
             "description": "Rust around the wheel nuts can be a sign that they are not tight enough. Always check this before a trip."
-          },
-          "ru": {
-            "question": "Какая из следующих фраз о проверке колёс и ободьев перед рейсом является верной?",
-            "options": {
-              "A": "Колёса можно не проверять, если они выглядят чистыми.",
-              "B": "Ржавчина вокруг гаек колёс может означать, что они ослаблены.",
-              "C": "Трещины на ободьях допустимы, если колесо вращается."
-            },
-            "correct_option": "B",
-            "description": "Ржавчина вокруг гаек колёс может быть признаком того, что они недостаточно затянуты. Всегда проверяйте это перед поездкой."
           }
         },
         "21": {
@@ -454,16 +256,6 @@
             },
             "correct_option": "A",
             "description": "If your engine is too hot, don't take off the radiator cap if the engine hasn't cooled down. Driving when the temp gauge is in the red or with not enough coolant can make things worse."
-          },
-          "ru": {
-            "question": "Выберите правильное действие при перегреве двигателя.",
-            "options": {
-              "A": "Никогда не снимайте крышку радиатора в системе под давлением, пока она не остынет.",
-              "B": "Можно продолжать движение, даже если стрелка температуры в красной зоне.",
-              "C": "Низкий уровень охлаждающей жидкости не приведёт к перегреву."
-            },
-            "correct_option": "A",
-            "description": "Если двигатель перегрелся, не снимайте крышку радиатора, пока он не остынет. Продолжение движения при перегреве или с недостаточным уровнем охлаждающей жидкости может усугубить ситуацию."
           }
         },
         "22": {
@@ -476,16 +268,6 @@
             },
             "correct_option": "B",
             "description": "When maneuvering a heavy vehicle, every movement must be precise and controlled. Relying on a slight bump as a guide introduces risks of misjudging distance, causing damage to both the vehicle and the dock."
-          },
-          "ru": {
-            "question": "Выберите ложное утверждение о процедуре движения назад на тяжёлом транспортном средстве.",
-            "options": {
-              "A": "Так как обзор через зеркала ограничен, следует двигаться назад медленно для повышения безопасности.",
-              "B": "Поскольку обзор ограничен, нужно сдавать назад, пока слегка не ударитесь о платформу.",
-              "C": "Полагайтесь на боковые зеркала, камеру заднего вида и, по возможности, помощника при движении назад."
-            },
-            "correct_option": "B",
-            "description": "Во время маневрирования тяжёлым транспортом каждое движение должно быть точным и контролируемым. Опираться на «лёгкий удар» как на ориентир — опасно, так как это может привести к повреждению машины или платформы."
           }
         },
         "23": {
@@ -498,16 +280,6 @@
             },
             "correct_option": "B",
             "description": "You should avoid signaling other drivers when it is safe to pass because it is their responsibility to judge the road conditions and determine when passing is safe. Instead of signaling, focus on maintaining a steady speed, staying in the right lane when possible, and allowing other drivers to make their own safe decisions about passing."
-          },
-          "ru": {
-            "question": "Управляя крупным транспортом, который движется медленнее общего потока, какого правила следует ИЗБЕГАТЬ?",
-            "options": {
-              "A": "Стараться поддерживать постоянную скорость.",
-              "B": "Показывать другим водителям, когда им безопасно вас обгонять.",
-              "C": "Оставаться в правой полосе, когда это возможно."
-            },
-            "correct_option": "B",
-            "description": "Не следует сигнализировать другим водителям, когда им безопасно вас обгонять, так как ответственность за оценку дорожной ситуации лежит на них. Вместо этого поддерживайте постоянную скорость, оставайтесь в правой полосе и дайте другим водителям самостоятельно принять безопасное решение об обгоне."
           }
         },
         "24": {
@@ -520,16 +292,6 @@
             },
             "correct_option": "A",
             "description": "When you need to turn quickly in an emergency, make sure you're holding the steering wheel tightly to control the vehicle properly."
-          },
-          "ru": {
-            "question": "Что верно относительно аварийных или уклоняющихся манёвров?",
-            "options": {
-              "A": "Чтобы быстро повернуть, необходимо крепко держаться за рулевое колесо.",
-              "B": "Всегда резко тормозите, чтобы сохранить контроль.",
-              "C": "В экстренной ситуации безопаснее ускориться, чем остановиться."
-            },
-            "correct_option": "A",
-            "description": "Когда нужно быстро повернуть в экстренной ситуации, убедитесь, что вы крепко держите руль, чтобы правильно контролировать транспортное средство."
           }
         },
         "25": {
@@ -542,16 +304,6 @@
             },
             "correct_option": "A",
             "description": "When driving fast on a big road, you should try to look ahead for about 1/4 mile. This helps you see what's coming and keep safe."
-          },
-          "ru": {
-            "question": "Когда вы едете с обычной скоростью по шоссе, вы должны стараться смотреть вперёд примерно на __ мили.",
-            "options": {
-              "A": "1/4",
-              "B": "1/2",
-              "C": "1/8"
-            },
-            "correct_option": "A",
-            "description": "Когда вы едете быстро по большой дороге, постарайтесь смотреть вперёд примерно на 1/4 мили. Это поможет заранее заметить опасности и сохранить безопасность."
           }
         },
         "26": {
@@ -564,16 +316,6 @@
             },
             "correct_option": "C",
             "description": "When your vehicle is not moving, check if the steering wheel is firm and doesn't move too much. Also, test the hydraulic brakes to ensure they are working properly."
-          },
-          "ru": {
-            "question": "Какую тормозную систему следует проверять, когда транспортное средство стоит на месте?",
-            "options": {
-              "A": "Рабочий тормоз.",
-              "B": "Стояночный тормоз.",
-              "C": "Гидравлические тормоза."
-            },
-            "correct_option": "C",
-            "description": "Когда транспортное средство не движется, убедитесь, что рулевое колесо остаётся устойчивым и не болтается. Также проверьте работу гидравлических тормозов."
           }
         },
         "27": {
@@ -586,16 +328,6 @@
             },
             "correct_option": "C",
             "description": "When a vehicle is heavier or moving fast, its brakes need to soak up more heat to make it stop."
-          },
-          "ru": {
-            "question": "Выберите верное утверждение о работе и воздействии тормозов.",
-            "options": {
-              "A": "Чем выше скорость, тем меньше усилий требуется для торможения.",
-              "B": "Тормоза работают лучше, когда они мокрые или обледенелые.",
-              "C": "Чем тяжелее транспортное средство или выше его скорость, тем больше тепла должны поглотить тормоза для его остановки."
-            },
-            "correct_option": "C",
-            "description": "Когда транспортное средство тяжелое или движется на высокой скорости, тормозам нужно поглотить больше тепла, чтобы его остановить."
           }
         },
         "28": {
@@ -608,16 +340,6 @@
             },
             "correct_option": "A",
             "description": "When it's really hot, check your tires every 2 hours or 100 miles to make sure they're okay. Driving slow or using winter tires won't help in the heat."
-          },
-          "ru": {
-            "question": "Что верно относительно влияния жаркой погоды на шины во время движения?",
-            "options": {
-              "A": "В очень жаркую погоду проверяйте шины каждые 2 часа или каждые 100 миль.",
-              "B": "Медленная езда предотвратит нагревание шин в жаркую погоду.",
-              "C": "Использование зимних шин улучшит сцепление в жаркую погоду."
-            },
-            "correct_option": "A",
-            "description": "Когда очень жарко, проверяйте шины каждые 2 часа или 100 миль, чтобы убедиться, что с ними всё в порядке. Медленная езда или зимние шины в жару не помогут."
           }
         },
         "29": {
@@ -630,16 +352,6 @@
             },
             "correct_option": "C",
             "description": "After you start your truck's engine, watch the coolant temperature gauge. It should slowly start to go up until it reaches the normal range. This shows your engine is warming up properly."
-          },
-          "ru": {
-            "question": "Что должно произойти после запуска двигателя?",
-            "options": {
-              "A": "Индикатор заряда батареи полностью зарядится за 3–5 минут.",
-              "B": "Манометр давления воздуха сразу покажет полное давление.",
-              "C": "Индикатор температуры охлаждающей жидкости должен постепенно подняться до нормы."
-            },
-            "correct_option": "C",
-            "description": "После запуска двигателя следите за датчиком температуры охлаждающей жидкости. Он должен постепенно подниматься до нормального уровня — это признак того, что двигатель прогревается правильно."
           }
         },
         "30": {
@@ -652,16 +364,6 @@
             },
             "correct_option": "A",
             "description": "It is important to keep injured individuals warm to prevent shock. Cooling them down could worsen their condition, especially if they are in shock or suffering from blood loss."
-          },
-          "ru": {
-            "question": "Какое действие следует ИЗБЕЖАТЬ, помогая пострадавшим на месте аварии?",
-            "options": {
-              "A": "Держать пострадавших в холоде.",
-              "B": "Если квалифицированный специалист помогает им, не мешать, если не просят помочь.",
-              "C": "Перемещать тяжело раненого человека, если есть угроза из-за огня или проезжающего транспорта."
-            },
-            "correct_option": "A",
-            "description": "Важно поддерживать пострадавших в тепле, чтобы предотвратить шок. Охлаждение их может ухудшить состояние, особенно если они находятся в шоке или теряют кровь."
           }
         },
         "31": {
@@ -674,16 +376,6 @@
             },
             "correct_option": "C",
             "description": "Most big vehicle crashes happen between midnight and 6 a.m. This is because it's harder to see, and drivers might be tired. So, driving big vehicles at night can be more dangerous, not just because of less traffic or using less fuel."
-          },
-          "ru": {
-            "question": "Выберите правильное утверждение из следующих.",
-            "options": {
-              "A": "Большинство автомобилей расходуют меньше топлива ночью, чем днем.",
-              "B": "Большинство дорог менее загружены ночью, что снижает риск аварий.",
-              "C": "Множество аварий с участием тяжелых транспортных средств происходит между полуночью и 6 часами утра."
-            },
-            "correct_option": "C",
-            "description": "Большинство крупных аварий происходят между полуночью и 6 часами утра. Это связано с тем, что ночью хуже видимость, а водители могут быть усталыми. Поэтому вождение больших транспортных средств ночью может быть более опасным, а не только из-за меньшего трафика или экономии топлива."
           }
         },
         "32": {
@@ -696,16 +388,6 @@
             },
             "correct_option": "C",
             "description": "When driving, it's best to look 12-15 seconds ahead on the road. This means if you're going faster, you'll look further ahead. For example, in the city, this could be about one block ahead. Looking far ahead helps you see problems early, so you have more time to react and keep safe."
-          },
-          "ru": {
-            "question": "На какое расстояние вперед должен смотреть водитель при управлении автомобилем?",
-            "options": {
-              "A": "10-13 секунд",
-              "B": "3-5 секунд",
-              "C": "12-15 секунд"
-            },
-            "correct_option": "C",
-            "description": "При вождении лучше смотреть на 12-15 секунд вперед. Это означает, что если вы едете быстрее, то будете смотреть дальше. Например, в городе это может быть примерно один квартал вперед. Смотреть далеко вперед помогает заранее заметить проблемы, давая больше времени для реакции и обеспечения безопасности."
           }
         },
         "33": {
@@ -718,16 +400,6 @@
             },
             "correct_option": "A",
             "description": "When setting up safety triangles, keep them between you and the cars coming your way. This helps cars see you and the triangles better, keeping you safe."
-          },
-          "ru": {
-            "question": "Какую меру безопасности следует соблюдать при установке отражающих треугольников?",
-            "options": {
-              "A": "Держите треугольники между собой и встречным движением.",
-              "B": "Носите темную одежду, чтобы не отвлекать водителей.",
-              "C": "Размещайте их в одну прямую линию, независимо от формы дороги."
-            },
-            "correct_option": "A",
-            "description": "При установке светоотражающих треугольников держите их между собой и встречными автомобилями. Это помогает лучше видеть вас и треугольники, что повышает вашу безопасность."
           }
         },
         "34": {
@@ -740,16 +412,6 @@
             },
             "correct_option": "B",
             "description": "Many people driving rented trucks for just a day or a short time aren't used to the poor visibility these big vehicles have. This can make them risky on the road."
-          },
-          "ru": {
-            "question": "Какое утверждение о поведении других водителей на дороге является верным?",
-            "options": {
-              "A": "Водители малых автомобилей понимают слепые зоны больших грузовиков и всегда их избегают.",
-              "B": "Водители арендуемых грузовиков на короткий срок или на один день часто не привыкли к ограниченному обзору, что делает их опасными.",
-              "C": "Все водители одинаково осведомлены о слепых зонах больших автомобилей."
-            },
-            "correct_option": "B",
-            "description": "Многие водители арендуемых грузовиков, которые управляют ими только один день или на короткий срок, не привыкли к плохому обзору, который имеют эти большие автомобили. Это делает их опасными на дороге."
           }
         },
         "35": {
@@ -762,16 +424,6 @@
             },
             "correct_option": "A",
             "description": "If a doctor says your prescription medicine won't affect your driving, it's okay to use it. But, just because you can buy medicine without a prescription doesn't mean it's safe to drive after taking it. Taking medicine is okay if it doesn't affect your driving, no matter the time."
-          },
-          "ru": {
-            "question": "Какое утверждение является точным относительно употребления наркотиков и вождения?",
-            "options": {
-              "A": "Препараты по рецепту разрешены, если врач говорит, что они не повлияют на способность водить.",
-              "B": "Лекарства, купленные без рецепта, всегда безопасны для вождения.",
-              "C": "Употребление лекарств разрешено, если это не во время рабочего времени."
-            },
-            "correct_option": "A",
-            "description": "Если врач говорит, что ваше рецептурное лекарство не повлияет на ваше вождение, его можно использовать. Но просто потому, что лекарство можно купить без рецепта, не значит, что оно безопасно для вождения после его принятия. Употребление лекарства разрешено, если оно не влияет на ваше вождение, независимо от времени."
           }
         },
         "36": {
@@ -784,16 +436,6 @@
             },
             "correct_option": "A",
             "description": "When you're about to leave the road and need to slow down, gently press your brakes to make your brake lights blink. This will alert drivers behind you that you're slowing down."
-          },
-          "ru": {
-            "question": "При каком обстоятельстве рекомендуется слегка нажать на тормоза, чтобы активировать тормозные огни?",
-            "options": {
-              "A": "Вы собираетесь съехать с дороги и нужно замедлиться.",
-              "B": "Вам нужно быстро сменить полосу.",
-              "C": "Вы едете в условиях сильного тумана."
-            },
-            "correct_option": "A",
-            "description": "Когда вы собираетесь съехать с дороги и нужно замедлиться, слегка нажмите на тормоза, чтобы включить тормозные огни. Это предупредит водителей сзади, что вы замедляетесь."
           }
         },
         "37": {
@@ -806,16 +448,6 @@
             },
             "correct_option": "A",
             "description": "When your vehicle slides on water, ease off the gas pedal slowly. Don't turn the steering wheel fast or turn on your lights. This will help you regain control."
-          },
-          "ru": {
-            "question": "Как нужно действовать, если ваш автомобиль начинает скользить по воде?",
-            "options": {
-              "A": "Отпустите акселератор.",
-              "B": "Быстро поверните руль.",
-              "C": "Включите фары."
-            },
-            "correct_option": "A",
-            "description": "Когда ваш автомобиль скользит по воде, плавно отпустите газ. Не поворачивайте руль быстро и не включайте фары. Это поможет вам восстановить контроль."
           }
         },
         "38": {
@@ -828,16 +460,6 @@
             },
             "correct_option": "B",
             "description": "The weight of your vehicle can make it taller or shorter, changing how much room you need to clear things above. Always add a bit more space above your vehicle to be safe."
-          },
-          "ru": {
-            "question": "Укажите правильное утверждение относительно высоты свободного пространства над транспортным средством.",
-            "options": {
-              "A": "Всегда добавляйте дополнительный фут к измеренной высоте для безопасности.",
-              "B": "Вес транспортного средства изменяет его высоту.",
-              "C": "Высота свободного пространства не зависит от погодных условий."
-            },
-            "correct_option": "B",
-            "description": "Вес вашего транспортного средства может сделать его выше или ниже, изменяя необходимое пространство для прохода. Всегда добавляйте немного больше пространства для безопасности."
           }
         },
         "39": {
@@ -850,16 +472,6 @@
             },
             "correct_option": "A",
             "description": "If you have any alcohol in your body that can be measured, you won't be allowed to drive for a day."
-          },
-          "ru": {
-            "question": "При каком уровне содержания алкоголя в крови (BAC) вам будет назначен 24-часовой запрет на эксплуатацию?",
-            "options": {
-              "A": "Любое detectable количество.",
-              "B": "0.04",
-              "C": "0.02"
-            },
-            "correct_option": "A",
-            "description": "Если в вашем организме есть любой измеряемый алкоголь, вам не разрешат водить транспортное средство в течение дня."
           }
         },
         "40": {
@@ -872,16 +484,6 @@
             },
             "correct_option": "A",
             "description": "When the back wheels of a vehicle with a trailer skid, the trailer can push the vehicle to the side, making it slide sideways."
-          },
-          "ru": {
-            "question": "Что верно относительно заноса, вызванного блокировкой задних ведущих колес?",
-            "options": {
-              "A": "На транспортном средстве с прицепом прицеп может толкать буксирующее транспортное средство вбок.",
-              "B": "Увеличение давления на тормоза остановит занос.",
-              "C": "Резкое поворачивание руля увеличивает контроль."
-            },
-            "correct_option": "A",
-            "description": "Когда задние колеса транспортного средства с прицепом скользят, прицеп может толкать машину вбок, заставляя ее двигаться боком."
           }
         },
         "41": {
@@ -894,16 +496,6 @@
             },
             "correct_option": "A",
             "description": "Roughly speeding up your vehicle can break parts of it."
-          },
-          "ru": {
-            "question": "Укажите правильное утверждение, касающееся разгона автомобиля.",
-            "options": {
-              "A": "Грубый разгон может привести к механическим повреждениям.",
-              "B": "Постепенный разгон увеличивает расход топлива.",
-              "C": "Разгон всегда увеличивает топливную эффективность."
-            },
-            "correct_option": "A",
-            "description": "Грубый разгон автомобиля может повредить его части."
           }
         },
         "42": {
@@ -916,16 +508,6 @@
             },
             "correct_option": "C",
             "description": "Backing up a big truck is always dangerous. You should avoid doing it as much as you can. If you must back up, make sure to check everything carefully and go slow."
-          },
-          "ru": {
-            "question": "Задний ход коммерческого автомобиля является",
-            "options": {
-              "A": "Безопасным, если ехать быстро.",
-              "B": "Если не использовать зеркала, это не сложно.",
-              "C": "Всегда опасным."
-            },
-            "correct_option": "C",
-            "description": "Задний ход на большом грузовике всегда опасен. Следует избегать его, насколько это возможно. Если вам нужно сдавать назад, убедитесь, что все проверено тщательно, и двигайтесь медленно."
           }
         },
         "43": {
@@ -938,16 +520,6 @@
             },
             "correct_option": "B",
             "description": "If your truck's exhaust system is damaged, harmful gases can get inside where you sit or sleep, which is very dangerous for your health."
-          },
-          "ru": {
-            "question": "Почему это опасно, если повреждена выхлопная система?",
-            "options": {
-              "A": "Значительно увеличивает расход топлива.",
-              "B": "Ядовитые газы могут попасть в кабину или спальное место.",
-              "C": "Могут спуститься шины."
-            },
-            "correct_option": "B",
-            "description": "Если выхлопная система вашего грузовика повреждена, опасные газы могут попасть в место, где вы сидите или спите, что очень опасно для вашего здоровья."
           }
         },
         "44": {
@@ -960,16 +532,6 @@
             },
             "correct_option": "B",
             "description": "If you're in an accident, use your phone or CB radio right away to tell the cops before you get out of your vehicle. Don't wait till later or think it's only needed for highway crashes. Quick action is important."
-          },
-          "ru": {
-            "question": "Что правильно в отношении процедуры уведомления властей после аварии?",
-            "options": {
-              "A": "Вы должны сообщать о ДТП только на автомагистралях.",
-              "B": "Если у вас есть мобильный телефон или CB-радио, вы должны уведомить власти до выхода из транспортного средства.",
-              "C": "Можно подождать до конца дня, чтобы сообщить о ДТП."
-            },
-            "correct_option": "B",
-            "description": "Если вы попали в аварию, немедленно используйте свой телефон или CB-радио, чтобы сообщить полиции до того, как выйдете из машины. Не ждите до позже или думайте, что это нужно только для аварий на автомагистралях. Быстрая реакция важна."
           }
         },
         "45": {
@@ -982,16 +544,6 @@
             },
             "correct_option": "A",
             "description": "You must stop at a railroad crossing if your truck is carrying something that rules say you must stop for, or if the crossing is on a narrow road where you can't see well."
-          },
-          "ru": {
-            "question": "Вы должны полностью остановиться на железнодорожном переезде, когда:",
-            "options": {
-              "A": "Характер груза требует остановки в соответствии с государственными или федеральными правилами.",
-              "B": "Переезд находится на однополосной дороге с ограниченной видимостью.",
-              "C": "На переезде нет флагмана, сигналов предупреждения или шлагбаума."
-            },
-            "correct_option": "A",
-            "description": "Вы должны остановиться на железнодорожном переезде, если ваш груз требует остановки по правилам или если переезд находится на узкой дороге с плохой видимостью."
           }
         },
         "46": {
@@ -1004,16 +556,6 @@
             },
             "correct_option": "A",
             "description": "When roads are slippery, it's safest to turn very slowly and gently. This helps prevent the truck from sliding or losing control. Quick turns can be dangerous because the truck might not grip the road well."
-          },
-          "ru": {
-            "question": "Как следует вести себя при скользких дорожных условиях?",
-            "options": {
-              "A": "Поворачивайте как можно плавнее.",
-              "B": "Увеличьте скорость, чтобы быстрее обогнать другие автомобили.",
-              "C": "Всегда включайте аварийные огни."
-            },
-            "correct_option": "A",
-            "description": "При скользких дорогах безопаснее всего поворачивать очень медленно и плавно. Это помогает предотвратить скольжение или потерю управления. Резкие повороты могут быть опасны, потому что грузовик может плохо сцепляться с дорогой."
           }
         },
         "47": {
@@ -1026,16 +568,6 @@
             },
             "correct_option": "C",
             "description": "If your truck's brakes get wet from a lot of rain, they might not work right. When you try to stop, the truck could slide out of control, like when the back part swings out. It's like trying to skate on ice; very slippery and hard to steer."
-          },
-          "ru": {
-            "question": "Какие могут быть последствия применения мокрых тормозов после сильного дождя?",
-            "options": {
-              "A": "Перегрев двигателя",
-              "B": "Увеличенный расход топлива",
-              "C": "Перекос прицепа"
-            },
-            "correct_option": "C",
-            "description": "Если тормоза вашего грузовика намокли после сильного дождя, они могут работать неправильно. Когда вы пытаетесь остановиться, грузовик может выскользнуть из-под контроля, как когда задняя часть машины начинает разворачиваться. Это похоже на попытку катания на льду; очень скользко и трудно управлять."
           }
         },
         "48": {
@@ -1048,16 +580,6 @@
             },
             "correct_option": "A",
             "description": "If a vehicle doesn't have enough weight on the drive axle, it won't grip the road well, leading to poor traction. This means the tires might slip more, especially in bad weather, making it harder to control the vehicle."
-          },
-          "ru": {
-            "question": "Какие проблемы могут возникнуть, если на ведущей оси автомобиля недостаточно веса?",
-            "options": {
-              "A": "Плохое сцепление",
-              "B": "Повышенная топливная эффективность",
-              "C": "Большая вероятность опрокидывания при поворотах"
-            },
-            "correct_option": "A",
-            "description": "Если на ведущей оси автомобиля недостаточно веса, он не будет хорошо цепляться за дорогу, что приведет к плохому сцеплению. Это означает, что шины могут скользить, особенно в плохую погоду, что затруднит управление автомобилем."
           }
         },
         "49": {
@@ -1070,16 +592,6 @@
             },
             "correct_option": "C",
             "description": "When you check your truck before a trip, make sure the brake parts aren't oily or greasy. This keeps your brakes working right."
-          },
-          "ru": {
-            "question": "Какое из следующих утверждений о предварительной проверке тормозной и подвесной системы верно?",
-            "options": {
-              "A": "Давление в тормозных линиях не обязательно должно быть стабильным.",
-              "B": "Тормозные колодки в порядке, если они не полностью изношены.",
-              "C": "На тормозных колодках не должно быть масла, жира или тормозной жидкости."
-            },
-            "correct_option": "C",
-            "description": "Перед поездкой проверьте, чтобы тормозные части не были покрыты маслом или жиром. Это поможет тормозам работать правильно."
           }
         },
         "50": {
@@ -1092,16 +604,127 @@
             },
             "correct_option": "A",
             "description": "When exiting a highway with a heavy vehicle using a downhill off-ramp that curves, slow down to a safe speed before you start the curve. This helps you control the vehicle better and stay safe."
-          },
-          "ru": {
-            "question": "Вы управляете тяжёлым транспортным средством и приближаетесь к съезду с шоссе, который идёт вниз и поворачивает. Какой способ съезда с шоссе самый безопасный?",
+          }
+        },
+        "51": {
+          "en": {
+            "question": "What should drivers know about the effect of poor weather on road conditions?",
             "options": {
-              "A": "Сбавьте скорость до безопасного уровня перед поворотом.",
-              "B": "Увеличьте скорость, чтобы соответствовать потоку на шоссе.",
-              "C": "Сохраняйте текущую скорость до конца съезда."
+              "A": "When the temperature drops, the bridges freeze before the road.",
+              "B": "The sun can dry wet roads faster at night than during the day.",
+              "C": "The wind has no effect on how quickly roads dry."
             },
             "correct_option": "A",
-            "description": "При съезде с шоссе по съезду, который идёт вниз и поворачивает, важно сбавить скорость до безопасной ещё до начала поворота. Это поможет лучше контролировать транспортное средство и повысит безопасность."
+            "description": "When it's cold, bridges get icy before roads do. The sun helps dry wet roads faster during the day, not at night. Wind doesn't change how fast roads dry."
+          }
+        },
+        "52": {
+          "en": {
+            "question": "While driving at 50 mph on a straight, level highway with no vehicles ahead, your tire suddenly blows out. What is the initial action you should take?",
+            "options": {
+              "A": "Stay off the brake until the vehicle has slowed down.",
+              "B": "Turn the steering wheel sharply to the left.",
+              "C": "Turn on your hazard lights and stop immediately."
+            },
+            "correct_option": "A",
+            "description": "If your tire blows out while driving at 50 mph, first thing: don't hit the brakes right away. Let the car slow down on its own first."
+          }
+          
+        },
+        "53": {
+          "en": {
+            "question": "What is the term used to describe how commercial vehicles tend to swing wide on turns?",
+            "options": {
+              "A": "Curve dragging",
+              "B": "Turning stretch",
+              "C": "Off-tracking"
+            },
+            "correct_option": "C",
+            "description": "When a big truck turns, the back wheels don't follow the same path as the front wheels, causing the truck to swing wide. This is called off-tracking."
+          }
+        },
+        "54": {
+          "en": {
+            "question": "Which of the following is accurate concerning vehicle operation at low temperatures?",
+            "options": {
+              "A": "Tire pressure does not need to be checked in cold weather.",
+              "B": "Windshield washer antifreeze should be used.",
+              "C": "Brakes work better on icy roads."
+            },
+            "correct_option": "B",
+            "description": "When it's cold, using antifreeze in your windshield washer helps keep the liquid from freezing so you can clean your windshield."
+          }
+        },
+        "55": {
+          "en": {
+            "question": "What principle should be understood about speed management and its impact on stopping distances?",
+            "options": {
+              "A": "Speed does not affect stopping distance.",
+              "B": "If you double your speed, stopping distance will be increased by 4 times.",
+              "C": "Stopping distance decreases as your speed increases."
+            },
+            "correct_option": "B",
+            "description": "When you drive faster, it takes much longer to stop. If you go twice as fast, it takes four times the distance to stop your vehicle."
+          }
+        },
+        "56": {
+          "en": {
+            "question": "Which statement is accurate regarding the challenges of driving in strong wind conditions?",
+            "options": {
+              "A": "Keep your windows open to reduce wind resistance.",
+              "B": "Turn off your headlights to improve visibility.",
+              "C": "Winds are especially a problem when coming out of tunnels."
+            },
+            "correct_option": "C",
+            "description": "When driving out of tunnels, be careful because the wind can suddenly hit your vehicle hard. This makes controlling your vehicle more challenging."
+          }
+        },
+        "57": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": ""
+          }
+        },
+        "58": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": ""
+          }
+        },
+        "59": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": ""
+          }
+        },
+        "60": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": ""
           }
         }
       }
@@ -1120,16 +743,6 @@
             },
             "correct_option": "A",
             "description": "When driving a truck with two trailers, make sure to close the back valve on the last trailer. This helps keep the air pressure right so your brakes work properly."
-          },
-          "ru": {
-            "question": "При управлении грузовиком с двумя прицепами, какой запорный клапан необходимо закрыть на последнем прицепе?",
-            "options": {
-              "A": "Задний клапан.",
-              "B": "Боковой клапан.",
-              "C": "Передний клапан."
-            },
-            "correct_option": "A",
-            "description": "При управлении грузовиком с двумя прицепами обязательно закройте задний клапан на последнем прицепе. Это помогает поддерживать нужное давление воздуха, чтобы тормоза работали правильно."
           }
         },
         "2": {
@@ -1142,16 +755,6 @@
             },
             "correct_option": "B",
             "description": "After hooking up a trailer to a truck, the valve that helps control the brakes should be set to the 'normal' position. This makes sure the brakes work right when needed."
-          },
-          "ru": {
-            "question": "После сцепки прицепа с грузовиком в каком положении должен находиться управляющий клапан защиты грузовика?",
-            "options": {
-              "A": "Левое положение",
-              "B": "Нормальное положение",
-              "C": "Горизонтальное положение"
-            },
-            "correct_option": "B",
-            "description": "После подключения прицепа к грузовику клапан, управляющий тормозами, должен быть установлен в 'нормальное' положение. Это обеспечивает правильную работу тормозов при необходимости."
           }
         },
         "3": {
@@ -1164,16 +767,6 @@
             },
             "correct_option": "B",
             "description": "After turning off the trailer's air supply and making sure its brakes are locked, you should back up a little bit. This helps reduce pressure on the connection point (fifth wheel) between your truck and the trailer, making it easier to separate them."
-          },
-          "ru": {
-            "question": "При отсоединении прицепа, после отключения подачи воздуха и установки тормозов прицепа, вы должны:",
-            "options": {
-              "A": "Проверить уровень масла в двигателе.",
-              "B": "Осторожно сдать назад, чтобы снять давление с седельно-сцепного устройства.",
-              "C": "Проверить давление в шинах прицепа."
-            },
-            "correct_option": "B",
-            "description": "После отключения подачи воздуха к прицепу и установки его тормозов нужно немного сдать назад. Это снимает давление с седельно-сцепного устройства, что облегчает отсоединение прицепа от грузовика."
           }
         },
         "4": {
@@ -1186,16 +779,6 @@
             },
             "correct_option": "C",
             "description": "After you connect the air lines, before you move your truck under the trailer, you need to make sure the trailer's air system is working. Do this by sending air into the trailer's system and then pulling the knob that controls the air supply. This ensures the brakes and other systems are ready to safely operate."
-          },
-          "ru": {
-            "question": "После подключения воздушных шлангов, но до того как сдавать назад под прицеп, вы должны:",
-            "options": {
-              "A": "Отключить электрический кабель.",
-              "B": "Проверить давление в шинах прицепа.",
-              "C": "Подать воздух в систему прицепа, затем вытянуть кнопку подачи воздуха."
-            },
-            "correct_option": "C",
-            "description": "После подключения воздушных шлангов, до начала движения под прицеп, необходимо убедиться, что воздушная система прицепа работает. Для этого подайте воздух в систему прицепа, а затем вытяните кнопку подачи воздуха. Это обеспечит готовность тормозной системы и других систем к безопасной работе."
           }
         },
         "5": {
@@ -1208,16 +791,6 @@
             },
             "correct_option": "C",
             "description": "When your truck's center of gravity is high, it means the truck is more likely to tip over, especially when turning. This doesn't really affect how the brakes work or how fast the truck can speed up."
-          },
-          "ru": {
-            "question": "Чем выше центр тяжести у вашего грузовика, тем:",
-            "options": {
-              "A": "Меньше контроль над тормозами.",
-              "B": "Сложнее разогнаться.",
-              "C": "Легче перевернуться."
-            },
-            "correct_option": "C",
-            "description": "Если у грузовика высокий центр тяжести, он легче может перевернуться, особенно на поворотах. Это не сильно влияет на работу тормозов или способность ускоряться."
           }
         },
         "6": {
@@ -1230,16 +803,6 @@
             },
             "correct_option": "B",
             "description": "Greasing the fifth wheel plate is crucial because it helps prevent steering problems. Without proper lubrication, the friction between the tractor and the trailer can make steering harder and less smooth. This can lead to difficulties in controlling the vehicle, especially when turning."
-          },
-          "ru": {
-            "question": "Зачем нужно смазывать пятую колесную плиту (fifth wheel)?",
-            "options": {
-              "A": "Чтобы улучшить топливную экономичность.",
-              "B": "Чтобы предотвратить проблемы с управлением.",
-              "C": "Чтобы улучшить сцепление шин."
-            },
-            "correct_option": "B",
-            "description": "Смазка пятого колеса важна, так как предотвращает проблемы с рулевым управлением. Без смазки трение между тягачом и прицепом может затруднить повороты и ухудшить управляемость."
           }
         },
         "7": {
@@ -1252,16 +815,6 @@
             },
             "correct_option": "B",
             "description": "Trailers with air brakes made before 1975 are not required to have spring brakes. These older trailers may also lack modern ABS systems and often require manual brake adjustment. While still legal in many places, they operate under different safety requirements than newer models."
-          },
-          "ru": {
-            "question": "Прицепы с пневматическими тормозами, произведённые до 1975 года:",
-            "options": {
-              "A": "Обычно требуют переходник для соединения тормозных шлангов (glad hand converter).",
-              "B": "Не обязаны иметь пружинные тормоза.",
-              "C": "Не могут легально эксплуатироваться на междугородних трассах."
-            },
-            "correct_option": "B",
-            "description": "Прицепы с пневматическими тормозами, выпущенные до 1975 года, не обязаны иметь пружинные тормоза. Такие прицепы часто не оснащены ABS и требуют ручной регулировки тормозов. Хотя они всё ещё могут быть законно использованы, к ним применяются иные требования по безопасности."
           }
         },
         "8": {
@@ -1274,16 +827,6 @@
             },
             "correct_option": "C",
             "description": "The semitrailer is at the correct height when the trailer is slightly raised as the tractor backs under it. This helps ensure a proper connection and reduces the risk of missing or damaging the fifth wheel locking mechanism."
-          },
-          "ru": {
-            "question": "Вы готовитесь сдавать назад под полуприцеп. Полуприцеп находится на правильной высоте, когда:",
-            "options": {
-              "A": "Шкворень защёлкивается без необходимости регулировки.",
-              "B": "Сцепное седло полностью видно под прицепом.",
-              "C": "Прицеп немного поднимается, когда тягач заезжает под него."
-            },
-            "correct_option": "C",
-            "description": "Полуприцеп находится на правильной высоте, если он немного приподнимается, когда тягач заезжает под него. Это означает, что высота выровнена правильно, и соединение будет надёжным."
           }
         },
         "9": {
@@ -1296,16 +839,6 @@
             },
             "correct_option": "C",
             "description": "When following another vehicle in good weather, you should allow at least one second of space for every 10 feet of your vehicle's length. This ensures you have enough time and distance to react and stop safely if necessary."
-          },
-          "ru": {
-            "question": "Когда вы едете за другим автомобилем в хорошую погоду, убедитесь, что между вами есть как минимум одна секунда расстояния на каждые ____ футов длины вашего автомобиля.",
-            "options": {
-              "A": "30",
-              "B": "20",
-              "C": "10"
-            },
-            "correct_option": "C",
-            "description": "Когда вы следуете за другим транспортом в хорошую погоду, держите как минимум одну секунду расстояния на каждые 10 футов длины вашего автомобиля. Это даст вам достаточно времени, чтобы затормозить в случае необходимости."
           }
         },
         "10": {
@@ -1318,16 +851,6 @@
             },
             "correct_option": "B",
             "description": "When the trailer disconnects and air lines separate, the tractor protection valve automatically closes to keep air in the truck's brakes, allowing you to maintain control of the vehicle."
-          },
-          "ru": {
-            "question": "При управлении комбинационным транспортом при неожиданном отсоединении прицепа и разъединении обоих воздушных шлангов, помимо включения тормозов прицепа, вы ожидаете:",
-            "options": {
-              "A": "Отключение огней прицепа.",
-              "B": "Закрытие клапана защиты трактора.",
-              "C": "Освобождение экстренных тормозов."
-            },
-            "correct_option": "B",
-            "description": "Когда прицеп отсоединяется и разрываются воздушные шланги, клапан защиты трактора автоматически закрывается, чтобы сохранить воздух в тормозах грузовика, обеспечивая контроль над транспортным средством."
           }
         },
         "11": {
@@ -1340,16 +863,6 @@
             },
             "correct_option": "A",
             "description": "The correct way to secure the fifth wheel locking lever is for the safety latch to be positioned over the locking lever to ensure proper coupling."
-          },
-          "ru": {
-            "question": "Для правильного соединения, защитная скоба на замке пятого колеса должна быть",
-            "options": {
-              "A": "Над замком замка",
-              "B": "Рядом с замком замка",
-              "C": "Перед замком замка"
-            },
-            "correct_option": "A",
-            "description": "Правильный способ закрепить замок пятого колеса — это расположить защитную скобу над замком замка для обеспечения правильного соединения."
           }
         },
         "12": {
@@ -1362,16 +875,6 @@
             },
             "correct_option": "B",
             "description": "An empty trailer requires more stopping distance because it lacks the weight that provides traction during braking. This results in a longer stopping distance compared to a heavy trailer."
-          },
-          "ru": {
-            "question": "Грузовик, тянущий ___ прицеп, нуждается в самом длительном пути торможения.",
-            "options": {
-              "A": "Тяжелый",
-              "B": "Пустой",
-              "C": "Не сильно поврежденный"
-            },
-            "correct_option": "B",
-            "description": "Пустой прицеп требует большего расстояния для остановки, поскольку у него нет веса, который обычно обеспечивает сцепление при торможении. Это приводит к большему расстоянию для остановки по сравнению с тяжелым прицепом."
           }
         },
         "13": {
@@ -1384,16 +887,6 @@
             },
             "correct_option": "C",
             "description": "Bobtail tractors without a trailer can take longer to stop compared to a combination vehicle fully loaded. This is because the weight of the trailer helps push the brakes down more effectively, improving stopping power."
-          },
-          "ru": {
-            "question": "Что правильно из следующего?",
-            "options": {
-              "A": "Тормоза работают эффективнее, когда транспортное средство пустое.",
-              "B": "Эффективность торможения увеличивается по мере уменьшения веса транспортного средства.",
-              "C": "Тракторы без прицепа могут тормозить дольше, чем комбинация с максимальной загрузкой."
-            },
-            "correct_option": "C",
-            "description": "Тракторы без прицепа могут тормозить дольше, чем комбинация с прицепом, полностью загруженным. Это происходит, потому что вес прицепа помогает эффективнее работать тормозам."
           }
         },
         "14": {
@@ -1406,16 +899,6 @@
             },
             "correct_option": "C",
             "description": "When connecting the trailer to the truck, the fifth wheel (the part that connects them) should be tilted down towards the end of the trailer. This position helps hook up the trailer securely."
-          },
-          "ru": {
-            "question": "Какова правильная позиция пятый колес при сцеплении с прицепом?",
-            "options": {
-              "A": "Наклонен в сторону водителя.",
-              "B": "Выше крыши грузовика.",
-              "C": "Наклонен вниз в сторону конца прицепа."
-            },
-            "correct_option": "C",
-            "description": "При соединении прицепа с грузовиком пятый колес должен быть наклонен вниз к концу прицепа. Это положение помогает надежно закрепить прицеп."
           }
         },
         "15": {
@@ -1428,16 +911,6 @@
             },
             "correct_option": "B",
             "description": "When checking if the air brakes on a big truck and trailer are leaking too much (with the engine off and not using the brakes), it's okay if the air pressure drops a little, but not more than 3 pounds per square inch (psi) every minute."
-          },
-          "ru": {
-            "question": "Для комбинированного транспортного средства с пневматическими тормозами, когда двигатель выключен, а тормоза не работают, скорость утечки воздуха не должна превышать ___ psi каждую минуту.",
-            "options": {
-              "A": "1/2",
-              "B": "3",
-              "C": "2"
-            },
-            "correct_option": "B",
-            "description": "При проверке утечек в тормозах большого грузовика с прицепом (когда двигатель выключен и тормоза не работают), утечка воздуха допустима, но не более 3 psi за минуту."
           }
         },
         "16": {
@@ -1450,16 +923,6 @@
             },
             "correct_option": "B",
             "description": "If your trailer starts to skid, quickly let go of the brakes. This helps your wheels start rolling again and gets the trailer back under control."
-          },
-          "ru": {
-            "question": "Как остановить прицеп от скольжения?",
-            "options": {
-              "A": "Нажать на тормоза.",
-              "B": "Отпустить тормоза.",
-              "C": "Легко нажать на тормоза."
-            },
-            "correct_option": "B",
-            "description": "Если ваш прицеп начинает скользить, быстро отпустите тормоза. Это поможет колесам начать крутиться, и прицеп снова станет управляемым."
           }
         },
         "17": {
@@ -1472,16 +935,6 @@
             },
             "correct_option": "C",
             "description": "When you're not pulling a trailer, connecting the glad hands together or to dummy couplers helps keep dirt and water out of the air lines. This keeps the lines clean and ready for when you need to hook up to a trailer again."
-          },
-          "ru": {
-            "question": "Если вы не тянете прицеп, почему нужно сцепить соединения gladhands вместе (или использовать макетные соединители)?",
-            "options": {
-              "A": "Это помогает сбалансировать давление воздуха между трактором и прицепом.",
-              "B": "Чтобы легче было прикрепить прицеп позже.",
-              "C": "Это поможет сохранить грязь и воду в шлангах."
-            },
-            "correct_option": "C",
-            "description": "Когда вы не тянете прицеп, соединение gladhands или использование макетных соединителей помогает предотвратить попадание грязи и воды в пневматические линии. Это сохраняет линии чистыми и готовыми к следующему сцеплению."
           }
         },
         "18": {
@@ -1494,16 +947,6 @@
             },
             "correct_option": "C",
             "description": "For a big vehicle with multiple parts, like a truck pulling a trailer, when it's not running and the brakes are applied, the air pressure in the brakes shouldn't drop more than 4 psi in a minute. This ensures the brakes stay strong and can stop the vehicle safely."
-          },
-          "ru": {
-            "question": "При тестировании комбинированного транспортного средства с выключенным двигателем и включенными тормозами, давление воздуха не должно падать быстрее, чем ___ psi за минуту.",
-            "options": {
-              "A": "2",
-              "B": "3",
-              "C": "4"
-            },
-            "correct_option": "C",
-            "description": "Для большого транспортного средства с несколькими частями, как, например, грузовик с прицепом, когда он не работает и тормоза включены, давление воздуха в тормозах не должно падать больше, чем 4 psi за минуту. Это гарантирует, что тормоза будут работать эффективно и смогут безопасно остановить транспортное средство."
           }
         },
         "19": {
@@ -1516,16 +959,6 @@
             },
             "correct_option": "A",
             "description": "To stop a truck from tipping over, do two things: 1) Load stuff low down to keep it stable. 2) Take corners slowly. This way, the truck is more balanced and less likely to fall over."
-          },
-          "ru": {
-            "question": "Есть два способа, как водитель может предотвратить опрокидывание грузовика. Это: (1) поставить груз как можно ниже и (2):",
-            "options": {
-              "A": "Ехать медленно по поворотам.",
-              "B": "Ехать с открытыми окнами.",
-              "C": "Держать обе руки крепко на руле."
-            },
-            "correct_option": "A",
-            "description": "Чтобы предотвратить опрокидывание грузовика, нужно сделать две вещи: 1) поставить груз низко, чтобы обеспечить устойчивость. 2) Проезжать повороты медленно. Это делает грузовик более сбалансированным и снижает риск переворота."
           }
         },
         "20": {
@@ -1538,16 +971,6 @@
             },
             "correct_option": "A",
             "description": "After you disconnect the trailer, park your truck straight under the trailer, not to the side or at an angle. This way, you're in the right spot to check the landing gear safely and properly."
-          },
-          "ru": {
-            "question": "Где должен быть грузовик, когда вы отсоединяете прицеп и проверяете опорные стойки?",
-            "options": {
-              "A": "Под рамой тягача, прямо под прицепом.",
-              "B": "Рядом с прицепом, но не выровненным с ним.",
-              "C": "Парковаться под углом 45 градусов к прицепу."
-            },
-            "correct_option": "A",
-            "description": "После отсоединения прицепа, припаркуйте свой грузовик прямо под прицепом, а не сбоку или под углом. Так вы окажетесь в правильном положении для безопасной и правильной проверки опорных стоек."
           }
         }
       }
@@ -1566,20 +989,11 @@
             },
             "correct_option": "A",
             "description": ""
-          },
-          "ru": {
-            "question": "",
-            "options": {
-              "A": "",
-              "B": "",
-              "C": ""
-            },
-            "correct_option": "",
-            "description": "."
           }
         }
       }
     },
+    
     "tanker": {
       "free_limit": 20,
       "total": 107,
@@ -1594,16 +1008,6 @@
             },
             "correct_option": "A",
             "description": ""
-          },
-          "ru": {
-            "question": "",
-            "options": {
-              "A": "",
-              "B": "",
-              "C": ""
-            },
-            "correct_option": "",
-            "description": "."
           }
         }
       }
@@ -1622,16 +1026,6 @@
             },
             "correct_option": "A",
             "description": ""
-          },
-          "ru": {
-            "question": "",
-            "options": {
-              "A": "",
-              "B": "",
-              "C": ""
-            },
-            "correct_option": "",
-            "description": "."
           }
         }
       }
@@ -1650,16 +1044,6 @@
             },
             "correct_option": "A",
             "description": ""
-          },
-          "ru": {
-            "question": "",
-            "options": {
-              "A": "",
-              "B": "",
-              "C": ""
-            },
-            "correct_option": "",
-            "description": "."
           }
         }
       }

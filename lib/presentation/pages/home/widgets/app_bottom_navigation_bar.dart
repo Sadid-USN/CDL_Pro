@@ -63,7 +63,15 @@ class AppBottomNavigationBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 1.5.h),
-                  Text(titles[index], style: AppTextStyles.robotoMono8),
+                  Text(
+                    titles[index],
+                    style: AppTextStyles.merriweather8.copyWith(
+                      color:
+                          isDark
+                              ? AppColors.lightBackground
+                              : AppColors.darkBackground,
+                    ),
+                  ),
                 ],
               ),
             );

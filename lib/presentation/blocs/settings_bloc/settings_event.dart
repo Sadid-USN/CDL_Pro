@@ -8,6 +8,15 @@ abstract class AbstractSettingsEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class SetCollection extends AbstractSettingsEvent {
+  final AppDataType collectionName;
+
+  const SetCollection(this.collectionName);
+
+  @override
+  List<Object?> get props => [collectionName];
+}
+
 class LoadSavedLanguage extends AbstractSettingsEvent {}
 class IncrementTapCount extends AbstractSettingsEvent {}
 

@@ -1,57 +1,91 @@
 import 'package:equatable/equatable.dart';
 
+
+// Модель для всего ответа
+class RoadSignResponse extends Equatable {
+  final int total;
+  final Map<String, RoadSignModel> signs;
+
+  const RoadSignResponse({
+    required this.total,
+    required this.signs,
+  });
+
+  factory RoadSignResponse.fromJson(Map<String, dynamic> json) {
+    return RoadSignResponse(
+      total: json['total'] ?? 0,
+      signs: (json['signs'] as Map<String, dynamic>?)?.map((key, value) =>
+          MapEntry(key, RoadSignModel.fromJson(key, value))) ??
+          {},
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'total': total,
+      'signs': signs.map((key, value) => MapEntry(key, value.toJson())),
+    };
+  }
+
+  @override
+  List<Object?> get props => [total, signs];
+
+  RoadSignResponse copyWith({
+    int? total,
+    Map<String, RoadSignModel>? signs,
+  }) {
+    return RoadSignResponse(
+      total: total ?? this.total,
+      signs: signs ?? this.signs,
+    );
+  }
+}
+
+// Модель для отдельного знака
 class RoadSignModel extends Equatable {
+  final String id;
   final String enTitle;
   final String ruTitle;
   final String imageUrl;
 
   const RoadSignModel({
+    required this.id,
     required this.enTitle,
     required this.ruTitle,
     required this.imageUrl,
   });
 
-  // Для десериализации JSON в объект
-  factory RoadSignModel.fromJson(Map<String, dynamic> json) {
+  factory RoadSignModel.fromJson(String id, Map<String, dynamic> json) {
     return RoadSignModel(
+      id: id,
       enTitle: json['enTitle'] ?? '',
       ruTitle: json['ruTitle'] ?? '',
       imageUrl: json['imageUrl'] ?? '',
     );
   }
 
-  // Для сериализации объекта в JSON
   Map<String, dynamic> toJson() {
-    return {'enTitle': enTitle, 'ruTitle': ruTitle, 'imageUrl': imageUrl};
+    return {
+      'enTitle': enTitle,
+      'ruTitle': ruTitle,
+      'imageUrl': imageUrl,
+    };
   }
 
-  // Метод copyWith для обновления модели
-  RoadSignModel copyWith({String? enTitle, String? ruTitle, String? imageUrl}) {
+  @override
+  List<Object?> get props => [id, enTitle, ruTitle, imageUrl];
+
+  RoadSignModel copyWith({
+    String? id,
+    String? enTitle,
+    String? ruTitle,
+    String? imageUrl,
+  }) {
     return RoadSignModel(
+      id: id ?? this.id,
       enTitle: enTitle ?? this.enTitle,
       ruTitle: ruTitle ?? this.ruTitle,
       imageUrl: imageUrl ?? this.imageUrl,
     );
-  }
-
-  @override
-  List<Object?> get props => [enTitle, ruTitle, imageUrl];
-}
-
-class RoadSignListModel {
-  final List<RoadSignModel> signs;
-
-  const RoadSignListModel({required this.signs});
-
-  factory RoadSignListModel.fromJson(Map<String, dynamic> json) {
-    final signsList =
-        (json['signs'] as List)
-            .map((item) => RoadSignModel.fromJson(item))
-            .toList();
-    return RoadSignListModel(signs: signsList);
-  }
-
-  Map<String, dynamic> toJson() {
-    return {'signs': signs.map((sign) => sign.toJson()).toList()};
   }
 }

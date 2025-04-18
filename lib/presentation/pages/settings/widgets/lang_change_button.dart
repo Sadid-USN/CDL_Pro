@@ -1,7 +1,6 @@
-
 import 'package:cdl_pro/core/constants/constants.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
-import 'package:cdl_pro/presentation/blocs/bloc.dart';
+import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +35,7 @@ class LangChangeButton extends StatelessWidget {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         return CustomListTile(
-          title: localBloc.getSelectetTypeName(state.selectedType),
+          title: localBloc.getSelectedLangTitle(state.selectedLang),
           trailingIcon: SvgPicture.asset(
             AppLogos.language,
             height: 15.h,

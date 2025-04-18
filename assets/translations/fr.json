@@ -4,5 +4,16 @@
     "profile": "Профил",
     "settings": "Танзимот",
     "light": "Равшан",
-    "dark": "Торик"
+    "dark": "Торик",
+    "roadSigns": "Нишонаҳои роҳ",
+    "cdlTests": "Имтиҳонҳои CDL",
+    "preTripInspection": "Санҷиши пеш аз сафaр",
+    "generalKnowledge": "Маълумоти асоси",
+    "combination": "Омехта",
+    "airBrakes": "Тормозҳои ҳавоӣ",
+    "tanker": "Танкер",
+    "doubleAndTriple": "Трейлери ду ва сегона",
+    "hazMat": "Борҳои хатарнок",
+    "total": "Ҳамагӣ {totalQuestions}",
+    "free": "Ройгон {freeQuestions}"
 }

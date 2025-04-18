@@ -4,5 +4,16 @@
     "profile": "Профиль",
     "settings": "Настройки",
     "light": "Светлая",
-    "dark": "Тёмная"
+    "dark": "Тёмная",
+    "roadSigns": "Дорожные знаки",
+    "cdlTests": "Тесты CDL",
+    "preTripInspection": "Предрейсовый осмотр",
+    "generalKnowledge": "Общие знания",
+    "combination": "Сцепки",
+    "airBrakes": "Пневматические тормоза",
+    "tanker": "Цистерны",
+    "doubleAndTriple": "Двойные/тройные прицепы",
+    "hazMat": "Опасные грузы",
+    "total": "Всего {totalQuestions}",
+    "free": "Бесплатно {freeQuestions}"
 }

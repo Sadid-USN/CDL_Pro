@@ -53,6 +53,7 @@ dependencies:
   flutter_hooks: ^0.21.2
   fpdart: ^1.1.1
   lottie: ^3.3.1
+  google_mlkit_translation: ^0.13.0
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/translations/
+    - assets/images/
     - assets/svgs/
     - assets/lottie/
     - assets/icons/
@@ -94,7 +96,7 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icons/app_icon.png"
+  image_path: "assets/icons/truck_icon.png"
   remove_alpha_ios: true
 
   # An image asset can refer to one or more resolution-specific "variants", see

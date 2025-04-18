@@ -4,5 +4,16 @@
     "profile": "Профіль",
     "settings": "Налаштування",
     "light": "Світла",
-    "dark": "Темна"
+    "dark": "Темна",
+    "roadSigns": "Дорожні знаки",
+    "cdlTests": "Тести CDL",
+    "preTripInspection": "Передрейсовий огляд",
+    "generalKnowledge": "Загальні знання",
+    "combination": "Зчіпки",
+    "airBrakes": "Пневматичні гальма",
+    "tanker": "Цистерни",
+    "doubleAndTriple": "Подвійні/потрійні причепи",
+    "hazMat": "Небезпечні вантажі",
+    "total": "Всього  {totalQuestions}",
+    "free": "Безкоштовно {freeQuestions}"
 }
