@@ -18,6 +18,11 @@ class AppLogos {
    static const String roadSigns = 'assets/images/road_signs.png';
    static const String preTripInspection = 'assets/images/pre_trip_inspection.png';
    static const String generalKnowlage = 'assets/images/general_knowlage.png';
+   static const String tanker = 'assets/images/tanker.png';
+   static const String combination = 'assets/images/combination.png';
+   static const String airbrake = 'assets/images/airbrake.png';
+   static const String doubleAndTriple = 'assets/images/doubleAndTriple.png';
+   static const String hazMat = 'assets/images/hazmat.png';
 
 
 }

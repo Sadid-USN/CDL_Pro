@@ -19,5 +19,6 @@ class AppRouter extends RootStackRouter {
       ],
     ),
     AutoRoute(page: CategoryRoute.page),
+    AutoRoute(page: QuizRoute.page),
   ];
 }

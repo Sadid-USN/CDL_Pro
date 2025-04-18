@@ -1,7 +1,9 @@
 import 'package:cdl_pro/core/constants/constants.dart';
 import 'package:cdl_pro/core/themes/themes.dart';
+import 'package:cdl_pro/core/utils/navigation_utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +36,12 @@ class CDLTestsView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(bottom: 12),
           child: _CategoryCard(
-            index: index + 1,
+            image: chapter.image,
             title: chapter.title,
             totalQuestions: chapter.total,
             freeQuestions: chapter.freeLimit,
             onTap: () {
-              // _navigateToTestPage(context, chapter.key);
+             navigateToPage(context, route: QuizRoute());
             },
           ),
         );
@@ -53,36 +55,42 @@ extension ChaptersExtension on Chapters {
   List<ChapterItem> toChapterList(BuildContext context) {
     return [
       ChapterItem(
+        image: AppLogos.generalKnowlage,
         key: 'general_knowledge',
         title: LocaleKeys.generalKnowledge.tr(),
         total: generalKnowledge.total,
         freeLimit: generalKnowledge.freeLimit,
       ),
       ChapterItem(
+        image: AppLogos.combination,
         key: 'combination',
         title: LocaleKeys.combination.tr(),
         total: combination.total,
         freeLimit: combination.freeLimit,
       ),
       ChapterItem(
+        image: AppLogos.airbrake,
         key: 'airBrakes',
         title: LocaleKeys.airBrakes.tr(),
         total: airBrakes.total,
         freeLimit: airBrakes.freeLimit,
       ),
       ChapterItem(
+        image: AppLogos.tanker,
         key: 'tanker',
         title: LocaleKeys.tanker.tr(),
         total: tanker.total,
         freeLimit: tanker.freeLimit,
       ),
       ChapterItem(
+        image: AppLogos.doubleAndTriple,
         key: 'doubleAndTriple',
         title: LocaleKeys.doubleAndTriple.tr(),
         total: doubleAndTriple.total,
         freeLimit: doubleAndTriple.freeLimit,
       ),
       ChapterItem(
+        image: AppLogos.hazMat,
         key: 'hazMat',
         title: LocaleKeys.hazMat.tr(),
         total: hazMat.total,
@@ -94,12 +102,14 @@ extension ChaptersExtension on Chapters {
 
 // Модель для представления главы
 class ChapterItem {
+  final String image;
   final String key;
   final String title;
   final int total;
   final int freeLimit;
 
   ChapterItem({
+    required this.image,
     required this.key,
     required this.title,
     required this.total,
@@ -108,14 +118,16 @@ class ChapterItem {
 }
 
 class _CategoryCard extends StatelessWidget {
-  final int index;
+  final String image;
+
   final String title;
   final int totalQuestions;
   final int freeQuestions;
   final VoidCallback onTap;
 
   const _CategoryCard({
-    required this.index,
+    required this.image,
+
     required this.title,
     required this.totalQuestions,
     required this.freeQuestions,
@@ -127,7 +139,7 @@ class _CategoryCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppLogos.generalKnowlage),
+          image: AssetImage(image),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withValues(alpha: 0.5),
@@ -142,15 +154,17 @@ class _CategoryCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(12.r),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               Text(
-                "$index $title",
+                title,
                 style: AppTextStyles.regular16.copyWith(
                   color: AppColors.lightBackground,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -187,16 +201,24 @@ class _CategoryCard extends StatelessWidget {
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (premium) SvgPicture.asset(AppLogos.premium, height: 15.h,
-           colorFilter: ColorFilter.mode(
-              AppColors.goldenSoft,
-              BlendMode.srcIn,
+          if (premium)
+            SvgPicture.asset(
+              AppLogos.premium,
+              height: 15.h,
+              colorFilter: ColorFilter.mode(
+                AppColors.goldenSoft,
+                BlendMode.srcIn,
+              ),
             ),
-          ),
           SizedBox(width: 4.w),
           // Подстрой цвет под фон
           SizedBox(width: 4.w),
-          Text(text, style: AppTextStyles.robotoMono10.copyWith(color: AppColors.lightBackground)),
+          Text(
+            text,
+            style: AppTextStyles.robotoMono10.copyWith(
+              color: AppColors.lightBackground,
+            ),
+          ),
         ],
       ),
       side: BorderSide.none,
