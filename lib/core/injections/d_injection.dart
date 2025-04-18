@@ -1,5 +1,6 @@
 
-import 'package:cdl_pro/presentation/blocs/bloc.dart';
+import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -67,5 +68,5 @@ Future<void> initDependencies() async {
   //   ),
   // );
   GetIt.I.registerLazySingleton(() => SettingsBloc());
-  // GetIt.I.registerLazySingleton(() => PrayerTimeBloc());
+   GetIt.I.registerLazySingleton(() => CDLTestsBloc());
 }

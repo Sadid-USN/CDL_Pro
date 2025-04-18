@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class SettingsState extends Equatable {
+  final Stream<QuerySnapshot>? collectionStream;
+
   final AppDataType selectedType;
   final AppLanguage selectedLang;
   final int tapCount;
@@ -13,9 +15,10 @@ class SettingsState extends Equatable {
   // final List<ChaptersModel> likedChapters;
   final bool isDarkMode;
 
-  final Stream<QuerySnapshot>? testsStream; // Новое поле для потока данных
+// Новое поле для потока данных
 
   const SettingsState({
+    required this.collectionStream,
     required this.selectedType,
     required this.tapCount,
     required this.isExpanded,
@@ -24,11 +27,12 @@ class SettingsState extends Equatable {
     required this.selectedLang,
     // required this.likedChapters,
     required this.isDarkMode,
-    this.testsStream, // Добавляем bookStream в конструктор
+ // Добавляем bookStream в конструктор
   });
 
   factory SettingsState.initial() {
     return const SettingsState(
+      collectionStream: null,
       selectedLang: AppLanguage.english,
       selectedType: AppDataType.cdlTests,
       tapCount: 0,
@@ -38,22 +42,24 @@ class SettingsState extends Equatable {
       // likedChapters: [],
       isDarkMode: false,
 
-      testsStream: null, // Инициализируем как null
+      
     );
   }
 
   SettingsState copyWith({
+    Stream<QuerySnapshot>? collectionStream,
     AppDataType? selectedType,
-    AppLanguage ? selectedLang,
+    AppLanguage? selectedLang,
     int? tapCount,
     bool? isExpanded,
     LoadingStatus? loadingStatus,
     List<TestsDataModel>? testsModel,
     // List<ChaptersModel>? likedChapters,
     bool? isDarkMode,
-    Stream<QuerySnapshot>? testsStream, // Добавляем bookStream в copyWith
+   // Добавляем bookStream в copyWith
   }) {
     return SettingsState(
+      collectionStream: collectionStream ?? this.collectionStream,
       selectedLang: selectedLang ?? this.selectedLang,
       selectedType: selectedType ?? this.selectedType,
       tapCount: tapCount ?? this.tapCount,
@@ -63,12 +69,13 @@ class SettingsState extends Equatable {
       // likedChapters: likedChapters ?? this.likedChapters,
       isDarkMode: isDarkMode ?? this.isDarkMode,
 
-      testsStream: testsStream ?? this.testsStream, // Обновляем bookStream
+     // Обновляем bookStream
     );
   }
 
   @override
   List<Object?> get props => [
+    collectionStream,
     selectedType,
     selectedLang,
     tapCount,
@@ -77,6 +84,6 @@ class SettingsState extends Equatable {
     // likedChapters,
     isExpanded,
     isDarkMode,
-    testsStream,
+ 
   ];
 }

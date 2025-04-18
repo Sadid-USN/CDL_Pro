@@ -1,444 +1,445 @@
 {
-    "signs": [
-      {
-        "enTitle": "Regulatory",
-        "ruTitle": "Регуляторный знак",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Stop",
-        "ruTitle": "Стоп",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Except Right Turn",
-        "ruTitle": "Поворот Направо",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Stop Here On Red",
-        "ruTitle": "Остановитесь Здесь На Красный",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Wrong Way",
-        "ruTitle": "Неправильный Путь",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Speed Limit",
-        "ruTitle": "Ограничение Скорости",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Yield",
-        "ruTitle": "Уступите дорогу",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "To Oncoming Traffic",
-        "ruTitle": "На встречную полосу",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Divided Highway",
-        "ruTitle": "Разделенное шоссе",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Do Not Enter",
-        "ruTitle": "Не въезжать",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Do Not Pass",
-        "ruTitle": "Не обгонять",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Pass With Care",
-        "ruTitle": "Обгоняйте с осторожностью",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Keep Right",
-        "ruTitle": "Держитесь правой стороны",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Left Turn Yield On Green",
-        "ruTitle": "Поворот налево при условии что водитель уступит дорогу встречному транспорту",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Bicycles",
-        "ruTitle": "Нет проезда велосипеду",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Left Turn",
-        "ruTitle": "Левый поворот запрещен",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Right Turn",
-        "ruTitle": "Правый поворот запрещен",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Parking",
-        "ruTitle": "Парковка запрещена",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Pedestrians",
-        "ruTitle": "Запрещено пешеходам",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Trucks",
-        "ruTitle": "Запрещено Тракам",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No U-Turn",
-        "ruTitle": "Разворот запрещен",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "One Way",
-        "ruTitle": "Одностороннее движение",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Railroad Crossing",
-        "ruTitle": "Железнодорожный переезд",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Reserved Parking",
-        "ruTitle": "Парковка по резервации",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Center Turn Lane",
-        "ruTitle": "Центральная полоса для поворота",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Advanced Intersection Control",
-        "ruTitle": "Расширенный контроль перекрестков",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Option sign for left turn or straight",
-        "ruTitle": "Знак выбора для поворота налево или прямо",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Option sign for right turn or straight",
-        "ruTitle": "Знак выбора для поворота направо или прямо",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Left Turn Only",
-        "ruTitle": "Поворот только налево",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Right turn only",
-        "ruTitle": "Поворот только направо",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Turns",
-        "ruTitle": "Поворот запрещен",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Minimum Speed",
-        "ruTitle": "Минимальная скорость",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Combined Speed Limit",
-        "ruTitle": "Комбинированное ограничение скорости",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "School speed limit when flashing",
-        "ruTitle": "Школьное ограничение скорости при мигающем сигнале светофора",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Road Closed",
-        "ruTitle": "Дорога закрыта",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Slower Traffic Keep Right",
-        "ruTitle": "При более замедленном движении держитесь правой полосы",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Warning",
-        "ruTitle": "Предупреждение",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Bump",
-        "ruTitle": "Выпуклость на дороге",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "No Passing Zone",
-        "ruTitle": "Запретная зона для проезда",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Chevron",
-        "ruTitle": "Шеврон",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Advisory Speed",
-        "ruTitle": "Рекомендуемая скорость",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Merge Ahead",
-        "ruTitle": "Впереди слияние",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Added Lane",
-        "ruTitle": "Добавлена линия",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Divided Highway Begins",
-        "ruTitle": "Начинается разделенное шоссе",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Divided Highway Ends",
-        "ruTitle": "Разделенное шоссе заканчивается",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Two Way Traffic",
-        "ruTitle": "Двустороннее движение",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Lane Ends Ahead",
-        "ruTitle": "Полоса впереди заканчивается",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Slippery When Wet",
-        "ruTitle": "Скольжение при мокрой поверхности",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Railroad Crossing Ahead",
-        "ruTitle": "Впереди железнодорожный переезд",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Traffic Lights Ahead",
-        "ruTitle": "Впереди светофор",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Curve",
-        "ruTitle": "Кривая",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Turn",
-        "ruTitle": "Поворот",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Reverse Curve",
-        "ruTitle": "S образная кривая",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Reverse Turn",
-        "ruTitle": "Обратный поворот",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Winding Road",
-        "ruTitle": "Извилистая дорога",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "One Direction Arrow",
-        "ruTitle": "Стрелка в одном направлении",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Double Direction Arrow",
-        "ruTitle": "Стрелка двойного направления",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Curve With Minor Road",
-        "ruTitle": "Поворот с второстепенной дорогой",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Truck Rollover Warning",
-        "ruTitle": "Предупреждение об опрокидывании грузовика",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Road Narrows",
-        "ruTitle": "Дорога сужается",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Pavement Ends",
-        "ruTitle": "Конец тротуара",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Right Lane Ends",
-        "ruTitle": "Правая полоса заканчивается",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Cross Road",
-        "ruTitle": "Перекресток",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Side Road Junction",
-        "ruTitle": "Боковая дорожная развязка",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "T Junction",
-        "ruTitle": "Т-образный переезд",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Y Intersection",
-        "ruTitle": "Пересечение Y",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Roundabout",
-        "ruTitle": "Кольцевая развязка",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Narrow Bridge",
-        "ruTitle": "Узкий мост",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Bridge Ices Before Road",
-        "ruTitle": "Предупреждающий знак о том, что холодный воздух окружает верхнюю и нижнюю часть моста, что приводит к скорейшему обледенению моста",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Deer Crossing",
-        "ruTitle": "Олень переходит дорогу",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Low Clearance",
-        "ruTitle": "Низкая эстакада",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Bicycle Crossing",
-        "ruTitle": "Велосипедный переезд",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Pedestrian Crossing",
-        "ruTitle": "Пешеходный переход",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Dip",
-        "ruTitle": "Предупреждающий знак, предостерегающий водителей о состоянии дороги, требующем от водителей особого внимания.",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Hill / Downgrade",
-        "ruTitle": "Холм / Склон",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Loose Gravel",
-        "ruTitle": "Сыпучий гравий",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Directional",
-        "ruTitle": "Направляющий знак",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Interchange Guide Sign",
-        "ruTitle": "Указатель транспортной развязки",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Diesel Fuel",
-        "ruTitle": "Дизельное топливо",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Hospital",
-        "ruTitle": "Госпиталь",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Exit Number Sign With Speed Advisory",
-        "ruTitle": "Знак номера съезда с рекомендациями по скорости",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Road works",
-        "ruTitle": "Дорожные работы",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Work Zone",
-        "ruTitle": "Строительная Зона",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Road Work Next...",
-        "ruTitle": "Дальше дорожные работы",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "End Road Work",
-        "ruTitle": "Окончание дорожных работ",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Men Working",
-        "ruTitle": "Рабочие работают",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Flagger Ahead",
-        "ruTitle": "Впереди регулировщик",
-        "imageUrl": ""
-      },
-      {
-        "enTitle": "Road Closed Ahead",
-        "ruTitle": "Впереди дорога закрыта",
-        "imageUrl": ""
-      }
-    ]
+  "total": 88,
+  "signs": {
+    "1": {
+      "enTitle": "Regulatory",
+      "ruTitle": "Регулчыяторный знак",
+      "imageUrl": ""
+    },
+    "2": {
+      "enTitle": "Stop",
+      "ruTitle": "Стоп",
+      "imageUrl": ""
+    },
+    "3": {
+      "enTitle": "Except Right Turn",
+      "ruTitle": "Поворот Направо",
+      "imageUrl": ""
+    },
+    "4": {
+      "enTitle": "Stop Here On Red",
+      "ruTitle": "Остановитесь Здесь На Красный",
+      "imageUrl": ""
+    },
+    "5": {
+      "enTitle": "Wrong Way",
+      "ruTitle": "Неправильный Путь",
+      "imageUrl": ""
+    },
+    "6": {
+      "enTitle": "Speed Limit",
+      "ruTitle": "Ограничение Скорости",
+      "imageUrl": ""
+    },
+    "7": {
+      "enTitle": "Yield",
+      "ruTitle": "Уступите дорогу",
+      "imageUrl": ""
+    },
+    "8": {
+      "enTitle": "To Oncoming Traffic",
+      "ruTitle": "На встречную полосу",
+      "imageUrl": ""
+    },
+    "9": {
+      "enTitle": "Divided Highway",
+      "ruTitle": "Разделенное шоссе",
+      "imageUrl": ""
+    },
+    "10": {
+      "enTitle": "Do Not Enter",
+      "ruTitle": "Не въезжать",
+      "imageUrl": ""
+    },
+    "11": {
+      "enTitle": "Do Not Pass",
+      "ruTitle": "Не обгонять",
+      "imageUrl": ""
+    },
+    "12": {
+      "enTitle": "Pass With Care",
+      "ruTitle": "Обгоняйте с осторожностью",
+      "imageUrl": ""
+    },
+    "13": {
+      "enTitle": "Keep Right",
+      "ruTitle": "Держитесь правой стороны",
+      "imageUrl": ""
+    },
+    "14": {
+      "enTitle": "Left Turn Yield On Green",
+      "ruTitle": "Поворот налево при условии что водитель уступит дорогу встречному транспорту",
+      "imageUrl": ""
+    },
+    "15": {
+      "enTitle": "No Bicycles",
+      "ruTitle": "Нет проезда велосипеду",
+      "imageUrl": ""
+    },
+    "16": {
+      "enTitle": "No Left Turn",
+      "ruTitle": "Левый поворот запрещен",
+      "imageUrl": ""
+    },
+    "17": {
+      "enTitle": "No Right Turn",
+      "ruTitle": "Правый поворот запрещен",
+      "imageUrl": ""
+    },
+    "18": {
+      "enTitle": "No Parking",
+      "ruTitle": "Парковка запрещена",
+      "imageUrl": ""
+    },
+    "19": {
+      "enTitle": "No Pedestrians",
+      "ruTitle": "Запрещено пешеходам",
+      "imageUrl": ""
+    },
+    "20": {
+      "enTitle": "No Trucks",
+      "ruTitle": "Запрещено Тракам",
+      "imageUrl": ""
+    },
+    "21": {
+      "enTitle": "No U-Turn",
+      "ruTitle": "Разворот запрещен",
+      "imageUrl": ""
+    },
+    "22": {
+      "enTitle": "One Way",
+      "ruTitle": "Одностороннее движение",
+      "imageUrl": ""
+    },
+    "23": {
+      "enTitle": "Railroad Crossing",
+      "ruTitle": "Железнодорожный переезд",
+      "imageUrl": ""
+    },
+    "24": {
+      "enTitle": "Reserved Parking",
+      "ruTitle": "Парковка по резервации",
+      "imageUrl": ""
+    },
+    "25": {
+      "enTitle": "Center Turn Lane",
+      "ruTitle": "Центральная полоса для поворота",
+      "imageUrl": ""
+    },
+    "26": {
+      "enTitle": "Advanced Intersection Control",
+      "ruTitle": "Расширенный контроль перекрестков",
+      "imageUrl": ""
+    },
+    "27": {
+      "enTitle": "Option sign for left turn or straight",
+      "ruTitle": "Знак выбора для поворота налево или прямо",
+      "imageUrl": ""
+    },
+    "28": {
+      "enTitle": "Option sign for right turn or straight",
+      "ruTitle": "Знак выбора для поворота направо или прямо",
+      "imageUrl": ""
+    },
+    "29": {
+      "enTitle": "Left Turn Only",
+      "ruTitle": "Поворот только налево",
+      "imageUrl": ""
+    },
+    "30": {
+      "enTitle": "Right turn only",
+      "ruTitle": "Поворот только направо",
+      "imageUrl": ""
+    },
+    "31": {
+      "enTitle": "No Turns",
+      "ruTitle": "Поворот запрещен",
+      "imageUrl": ""
+    },
+    "32": {
+      "enTitle": "Minimum Speed",
+      "ruTitle": "Минимальная скорость",
+      "imageUrl": ""
+    },
+    "33": {
+      "enTitle": "Combined Speed Limit",
+      "ruTitle": "Комбинированное ограничение скорости",
+      "imageUrl": ""
+    },
+    "34": {
+      "enTitle": "School speed limit when flashing",
+      "ruTitle": "Школьное ограничение скорости при мигающем сигнале светофора",
+      "imageUrl": ""
+    },
+    "35": {
+      "enTitle": "Road Closed",
+      "ruTitle": "Дорога закрыта",
+      "imageUrl": ""
+    },
+    "36": {
+      "enTitle": "Slower Traffic Keep Right",
+      "ruTitle": "При более замедленном движении держитесь правой полосы",
+      "imageUrl": ""
+    },
+    "37": {
+      "enTitle": "Warning",
+      "ruTitle": "Предупреждение",
+      "imageUrl": ""
+    },
+    "38": {
+      "enTitle": "Bump",
+      "ruTitle": "Выпуклость на дороге",
+      "imageUrl": ""
+    },
+    "39": {
+      "enTitle": "No Passing Zone",
+      "ruTitle": "Запретная зона для проезда",
+      "imageUrl": ""
+    },
+    "40": {
+      "enTitle": "Chevron",
+      "ruTitle": "Шеврон",
+      "imageUrl": ""
+    },
+    "41": {
+      "enTitle": "Advisory Speed",
+      "ruTitle": "Рекомендуемая скорость",
+      "imageUrl": ""
+    },
+    "42": {
+      "enTitle": "Merge Ahead",
+      "ruTitle": "Впереди слияние",
+      "imageUrl": ""
+    },
+    "43": {
+      "enTitle": "Added Lane",
+      "ruTitle": "Добавлена линия",
+      "imageUrl": ""
+    },
+    "44": {
+      "enTitle": "Divided Highway Begins",
+      "ruTitle": "Начинается разделенное шоссе",
+      "imageUrl": ""
+    },
+    "45": {
+      "enTitle": "Divided Highway Ends",
+      "ruTitle": "Разделенное шоссе заканчивается",
+      "imageUrl": ""
+    },
+    "46": {
+      "enTitle": "Two Way Traffic",
+      "ruTitle": "Двустороннее движение",
+      "imageUrl": ""
+    },
+    "47": {
+      "enTitle": "Lane Ends Ahead",
+      "ruTitle": "Полоса впереди заканчивается",
+      "imageUrl": ""
+    },
+    "48": {
+      "enTitle": "Slippery When Wet",
+      "ruTitle": "Скольжение при мокрой поверхности",
+      "imageUrl": ""
+    },
+    "49": {
+      "enTitle": "Railroad Crossing Ahead",
+      "ruTitle": "Впереди железнодорожный переезд",
+      "imageUrl": ""
+    },
+    "50": {
+      "enTitle": "Traffic Lights Ahead",
+      "ruTitle": "Впереди светофор",
+      "imageUrl": ""
+    },
+    "51": {
+      "enTitle": "Curve",
+      "ruTitle": "Кривая",
+      "imageUrl": ""
+    },
+    "52": {
+      "enTitle": "Turn",
+      "ruTitle": "Поворот",
+      "imageUrl": ""
+    },
+    "53": {
+      "enTitle": "Reverse Curve",
+      "ruTitle": "S образная кривая",
+      "imageUrl": ""
+    },
+    "54": {
+      "enTitle": "Reverse Turn",
+      "ruTitle": "Обратный поворот",
+      "imageUrl": ""
+    },
+    "55": {
+      "enTitle": "Winding Road",
+      "ruTitle": "Извилистая дорога",
+      "imageUrl": ""
+    },
+    "56": {
+      "enTitle": "One Direction Arrow",
+      "ruTitle": "Стрелка в одном направлении",
+      "imageUrl": ""
+    },
+    "57": {
+      "enTitle": "Double Direction Arrow",
+      "ruTitle": "Стрелка двойного направления",
+      "imageUrl": ""
+    },
+    "58": {
+      "enTitle": "Curve With Minor Road",
+      "ruTitle": "Поворот с второстепенной дорогой",
+      "imageUrl": ""
+    },
+    "59": {
+      "enTitle": "Truck Rollover Warning",
+      "ruTitle": "Предупреждение об опрокидывании грузовика",
+      "imageUrl": ""
+    },
+    "60": {
+      "enTitle": "Road Narrows",
+      "ruTitle": "Дорога сужается",
+      "imageUrl": ""
+    },
+    "61": {
+      "enTitle": "Pavement Ends",
+      "ruTitle": "Конец тротуара",
+      "imageUrl": ""
+    },
+    "62": {
+      "enTitle": "Right Lane Ends",
+      "ruTitle": "Правая полоса заканчивается",
+      "imageUrl": ""
+    },
+    "63": {
+      "enTitle": "Cross Road",
+      "ruTitle": "Перекресток",
+      "imageUrl": ""
+    },
+    "64": {
+      "enTitle": "Side Road Junction",
+      "ruTitle": "Боковая дорожная развязка",
+      "imageUrl": ""
+    },
+    "65": {
+      "enTitle": "T Junction",
+      "ruTitle": "Т-образный переезд",
+      "imageUrl": ""
+    },
+    "66": {
+      "enTitle": "Y Intersection",
+      "ruTitle": "Пересечение Y",
+      "imageUrl": ""
+    },
+    "67": {
+      "enTitle": "Roundabout",
+      "ruTitle": "Кольцевая развязка",
+      "imageUrl": ""
+    },
+    "68": {
+      "enTitle": "Narrow Bridge",
+      "ruTitle": "Узкий мост",
+      "imageUrl": ""
+    },
+    "69": {
+      "enTitle": "Bridge Ices Before Road",
+      "ruTitle": "Предупреждающий знак о том, что холодный воздух окружает верхнюю и нижнюю часть моста, что приводит к скорейшему обледенению моста",
+      "imageUrl": ""
+    },
+    "70": {
+      "enTitle": "Deer Crossing",
+      "ruTitle": "Олень переходит дорогу",
+      "imageUrl": ""
+    },
+    "71": {
+      "enTitle": "Low Clearance",
+      "ruTitle": "Низкая эстакада",
+      "imageUrl": ""
+    },
+    "72": {
+      "enTitle": "Bicycle Crossing",
+      "ruTitle": "Велосипедный переезд",
+      "imageUrl": ""
+    },
+    "73": {
+      "enTitle": "Pedestrian Crossing",
+      "ruTitle": "Пешеходный переход",
+      "imageUrl": ""
+    },
+    "74": {
+      "enTitle": "Dip",
+      "ruTitle": "Предупреждающий знак, предостерегающий водителей о состоянии дороги, требующем от водителей особого внимания.",
+      "imageUrl": ""
+    },
+    "75": {
+      "enTitle": "Hill / Downgrade",
+      "ruTitle": "Холм / Склон",
+      "imageUrl": ""
+    },
+    "76": {
+      "enTitle": "Loose Gravel",
+      "ruTitle": "Сыпучий гравий",
+      "imageUrl": ""
+    },
+    "77": {
+      "enTitle": "Directional",
+      "ruTitle": "Направляющий знак",
+      "imageUrl": ""
+    },
+    "78": {
+      "enTitle": "Interchange Guide Sign",
+      "ruTitle": "Указатель транспортной развязки",
+      "imageUrl": ""
+    },
+    "79": {
+      "enTitle": "Diesel Fuel",
+      "ruTitle": "Дизельное топливо",
+      "imageUrl": ""
+    },
+    "80": {
+      "enTitle": "Hospital",
+      "ruTitle": "Госпиталь",
+      "imageUrl": ""
+    },
+    "81": {
+      "enTitle": "Exit Number Sign With Speed Advisory",
+      "ruTitle": "Знак номера съезда с рекомендациями по скорости",
+      "imageUrl": ""
+    },
+    "82": {
+      "enTitle": "Road works",
+      "ruTitle": "Дорожные работы",
+      "imageUrl": ""
+    },
+    "83": {
+      "enTitle": "Work Zone",
+      "ruTitle": "Строительная Зона",
+      "imageUrl": ""
+    },
+    "84": {
+      "enTitle": "Road Work Next...",
+      "ruTitle": "Дальше дорожные работы",
+      "imageUrl": ""
+    },
+    "85": {
+      "enTitle": "End Road Work",
+      "ruTitle": "Окончание дорожных работ",
+      "imageUrl": ""
+    },
+    "86": {
+      "enTitle": "Men Working",
+      "ruTitle": "Рабочие работают",
+      "imageUrl": ""
+    },
+    "87": {
+      "enTitle": "Flagger Ahead",
+      "ruTitle": "Впереди регулировщик",
+      "imageUrl": ""
+    },
+    "88": {
+      "enTitle": "Road Closed Ahead",
+      "ruTitle": "Впереди дорога закрыта",
+      "imageUrl": ""
+    }
   }
+}

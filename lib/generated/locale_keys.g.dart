@@ -9,5 +9,16 @@ abstract class  LocaleKeys {
   static const settings = 'settings';
   static const light = 'light';
   static const dark = 'dark';
+  static const roadSigns = 'roadSigns';
+  static const cdlTests = 'cdlTests';
+  static const preTripInspection = 'preTripInspection';
+  static const generalKnowledge = 'generalKnowledge';
+  static const combination = 'combination';
+  static const airBrakes = 'airBrakes';
+  static const tanker = 'tanker';
+  static const doubleAndTriple = 'doubleAndTriple';
+  static const hazMat = 'hazMat';
+  static const total = 'total';
+  static const free = 'free';
 
 }

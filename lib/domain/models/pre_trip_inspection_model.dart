@@ -7,13 +7,15 @@ class PreTripInspectionListModel extends Equatable {
 
   const PreTripInspectionListModel({required this.preTripInspection});
 
-  factory PreTripInspectionListModel.fromJson(Map<String, dynamic> json) {
-    return PreTripInspectionListModel(
-      preTripInspection: List<PreTripSection>.from(
-        json['pre_trip_inspection'].map((x) => PreTripSection.fromJson(x)),
-      ),
-    );
-  }
+ factory PreTripInspectionListModel.fromJson(Map<String, dynamic> json) {
+  final list = json['pre_trip_inspection'] as List<dynamic>?;
+
+  return PreTripInspectionListModel(
+    preTripInspection: list != null
+        ? list.map((x) => PreTripSection.fromJson(x)).toList()
+        : [],
+  );
+}
 
   Map<String, dynamic> toJson() => {
         'pre_trip_inspection': preTripInspection.map((x) => x.toJson()).toList(),

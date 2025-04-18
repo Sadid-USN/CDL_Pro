@@ -1,5 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
+import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cdl_pro/router/routes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -7,76 +15,57 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 2 * 1.4,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 5,
-                      top: 10,
-                      left: 10,
-                      right: 10,
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 2.0,
-                      ),
-                      onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) {
-                        //       return OverviewPage(
-                        //         index: index,
-                        //         book: filteredBooksList[index],
-                        //         title: filteredBooksList[index].title,
-                        //       );
-                        //     },
-                        //   ),
-                        // );
-                      },
-                      child: Row(
-                        children: [
-                          // Hero(
-                          //   tag: filteredBooksList[index].image ?? noImage,
-                          //   child: _BookImageCard(
-                          //     id: filteredBooksList[index].id ?? "0.0",
-                          //     image: filteredBooksList[index].image ?? noImage,
-                          //   ),
-                          // ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // _BuildRow(
-                                //   label: LocaleKeys.libTitle.tr(),
-                                //   data: book.title ?? "_",
-                                // ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder: (context, state) {
+        final collectionTypes = [
+          {
+            'label': LocaleKeys.cdlTests.tr(),
+            'type': AppDataType.cdlTests,
+            'flag': '🇺🇸',
+            'assetImage': AppLogos.cdlTest,
+          },
+          {
+            'label': LocaleKeys.preTripInspection.tr(),
+            'type': AppDataType.tripInseption,
+            'flag': '🇹🇯',
+            'assetImage': AppLogos.preTripInspection,
+          },
+          {
+            'label': LocaleKeys.roadSigns.tr(),
+            'type': AppDataType.roadSign,
+            'flag': '🇷🇺',
+            'assetImage': AppLogos.roadSigns,
+          },
+        ];
+
+        return ListView.separated(
+          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+          separatorBuilder: (context, index) => SizedBox(height: 8.h),
+          itemCount: collectionTypes.length,
+          itemBuilder: (context, index) {
+            final item = collectionTypes[index];
+            final type = item['type'] as AppDataType;
+            return ElevatedContainer(
+              assetImage: item["assetImage"] as String,
+              onTap: () {
+                // Update the selected type in the bloc
+                context.read<SettingsBloc>().add(ChangeType(type));
+                // Navigate to CategoryPage - no need to pass collectionType
+                navigateToPage(
+                  context,
+                  route: CategoryRoute(),
+                );
+              },
+              child: Text(
+                item['label'] as String,
+                style: AppTextStyles.bold20.copyWith(
+                  color: AppColors.lightBackground,
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }

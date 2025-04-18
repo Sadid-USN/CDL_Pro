@@ -7,23 +7,23 @@ class LocalizationWrapper extends StatelessWidget {
     const Locale('ru'),
     const Locale('fr'),
     const Locale('uk'),
+    // const Locale('es'), // Испанский (Spanish)
+    // const Locale('ar'), // Арабский (Arabic)
+    // const Locale('tr'), // Турецкий (Turkish)
+    // const Locale('pt'), // Португальский (Portuguese)
   ];
   final Widget child;
 
-  const LocalizationWrapper({
-    required this.child,
-    super.key,
-  });
+  const LocalizationWrapper({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(
-     
       startLocale: const Locale('en'),
       fallbackLocale: const Locale('en'),
       saveLocale: true,
       supportedLocales: locales,
-       path: 'assets/translations',
+      path: 'assets/translations',
       child: child,
     );
   }
