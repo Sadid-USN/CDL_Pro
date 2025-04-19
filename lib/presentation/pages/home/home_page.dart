@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                 // Navigate to CategoryPage - no need to pass collectionType
                 navigateToPage(
                   context,
-                  route: CategoryRoute(),
+                  route: MainCategoryRoute(),
                 );
               },
               child: Text(

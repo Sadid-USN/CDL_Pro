@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 @RoutePage()
-class QuizPage extends StatelessWidget {
-  const QuizPage({super.key});
+class OverviewCategoryPage extends StatelessWidget {
+  const OverviewCategoryPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
