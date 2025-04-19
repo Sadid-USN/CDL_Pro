@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 @RoutePage()
-class CategoryPage extends StatelessWidget {
-  const CategoryPage({super.key});
+class MainCategoryPage extends StatelessWidget {
+  const MainCategoryPage({super.key});
 
   /// Метод для отображения названия в AppBar
   String getCollectionTitle(AppDataType type) {

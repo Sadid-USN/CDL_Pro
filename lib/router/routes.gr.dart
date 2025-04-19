@@ -11,22 +11,6 @@
 part of 'routes.dart';
 
 /// generated route for
-/// [CategoryPage]
-class CategoryRoute extends PageRouteInfo<void> {
-  const CategoryRoute({List<PageRouteInfo>? children})
-    : super(CategoryRoute.name, initialChildren: children);
-
-  static const String name = 'CategoryRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const CategoryPage();
-    },
-  );
-}
-
-/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -38,6 +22,22 @@ class HomeRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const HomePage();
+    },
+  );
+}
+
+/// generated route for
+/// [MainCategoryPage]
+class MainCategoryRoute extends PageRouteInfo<void> {
+  const MainCategoryRoute({List<PageRouteInfo>? children})
+    : super(MainCategoryRoute.name, initialChildren: children);
+
+  static const String name = 'MainCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MainCategoryPage();
     },
   );
 }
@@ -59,6 +59,22 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [OverviewCategoryPage]
+class OverviewCategoryRoute extends PageRouteInfo<void> {
+  const OverviewCategoryRoute({List<PageRouteInfo>? children})
+    : super(OverviewCategoryRoute.name, initialChildren: children);
+
+  static const String name = 'OverviewCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OverviewCategoryPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
@@ -70,22 +86,6 @@ class ProfileRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ProfilePage();
-    },
-  );
-}
-
-/// generated route for
-/// [QuizPage]
-class QuizRoute extends PageRouteInfo<void> {
-  const QuizRoute({List<PageRouteInfo>? children})
-    : super(QuizRoute.name, initialChildren: children);
-
-  static const String name = 'QuizRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const QuizPage();
     },
   );
 }

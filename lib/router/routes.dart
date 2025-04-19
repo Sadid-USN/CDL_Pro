@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cdl_pro/core/utils/enums.dart';
 import 'package:cdl_pro/presentation/pages/pages.dart';
-import 'package:flutter/material.dart';
 part 'routes.gr.dart';
 
 @AutoRouterConfig()
@@ -18,7 +16,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SettingsRoute.page),
       ],
     ),
-    AutoRoute(page: CategoryRoute.page),
-    AutoRoute(page: QuizRoute.page),
+    AutoRoute(page: MainCategoryRoute.page),
+    AutoRoute(page: OverviewCategoryRoute.page),
   ];
 }

@@ -41,7 +41,7 @@ class CDLTestsView extends StatelessWidget {
             totalQuestions: chapter.total,
             freeQuestions: chapter.freeLimit,
             onTap: () {
-             navigateToPage(context, route: QuizRoute());
+             navigateToPage(context, route: OverviewCategoryRoute());
             },
           ),
         );
