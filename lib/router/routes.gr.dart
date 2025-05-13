@@ -60,18 +60,54 @@ class MainRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [OverviewCategoryPage]
-class OverviewCategoryRoute extends PageRouteInfo<void> {
-  const OverviewCategoryRoute({List<PageRouteInfo>? children})
-    : super(OverviewCategoryRoute.name, initialChildren: children);
+class OverviewCategoryRoute extends PageRouteInfo<OverviewCategoryRouteArgs> {
+  OverviewCategoryRoute({
+    Key? key,
+    required String categoryKey,
+    required TestsDataModel model,
+    List<PageRouteInfo>? children,
+  }) : super(
+         OverviewCategoryRoute.name,
+         args: OverviewCategoryRouteArgs(
+           key: key,
+           categoryKey: categoryKey,
+           model: model,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'OverviewCategoryRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const OverviewCategoryPage();
+      final args = data.argsAs<OverviewCategoryRouteArgs>();
+      return OverviewCategoryPage(
+        key: args.key,
+        categoryKey: args.categoryKey,
+        model: args.model,
+      );
     },
   );
+}
+
+class OverviewCategoryRouteArgs {
+  const OverviewCategoryRouteArgs({
+    this.key,
+    required this.categoryKey,
+    required this.model,
+  });
+
+  final Key? key;
+
+  final String categoryKey;
+
+  final TestsDataModel model;
+
+  @override
+  String toString() {
+    return 'OverviewCategoryRouteArgs{key: $key, categoryKey: $categoryKey, model: $model}';
+  }
 }
 
 /// generated route for
@@ -88,6 +124,64 @@ class ProfileRoute extends PageRouteInfo<void> {
       return const ProfilePage();
     },
   );
+}
+
+/// generated route for
+/// [QuizPage]
+class QuizRoute extends PageRouteInfo<QuizRouteArgs> {
+  QuizRoute({
+    Key? key,
+    required String chapterTitle,
+    required List<Question> questions,
+    required int startIndex,
+    List<PageRouteInfo>? children,
+  }) : super(
+         QuizRoute.name,
+         args: QuizRouteArgs(
+           key: key,
+           chapterTitle: chapterTitle,
+           questions: questions,
+           startIndex: startIndex,
+         ),
+         initialChildren: children,
+       );
+
+  static const String name = 'QuizRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<QuizRouteArgs>();
+      return QuizPage(
+        key: args.key,
+        chapterTitle: args.chapterTitle,
+        questions: args.questions,
+        startIndex: args.startIndex,
+      );
+    },
+  );
+}
+
+class QuizRouteArgs {
+  const QuizRouteArgs({
+    this.key,
+    required this.chapterTitle,
+    required this.questions,
+    required this.startIndex,
+  });
+
+  final Key? key;
+
+  final String chapterTitle;
+
+  final List<Question> questions;
+
+  final int startIndex;
+
+  @override
+  String toString() {
+    return 'QuizRouteArgs{key: $key, chapterTitle: $chapterTitle, questions: $questions, startIndex: $startIndex}';
+  }
 }
 
 /// generated route for

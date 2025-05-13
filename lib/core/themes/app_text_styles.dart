@@ -78,4 +78,35 @@ class AppTextStyles {
   static final robotoMonoBold12 = robotoMono(12.sp, weight: FontWeight.bold);
   static final robotoMonoBold14 = robotoMono(14.sp, weight: FontWeight.bold);
   static final robotoMonoBold16 = robotoMono(16.sp, weight: FontWeight.bold);
+
+ // Manrope style
+  static TextStyle manrope(double size, {
+    Color color = AppColors.lightPrimary, 
+    FontWeight weight = FontWeight.w400,
+  }) => GoogleFonts.manrope(
+    fontSize: size.sp,
+    fontWeight: weight,
+    color: color,
+  );
+
+  // Готовые стили Manrope
+  static final manrope8 = manrope(8.sp);
+  static final manrope10 = manrope(10.sp);
+  static final manrope12 = manrope(12.sp);
+  static final manrope14 = manrope(14.sp);
+  static final manrope16 = manrope(16.sp);
+  static final manrope18 = manrope(18.sp);
+  static final manrope20 = manrope(20.sp);
+
+  // Жирные версии
+  static final manropeBold12 = manrope(12.sp, weight: FontWeight.bold);
+  static final manropeBold14 = manrope(14.sp, weight: FontWeight.bold);
+  static final manropeBold16 = manrope(16.sp, weight: FontWeight.bold);
+  static final manropeBold18 = manrope(18.sp, weight: FontWeight.bold);
+  static final manropeBold20 = manrope(20.sp, weight: FontWeight.bold);
+
+  // Полужирные и другие варианты (по необходимости)
+  static final manropeSemiBold14 = manrope(14.sp, weight: FontWeight.w600);
+  static final manropeMedium16 = manrope(16.sp, weight: FontWeight.w500);
 }
+

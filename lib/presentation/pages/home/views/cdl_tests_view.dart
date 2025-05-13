@@ -23,7 +23,7 @@ class CDLTestsView extends StatelessWidget {
 
     final data = docs.first.data() as Map<String, dynamic>;
     final model = TestsDataModel.fromJson(data);
-
+  
     // Создаем список глав с помощью метода расширения
     final chapters = model.chapters.toChapterList(context);
 
@@ -41,7 +41,12 @@ class CDLTestsView extends StatelessWidget {
             totalQuestions: chapter.total,
             freeQuestions: chapter.freeLimit,
             onTap: () {
-             navigateToPage(context, route: OverviewCategoryRoute());
+              navigateToPage(
+                context,
+                route: OverviewCategoryRoute(
+                  categoryKey: chapter.key,
+                   model: model),
+              );
             },
           ),
         );
