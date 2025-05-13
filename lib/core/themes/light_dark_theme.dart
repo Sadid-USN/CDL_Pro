@@ -47,7 +47,7 @@ ThemeData lightThemeData() {
       bodyLarge:
           AppTextStyles.merriweather14.copyWith(color: AppColors.lightPrimary),
       bodyMedium:
-          AppTextStyles.merriweather12.copyWith(color: AppColors.lightPrimary),
+          AppTextStyles.manropeBold12.copyWith(color: AppColors.lightPrimary),
       bodySmall:
           AppTextStyles.merriweather10.copyWith(color: AppColors.lightPrimary),
       titleLarge:
