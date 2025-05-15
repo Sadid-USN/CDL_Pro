@@ -63,8 +63,8 @@ class MainRoute extends PageRouteInfo<void> {
 class OverviewCategoryRoute extends PageRouteInfo<OverviewCategoryRouteArgs> {
   OverviewCategoryRoute({
     Key? key,
-    required String categoryKey,
-    required TestsDataModel model,
+    required String? categoryKey,
+    required TestsDataModel? model,
     List<PageRouteInfo>? children,
   }) : super(
          OverviewCategoryRoute.name,
@@ -100,9 +100,9 @@ class OverviewCategoryRouteArgs {
 
   final Key? key;
 
-  final String categoryKey;
+  final String? categoryKey;
 
-  final TestsDataModel model;
+  final TestsDataModel? model;
 
   @override
   String toString() {

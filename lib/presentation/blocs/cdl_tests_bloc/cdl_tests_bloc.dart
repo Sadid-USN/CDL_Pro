@@ -61,7 +61,9 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     AnswerQuestionEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) {
-    _userAnswers[event.questionId] = event.selectedOption;
+    _userAnswers = Map<String, String>.from(_userAnswers)
+  ..[event.questionId] = event.selectedOption;
+
 
     emit(
       QuizLoadedState(
