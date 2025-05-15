@@ -13,8 +13,8 @@ import 'package:lottie/lottie.dart';
 
 @RoutePage()
 class OverviewCategoryPage extends StatelessWidget {
-  final String categoryKey;
-  final TestsDataModel model;
+  final String ? categoryKey;
+  final TestsDataModel ?model;
 
   const OverviewCategoryPage({
     super.key,
@@ -24,7 +24,7 @@ class OverviewCategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final category = _getCategoryByKey(model.chapters, categoryKey);
+    final category = _getCategoryByKey(model!.chapters , categoryKey!);
     if (category == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error'), centerTitle: true),
@@ -32,7 +32,7 @@ class OverviewCategoryPage extends StatelessWidget {
       );
     }
 
-    final title = _getLocalizedTitle(categoryKey);
+    final title = _getLocalizedTitle(categoryKey!);
     final questionsMap = category.questions as Map<String, dynamic>;
     final totalQuestions = questionsMap.length;
     final freeLimit = category.freeLimit;
@@ -87,7 +87,7 @@ class OverviewCategoryPage extends StatelessWidget {
                                 ),
                                 
                               ),
-                               clearStack: true,
+                               replace: true,
                             );
                           } else {
                             _showPremiumDialog(context);
