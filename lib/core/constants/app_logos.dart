@@ -7,6 +7,8 @@ class AppLogos {
   static const String language = 'assets/svgs/language.svg';
   static const String premium = 'assets/svgs/premium.svg';
   static const String lockClosed = 'assets/svgs/lock_closed.svg';
+  static const String correct = 'assets/svgs/correct.svg';
+  static const String wrong = 'assets/svgs/wrong.svg';
 
 
   //JSON PATH

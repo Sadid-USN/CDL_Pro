@@ -31,7 +31,8 @@ class CodegenLoader extends AssetLoader{
   "doubleAndTriple": "Двойные/тройные прицепы",
   "hazMat": "Опасные грузы",
   "total": "Всего {totalQuestions}",
-  "free": "Бесплатно {freeQuestions}"
+  "free": "Бесплатно {freeQuestions}",
+  "question": "Питання {questionNumber}"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -69,7 +70,8 @@ static const Map<String,dynamic> _en = {
   "doubleAndTriple": "Double & Triple",
   "hazMat": "HazMat",
   "total": "Total {totalQuestions}",
-  "free": "Free {freeQuestions}"
+  "free": "Free {freeQuestions}",
+  "question": "Question {questionNumber}"
 };
 static const Map<String,dynamic> _fr = {
   "home": "Асосӣ",
@@ -88,7 +90,8 @@ static const Map<String,dynamic> _fr = {
   "doubleAndTriple": "Трейлери ду ва сегона",
   "hazMat": "Борҳои хатарнок",
   "total": "Ҳамагӣ {totalQuestions}",
-  "free": "Ройгон {freeQuestions}"
+  "free": "Ройгон {freeQuestions}",
+  "question": "Савол {questionNumber}"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "fr": _fr};
 }

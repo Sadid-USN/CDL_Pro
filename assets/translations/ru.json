@@ -15,5 +15,6 @@
     "doubleAndTriple": "Двойные/тройные прицепы",
     "hazMat": "Опасные грузы",
     "total": "Всего {totalQuestions}",
-    "free": "Бесплатно {freeQuestions}"
+    "free": "Бесплатно {freeQuestions}",
+    "question": "Питання {questionNumber}"
 }
