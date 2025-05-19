@@ -20,5 +20,6 @@ abstract class  LocaleKeys {
   static const hazMat = 'hazMat';
   static const total = 'total';
   static const free = 'free';
+  static const question = 'question';
 
 }

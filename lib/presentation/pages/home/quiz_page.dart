@@ -1,10 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
+import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class QuizPage extends StatelessWidget {
@@ -31,7 +34,6 @@ class QuizPage extends StatelessWidget {
           return;
         }
         // Логика при успешном закрытии страницы.
-        print("Page popped with result: $result");
       },
       child: Scaffold(
         appBar: AppBar(
@@ -104,9 +106,16 @@ class QuizPage extends StatelessWidget {
     required String? userAnswer,
     required bool isCorrect,
   }) {
-    // final cardColor = isAnswered
-    //     ? (isCorrect ? Colors.green.shade100 : Colors.red)
-    //     : Colors.white;
+    final bloc = context.read<CDLTestsBloc>();
+    final state = bloc.state as QuizLoadedState;
+
+    // Подсчёт правильных и неправильных ответов
+    final correctCount =
+        state.allQuestions
+            .where((q) => state.userAnswers[q.question] == q.correctOption)
+            .length;
+
+    final incorrectCount = state.userAnswers.length - correctCount;
 
     return Card(
       color: AppColors.lightBackground,
@@ -116,13 +125,40 @@ class QuizPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// Заголовок: вопрос + счётчик
             Text(
-              'Вопрос #$questionNumber',
+              LocaleKeys.question.tr(
+                namedArgs: {"questionNumber": questionNumber.toString()},
+              ),
               style: AppTextStyles.robotoMonoBold14,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  '$questionNumber из ${state.allQuestions.length} /',
+                  style: AppTextStyles.robotoMonoBold14,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  '$incorrectCount',
+                  style: AppTextStyles.robotoMonoBold14.copyWith(
+                    color: Colors.red,
+                  ),
+                ),
+                const Text(' / '),
+                Text(
+                  '$correctCount',
+                  style: AppTextStyles.robotoMonoBold14.copyWith(
+                    color: Colors.green,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
             Text(question.question, style: AppTextStyles.regular16),
             const SizedBox(height: 16),
+
             ..._buildQuestionOptions(
               context,
               question,
@@ -130,6 +166,7 @@ class QuizPage extends StatelessWidget {
               userAnswer,
               isCorrect,
             ),
+
             if (isAnswered) ...[
               const SizedBox(height: 16),
               Text(
@@ -159,8 +196,18 @@ class QuizPage extends StatelessWidget {
       final color =
           isAnswered
               ? (isCorrectOption
+                  ? AppColors.greenSoft
+                  : (isSelected
+                      ? AppColors.errorColor.withValues(alpha: 0.4)
+                      : Colors.black))
+              : Colors.black;
+      final checkColor =
+          isAnswered
+              ? (isCorrectOption
                   ? Colors.green
-                  : (isSelected ? Colors.red : Colors.black))
+                  : (isSelected
+                      ? AppColors.errorColor.withValues(alpha: 0.4)
+                      : Colors.black))
               : Colors.black;
 
       return InkWell(
@@ -174,34 +221,25 @@ class QuizPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(
-                color: isSelected ? color : Colors.grey.shade300,
-                width: isSelected ? 2 : 1,
-              ),
+              color: isSelected ? color : Colors.white,
+
               borderRadius: BorderRadius.circular(8),
             ),
             padding: const EdgeInsets.all(12),
             child: Row(
               children: [
-                Text(
-                  '$optionKey. ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: color,
-                    fontSize: 16,
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    optionText,
-                    style: TextStyle(color: color, fontSize: 16),
-                  ),
-                ),
+                Text('$optionKey. '),
+                Expanded(child: Text(optionText)),
                 if (isSelected)
-                  Icon(
-                    isCorrect ? Icons.check_circle : Icons.cancel,
-                    color: color,
+                  SvgPicture.asset(
+                    isCorrectOption ? AppLogos.correct : AppLogos.wrong,
+                    height: 20.h,
+                    colorFilter: ColorFilter.mode(checkColor, BlendMode.srcIn),
                   ),
+                // Icon(
+                //   isCorrect ? Icons.done : Icons.cancel,
+                //   color: color,
+                // ),
               ],
             ),
           ),

@@ -15,5 +15,6 @@
     "doubleAndTriple": "Трейлери ду ва сегона",
     "hazMat": "Борҳои хатарнок",
     "total": "Ҳамагӣ {totalQuestions}",
-    "free": "Ройгон {freeQuestions}"
+    "free": "Ройгон {freeQuestions}",
+    "question": "Савол {questionNumber}"
 }

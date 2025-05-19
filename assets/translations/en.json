@@ -15,5 +15,6 @@
     "doubleAndTriple": "Double & Triple",
     "hazMat": "HazMat",
     "total": "Total {totalQuestions}",
-    "free": "Free {freeQuestions}"
+    "free": "Free {freeQuestions}",
+    "question": "Question {questionNumber}"
 }
