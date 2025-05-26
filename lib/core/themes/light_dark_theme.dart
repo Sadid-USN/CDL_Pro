@@ -20,7 +20,7 @@ ThemeData lightThemeData() {
       iconTheme: IconThemeData(color: AppColors.lightPrimary),
       elevation: 0,
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: Colors.white,
       elevation: 2,
       margin: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),
@@ -88,7 +88,7 @@ ThemeData darkThemeData() {
       iconTheme: const IconThemeData(color: Colors.white),
       elevation: 0,
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: AppColors.darkPrimary.withValues(alpha: 0.1),
       elevation: 2,
       margin: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),

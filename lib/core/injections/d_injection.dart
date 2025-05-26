@@ -1,4 +1,3 @@
-
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:dio/dio.dart';
@@ -27,9 +26,15 @@ Future<void> initDependencies() async {
   GetIt.I.registerSingleton(talker);
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
- 
 
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: 'AIzaSyDnJscXti1wBxSWB8LZojTf20NZFb5NO1w',
+      appId: '1:899513564439:android:8e5c83dff1c340b34a4b52',
+      messagingSenderId: '899513564439',
+      projectId: 'cdl-pro-cb12c',
+    ),
+  );
   final dio = Dio();
   // interceptors Получает информацию о любом запросе, который производит клиент Dio
   dio.interceptors.add(
@@ -48,12 +53,15 @@ Future<void> initDependencies() async {
       (details) => GetIt.I<Talker>().handle(details.exception, details.stack);
 
   Bloc.observer = TalkerBlocObserver(
-      talker: talker,
-      settings: const TalkerBlocLoggerSettings(
-          printStateFullData: false, printEventFullData: false));
+    talker: talker,
+    settings: const TalkerBlocLoggerSettings(
+      printStateFullData: false,
+      printEventFullData: false,
+    ),
+  );
 
   // ✅ Регистрируем API сервис для запросов к молитвенным временам
- // GetIt.I.registerLazySingleton(() => PrayerTimeApi(dio: dio));
+  // GetIt.I.registerLazySingleton(() => PrayerTimeApi(dio: dio));
 
   // ✅ Регистрируем сервис геолокации
   //GetIt.I.registerLazySingleton(() => LocationGeolocatorService());
@@ -68,5 +76,5 @@ Future<void> initDependencies() async {
   //   ),
   // );
   GetIt.I.registerLazySingleton(() => SettingsBloc());
-   GetIt.I.registerLazySingleton(() => CDLTestsBloc());
+  GetIt.I.registerLazySingleton(() => CDLTestsBloc());
 }

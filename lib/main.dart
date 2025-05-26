@@ -12,16 +12,17 @@ import 'presentation/blocs/cdl_tests_bloc/cdl_tests_bloc.dart';
 import 'presentation/blocs/settings_bloc/settings.dart';
 
 void main() async {
-  runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-    await initDependencies();
-    runApp(
-      LocalizationWrapper(child: MyApp()),
-    );
-  }, (error, stack) {
-    return GetIt.I<Talker>().handle(error, stack);
-  });
+      await initDependencies();
+      runApp(LocalizationWrapper(child: MyApp()));
+    },
+    (error, stack) {
+      return GetIt.I<Talker>().handle(error, stack);
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -34,32 +35,37 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SettingsBloc>(
-          create: (context) => GetIt.I<SettingsBloc>(), 
+          create: (context) => GetIt.I<SettingsBloc>(),
         ),
         BlocProvider<CDLTestsBloc>(
-          create: (context) => GetIt.I<CDLTestsBloc>(), 
+          create: (context) => GetIt.I<CDLTestsBloc>(),
         ),
-      
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return ScreenUtilInit(
             minTextAdapt: true,
             builder: (context, child) {
-              return MaterialApp.router(
-                theme: lightThemeData(),
-                darkTheme: darkThemeData(),
-                themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light, // Используем state
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-                debugShowCheckedModeBanner: false,
-                title: 'CDL_pro',
-                routerConfig: _autorouter.config(
-                  navigatorObservers: () => [
-                    TalkerRouteObserver(GetIt.I<Talker>()),
-                  ],
-                ),
+              return ScreenUtilInit(
+                builder: (context, child) {
+                  return MaterialApp.router(
+                    theme: lightThemeData(),
+                    darkTheme: darkThemeData(),
+                    themeMode:
+                        state.isDarkMode
+                            ? ThemeMode.dark
+                            : ThemeMode.light, // Используем state
+                    localizationsDelegates: context.localizationDelegates,
+                    supportedLocales: context.supportedLocales,
+                    locale: context.locale,
+                    debugShowCheckedModeBanner: false,
+                    title: 'CDL_pro',
+                    routerConfig: _autorouter.config(
+                      navigatorObservers:
+                          () => [TalkerRouteObserver(GetIt.I<Talker>())],
+                    ),
+                  );
+                },
               );
             },
           );
