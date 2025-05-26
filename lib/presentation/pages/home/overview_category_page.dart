@@ -52,7 +52,7 @@ class OverviewCategoryPage extends StatelessWidget {
                   ),
                 )
               : ListView.builder(
-                  padding: const EdgeInsets.all(16),
+                  padding:  EdgeInsets.only(bottom: 16.sh),
                   itemCount: cards.length,
                   itemBuilder: (context, index) {
                     final card = cards[index];

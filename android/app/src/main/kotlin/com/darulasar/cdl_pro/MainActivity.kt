@@ -1,4 +1,4 @@
-package com.example.cdl_pro
+package com.darulasar.cdl_pro
 
 import io.flutter.embedding.android.FlutterActivity
 

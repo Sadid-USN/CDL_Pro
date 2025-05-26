@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "899513564439",
+    "project_id": "cdl-pro-cb12c",
+    "storage_bucket": "cdl-pro-cb12c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899513564439:android:8e5c83dff1c340b34a4b52",
+        "android_client_info": {
+          "package_name": "com.darulasar.cdl_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnJscXti1wBxSWB8LZojTf20NZFb5NO1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -157,7 +157,7 @@ class QuizPage extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(question.question, style: AppTextStyles.regular16),
-            const SizedBox(height: 16),
+             SizedBox(height: 16.h),
 
             ..._buildQuestionOptions(
               context,
@@ -174,6 +174,8 @@ class QuizPage extends StatelessWidget {
                 style: AppTextStyles.manrope14,
               ),
             ],
+
+             
           ],
         ),
       ),

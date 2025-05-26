@@ -29,12 +29,13 @@ class CDLTestsView extends StatelessWidget {
 
     return ListView.builder(
       itemCount: chapters.length,
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.all(8.h),
+      
       itemBuilder: (context, index) {
         final chapter = chapters[index];
 
         return Padding(
-          padding: const EdgeInsets.only(bottom: 12),
+          padding:  EdgeInsets.only(bottom: 4.h),
           child: _CategoryCard(
             image: chapter.image,
             title: chapter.title,
