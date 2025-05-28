@@ -1,8 +1,10 @@
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:translator/translator.dart';
 
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
+   final GoogleTranslator _translator = GoogleTranslator();
   bool _isPremium = false;
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
@@ -48,6 +50,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     emit(
       QuizLoadedState(
+        selectedLanguage: '',
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage:
@@ -67,6 +70,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     emit(
       QuizLoadedState(
+        selectedLanguage: '',
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
@@ -88,6 +92,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     emit(
       QuizLoadedState(
+        selectedLanguage: '',
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,

@@ -16,4 +16,5 @@ class AppColors {
   static const Color errorColor = Color(0xFFB00020);
   static const Color goldenSoft = Color(0xFFF6C36B);
   static const Color greenSoft = Color(0xFFB5E6B3);
+  static const Color simpleGreen = Colors.green;
 }

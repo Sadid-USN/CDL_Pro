@@ -16,6 +16,8 @@ import 'package:talker_flutter/talker_flutter.dart';
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
+
+  
   final talker = TalkerFlutter.init(
     settings: TalkerSettings(
       enabled: true,

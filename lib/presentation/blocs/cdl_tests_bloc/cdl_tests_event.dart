@@ -7,7 +7,13 @@ abstract class AbstractCDLTestsEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
+class ChangeLanguageEvent extends AbstractCDLTestsEvent {
+  final String languageCode; // 'ru', 'es', и т.д.
+  const ChangeLanguageEvent(this.languageCode);
 
+  @override
+  List<Object?> get props => [languageCode];
+}
 class LoadQuizEvent extends AbstractCDLTestsEvent {
   final List<Question> questions;
   const LoadQuizEvent(this.questions);
