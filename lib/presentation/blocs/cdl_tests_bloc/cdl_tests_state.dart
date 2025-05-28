@@ -19,34 +19,46 @@ class QuizInitialState extends AbstractCDLTestsState {
 class QuizLoadedState extends AbstractCDLTestsState {
   final List<Question> allQuestions;
   final Map<String, String> userAnswers;
-  final int currentPage; // Теперь это индекс текущего вопроса
+  final int currentPage;
   final bool quizCompleted;
+  final String selectedLanguage; // <- Новое поле
 
   const QuizLoadedState({
     required this.allQuestions,
     required this.userAnswers,
     required this.currentPage,
     required this.quizCompleted,
+    required this.selectedLanguage,
   });
 
-  // Возвращаем только текущий вопрос
-  Question get currentQuestion {
-    return allQuestions[currentPage];
-  }
+  Question get currentQuestion => allQuestions[currentPage];
 
-  // Проверяем, ответил ли пользователь на текущий вопрос
-  bool get isCurrentQuestionAnswered {
-    return userAnswers.containsKey(currentQuestion.question);
-  }
+  bool get isCurrentQuestionAnswered => userAnswers.containsKey(currentQuestion.question);
 
-  // Проверяем, это последний вопрос
-  bool get isLastQuestion {
-    return currentPage == allQuestions.length - 1;
+  bool get isLastQuestion => currentPage == allQuestions.length - 1;
+
+  QuizLoadedState copyWith({
+    List<Question>? allQuestions,
+    Map<String, String>? userAnswers,
+    int? currentPage,
+    bool? quizCompleted,
+    String? selectedLanguage,
+  }) {
+    return QuizLoadedState(
+      allQuestions: allQuestions ?? this.allQuestions,
+      userAnswers: userAnswers ?? this.userAnswers,
+      currentPage: currentPage ?? this.currentPage,
+      quizCompleted: quizCompleted ?? this.quizCompleted,
+      selectedLanguage: selectedLanguage ?? this.selectedLanguage,
+    );
   }
 
   @override
-  List<Object?> get props => [allQuestions, userAnswers, currentPage, quizCompleted];
+  List<Object?> get props =>
+      [allQuestions, userAnswers, currentPage, quizCompleted, selectedLanguage];
 }
+
+
 class PremiumInitial extends AbstractCDLTestsState {
   const PremiumInitial();
 }

@@ -182,82 +182,78 @@ class QuizPage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildQuestionOptions(
-    BuildContext context,
-    Question question,
-    bool isAnswered,
-    String? userAnswer,
-    bool isCorrect,
-  ) {
-    return question.options.entries.map((entry) {
-      final optionKey = entry.key;
-      final optionText = entry.value;
-      final isSelected = userAnswer == optionKey;
-      final isCorrectOption = optionKey == question.correctOption;
+List<Widget> _buildQuestionOptions(
+  BuildContext context,
+  Question question,
+  bool isAnswered,
+  String? userAnswer,
+  bool isCorrect,
+) {
+  return question.options.entries.map((entry) {
+    final optionKey = entry.key;
+    final optionText = entry.value;
+    final isSelected = userAnswer == optionKey;
+    final isCorrectOption = optionKey == question.correctOption;
 
-      final color =
-          isAnswered
-              ? (isCorrectOption
-                  ? AppColors.greenSoft
-                  : (isSelected
-                      ? AppColors.errorColor.withValues(alpha: 0.4)
-                      : Colors.black))
-              : Colors.black;
-      final checkColor =
-          isAnswered
-              ? (isCorrectOption
-                  ? Colors.green
-                  : (isSelected
-                      ? AppColors.errorColor.withValues(alpha: 0.4)
-                      : Colors.black))
-              : Colors.black;
+    Color backgroundColor = Colors.white;
+    Color textColor = Colors.black;
+    Color? iconColor;
 
-      return InkWell(
-        onTap:
-            !isAnswered
-                ? () => context.read<CDLTestsBloc>().add(
-                  AnswerQuestionEvent(question.question, optionKey),
-                )
-                : null,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Container(
-            decoration: BoxDecoration(
-              color: isSelected ? color : Colors.white,
+    if (isAnswered) {
+      if (isCorrectOption) {
+        // Правильный ответ всегда зеленый
+        backgroundColor = AppColors.greenSoft;
+        textColor = AppColors.darkBackground;
+        iconColor = AppColors.simpleGreen;
+      } else if (isSelected) {
+        // Выбранный неправильный ответ красный
+        backgroundColor = AppColors.errorColor.withValues(alpha: 0.4);
+        textColor = AppColors.darkBackground;
+        iconColor = AppColors.errorColor;
+      }
+    }
 
-              borderRadius: BorderRadius.circular(8),
-            ),
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              children: [
-                Text('$optionKey. '),
-                Expanded(child: Text(optionText)),
-                if (isSelected)
-                  SvgPicture.asset(
-                    isCorrectOption ? AppLogos.correct : AppLogos.wrong,
-                    height: 20.h,
-                    colorFilter: ColorFilter.mode(checkColor, BlendMode.srcIn),
-                  ),
-                // Icon(
-                //   isCorrect ? Icons.done : Icons.cancel,
-                //   color: color,
-                // ),
-              ],
-            ),
+    return InkWell(
+      onTap: !isAnswered
+          ? () => context.read<CDLTestsBloc>().add(
+                AnswerQuestionEvent(question.question, optionKey),
+              )
+          : null,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Container(
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Row(
+            children: [
+              Text('$optionKey. ', style: TextStyle(color: textColor)),
+              Expanded(child: Text(optionText, style: TextStyle(color: textColor))),
+              if (isAnswered && (isSelected || isCorrectOption))
+                SvgPicture.asset(
+                  isCorrectOption ? AppLogos.correct : AppLogos.wrong,
+                  height: 20.h,
+                  colorFilter: iconColor != null 
+                      ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                      : null,
+                ),
+            ],
           ),
         ),
-      );
-    }).toList();
-  }
-
+      ),
+    );
+  }).toList();
+}
   Widget _buildNextButton(BuildContext context, QuizLoadedState state) {
     final isLastQuestion = state.currentPage == state.allQuestions.length - 1;
 
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.only(bottom: 50.h),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(double.infinity, 50),
+        //  minimumSize: const Size(double.infinity, 50),
         ),
         onPressed: () {
           if (isLastQuestion) {
@@ -308,39 +304,42 @@ class QuizPage extends StatelessWidget {
   }
 }
 
-class QuizHeaderBuilder {
-  static InlineSpan build({
-    required String chapterTitle,
-    required int currentIndex,
-    required int totalQuestions,
-    required int incorrectAnswers,
-  }) {
-    return TextSpan(
-      style: AppTextStyles.manrope10, // Базовый стиль
-      children: [
-        TextSpan(
-          text: chapterTitle,
-          style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.bold),
-        ),
-        const TextSpan(text: ' (Вопрос '),
-        TextSpan(
-          text: '${currentIndex + 1}',
-          style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w600),
-        ),
-        TextSpan(text: ' из $totalQuestions', style: AppTextStyles.manrope10),
-        const TextSpan(text: ') • Ошибки: '),
-        TextSpan(
-          text: '$incorrectAnswers',
-          style: AppTextStyles.manrope10.copyWith(
-            color: Colors.red,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        TextSpan(
-          text: '/$totalQuestions',
-          style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w500),
-        ),
-      ],
-    );
-  }
-}
+
+
+
+// class QuizHeaderBuilder {
+//   static InlineSpan build({
+//     required String chapterTitle,
+//     required int currentIndex,
+//     required int totalQuestions,
+//     required int incorrectAnswers,
+//   }) {
+//     return TextSpan(
+//       style: AppTextStyles.manrope10, // Базовый стиль
+//       children: [
+//         TextSpan(
+//           text: chapterTitle,
+//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.bold),
+//         ),
+//         const TextSpan(text: ' (Вопрос '),
+//         TextSpan(
+//           text: '${currentIndex + 1}',
+//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w600),
+//         ),
+//         TextSpan(text: ' из $totalQuestions', style: AppTextStyles.manrope10),
+//         const TextSpan(text: ') • Ошибки: '),
+//         TextSpan(
+//           text: '$incorrectAnswers',
+//           style: AppTextStyles.manrope10.copyWith(
+//             color: Colors.red,
+//             fontWeight: FontWeight.bold,
+//           ),
+//         ),
+//         TextSpan(
+//           text: '/$totalQuestions',
+//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w500),
+//         ),
+//       ],
+//     );
+//   }
+// }

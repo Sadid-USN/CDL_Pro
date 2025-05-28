@@ -1806,41 +1806,2188 @@
         },
         "151": {
           "en": {
-            "question": "",
+            "question": "At what Blood Alcohol Concentration (BAC) level is a commercial driver considered legally intoxicated while operating a commercial vehicle?",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "0.1",
+              "B": "0.01",
+              "C": "0.04"
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "C",
+            "description": "For truck and bus drivers, if their blood has more than 0.04% alcohol, they are considered too drunk to drive safely."
+          }
+        },
+        "152": {
+          "en": {
+            "question": "What does Gross Vehicle Weight (GVW) stand for?",
+            "options": {
+              "A": "Weight of the vehicle's engine only.",
+              "B": "Total weight of a single vehicle plus its load.",
+              "C": "Weight of the vehicle's tires only."
+            },
+            "correct_option": "B",
+            "description": "Gross Vehicle Weight (GVW) is the total weight of the vehicle itself plus everything it's carrying, including passengers, cargo, and any other items on board."
+          }
+        },
+        "153": {
+          "en": {
+            "question": "What emergency tools do you always need to have in your car?",
+            "options": {
+              "A": "Warning devices for parking vehicle.",
+              "B": "Tire repair kit.",
+              "C": "Spare fuel canisters"
+            },
+            "correct_option": "A",
+            "description": "Your truck must have gear for emergencies: tools to signal when parked, a fire extinguisher to put out fires, and no spare fuel cans - they're not needed. Always be ready for any trouble on the road."
+          }
+        },
+        "154": {
+          "en": {
+            "question": "Which of these statements about the risk factors for a vehicle fire is correct?",
+            "options": {
+              "A": "Steel parts of the vehicle are more likely to catch fire than other parts.",
+              "B": "Brake fluid is non-flammable.",
+              "C": "Poor cargo ventilation may cause cargo to catch on fire."
+            },
+            "correct_option": "C",
+            "description": "If the area where goods are stored in a vehicle doesn't have enough air moving through it, there's a higher risk that these goods might start a fire."
+          }
+        },
+        "155": {
+          "en": {
+            "question": "What is true regarding the technique of double clutching and shifting?",
+            "options": {
+              "A": "Double clutching should only be used with a heavy load.",
+              "B": "Double clutching should not be used when the road is slippery.",
+              "C": "You can use the tachometer to tell you when to shift."
+            },
+            "correct_option": "C",
+            "description": "Double clutching means pressing the clutch twice when changing gears. It's best to use the tachometer, which shows your engine speed, to know the right time to shift gears. This helps make sure your truck runs smoothly."
+          }
+        },
+        "156": {
+          "en": {
+            "question": "You should not use stab braking on vehicles with:",
+            "options": {
+              "A": "Manual transmission systems",
+              "B": "Air conditioning systems",
+              "C": "Anti-lock brakes."
+            },
+            "correct_option": "C",
+            "description": "Stab braking shouldn't be used on vehicles with anti-lock brakes. This is because antilock brakes are designed to keep the wheels from locking up during braking, making it safer and easier to control the vehicle. Stab braking can mess with how these systems work."
+          }
+        },
+        "157": {
+          "en": {
+            "question": "What should you do if you are unsure whether your vehicle can go under an object because of its height?",
+            "options": {
+              "A": "Check the weather forecast for wind conditions that might affect clearance.",
+              "B": "Drive closer to the center of the road to avoid the object.",
+              "C": "Find another route that will not require driving under the object."
+            },
+            "correct_option": "C",
+            "description": "If you're not sure your truck can fit under something like a bridge, don't guess. Instead, choose a different way to go where you won't have to worry about fitting under that object. This keeps you and your truck safe."
+          }
+        },
+        "158": {
+          "en": {
+            "question": "How many miles into your journey must you conduct an inspection of your truck?",
+            "options": {
+              "A": "100",
+              "B": "50",
+              "C": "150"
+            },
+            "correct_option": "B",
+            "description": "The correct answer is 50. This means that after you have traveled 50 miles from the start of your trip, you need to stop and check your truck to make sure everything is working properly."
+          }
+        },
+        "159": {
+          "en": {
+            "question": "What is the reason given in the driver's manual for advising against frequent use of your horn?",
+            "options": {
+              "A": "Using the horn can drain your vehicle's battery.",
+              "B": "It can startle other drivers.",
+              "C": "To avoid waking up nearby residents"
+            },
+            "correct_option": "B",
+            "description": "You shouldn't honk your horn a lot because it can scare other drivers. This can make driving unsafe for everyone."
+          }
+        },
+        "160": {
+          "en": {
+            "question": "When driving a commercial vehicle, you need to pay extra attention to keep it in the middle of your lane because commercial vehicles:",
+            "options": {
+              "A": "Need more fuel than smaller vehicles",
+              "B": "Have smaller mirrors, making it hard to see.",
+              "C": "Are often wider than other vehicles."
+            },
+            "correct_option": "C",
+            "description": "Driving big trucks means you need to be extra careful keeping it in the middle of your lane because they're wider than most other vehicles. This extra width makes it tough to stay lined up right without paying close attention."
           }
         },
         "161": {
           "en": {
-            "question": "",
+            "question": "When should you stop driving?",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "Whenever you become sleepy.",
+              "B": "When you've finished your coffee.",
+              "C": "After 5 hours."
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "A",
+            "description": "Stop driving when you feel sleepy. Driving tired can be very dangerous because you might fall asleep and cause an accident. It's important to listen to your body and rest when you need to, so everyone stays safe on the road."
+          }
+        },
+        "162": {
+          "en": {
+            "question": "Why is it important to check your truck or bus before driving?",
+            "options": {
+              "A": "To save fuel.",
+              "B": "Safety.",
+              "C": "To improve driving skills."
+            },
+            "correct_option": "B",
+            "description": "Checking your truck or bus is important to make sure it is safe to drive, which can help prevent accidents."
+          }
+        },
+        "163": {
+          "en": {
+            "question": "Communication means:",
+            "options": {
+              "A": "To communicate your intention to other motorists.",
+              "B": "To listen to music loudly while driving",
+              "C": "Using hand signals to play a game"
+            },
+            "correct_option": "A",
+            "description": "Talking or signaling to let other drivers know what you plan to do on the road."
+          }
+        },
+        "164": {
+          "en": {
+            "question": "Which of the following is a type of jackknifing?",
+            "options": {
+              "A": "Both trailer and tractor.",
+              "B": "Tractor.",
+              "C": "Trailer."
+            },
+            "correct_option": "A",
+            "description": "Jackknifing happens when the trailer part of a big truck swings out and forms a sharp angle with the front part, kind of like a folding pocket knife. This can happen if the driver turns too sharply while going too fast."
+          }
+        },
+        "165": {
+          "en": {
+            "question": "Which item should NOT be checked during a pre-trip inspection?",
+            "options": {
+              "A": "Amount of fuel in a vehicle.",
+              "B": "Cargo securement.",
+              "C": "Whether all lights are working."
+            },
+            "correct_option": "A",
+            "description": "The amount of fuel isn't checked during a pre-trip inspection because the focus is on the vehicle's safety and functionality, not fuel levels."
+          }
+        },
+        "166": {
+          "en": {
+            "question": "What is the best course of action for drivers when confronted with dense fog?",
+            "options": {
+              "A": "Increase your speed to get out of the fog faster.",
+              "B": "Turn on your loud music to alert other drivers.",
+              "C": "Park the truck until the fog disappears."
+            },
+            "correct_option": "C",
+            "description": "When it's very foggy, it's safest to stop driving and park your truck. Wait until the fog clears up before you start driving again. This way, you avoid the risk of accidents because it's hard to see in fog."
+          }
+        },
+        "167": {
+          "en": {
+            "question": "When inspecting the vehicle, checking of - will NOT stop a fire from happening.",
+            "options": {
+              "A": "Cargo ventilation.",
+              "B": "Electrical system isolation.",
+              "C": "Battery fluid level."
+            },
+            "correct_option": "C",
+            "description": "Checking the battery fluid level will not prevent a fire, as fires are more likely caused by issues like fuel leaks or electrical problems, which aren't directly related to the battery fluid level."
+          }
+        },
+        "168": {
+          "en": {
+            "question": "What should you NOT do if a car suddenly cuts in front of you, creating a hazard?",
+            "options": {
+              "A": "Slow down to prevent a crash.",
+              "B": "Honk your horn and stay close behind the car.",
+              "C": "Signal and change lanes to avoid hazard."
+            },
+            "correct_option": "B",
+            "description": "Don't flash your high beams over and over, honk your horn while staying close to the car, or speed up to pass the car quickly. These actions can make the situation more dangerous."
+          }
+        },
+        "169": {
+          "en": {
+            "question": "If your vehicle starts burning while you're driving, what should you do?",
+            "options": {
+              "A": "Use water immediately to douse the flames.",
+              "B": "Park in an open area.",
+              "C": "Drive towards the nearest body of water."
+            },
+            "correct_option": "B",
+            "description": "If your vehicle starts burning while driving, find a wide-open space to park it safely. Parking in an open area helps avoid spreading the fire to buildings or trees and makes it easier for emergency services to reach you."
+          }
+        },
+        "170": {
+          "en": {
+            "question": "What is the best reaction when, on a road with only two lanes, you see another car coming towards you in your lane?",
+            "options": {
+              "A": "Flash your headlights rapidly.",
+              "B": "Steer to the right.",
+              "C": "Hard braking."
+            },
+            "correct_option": "B",
+            "description": "If another car comes into your lane, don't panic. Don't try to speed up or flash your lights. Instead, safely move to the right side of your lane or onto the shoulder if you can. This helps avoid a crash by giving the other driver space to get back into their lane."
           }
         },
         "171": {
           "en": {
-            "question": "",
+            "question": "Drivers of trucks and truck-trailers must verify that their load is securely fastened how many miles into their trip?",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "50",
+              "B": "25",
+              "C": "10"
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "A",
+            "description": "Truck drivers must make sure their load is safely tied down within the first 50 miles of their journey. This is important to prevent accidents or losing goods on the road."
+          }
+        },
+        "172": {
+          "en": {
+            "question": "Why is it necessary to change gears the right way?",
+            "options": {
+              "A": "To make the ride smoother for passengers.",
+              "B": "To keep control of the vehicle.",
+              "C": "To save fuel."
+            },
+            "correct_option": "B",
+            "description": "Shifting gears right helps you control the vehicle better."
+          }
+        },
+        "173": {
+          "en": {
+            "question": "You're driving a large vehicle known for making wide turns. You're on Pine Street and plan to turn left onto Cedar Street. Both Pine and Cedar Streets have two lanes and allow two-way traffic. Considering the need for extra turning space due to the size of your vehicle, what's the best approach for this left turn?",
+            "options": {
+              "A": "Use the right lane of Pine Street for the turn.",
+              "B": "Wait until you reach the end of Cedar Street to start turning.",
+              "C": "Begin turning your vehicle when you are halfway through the intersection."
+            },
+            "correct_option": "C",
+            "description": "When turning left in a big vehicle on two-way streets, start turning when halfway through the intersection. This helps make the wide turn safely without needing extra space from the right lane or waiting too long."
+          }
+        },
+        "174": {
+          "en": {
+            "question": "You're driving in an area with limited streetlights, and your headlights aren't giving you enough visibility. What strategy could improve your situation?",
+            "options": {
+              "A": "Apply a layer of reflective tape on the exterior of your vehicle.",
+              "B": "Use your high beams when legal and keep your interior lights off.",
+              "C": "Install brighter bulbs in your headlights."
+            },
+            "correct_option": "B",
+            "description": "When driving in the dark, switching to high beams can make it easier to see by shining a brighter, focused light ahead. Keeping the interior lights off prevents glare on your windshield, which helps you see hazards sooner."
+          }
+        },
+        "175": {
+          "en": {
+            "question": "Why does a vehicle go faster when moving downhill?",
+            "options": {
+              "A": "The air becomes thinner.",
+              "B": "Lack of traction.",
+              "C": "Gravity."
+            },
+            "correct_option": "C",
+            "description": "When you drive downhill, gravity pulls the vehicle faster, making it speed up."
+          }
+        },
+        "176": {
+          "en": {
+            "question": "The bridge formula:",
+            "options": {
+              "A": "Allows for unlimited axle weight regardless of distance between axles.",
+              "B": "Calculates the maximum vehicle height based on axle distance.",
+              "C": "Permits less maximum axle weight for axles that are closer together."
+            },
+            "correct_option": "C",
+            "description": "The bridge formula decides how much weight can be on each axle of a big vehicle. If the axles are closer together, the vehicle can't carry as much weight on them. This rule helps protect bridges and roads from heavy vehicles."
+          }
+        },
+        "177": {
+          "en": {
+            "question": "What's the proper way to handle a skid caused by accelerating too quickly with the drive wheels?",
+            "options": {
+              "A": "Turn the steering wheel rapidly left and right.",
+              "B": "Stop accelerating.",
+              "C": "Gently tap the brakes."
+            },
+            "correct_option": "B",
+            "description": "When your driving wheels start to skid because you're speeding up too much, the best thing to do is to stop pressing on the gas pedal. This helps your wheels catch grip again and stops the skid."
+          }
+        },
+        "178": {
+          "en": {
+            "question": "You should be aware that containerized loads __",
+            "options": {
+              "A": "Must be placed on flatbed trailers only.",
+              "B": "Generally are used when freight is carried part way by rail or ship.",
+              "C": "Do not need to be secured since they are in containers."
+            },
+            "correct_option": "B",
+            "description": "Loads in big boxes (containers) are usually used when goods are moved by trains or ships along with trucks."
+          }
+        },
+        "179": {
+          "en": {
+            "question": "Managing the space (to the) _ your vehicle is crucial.",
+            "options": {
+              "A": "To the side of",
+              "B": "Front of",
+              "C": "Back of"
+            },
+            "correct_option": "B",
+            "description": "The space in front of your vehicle is the most crucial to keep an eye on because you need enough room to safely stop or react to things happening on the road. This helps prevent accidents and keeps you and others safe."
+          }
+        },
+        "180": {
+          "en": {
+            "question": "What is the correct definition of emergency braking?",
+            "options": {
+              "A": "Slowing down for a yellow traffic light.",
+              "B": "Responding to a hazard by slowing the vehicle.",
+              "C": "Using the turn signal while braking lightly."
+            },
+            "correct_option": "B",
+            "description": "Emergency braking is when you quickly slow down your vehicle because there's a danger or unexpected problem ahead. It's a fast response to stop or slow down to avoid a crash or hazard."
           }
         },
         "181": {
+          "en": {
+            "question": "Which type of vehicle will find it most challenging to stay in its lane during strong wind conditions?",
+            "options": {
+              "A": "A double with an empty trailer.",
+              "B": "A tractor pulling a loaded flatbed trailer.",
+              "C": "A triple axle vehicle with cargo."
+            },
+            "correct_option": "A",
+            "description": "A big truck pulling an empty trailer is most likely to have a hard time staying in its lane when it's very windy. This is because the wind can push against the large, empty space of the trailer, making it harder to control."
+          }
+        },
+        "182": {
+          "en": {
+            "question": "Convex (curved) mirrors:",
+            "options": {
+              "A": "They show a wider area than flat mirrors show.",
+              "B": "They reduce the field of view, making objects appear closer than they actually are.",
+              "C": "They only show what's directly behind you."
+            },
+            "correct_option": "A",
+            "description": "Convex mirrors, like those on buses or trucks, let you see more around you than flat ones. But, things in these mirrors might look blurrier and not as clear. They don't just show what's directly behind but give a wider view."
+          }
+        },
+        "183": {
+          "en": {
+            "question": "What should you remember about using mirrors while driving?",
+            "options": {
+              "A": "Mirrors automatically adjust to reduce glare at night.",
+              "B": "There are blind spots that your mirror cannot show.",
+              "C": "Mirrors can display the exact speed of the vehicle behind you."
+            },
+            "correct_option": "B",
+            "description": "Mirrors don't show everything. There are hidden spots that your mirrors can't see, so always be careful and check those areas to stay safe on the road."
+          }
+        },
+        "184": {
+          "en": {
+            "question": "What practices should you follow while driving at night?",
+            "options": {
+              "A": "Adjust your speed to keep your stopping distance within your sight distance.",
+              "B": "Turn off your headlights to reduce glare.",
+              "C": "Use high beams in all situations to see further."
+            },
+            "correct_option": "A",
+            "description": "When driving at night, slow down so you can stop within the area you can see. Don't turn off your headlights; they help you see. Don't always use high beams; they can blind others."
+          }
+        },
+        "185": {
+          "en": {
+            "question": "What is the best course of action when you need to steer quickly to avoid a crash?",
+            "options": {
+              "A": "Close your eyes and steer in the direction you think is safest.",
+              "B": "Turn off the engine while steering.",
+              "C": "Don't turn any more than needed to clear what is in your way."
+            },
+            "correct_option": "C",
+            "description": "When trying to avoid a crash, only turn the steering wheel as much as you need to get around the obstacle. Don't turn more than that."
+          }
+        },
+        "186": {
+          "en": {
+            "question": "Is it necessary to regularly check the adjustment of your brakes?",
+            "options": {
+              "A": "No, because the other brakes will make up for the air brakes when they are out of adjustment.",
+              "B": "Yes, because the brakes can get out of adjustment when they are used a lot.",
+              "C": "Only if the vehicle fails to stop properly."
+            },
+            "correct_option": "B",
+            "description": "Yes, it's important to check your brakes regularly because using them a lot can make them not work as well. This helps make sure they keep working right."
+          }
+        },
+        "187": {
+          "en": {
+            "question": "When you drive in an area where construction work is happening, you should:",
+            "options": {
+              "A": "Watch for sharp pavement drop off.",
+              "B": "Increase your radio volume to stay alert.",
+              "C": "Ignore traffic signs and signals."
+            },
+            "correct_option": "A",
+            "description": "When driving in a work zone, look out for sudden edges or drops in the road. Don't turn up your radio; it won't help keep you alert. Always pay attention to and follow the traffic signs and signals."
+          }
+        },
+        "188": {
+          "en": {
+            "question": "What should you do before making a turn that requires entering the opposite lane?",
+            "options": {
+              "A": "Watch for oncoming traffic.",
+              "B": "Back to allow the oncoming traffic to pass.",
+              "C": "Signal to oncoming traffic and proceed slowly."
+            },
+            "correct_option": "A",
+            "description": "When you have to get into the other lane to turn, make sure to look out for cars coming your way."
+          }
+        },
+        "189": {
+          "en": {
+            "question": "Which component does not add extra gears to certain trucks?",
+            "options": {
+              "A": "Auxiliary transmission",
+              "B": "Automatic transmission.",
+              "C": "Multi-speed rear axles."
+            },
+            "correct_option": "B",
+            "description": "Automatic transmission shifts gears on its own but doesn't add extra ones."
+          }
+        },
+        "190": {
+          "en": {
+            "question": "What should you do when you begin to drive up a hill from a stopped position?",
+            "options": {
+              "A": "Release the parking brakes as you apply engine power.",
+              "B": "Press the accelerator hard while the brakes are still engaged.",
+              "C": "Shift into a higher gear before starting up the hill."
+            },
+            "correct_option": "A",
+            "description": "When starting up a hill from a stop, first let go of the parking brake while gently pressing on the gas. This helps your truck move smoothly without rolling backward."
+          }
+        },
+        "191": {
+          "en": {
+            "question": "What is correct about the air pressure in tires?",
+            "options": {
+              "A": "Tire pressure doesn't matter as long as the tire looks full.",
+              "B": "Tires should always be overinflated.",
+              "C": "Air pressure in tires increases with the temperature."
+            },
+            "correct_option": "C",
+            "description": "Air pressure in tires increases with temperature because air expands when heated. This is why it's important to check tire pressure regularly, especially during seasonal temperature changes, to ensure safety and optimal tire performance."
+          }
+        },
+        "192": {
+          "en": {
+            "question": "High beams should be:",
+            "options": {
+              "A": "Dimmed at the time when you get within 100 feet of another vehicle.",
+              "B": "Used when it is safe and legal to do so.",
+              "C": "Activated in heavy traffic."
+            },
+            "correct_option": "B",
+            "description": "Use high beams when it's safe and allowed by law. Don't use them in heavy traffic."
+          }
+        },
+        "193": {
+          "en": {
+            "question": "After avoiding a collision by moving onto the right shoulder and continuing to drive at 40 mph, how should you safely return to the main part of the road?",
+            "options": {
+              "A": "If the shoulder is clear, stay on the right until your vehicle comes to a stop then move back into the pavement when it is safe.",
+              "B": "Accelerate to match the speed of traffic before merging back onto the road.",
+              "C": "Continue at 40 mph and merge directly into traffic."
+            },
+            "correct_option": "A",
+            "description": "If the shoulder of the road is clear, you should first move to the right side and remain there until your vehicle comes to a complete stop. Once it is safe to do so, carefully move your vehicle back onto the pavement and resume driving."
+          }
+        },
+        "194": {
+          "en": {
+            "question": "When dealing with a coolant container that is part of a pressurized system, which of the following is true?",
+            "options": {
+              "A": "The system self-regulates and requires no coolant top-ups.",
+              "B": "You can check the coolant level of a hot engine.",
+              "C": "The coolant container's markings shift with temperature, making a hot engine's reading unreliable."
+            },
+            "correct_option": "B",
+            "description": "Some vehicles have sight glasses, see-through coolant overflow containers, or coolant recovery containers. These permit you to check the coolant level while the engine is hot. Never remove the radiator cap or any part of the pressurized system until the system has cooled."
+          }
+        },
+        "195": {
+          "en": {
+            "question": "Which of these facts about using brakes is correct?",
+            "options": {
+              "A": "The faster or heavier the vehicle is, the more heat the brakes have to absorb to stop it.",
+              "B": "Brakes work best when they are cold and dry.",
+              "C": "Brake fade is not caused by heat."
+            },
+            "correct_option": "A",
+            "description": "When a vehicle is big or moves fast, its brakes need to soak up more heat to make it stop."
+          }
+        },
+        "196": {
+          "en": {
+            "question": "Which statement about handling different types of cargo is true?",
+            "options": {
+              "A": "Unstable load such as hanging meat or livestock can require extra caution on curves.",
+              "B": "Dry goods do not need to be secured as they are not at risk of movement.",
+              "C": "Fragile items can be stacked high as long as they are wrapped in plastic."
+            },
+            "correct_option": "A",
+            "description": "When carrying items that can move around easily, like hanging meat or animals, you need to be extra careful when turning. Dry items still need to be properly held down, and items that can break shouldn't be piled up high, even if they're wrapped in plastic."
+          }
+        },
+        "197": {
+          "en": {
+            "question": "What is the best response when drivers follow too closely behind your large vehicle during poor weather conditions?",
+            "options": {
+              "A": "Increase your following distance.",
+              "B": "Switch lanes to let the tailgater pass.",
+              "C": "Turn on your hazard lights to encourage them to keep distance."
+            },
+            "correct_option": "A",
+            "description": "If someone is driving too close to you in bad weather, it's smart to create more space between you and the car in front. This way, you have more time to react if something goes wrong."
+          }
+        },
+        "198": {
+          "en": {
+            "question": "What factors make tourists potential road hazards?",
+            "options": {
+              "A": "They may move slowly, unexpectedly change lanes or stop.",
+              "B": "They often use maps while driving.",
+              "C": "They might take photos while driving."
+            },
+            "correct_option": "A",
+            "description": "Tourists can be risky on the road because they might drive slowly, change lanes or stop without warning as they might be unsure of where they're going."
+          }
+        },
+        "199": {
+          "en": {
+            "question": "What actions are required if you find yourself parked on the roadside at night?",
+            "options": {
+              "A": "Turn on your four-way-emergency flashers to warn others.",
+              "B": "Activate your vehicle's spotlight.",
+              "C": "Keep your headlights on full beam."
+            },
+            "correct_option": "A",
+            "description": "The best choice is option 1. This is because using your emergency flashers makes your car more visible to other drivers, helping to prevent accidents."
+          }
+        },
+        "200": {
+          "en": {
+            "question": "What is likely to happen if you are convicted for the first time of DUI while driving a commercial vehicle?",
+            "options": {
+              "A": "Mandatory defensive driving course completion",
+              "B": "At least one-year suspension of your CDL.",
+              "C": "Community service for 50 hours"
+            },
+            "correct_option": "B",
+            "description": "If you get caught driving a commercial vehicle under the influence for the first time, you'll likely lose your commercial driver's license for at least one year."
+          }
+        },
+        "201": {
+          "en": {
+            "question": "How long should the following distance be when you're driving a 40-foot vehicle at 35 mph under clear and dry conditions?",
+            "options": {
+              "A": "4 seconds.",
+              "B": "6 seconds",
+              "C": "2 seconds"
+            },
+            "correct_option": "A",
+            "description": "When driving a big 40-foot vehicle at 35 mph on a dry, clear day, you should stay at least 4 seconds behind the vehicle in front of you. This gives you enough time and space to stop safely if needed."
+          }
+        },
+        "202": {
+          "en": {
+            "question": "Which of these statements about staying alert while driving is true?",
+            "options": {
+              "A": "Drinking energy drinks continuously is better than taking breaks.",
+              "B": "Listening to loud music is more effective than a short nap.",
+              "C": "Sleep is the only thing that can overcome fatigue."
+            },
+            "correct_option": "C",
+            "description": "The only true way to fight off tiredness is by getting some sleep. Drinking lots of energy drinks or blasting loud music might seem helpful, but they don't really solve the problem of feeling sleepy. Taking short naps is a better choice than relying on these methods."
+          }
+        },
+        "203": {
+          "en": {
+            "question": "What should you do if your brakes overheat and fail while you're going down a long, steep hill?",
+            "options": {
+              "A": "Turn on your hazard lights and honk continuously.",
+              "B": "Turn off your engine.",
+              "C": "Look for an escape ramp or escape route."
+            },
+            "correct_option": "C",
+            "description": "If your brakes stop working on a steep hill, quickly look for a safe way off the road or an escape ramp to stop safely."
+          }
+        },
+        "204": {
+          "en": {
+            "question": "At night, it's advisable to switch to high beams if there's no oncoming traffic within how many feet?",
+            "options": {
+              "A": "300",
+              "B": "500",
+              "C": "400"
+            },
+            "correct_option": "B",
+            "description": "When driving at night, use your high beams if no other cars are coming towards you and are farther than 500 feet away. High beams help you see better, but you must switch to low beams when cars are closer to avoid blinding other drivers."
+          }
+        },
+        "205": {
+          "en": {
+            "question": "How should you handle driving on a slippery road?",
+            "options": {
+              "A": "Slow down gradually.",
+              "B": "Keep your speed the same as on a dry road.",
+              "C": "Turn on your high beams."
+            },
+            "correct_option": "A",
+            "description": "When the road is slippery, it's safest to slow down slowly. This helps you keep control of your vehicle and avoid accidents. Keeping your speed like it's a dry road or using high beams won't make driving safer on a slippery surface."
+          }
+        },
+        "206": {
+          "en": {
+            "question": "During a pre-trip inspection on the steering and exhaust systems, which problem, if found, must be fixed before you drive?",
+            "options": {
+              "A": "Oil on a tie rod.",
+              "B": "Steering wheel play of more than 10 degrees (2 inches on 20 inches steering wheel).",
+              "C": "Rust on the exhaust system."
+            },
+            "correct_option": "B",
+            "description": "Before you drive, make sure the steering wheel doesn't move too much (more than 10 degrees or 2 inches on a big steering wheel)."
+          }
+        },
+        "207": {
+          "en": {
+            "question": "What is the right way to let others know you want to switch lanes?",
+            "options": {
+              "A": "Signal early and change lane slowly and smoothly.",
+              "B": "Signal only if other vehicles are close.",
+              "C": "Signal at the last moment and swiftly change lanes."
+            },
+            "correct_option": "A",
+            "description": "The right way to switch lanes is to turn on your signal before you start moving, then carefully and slowly move into the new lane. This lets other drivers know what you're doing ahead of time and helps keep everyone safe on the road."
+          }
+        },
+        "208": {
+          "en": {
+            "question": "Where should you place reflective triangles to warn other drivers when stopping on a hill or curve on a two-lane two-way road?",
+            "options": {
+              "A": "Within 100 feet behind you.",
+              "B": "Within 500 feet behind you.",
+              "C": "Within 300 feet behind you."
+            },
+            "correct_option": "B",
+            "description": "If your vehicle stops on a hill or curve on a two-lane road, put reflective triangles 500 feet behind your vehicle to warn other drivers."
+          }
+        },
+        "209": {
+          "en": {
+            "question": "Which of these things should you not do when turning left?",
+            "options": {
+              "A": "Position your vehicle in the left lane, signal early, and maintain a smooth, controlled left turn",
+              "B": "Start at the inside lane and swing right as you turn",
+              "C": "Approach the intersection in the left-turn lane, use your left indicator, and stay in your lane until the turn is complete."
+            },
+            "correct_option": "B",
+            "description": "When turning left, you should not start in the inside lane and swing to the right. This is dangerous because it can confuse other drivers and cause accidents. You should stay in your lane and make a smooth, safe turn."
+          }
+        },
+        "210": {
+          "en": {
+            "question": "What kind of fires can you safely put out with water?",
+            "options": {
+              "A": "Oil fires",
+              "B": "Tire fires.",
+              "C": "Chemical fires"
+            },
+            "correct_option": "B",
+            "description": "Tire fires can be safely extinguished with water because water can cool the rubber and suppress the flames without causing dangerous reactions."
+          }
+        },
+        "211": {
+          "en": {
+            "question": "Cargo inspection:",
+            "options": {
+              "A": "Must be done by a certified inspector before departure.",
+              "B": "Should be performed after every break you take while driving.",
+              "C": "Is required once at the beginning of the week."
+            },
+            "correct_option": "B",
+            "description": "Before you start driving and after every break, check your cargo to make sure it's safe and secure. No need for a special inspector to do it, and doing it just once a week isn't enough."
+          }
+        },
+        "212": {
+          "en": {
+            "question": "What is correct regarding the placement of emergency markers when a vehicle is stopped?",
+            "options": {
+              "A": "Turn on the vehicle's hazard lights only during daylight hours.",
+              "B": "Place a sign on the vehicle stating it's not moving.",
+              "C": "If a hill or curve keeps drivers behind you from seeing the vehicle within 500 feet, the reflective triangle should be moved back to give adequate warning."
+            },
+            "correct_option": "C",
+            "description": "If your vehicle stops where drivers can't see it within 500 feet because of a hill or curve, you need to put the reflective triangle further back to warn them."
+          }
+        },
+        "213": {
+          "en": {
+            "question": "In an emergency, which of the following actions should you avoid?",
+            "options": {
+              "A": "Steer sharply to the left or right depending on the obstacle.",
+              "B": "Braking until your speed has dropped to about 20 mph.",
+              "C": "Combining strong braking with precise steering adjustments to maintain control during an emergency."
+            },
+            "correct_option": "B",
+            "description": "In certain emergencies, coming to a complete stop isn't always the safest option. If there isn't enough space to brake in time, you may need to steer around whatever lies ahead."
+          }
+        },
+        "214": {
+          "en": {
+            "question": "What should you do if your hydraulic brakes stop working and you notice the brake pedal is spongy or hits the floor?",
+            "options": {
+              "A": "Pump the brake pedal to generate pressure.",
+              "B": "Turn off the engine to stop the vehicle.",
+              "C": "Turn on the hazard lights and keep driving."
+            },
+            "correct_option": "A",
+            "description": "If your hydraulic brakes fail and the pedal feels spongy or goes to the floor, you should quickly pump the brake pedal. This action can help build up enough pressure in the brake system to allow you to stop the vehicle safely."
+          }
+        },
+        "215": {
+          "en": {
+            "question": "Getting stuck on railroad tracks might occur if:",
+            "options": {
+              "A": "The tracks have a steep approach.",
+              "B": "Your trailer is too light.",
+              "C": "You drive too fast over the tracks."
+            },
+            "correct_option": "A",
+            "description": "If the road leading to the tracks is very steep, your vehicle might get stuck on the tracks."
+          }
+        },
+        "216": {
+          "en": {
+            "question": "Escape ramps:",
+            "options": {
+              "A": "Require special permits to use.",
+              "B": "Can only be found on steep grades longer than 1 mile.",
+              "C": "Should be used by any driver who loses braking power."
+            },
+            "correct_option": "C",
+            "description": "Escape ramps are safety areas on steep roads where drivers can go if their brakes stop working. Any driver with brake problems should use them to stop safely. They don't need special permits and are found on long, steep roads."
+          }
+        },
+        "217": {
+          "en": {
+            "question": "Serious skids are often caused by:",
+            "options": {
+              "A": "Driving too fast for conditions.",
+              "B": "Not using headlights in rain",
+              "C": "Ignoring traffic signs"
+            },
+            "correct_option": "A",
+            "description": "Most skids happen because you're driving too quickly for the weather or road conditions. If you go too fast when it's rainy, snowy, or the road is slippery, your vehicle is more likely to skid and lose control. Always match your speed to how the road and weather are."
+          }
+        },
+        "218": {
+          "en": {
+            "question": "What should you do if an oncoming vehicle at night does not dim its high beams?",
+            "options": {
+              "A": "Turn off your headlights.",
+              "B": "Look to the right lane or edge markings of the road.",
+              "C": "Turn on your interior lights."
+            },
+            "correct_option": "B",
+            "description": "If another car's bright lights are blinding you at night, don't look straight at them. Instead, keep your eyes on the right side of the road or the lane markers to stay safe and avoid being blinded."
+          }
+        },
+        "219": {
+          "en": {
+            "question": "Which consequence is unlikely to occur if you shift into a low gear while driving fast with an automatic transmission?",
+            "options": {
+              "A": "Overheating of the engine",
+              "B": "Increased fuel consumption",
+              "C": "A loss of steering control."
+            },
+            "correct_option": "C",
+            "description": "Switching to a low gear at high speed won't make you lose control of steering. It can make the engine too hot and use more fuel, but steering the truck stays the same."
+          }
+        },
+        "220": {
+          "en": {
+            "question": "What is the main reason for deadly accidents on the road?",
+            "options": {
+              "A": "Driving too fast.",
+              "B": "Driving with the radio too loud.",
+              "C": "Driving in bad weather"
+            },
+            "correct_option": "A",
+            "description": "The main reason for deadly car accidents is driving too fast. Going too quickly makes it harder to stop or react in time to avoid dangers. This can lead to serious crashes, especially on busy roads or in bad weather. Always keep to the speed limit to stay safe."
+          }
+        },
+        "221": {
+          "en": {
+            "question": "Is it within the authority of state inspectors to inspect your truck or bus, and do they have the power to put it out of service?",
+            "options": {
+              "A": "Only at designated inspection stations.",
+              "B": "Yes and they can put you out of service if unsafe.",
+              "C": "Only with your permission."
+            },
+            "correct_option": "B",
+            "description": "Yes, state inspectors can check your truck or bus anytime to see if it's safe. If they find something wrong, they can stop you from driving it."
+          }
+        },
+        "222": {
+          "en": {
+            "question": "What is the proper procedure to recover from a skid caused by the drive wheels locking up during braking?",
+            "options": {
+              "A": "Accelerate and hold the steering wheel firmly",
+              "B": "Turn off the engine.",
+              "C": "Stop braking, turn quickly, then counter steer."
+            },
+            "correct_option": "C",
+            "description": "If your drive wheels start sliding, first, stop stepping on the brake. Then, quickly turn the steering wheel in one direction and immediately steer it back the other way. This helps you regain control of the vehicle."
+          }
+        },
+        "223": {
+          "en": {
+            "question": "Oversized loads:",
+            "options": {
+              "A": "Are allowed on all roads at any time.",
+              "B": "Require special permits.",
+              "C": "Need to be painted bright pink"
+            },
+            "correct_option": "B",
+            "description": "When you're carrying really big loads that don't fit normal size limits, you can't just drive them on any road whenever you want. You need to get special permission or permits to do so. This makes sure it's safe for everyone on the road."
+          }
+        },
+        "224": {
+          "en": {
+            "question": "What is the duration of CDL suspension for a first offense of operating a commercial vehicle while under the influence of alcohol or drugs?",
+            "options": {
+              "A": "3 months",
+              "B": "1 year",
+              "C": "4 years"
+            },
+            "correct_option": "B",
+            "description": "If you're caught driving a big truck or any commercial vehicle after drinking alcohol or taking drugs, you won't be allowed to drive these kinds of vehicles for 1 year. If you do it again, the punishment is even harsher."
+          }
+        },
+        "225": {
+          "en": {
+            "question": "In a scenario where a collision with another vehicle seems unavoidable without taking evasive measures, which principle should be considered?",
+            "options": {
+              "A": "Turning off your headlights can help avoid collisions.",
+              "B": "Speeding up is often the best way to avoid a crash.",
+              "C": "You can almost always turn to miss an obstacle more quickly than you can stop."
+            },
+            "correct_option": "C",
+            "description": "If you think you can't avoid hitting another car unless you take some action, you should know that turning your car to avoid the obstacle is usually faster than trying to stop. So, the best thing to do is to turn your car quickly to miss the obstacle."
+          }
+        },
+        "226": {
+          "en": {
+            "question": "Which statement is true regarding the impact of high temperatures on tire condition?",
+            "options": {
+              "A": "You should inspect your tires every two hours or every 100 miles when driving in very hot weather.",
+              "B": "Tires are less likely to blow out in hot weather because the heat expands the air inside.",
+              "C": "Tires naturally get cooler and perform better as the outside temperature rises."
+            },
+            "correct_option": "A",
+            "description": "When it's very hot, check your tires every 2 hours or every 100 miles. Hot weather can actually increase the chance of tire problems because the heat makes the air inside expand. This can lead to more tire blowouts."
+          }
+        },
+        "227": {
+          "en": {
+            "question": "Under what circumstances is it necessary to have assistants while backing your vehicle?",
+            "options": {
+              "A": "Only during nighttime.",
+              "B": "Whenever you have to back.",
+              "C": "Only if the area is crowded."
+            },
+            "correct_option": "B",
+            "description": "Whenever you need to back up your vehicle, it's smart to have someone help you. This ensures you can see areas you normally can't and avoid accidents. It's especially helpful in tight or crowded spots, but good practice anytime you're reversing."
+          }
+        },
+        "228": {
+          "en": {
+            "question": "To avoid a collision, you turned onto the shoulder. With the shoulder clear, what should you do next?",
+            "options": {
+              "A": "Turn on your hazard lights and wait for help.",
+              "B": "Speed up and merge into the traffic immediately.",
+              "C": "Stay on shoulder until your vehicle has come to a stop."
+            },
+            "correct_option": "C",
+            "description": "If you turned onto the shoulder to avoid a collision, it's important to make sure your vehicle is completely stopped and safe before doing anything else. This helps prevent further accidents and gives you a chance to assess the situation calmly."
+          }
+        },
+        "229": {
+          "en": {
+            "question": "Lacking a hazardous materials endorsement on your commercial driver's license, yet being asked to transport hazardous materials in a vehicle that requires placarding. How should you respond?",
+            "options": {
+              "A": "Refuse to haul the load.",
+              "B": "Take the load and make sure to drive extra carefully.",
+              "C": "Ask a friend to drive instead"
+            },
+            "correct_option": "A",
+            "description": "If you don't have the special permission (hazardous materials endorsement) on your driver's license to carry dangerous goods, you should not agree to transport them. It's against the rules to carry such materials without the right permission, no matter how careful you are or if someone else drives instead."
+          }
+        },
+        "230": {
+          "en": {
+            "question": "Which principle about managing your speed is correct?",
+            "options": {
+              "A": "Driving slowly means you can always stop instantly.",
+              "B": "You should choose a speed that lets you stop within the distance that you can see ahead.",
+              "C": "You can safely drive at any speed if you're experienced."
+            },
+            "correct_option": "B",
+            "description": "The right way to pick your speed is to make sure you can stop your vehicle safely within the distance you can clearly see in front of you."
+          }
+        },
+        "231": {
+          "en": {
+            "question": "What type of driving involves being aware and ready for possible dangers ahead?",
+            "options": {
+              "A": "Aggressive",
+              "B": "Defensive",
+              "C": "Reactive"
+            },
+            "correct_option": "B",
+            "description": "Drivers who watch out for dangers and think ahead to avoid them are practicing defensive driving. This means they are careful and ready to react to keep safe, not aggressive or just reacting when something happens."
+          }
+        },
+        "232": {
+          "en": {
+            "question": "What action is necessary if ice buildup prevents your windshield wipers from functioning properly while driving?",
+            "options": {
+              "A": "Slow down and open your windows to see better.",
+              "B": "Stop safely and fix the problem.",
+              "C": "Turn on your high beams to melt the ice."
+            },
+            "correct_option": "B",
+            "description": "If your wipers get icy and can't clean your windshield, the best thing to do is to safely stop and remove the ice. Don't try to drive with bad visibility or use other methods that might not work."
+          }
+        },
+        "233": {
+          "en": {
+            "question": "What's true about checking parts of the suspension system?",
+            "options": {
+              "A": "Axles' mounts should be checked at each point where they are secured on the vehicle frame and axles.",
+              "B": "Spring coils can be slightly compressed and still be considered safe.",
+              "C": "U-bolts can be loose as long as they are not completely detached."
+            },
+            "correct_option": "A",
+            "description": "When checking the parts that help your vehicle's wheels move smoothly, make sure the parts that connect the axles to the vehicle are tightly fixed. U-bolts should never be loose, even if they're not fully off."
+          }
+        },
+        "234": {
+          "en": {
+            "question": "You can identify the presence of hazardous materials by looking at the container _.",
+            "options": {
+              "A": "Sizes",
+              "B": "Colors",
+              "C": "Labels"
+            },
+            "correct_option": "C",
+            "description": "To know if something is a hazardous material, check the labels on its container. Labels give important info like what the material is and how to safely handle it."
+          }
+        },
+        "235": {
+          "en": {
+            "question": "When filling out a vehicle inspection report, you must sign it _.",
+            "options": {
+              "A": "Before the vehicle is used again",
+              "B": "When any defects are noted whether they are certified to be repaired or not.",
+              "C": "After the vehicle has been driven for more than 100 miles."
+            },
+            "correct_option": "B",
+            "description": "When you check your vehicle and note any problems, you need to sign the inspection report. This is important whether the issues are fixed yet or not."
+          }
+        },
+        "236": {
+          "en": {
+            "question": "A crucial principle to follow when loading cargo is to ensure that the load is:",
+            "options": {
+              "A": "Above the cab height",
+              "B": "Balanced in the cargo area.",
+              "C": "Below the truck's floor level"
+            },
+            "correct_option": "B",
+            "description": "When packing stuff onto a truck, make sure the weight is evenly spread out in the back. This helps keep the truck stable and safe to drive."
+          }
+        },
+        "237": {
+          "en": {
+            "question": "You are driving a long vehicle that makes wide turns. You want to turn left onto Oak Street from Elm Street. Elm Street has two left-turn lanes (marked A and B). Oak Street is a four-lane street with two lanes in each direction. You should:",
+            "options": {
+              "A": "Drive straight through the intersection and make a U-turn further down Oak Street.",
+              "B": "Use left turn lane 'B'",
+              "C": "Turn right onto Oak Street and then make a U-turn."
+            },
+            "correct_option": "B",
+            "description": "Choose left turn lane 'B' for a wide turn. This lane gives your long vehicle more space to turn without hitting anything or moving into other lanes."
+          }
+        },
+        "238": {
+          "en": {
+            "question": "A vehicle's destructive force in a crash is approximately how many times greater if you double its speed?",
+            "options": {
+              "A": "5",
+              "B": "4",
+              "C": "6"
+            },
+            "correct_option": "B",
+            "description": "When you double the speed of your vehicle, the force in a crash becomes 4 times stronger. This makes crashes more dangerous."
+          }
+        },
+        "239": {
+          "en": {
+            "question": "If you're behind the wheel of a 40-foot vehicle cruising at 55 mph on a dry road with good visibility, how much space should you ensure is open in front of you?",
+            "options": {
+              "A": "5 seconds",
+              "B": "7 seconds",
+              "C": "8 seconds"
+            },
+            "correct_option": "A",
+            "description": "If you're driving a 40-foot vehicle at 55 mph on a dry road with good visibility, you should keep a 5-second distance between your vehicle and the one in front to give yourself enough time to react and stop if needed."
+          }
+        },
+        "240": {
+          "en": {
+            "question": "What does Gross Vehicle Weight Rating (GVWR) mean?",
+            "options": {
+              "A": "The total weight a vehicle can carry including passengers and cargo.",
+              "B": "The manufacturer-specified maximum combined weight of the vehicle and any attached trailer when fully loaded.",
+              "C": "The weight of the vehicle when it's not carrying any cargo or passengers."
+            },
+            "correct_option": "A",
+            "description": "GVWR is the max weight set by the maker for a vehicle when it's full of passengers and cargo."
+          }
+        },
+        "241": {
+          "en": {
+            "question": "Which statement regarding the regulation of driving hours for commercial drivers is true?",
+            "options": {
+              "A": "You can drive for as long as you feel alert without taking breaks.",
+              "B": "You should balance your hour of service with enough sleep to keep you alert.",
+              "C": "You can ignore the hours of service rules if you drink coffee."
+            },
+            "correct_option": "B",
+            "description": "You need to mix your driving hours with enough rest to stay awake and alert. This means you can't just drive non-stop because you feel okay or drink coffee to ignore the rules about how long you can drive."
+          }
+        },
+        "242": {
+          "en": {
+            "question": "Aggressive driving is:",
+            "options": {
+              "A": "Driving a vehicle with the intent to do harm to others.",
+              "B": "Driving a vehicle slower than the speed limit on purpose.",
+              "C": "Driving a vehicle with loud music to distract other drivers."
+            },
+            "correct_option": "A",
+            "description": "Aggressive driving means you drive in a way that could hurt others on purpose. This isn't about going slow or playing loud music, but about dangerous actions that could cause harm."
+          }
+        },
+        "243": {
+          "en": {
+            "question": "In the event of a rear tire failure, dual rear tire:",
+            "options": {
+              "A": "Enables faster acceleration",
+              "B": "May prevent vibration or thumping.",
+              "C": "Reduces engine power automatically"
+            },
+            "correct_option": "B",
+            "description": "When one of the back tires goes flat, having two tires next to each other helps keep the ride smooth and stops the truck from shaking too much."
+          }
+        },
+        "244": {
+          "en": {
+            "question": "While driving a vehicle equipped with ABS brakes, a yellow light on the dashboard begins flashing. What could this indicate?",
+            "options": {
+              "A": "Your vehicle ABS may not be functioning properly.",
+              "B": "Your tire pressure is too high.",
+              "C": "Your headlights are not working."
+            },
+            "correct_option": "A",
+            "description": "If the yellow light on your dashboard blinks while driving and your car has ABS brakes, it likely means the ABS system isn't working right. ABS helps you steer during hard braking, so if it's not working, braking might be less safe."
+          }
+        },
+        "245": {
+          "en": {
+            "question": "What behaviors could indicate that a driver is being aggressive on the road?",
+            "options": {
+              "A": "Using turn signals for every turn and lane change.",
+              "B": "Changing lines frequently and abruptly without notice.",
+              "C": "Following too closely behind another vehicle."
+            },
+            "correct_option": "B",
+            "description": "An aggressive driver often switches lanes quickly without warning."
+          }
+        },
+        "246": {
+          "en": {
+            "question": "How can a driver effectively deal with fatigue?",
+            "options": {
+              "A": "Drinking lots of coffee",
+              "B": "It can only be paid off by sleeping.",
+              "C": "Ignoring it and continuing to work."
+            },
+            "correct_option": "B",
+            "description": "Being very tired can only be fixed properly by getting some sleep. Drinking lots of coffee or just trying to push through it doesn't really solve the problem."
+          }
+        },
+        "247": {
+          "en": {
+            "question": "What should a driver do when they see a circular sign that's black and yellow?",
+            "options": {
+              "A": "Slow down, look and listen, and be prepared to stop if a train is approaching.",
+              "B": "Sharp turn to the right.",
+              "C": "No passing zone ahead."
+            },
+            "correct_option": "A",
+            "description": "A round, black on yellow sign warns you. It means slow down, look around, and be ready to stop for a train."
+          }
+        },
+        "248": {
+          "en": {
+            "question": "What is NOT correct about using brakes in an emergency?",
+            "options": {
+              "A": "You should always apply the brakes as hard as possible, regardless of the road conditions.",
+              "B": "It is not important how you brake in an emergency situation.",
+              "C": "Braking should be done only with the front wheels to maintain control."
+            },
+            "correct_option": "B",
+            "description": "In an emergency situation, how you brake is very important. You need to apply the brakes in a way that helps you control the vehicle and stop safely."
+          }
+        },
+        "249": {
+          "en": {
+            "question": "How can you spot a driver who isn't paying attention?",
+            "options": {
+              "A": "The vehicle is drifting across lines and moving at variable speeds.",
+              "B": "The driver is using turn signals correctly for every lane change.",
+              "C": "The vehicle is maintaining a consistent speed in the correct lane."
+            },
+            "correct_option": "A",
+            "description": "A distracted driver can often be spotted if their car keeps zigzagging between lanes or changing speed for no clear reason. This happens because they're not paying full attention to driving."
+          }
+        },
+        "250": {
+          "en": {
+            "question": "What is the safest way to use communication devices inside a vehicle?",
+            "options": {
+              "A": "Read text messages only at stop lights.",
+              "B": "Adjust the volume while driving.",
+              "C": "Pull off the road in a safe, legal place to use the equipment."
+            },
+            "correct_option": "C",
+            "description": "The best way to use things like phones in your truck is to first pull over safely off the road. Then, you can use your device without risking an accident."
+          }
+        },
+        "251": {
+          "en": {
+            "question": "Trucks and buses have to follow special rules and limits. Which of these statements is true?",
+            "options": {
+              "A": "Buses are exempt from highway speed limits.",
+              "B": "Trucks must stop at all green traffic lights.",
+              "C": "Laws and restrictions can vary from place to place."
+            },
+            "correct_option": "C",
+            "description": "Different places have their own rules for trucks and buses. What's allowed in one area might not be in another."
+          }
+        },
+        "252": {
+          "en": {
+            "question": "If the yellow ABS warning light turns on in a truck, truck, or bus while you're driving, what does it mean?",
+            "options": {
+              "A": "Your vehicle's ABS may not be functioning.",
+              "B": "Your vehicle's oil level is too high.",
+              "C": "Your headlights are not working properly."
+            },
+            "correct_option": "A",
+            "description": "If the yellow ABS light turns on while you're driving a big vehicle like a truck or bus, it means the antilock brake system might not be working right."
+          }
+        },
+        "253": {
+          "en": {
+            "question": "You looked in your mirror and saw a car coming from behind. When you checked again, the car was gone. You want to switch lanes. What should you do?",
+            "options": {
+              "A": "Wait to change lanes until you are sure that car isn't in your blind spot.",
+              "B": "Your headlights are not working properly.",
+              "C": "Turn on your radio to distract yourself from the worry."
+            },
+            "correct_option": "A",
+            "description": "Before changing lanes, make sure the car that disappeared from your mirror isn't in your blind spot where you can't see it. Always double-check before moving over to avoid any accidents."
+          }
+        },
+        "254": {
+          "en": {
+            "question": "You can tell if the vehicle you're driving has ABS brakes by:",
+            "options": {
+              "A": "A manual in the glove compartment detailing the ABS system.",
+              "B": "A sticker on the windshield indicating ABS is present.",
+              "C": "When you turn on the ignition, yellow ABS malfunction lamps light up on the instrument panel."
+            },
+            "correct_option": "C",
+            "description": "When you start the car, if it has ABS brakes, a yellow warning light that says ABS will turn on for a bit on the dashboard."
+          }
+        },
+        "255": {
+          "en": {
+            "question": "How fast you go should be determined by:",
+            "options": {
+              "A": "The color of your truck.",
+              "B": "The type of music you're listening to.",
+              "C": "Your visibility."
+            },
+            "correct_option": "C",
+            "description": "When deciding how fast to drive, think about how well you can see. If it's hard to see far ahead because of weather or nighttime, slow down."
+          }
+        },
+        "256": {
+          "en": {
+            "question": "How much brake pressure you need to stop the vehicle depends on:",
+            "options": {
+              "A": "The temperature outside and the weight of the driver.",
+              "B": "The vehicle's speed and how quickly you want to stop.",
+              "C": "The color of the vehicle"
+            },
+            "correct_option": "B",
+            "description": "The force needed to stop your truck changes based on how fast you're going, and how quickly you need to stop."
+          }
+        },
+        "257": {
+          "en": {
+            "question": "The antilock braking system uses special sensors and computers to detect:",
+            "options": {
+              "A": "Potential wheel lock up.",
+              "B": "Tire pressure levels",
+              "C": "Engine temperature readings"
+            },
+            "correct_option": "A",
+            "description": "Antilock braking systems use special technology to notice when a wheel is about to stop turning and skid, helping to keep the vehicle under control during sudden stops."
+          }
+        },
+        "258": {
+          "en": {
+            "question": "Tire chains:",
+            "options": {
+              "A": "Should always be carried when driving in winter weather.",
+              "B": "Should be checked for damage only once a year.",
+              "C": "Can be left loose for better traction"
+            },
+            "correct_option": "A",
+            "description": "When driving in winter, always have tire chains with you. They need to be checked for damage more than once a year. Don't leave them loose; they must be fitted properly for safety."
+          }
+        },
+        "259": {
+          "en": {
+            "question": "What is true about tires?",
+            "options": {
+              "A": "You should inspect your tires every two hours or every 100 miles when driving in very hot weather.",
+              "B": "Tires with different tread depths are safer for long trips.",
+              "C": "Tires should be replaced with new ones every 5000 miles to ensure safety."
+            },
+            "correct_option": "A",
+            "description": "When driving in hot weather, check your tires every two hours or every 100 miles to make sure they're safe."
+          }
+        },
+        "260": {
+          "en": {
+            "question": "What should you do if a turn requires entering the lane of oncoming traffic?",
+            "options": {
+              "A": "Watch for oncoming traffic.",
+              "B": "Signal the oncoming traffic to stop.",
+              "C": "Drive faster to finish the turn quickly"
+            },
+            "correct_option": "A",
+            "description": "When turning and you have to stop in the lane for cars coming towards you, make sure to keep an eye out for these cars. Don’t tell them to stop or speed up to finish your turn quickly."
+          }
+        },
+        "261": {
+          "en": {
+            "question": "What actions are advised when you're nearing a bridge while driving on a road with two lanes?",
+            "options": {
+              "A": "Turn off your headlights.",
+              "B": "Check the weight limit of the bridge.",
+              "C": "Increase your speed to cross quickly."
+            },
+            "correct_option": "B",
+            "description": "Before you go over a bridge on a small road, always look for how much weight it can handle to make sure your vehicle isn't too heavy for it."
+          }
+        },
+        "262": {
+          "en": {
+            "question": "What are the risks associated with driving over railroad crossings on dirt roads?",
+            "options": {
+              "A": "You might accidentally follow the wrong path and get lost.",
+              "B": "You could get hung up halfway across the tracks.",
+              "C": "Dirt on the tracks could reduce tire traction, causing sliding."
+            },
+            "correct_option": "B",
+            "description": "Crossing railroad tracks on dirt roads can be risky because your vehicle might get stuck on the tracks due to misalignment or uneven terrain."
+          }
+        },
+        "263": {
+          "en": {
+            "question": "What is the recommended procedure if your vehicle gets stuck at an elevated railroad-highway intersection?",
+            "options": {
+              "A": "Wait for help inside the vehicle.",
+              "B": "Get out the vehicle and away from the tracks.",
+              "C": "Call a friend for advice."
+            },
+            "correct_option": "B",
+            "description": "If your vehicle is stuck on train tracks, don’t stay inside. Get out quickly and move far away from the tracks to stay safe."
+          }
+        },
+        "264": {
+          "en": {
+            "question": "An antilock braking system is:",
+            "options": {
+              "A": "A method to increase fuel efficiency.",
+              "B": "An addition to your normal brakes.",
+              "C": "A system to enhance vehicle speed."
+            },
+            "correct_option": "B",
+            "description": "An antilock braking system helps your normal brakes work better by stopping wheels from locking and skidding."
+          }
+        },
+        "265": {
+          "en": {
+            "question": "Placards must be:",
+            "options": {
+              "A": "Displayed inside the vehicle's cabin",
+              "B": "Visible only during daytime hours.",
+              "C": "Placed on all four sides of a vehicle."
+            },
+            "correct_option": "C",
+            "description": "Placards, which are warning signs, must be placed on all four sides of a vehicle carrying hazardous materials for visibility from all directions."
+          }
+        },
+        "266": {
+          "en": {
+            "question": "To keep your cargo from sliding, you should use blocking___",
+            "options": {
+              "A": "In the front, back, and/or sides of the cargo.",
+              "B": "Attached to the roof of the cargo space.",
+              "C": "Under the cargo."
+            },
+            "correct_option": "A",
+            "description": "Cargo blocking is used on the front, back, or sides of cargo to prevent it from moving during transport."
+          }
+        },
+        "267": {
+          "en": {
+            "question": "If you need to use your cell phone while driving, you should:",
+            "options": {
+              "A": "Hold the phone with your shoulder while driving.",
+              "B": "Pull off the road onto a safe and legal position.",
+              "C": "Use voice commands only, without handling the phone."
+            },
+            "correct_option": "B",
+            "description": "If you need to use a phone while driving, pull over in a safe and legal spot to avoid distractions and stay safe."
+          }
+        },
+        "268": {
+          "en": {
+            "question": "What's the best practice for adjusting your speed on roads where trucks are required to move slower than cars?",
+            "options": {
+              "A": "Only use the left lane for passing.",
+              "B": "Adjust your speed to speed of other trucks and buses.",
+              "C": "Keep your vehicle at the maximum speed limit allowed for trucks, regardless of traffic flow."
+            },
+            "correct_option": "B",
+            "description": "Drive at the same speed as other trucks and buses to maintain smooth and safe traffic flow."
+          }
+        },
+        "269": {
+          "en": {
+            "question": "What is an INCORRECT way to use your vehicle's lights?",
+            "options": {
+              "A": "Turning on interior lights while driving at night to read a map.",
+              "B": "Using your high beams when driving in fog.",
+              "C": "Flashing your brake light to get someone off your tail."
+            },
+            "correct_option": "C",
+            "description": "Flashing your brake lights to intimidate or signal another driver is unsafe and may provoke road rage or confusion."
+          }
+        },
+        "270": {
+          "en": {
+            "question": "What should you do when nearing a traffic signal that's been green for a while?",
+            "options": {
+              "A": "Turn off your engine and wait.",
+              "B": "Wait until the light turns yellow, then slow down.",
+              "C": "Start slowing down so you will be ready to stop."
+            },
+            "correct_option": "C",
+            "description": "If a green light has been on for a while, slow down in case it changes so you’re prepared to stop safely."
+          }
+        },
+        "271": {
+          "en": {
+            "question": "One reason tanks that carry dry bulk need extra attention is:",
+            "options": {
+              "A": "The load can shift.",
+              "B": "They require special cleaning chemicals.",
+              "C": "They increase fuel consumption significantly."
+            },
+            "correct_option": "A",
+            "description": "When driving a truck with a dry bulk tank, you need to be extra careful because the stuff inside can move around a lot. This can make driving tricky, especially when turning or stopping."
+          }
+        },
+        "272": {
+          "en": {
+            "question": "When driving up or down hills, what's the best way to pick a safe speed?",
+            "options": {
+              "A": "Based on your vehicle and its cargo, select a safe speed that is within the posted speed.",
+              "B": "Use the speed of the vehicle coming towards you as a guide.",
+              "C": "Adjust your speed to match the radio's music tempo."
+            },
+            "correct_option": "A",
+            "description": "When driving downhill or uphill, pick a speed that's safe for your truck and what you're carrying, and make sure it's not more than the speed limit."
+          }
+        },
+        "273": {
+          "en": {
+            "question": "What additional equipment, besides a tire wrench, might you have in your vehicle for safety or maintenance purposes?",
+            "options": {
+              "A": "Spare tire",
+              "B": "First aid kit",
+              "C": "Battery charger."
+            },
+            "correct_option": "C",
+            "description": "When driving a big vehicle like a truck or bus, it's smart to have some extra items with you. A battery charger means you can boost your vehicle's battery if it dies, avoiding getting stuck."
+          }
+        },
+        "274": {
+          "en": {
+            "question": "What is ABS used for?",
+            "options": {
+              "A": "Give you more control over the vehicle when braking.",
+              "B": "Reduce the vehicle's stopping distance significantly.",
+              "C": "Lower the effectiveness of your vehicle's brake lights"
+            },
+            "correct_option": "A",
+            "description": "ABS brakes help you steer better when you hit the brakes hard. They don't make the car stop faster but keep the brakes from locking so you can control the car better."
+          }
+        },
+        "275": {
+          "en": {
+            "question": "What should you do before deciding to drive if you've consumed alcohol?",
+            "options": {
+              "A": "Go for a run.",
+              "B": "Eat a big meal",
+              "C": "Wait for it to wear off."
+            },
+            "correct_option": "C",
+            "description": "If you've had alcohol, don't drive right away. Instead, wait until the effects of the alcohol have completely gone away. This is the safest choice to ensure you're fully sober and can drive without any risk."
+          }
+        },
+        "276": {
+          "en": {
+            "question": "What is the appropriate response when dealing with an aggressive driver on the road?",
+            "options": {
+              "A": "Speed up to match the aggressive driver's speed.",
+              "B": "Make every attempt to get out of their way.",
+              "C": "Ignore the driver and keep driving at your speed."
+            },
+            "correct_option": "B",
+            "description": "If another driver is being aggressive, like tailgating or yelling, try your best to safely move aside and let them pass. Don't try to speed up or compete with them. Stay calm and keep driving safely."
+          }
+        },
+        "277": {
+          "en": {
+            "question": "Doubling your speed will increase your stopping distance __ times.",
+            "options": {
+              "A": "Eight",
+              "B": "Five",
+              "C": "Four"
+            },
+            "correct_option": "C",
+            "description": "When you go twice as fast, it takes about four times more road to come to a stop."
+          }
+        },
+        "278": {
+          "en": {
+            "question": "What should you do if you're operating a commercial vehicle taller than 13 feet?",
+            "options": {
+              "A": "Use a GPS to find routes without low clearances.",
+              "B": "Drive only during daylight to avoid low clearances.",
+              "C": "Stop and make sure that a clearance is high enough."
+            },
+            "correct_option": "C",
+            "description": "When driving a commercial vehicle with a height over 13 feet, it's crucial to ensure the vehicle can safely pass under any overhead clearance. Drivers should stop and verify that the height of the clearance, such as a bridge or overpass, is sufficient to avoid any accidents or damage to the vehicle. Always be cautious, as clearance heights can vary depending on conditions like road construction or resurfacing, which may reduce the available height. Failing to check clearances could result in serious accidents or vehicle damage."
+          }
+        },
+        "279": {
+          "en": {
+            "question": "Which of these options is INCORRECT?",
+            "options": {
+              "A": "Drinking coffee will not help lower your BAC faster.",
+              "B": "A drinker can control how fast his or her body absorbs and gets rid of alcohol.",
+              "C": "Eating food can help slow the absorption of alcohol into your bloodstream."
+            },
+            "correct_option": "B",
+            "description": "The statement that 'a drinker can control how fast his or her body absorbs and eliminates alcohol' is incorrect. The body's process of absorbing and eliminating alcohol is largely automatic and cannot be controlled by the individual."
+          }
+        },
+        "280": {
+          "en": {
+            "question": "How should you signal your presence to other drivers when visibility is poor due to heavy rain or snow?",
+            "options": {
+              "A": "Opening all windows",
+              "B": "Flashing your high-beam headlights",
+              "C": "Turning on the low-beam headlights."
+            },
+            "correct_option": "C",
+            "description": "When it's really hard to see because of heavy rain or snow, it's best to turn on your low-beam headlights. This helps other drivers see you without blinding them, like high-beam lights can do."
+          }
+        },
+        "281": {
+          "en": {
+            "question": "Perception distance is how far your vehicle goes from the moment:",
+            "options": {
+              "A": "The eyes see a hazard to the time your foot pushes to the brake pedal.",
+              "B": "The radio is turned off to the time the hazard lights are activated.",
+              "C": "The headlights are turned on to the time the vehicle slows down."
+            },
+            "correct_option": "A",
+            "description": "Perception distance is how far your vehicle goes while you notice a danger and then start to press the brake pedal to slow down."
+          }
+        },
+        "282": {
+          "en": {
+            "question": "While driving, your gaze should be directed:",
+            "options": {
+              "A": "Only in the rearview mirror.",
+              "B": "Only to the left side of the road.",
+              "C": "Back and forth, near and far."
+            },
+            "correct_option": "C",
+            "description": "When driving, it's important to keep an eye on everything around you, not just nearby but also what's further ahead. This means you should constantly move your gaze from side to side and look far down the road, not just at what's immediately in front of you. This helps you spot any potential dangers early and react in time."
+          }
+        },
+        "283": {
+          "en": {
+            "question": "For this question, imagine you are operating a long vehicle that makes wide turns. You plan to turn left from Ocean Street onto Atlantic Street. This intersection presents you with a choice between two left-turn lanes: the inside lane (first from the left) and the outside (second from the left). Given the characteristics of your vehicle and the roadway configuration, you should:",
+            "options": {
+              "A": "Start from the third lane and make a wide left turn.",
+              "B": "Use outside turn lane (second from the left).",
+              "C": "Wait in the middle of both lanes before turning."
+            },
+            "correct_option": "B",
+            "description": "Choose the outside turn lane (second from the left) to make your turn. This gives your long vehicle enough space to complete the turn without crossing into other lanes."
+          }
+        },
+        "284": {
+          "en": {
+            "question": "A good sign that the road may be starting to ice over is when _.",
+            "options": {
+              "A": "The air feels warmer.",
+              "B": "Your outside mirrors have ice on them.",
+              "C": "Your antenna starts to vibrate."
+            },
+            "correct_option": "B",
+            "description": "When it's getting icy on the road, a clear sign is seeing ice build up on your outside mirrors. If you spot ice there, it's a good hint that the road is also starting to get icy. So, keep an eye on your mirrors for ice to stay safe."
+          }
+        },
+        "285": {
+          "en": {
+            "question": "When navigating mountainous terrain cautiously, what factor is crucial to consider for ensuring safety?",
+            "options": {
+              "A": "Weight of the vehicle.",
+              "B": "Length of the vehicle's brakes usage time",
+              "C": "Height of the vehicle"
+            },
+            "correct_option": "A",
+            "description": "When navigating mountainous terrain with caution, it's crucial to consider the weight of your vehicle. The vehicle's weight can significantly impact braking, control, and maneuverability, especially on steep inclines and declines."
+          }
+        },
+        "286": {
+          "en": {
+            "question": "What's important to keep in mind regarding alcohol consumption?",
+            "options": {
+              "A": "Eating a big meal will speed up the process of eliminating alcohol from your system.",
+              "B": "Drinking coffee will help sober you up more quickly.",
+              "C": "Alcohol first affect judgment and self-C control, which are necessary for safe driving."
+            },
+            "correct_option": "C",
+            "description": "Alcohol messes with your decision-making and self-control first, which you really need to drive safely."
+          }
+        },
+        "287": {
+          "en": {
+            "question": "Over-weight or over-sized loads:",
+            "options": {
+              "A": "Need to pay a fine before moving.",
+              "B": "Require a special transit permit.",
+              "C": "Are only allowed on weekends."
+            },
+            "correct_option": "B",
+            "description": "If your truck's load is too heavy or too big, you must get a special permission slip to move it."
+          }
+        },
+        "288": {
+          "en": {
+            "question": "What's the right action to fix a skid caused by accelerating too quickly with the rear wheels?",
+            "options": {
+              "A": "Turn the steering wheel quickly to the left.",
+              "B": "Stop accelerating.",
+              "C": "Turn off the engine."
+            },
+            "correct_option": "B",
+            "description": "To fix a skid where the back wheels of your vehicle slide because you sped up too fast, stop pressing the gas pedal. This helps your vehicle regain control and stop skidding."
+          }
+        },
+        "289": {
+          "en": {
+            "question": "Make sure to set up your vehicle's outside mirrors so that:",
+            "options": {
+              "A": "You can only see the road behind you.",
+              "B": "Some part of the vehicle is showing.",
+              "C": "You can see the sky clearly."
+            },
+            "correct_option": "B",
+            "description": "Adjust your vehicle's mirrors so you can see a bit of your vehicle. This helps you know how your vehicle fits in traffic and spots in your mirror's view."
+          }
+        },
+        "290": {
+          "en": {
+            "question": "When you're operating a large vehicle and it starts to rain, making the roads slick, what action is advisable?",
+            "options": {
+              "A": "Decrease your speed even further for adverse weather.",
+              "B": "Increase your speed to pass the slippery section quickly.",
+              "C": "Apply sudden brakes to stop."
+            },
+            "correct_option": "A",
+            "description": "When it rains and the road gets slippery, slow down even more than usual. This helps you stay safe because your vehicle can slide easily on wet roads. Speeding up or stopping suddenly can cause accidents."
+          }
+        },
+        "291": {
+          "en": {
+            "question": "While driving through continuous rainfall, what sign suggests that hydroplaning can occur?",
+            "options": {
+              "A": "The vehicle's speed is under 30 mph.",
+              "B": "The vehicle in front of you creates water splashes.",
+              "C": "The rain stops suddenly."
+            },
+            "correct_option": "B",
+            "description": "When driving in rain and you see the vehicle ahead making water splashes, it means the road is very wet and your car could start sliding on the water surface, like it's surfing. This is a sign that hydroplaning might happen."
+          }
+        },
+        "292": {
+          "en": {
+            "question": "The total working load limit of a cargo securement system must be a minimum of _ the cargo weight.",
+            "options": {
+              "A": "Four times",
+              "B": "Three times",
+              "C": "One-half times"
+            },
+            "correct_option": "C",
+            "description": "When tying down cargo, the total strength of all the things used to hold the cargo must be at least half the weight of the cargo itself. This means if your cargo weighs 1000 pounds, the gear you use to secure it must be able to handle at least 500 pounds."
+          }
+        },
+        "293": {
+          "en": {
+            "question": "What are hazardous materials placards and what is their purpose?",
+            "options": {
+              "A": "They are signs on the outside of the vehicle that indicate the hazard class of cargo",
+              "B": "They are electronic screens inside the vehicle showing the cargo's destination.",
+              "C": "They are labels on packages that list the ingredients of the hazardous materials."
+            },
+            "correct_option": "A",
+            "description": "Hazardous materials placards are signs put on the outside of trucks. They show what kind of dangerous goods are inside by using special symbols or classes. This helps people know what's being carried and how to be safe around it."
+          }
+        },
+        "294": {
+          "en": {
+            "question": "Which of the following statements about overtaking a motorcycle is TRUE?",
+            "options": {
+              "A": "Flash your headlights repeatedly.",
+              "B": "Stay in their lane and not move over.",
+              "C": "Motorcyclists might be dragged off course by the vehicle's air suction"
+            },
+            "correct_option": "C",
+            "description": "When you pass a motorcycle, be careful because the wind from your vehicle might pull the motorcycle towards you or push it away. This can make it hard for the motorcyclist to stay in their lane."
+          }
+        },
+        "295": {
+          "en": {
+            "question": "Which of the following actions will help prevent skidding?",
+            "options": {
+              "A": "Drive as close as possible to the vehicle in front of you.",
+              "B": "Accelerate quickly when starting.",
+              "C": "Adapt driving speed according to road or weather conditions."
+            },
+            "correct_option": "C",
+            "description": "To keep your vehicle from sliding, make sure to drive slower or faster based on the road or the weather. If it's raining or snowy, go slower. This helps you stay in control."
+          }
+        },
+        "296": {
+          "en": {
+            "question": "What does a hazard mean?",
+            "options": {
+              "A": "A regular occurrence that requires no special attention.",
+              "B": "A potential danger that may be caused by someone or something",
+              "C": "A situation that can be easily ignored."
+            },
+            "correct_option": "B",
+            "description": "A hazard is something that could be dangerous, caused by a person or thing."
+          }
+        },
+        "297": {
+          "en": {
+            "question": "The word \"load\" means -__.",
+            "options": {
+              "A": "The total weight a vehicle can safely transport.",
+              "B": "The maximum load that can be carried by a B tire at a certain pressure without causing damage.",
+              "C": "The average pressure recommended for a tire."
+            },
+            "correct_option": "B",
+            "description": "The term \"load\" means the heaviest weight a tire can carry safely at a certain air pressure without getting damaged."
+          }
+        },
+        "298": {
+          "en": {
+            "question": "How soon should the oil pressure gauge show the normal level after you start the engine?",
+            "options": {
+              "A": "After 5 hours.",
+              "B": "In a few seconds",
+              "C": "Within 30 minutes."
+            },
+            "correct_option": "B",
+            "description": "After you start the truck's engine, the oil pressure should become normal quickly, in just a few seconds. This is important because it means the oil is flowing properly to keep the engine running smoothly."
+          }
+        },
+        "299": {
+          "en": {
+            "question": "Locking jaws should close around the__ of the kingpin for a secure connection.",
+            "options": {
+              "A": "Tip",
+              "B": "Groove",
+              "C": "Shank"
+            },
+            "correct_option": "C",
+            "description": "The locking jaws of a trailer should close around the \"shank\" part of the kingpin. This is the correct way to connect a trailer to a truck safely."
+          }
+        },
+        "300": {
+          "en": {
+            "question": "Why do we use blocking and bracing?",
+            "options": {
+              "A": "To adjust the mirrors for better visibility.",
+              "B": "Common method to keep cargo secure",
+              "C": "To reduce fuel consumption."
+            },
+            "correct_option": "B",
+            "description": "Blocking and bracing is a way to make sure your cargo doesn't move around while you're driving. It helps keep everything in place so it's safe and secure."
+          }
+        },
+        "301": {
+          "en": {
+            "question": "Which of the following should you not worry about when driving on a hot day?",
+            "options": {
+              "A": "Drive at a slower speed to prevent overheating.",
+              "B": "Slippery roadways caused by melting tar.",
+              "C": "Bugs squashed on the windshield will get dried up quickly.",
+              "D": "Overheating could be caused by loose belts in the engine compartment."
+            },
+            "correct_option": "C",
+            "description": "Bugs on the windshield will dry quickly on a hot day, so this is not something to worry about while driving."
+          }
+        },
+        "302": {
+          "en": {
+            "question": "What is an example of communicating safely?",
+            "options": {
+              "A": "Honking your horn when it's legal and you need to pass another vehicle.",
+              "B": "Flashing your lights at night, whenever you need to pass",
+              "C": "Turning on headlights at night and when visibility is poor",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Honking, flashing lights legally, and using headlights when visibility is poor are all important ways to communicate safely on the road."
+          }
+        },
+        "303": {
+          "en": {
+            "question": "What part does NOT belong to the important parts of the steering system?",
+            "options": {
+              "A": "Tie rod",
+              "B": "Steering shaft",
+              "C": "Bearing plates",
+              "D": "Control arms"
+            },
+            "correct_option": "C",
+            "description": "\"Bearing plates\" are not part of the steering system."
+          }
+        },
+        "304": {
+          "en": {
+            "question": "For loads extending how far beyond the vehicle's back must flags or lights be used?",
+            "options": {
+              "A": "6 feet or less beyond the back.",
+              "B": "5 feet or less beyond the back.",
+              "C": "3 feet or more beyond the back",
+              "D": "4 feet or more beyond the back"
+            },
+            "correct_option": "D",
+            "description": "Loads extending 4 feet or more beyond the vehicle's rear must have flags or lights for safety."
+          }
+        },
+        "305": {
+          "en": {
+            "question": "Whenever you park and turn off the engine, you must always _.",
+            "options": {
+              "A": "Open your window to listen for traffic.",
+              "B": "Apply the parking brake.",
+              "C": "Check your mirrors for traffic."
+            },
+            "correct_option": "B",
+            "description": "Always apply the parking brake when parking and turning off the engine to prevent the vehicle from moving."
+          }
+        },
+        "306": {
+          "en": {
+            "question": "When you want to shift up, first let go of the gas pedal, engage the clutch, shift to neutral, and then __",
+            "options": {
+              "A": "Pull the handbrake",
+              "B": "Tap the brake pedal",
+              "C": "Release clutch",
+              "D": "Shift into a lower gear"
+            },
+            "correct_option": "C",
+            "description": "After shifting to neutral while pressing the clutch, release the clutch pedal before continuing to the next gear."
+          }
+        },
+        "307": {
+          "en": {
+            "question": "Which action does NOT belong to the basic process of shifting up?",
+            "options": {
+              "A": "Letting go of the brake",
+              "B": "Putting the clutch down and changing to a higher gear at the same time",
+              "C": "Letting go of the clutch and stepping on the gas at the same time",
+              "D": "Putting pressure on the clutch while speeding up and turning toward the driver's side."
+            },
+            "correct_option": "D",
+            "description": "Pushing the clutch while speeding up and turning the wheel is not part of the proper shifting up procedure."
+          }
+        },
+        "308": {
+          "en": {
+            "question": "What sign indicates a safety concern when inspecting wheels or rims?",
+            "options": {
+              "A": "Deformed rims",
+              "B": "Missing lug nuts",
+              "C": "Homemade welds on the wheel",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Any of these issues—deformed rims, missing lug nuts, or homemade welds—are safety concerns and should be addressed."
+          }
+        },
+        "309": {
+          "en": {
+            "question": "What steps should you take to check an engine?",
+            "options": {
+              "A": "Apply the parking brake and shift into neutral or park (automatic)",
+              "B": "Turn on the engine and hear if there are abnormal sounds",
+              "C": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Applying the parking brake and checking for abnormal engine sounds are both important steps in checking an engine."
+          }
+        },
+        "310": {
+          "en": {
+            "question": "What statement is correct about a pre-trip inspection of your wheels and rims?",
+            "options": {
+              "A": "If there is rust around the lug nuts, it could indicate that they are loose.",
+              "B": "Cracks in the rim can be temporarily fixed with duct tape.",
+              "C": "Using a hammer to straighten bent rims is acceptable for a temporary fix.",
+              "D": "The loosened lug nuts can be hand tightened if you are in a hurry."
+            },
+            "correct_option": "A",
+            "description": "Rust around lug nuts can be a sign they are loose and needs proper attention."
+          }
+        },
+        "311": {
+          "en": {
+            "question": "Which actions, if convicted, would disqualify you from driving a commercial motor vehicle (CMV)?",
+            "options": {
+              "A": "Using your personal vehicle to commit a felony crime.",
+              "B": "Driving under the influence of alcohol (DUI) in your personal vehicle",
+              "C": "Driving your personal vehicle over the speed limit",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Any of these unsafe driving behaviors could disqualify you from driving a CMV."
+          }
+        },
+        "312": {
+          "en": {
+            "question": "What should you do during an inspection test if there are no electrical fuses in your vehicle?",
+            "options": {
+              "A": "Replace the fuses with spare parts from another vehicle.",
+              "B": "Check with a mechanic before the test.",
+              "C": "Tell the examiner that the vehicle is not equipped with electrical fuses so you are skipping this step."
+            },
+            "correct_option": "C",
+            "description": "If the vehicle lacks electrical fuses, inform the examiner and skip that step."
+          }
+        },
+        "313": {
+          "en": {
+            "question": "Which drink has the most alcohol in it?",
+            "options": {
+              "A": "A 12-ounce glass of 5% beer",
+              "B": "A 1.5-ounce shot of 80-proof liquor",
+              "C": "A 5-ounce glass of 12% wine",
+              "D": "They have the same amount of alcohol."
+            },
+            "correct_option": "D",
+            "description": "All these drinks contain roughly the same amount of alcohol."
+          }
+        },
+        "314": {
+          "en": {
+            "question": "How can you best monitor the rear and sides of your vehicle while driving?",
+            "options": {
+              "A": "Adjust all mirrors for optimal view; monitor the sides and rear of the vehicle regularly.",
+              "B": "Open the door and look behind while driving.",
+              "C": "Install rear-view cameras and constantly watch the live feed.",
+              "D": "Extend your head outside the window to get a better view of the back."
+            },
+            "correct_option": "A",
+            "description": "Adjust mirrors properly and check them often to monitor your vehicle's rear and sides."
+          }
+        },
+        "315": {
+          "en": {
+            "question": "When should you downshift?",
+            "options": {
+              "A": "Right before going down a hill and entering a curve",
+              "B": "Right before parking on a slope.",
+              "C": "Right before entering a highway and changing lanes.",
+              "D": "Right before going in a tunnel and on a bridge."
+            },
+            "correct_option": "A",
+            "description": "Downshift before going downhill or around curves to help control your speed."
+          }
+        },
+        "316": {
+          "en": {
+            "question": "You should immediately refuse to drive a vehicle if it has _",
+            "options": {
+              "A": "Different brands of tires",
+              "B": "Various tire sizes",
+              "C": "Retreaded tires",
+              "D": "Different tread patterns with the tires"
+            },
+            "correct_option": "B",
+            "description": "Tires of different sizes can affect vehicle safety; refuse to drive in this condition."
+          }
+        },
+        "317": {
+          "en": {
+            "question": "What does an anti-lock brake system do?",
+            "options": {
+              "A": "It will help you speed up faster.",
+              "B": "It will help shorten the stopping distance.",
+              "C": "It will help you slow down faster.",
+              "D": "It does not change the way normally you brake"
+            },
+            "correct_option": "D",
+            "description": "ABS prevents wheels from locking during braking but does not change how you brake."
+          }
+        },
+        "318": {
+          "en": {
+            "question": "What does the term \"Gross Vehicle Weight\" or GVW mean?",
+            "options": {
+              "A": "The weight of the driver and any passengers only.",
+              "B": "The amount of fuel the vehicle can carry.",
+              "C": "The total weight of a single vehicle and its load",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "GVW is the total weight of the vehicle plus its cargo."
+          }
+        },
+        "319": {
+          "en": {
+            "question": "What are the hazards associated with crossing railroad tracks or dirt roads?",
+            "options": {
+              "A": "Your vehicle could be hit by lightning.",
+              "B": "You could get stuck in the middle of the tracks.",
+              "C": "Your mirrors could fall off."
+            },
+            "correct_option": "B",
+            "description": "Crossing tracks or dirt roads risks getting stuck, which is dangerous."
+          }
+        },
+        "320": {
+          "en": {
+            "question": "What part of the cargo should you secure to prevent it from moving when driving?",
+            "options": {
+              "A": "Only on the sides.",
+              "B": "Only at the top.",
+              "C": "Use blocking and bracing for front and back and side to side to get a balanced load."
+            },
+            "correct_option": "C",
+            "description": "Use blocking and bracing on all sides of the cargo for balance and security."
+          }
+        },
+        "321": {
+          "en": {
+            "question": "In which two scenarios could carrying the legal maximum weight be considered hazardous?",
+            "options": {
+              "A": "Driving in poor weather conditions or driving on mountain roads.",
+              "B": "Driving during a sports event and driving past schools.",
+              "C": "Driving with old tires and driving without headlights on",
+              "D": "Driving while being hungry and driving in a hurry."
+            },
+            "correct_option": "A",
+            "description": "Driving with maximum weight can be dangerous during bad weather or on mountain roads."
+          }
+        },
+        "322": {
+          "en": {
+            "question": "Do loaded trucks stop more quickly than empty trucks?",
+            "options": {
+              "A": "With used tyres only",
+              "B": "Yes",
+              "C": "Yes, if the road surface is slippery"
+            },
+            "correct_option": "B",
+            "description": "Loaded trucks have better traction, allowing for more controlled and quicker stops."
+          }
+        },
+        "323": {
+          "en": {
+            "question": "What is a hazard?",
+            "options": {
+              "A": "Something on the road that could be dangerous",
+              "B": "Something insurance companies invented to charge more.",
+              "C": "A sign that tells you where to go.",
+              "D": "Something others have forgotten about."
+            },
+            "correct_option": "A",
+            "description": "A hazard is anything on the road that could cause danger."
+          }
+        },
+        "324": {
+          "en": {
+            "question": "What is INCORRECT regarding escape ramps?",
+            "options": {
+              "A": "Signs along the way tell you where they are.",
+              "B": "You cannot use them if you are going too fast.",
+              "C": "They might be made of soft and loose gravel.",
+              "D": "They could go uphill."
+            },
+            "correct_option": "B",
+            "description": "Escape ramps are designed to stop vehicles going too fast, so the statement is false."
+          }
+        },
+        "325": {
+          "en": {
+            "question": "Which task is not considered your duty while transporting cargo safely?",
+            "options": {
+              "A": "Inspecting the cargo",
+              "B": "Ensuring cargo is not overloaded.",
+              "C": "Ensuring the cargo is properly secured",
+              "D": "Ensuring the freshness of sealed food products."
+            },
+            "correct_option": "D",
+            "description": "Ensuring food freshness is not part of your duty when transporting cargo."
+          }
+        },
+        "326": {
+          "en": {
+            "question": "What's the best way to check the sides and back of your vehicle?",
+            "options": {
+              "A": "Listen for unusual noises from the back.",
+              "B": "Use your mirrors to monitor the back.",
+              "C": "Rely on other drivers passing by to honk you for issues with your vehicle.",
+              "D": "Extend your head outside the window to get a better view of the back."
+            },
+            "correct_option": "B",
+            "description": "Use your mirrors regularly to monitor your vehicle's sides and rear."
+          }
+        },
+        "327": {
+          "en": {
+            "question": "During a walk-around inspection of the vehicle's front, you should _.",
+            "options": {
+              "A": "Check to see if the lights are working properly.",
+              "B": "Check to see if the windshield is damaged or not.",
+              "C": "Check the steering system to make sure there are no loose or worn parts.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All these checks are important during a walk-around inspection."
+          }
+        },
+        "328": {
+          "en": {
+            "question": "How should you handle your vehicle when you're nearing a curve?",
+            "options": {
+              "A": "Keep your vehicle in neutral and coast through the curve.",
+              "B": "Slow down and downshift into a lower gear before entering the curve; then accelerate slightly inside the curve.",
+              "C": "Slow down in the curve and keep the brake half way pressed",
+              "D": "Maintain the same speed throughout the curve."
+            },
+            "correct_option": "B",
+            "description": "Slow down and downshift before the curve, then accelerate slightly through it."
+          }
+        },
+        "329": {
+          "en": {
+            "question": "How can you tell if the load you're carrying includes hazardous materials?",
+            "options": {
+              "A": "The container has a diamond-shaped, four-inch label that says \"hazardous materials.\"",
+              "B": "A placard for hazardous items is present on the vehicle.",
+              "C": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Hazardous materials are indicated by specific labels and placards."
+          }
+        },
+        "330": {
+          "en": {
+            "question": "What should you NOT be monitoring while driving?",
+            "options": {
+              "A": "Pressure gauges",
+              "B": "Cargo and cargo covers",
+              "C": "Phone messages",
+              "D": "Lights"
+            },
+            "correct_option": "C",
+            "description": "Avoid checking phone messages while driving to stay focused and safe."
+          }
+        },
+        "331": {
           "en": {
             "question": "",
             "options": {
@@ -1852,7 +3999,19 @@
             "description": ""
           }
         },
-        "191": {
+        "341": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": ""
+          }
+        },
+        "351": {
           "en": {
             "question": "",
             "options": {
@@ -2432,6 +4591,1681 @@
             },
             "correct_option": "B",
             "description": "If there's a major leak in the emergency brake line, the truck protection valve shuts off and activates the trailer’s emergency brakes."
+          }
+        },
+        "48": {
+          "en": {
+            "question": "How do you know if the test for the truck protection valve worked right?",
+            "options": {
+              "A": "The air tanks will rapidly fill up when the valve is tested.",
+              "B": "The truck protection valve control will pop out or go from normal to emergency.",
+              "C": "The headlights will flash on and off."
+            },
+            "correct_option": "B",
+            "description": "To verify the truck protection valve test, the control should pop out or switch from normal to emergency mode."
+          }
+        },
+        "49": {
+          "en": {
+            "question": "When you're checking your truck during the walk-around, make sure the electric and air hoses are:",
+            "options": {
+              "A": "Hung over the side mirror.",
+              "B": "Wrapped around the axle",
+              "C": "Secure, yet with enough slack for turns"
+            },
+            "correct_option": "C",
+            "description": "The electric and air hoses must be secure and have enough slack to allow for proper turning movement."
+          }
+        },
+        "50": {
+          "en": {
+            "question": "Which of these vehicles will off-track more?",
+            "options": {
+              "A": "A 5-axle tractor that pulls a 48-foot trailer.",
+              "B": "A 5-axle tractor towing a 45-foot trailer.",
+              "C": "A 5-axle tractor towing a 52-foot trailer.",
+              "D": "A 5-axle tractor towing a 50-foot trailer"
+            },
+            "correct_option": "C",
+            "description": "Longer trailers off-track more when turning, so the 52-foot trailer will off-track the most."
+          }
+        },
+        "51": {
+          "en": {
+            "question": "When coupling a truck-semitrailer, which of the following is NOT part of the inspection of the fifth wheel?",
+            "options": {
+              "A": "Checking the trailer wheels are chocked",
+              "B": "Checking the engine oil level.",
+              "C": "Inspecting the tire pressure on the tractor",
+              "D": "Checking fifth wheel coupling position"
+            },
+            "correct_option": "A",
+            "description": "Chocking trailer wheels is important for safety but not specifically part of the fifth wheel inspection during coupling."
+          }
+        },
+        "52": {
+          "en": {
+            "question": "When pulling doubles or triples, the shut-off valves must always be __, except for _",
+            "options": {
+              "A": "Open, the final trailer.",
+              "B": "Open, the second trailer",
+              "C": "Closed, the second trailer",
+              "D": "Close, the first trailer"
+            },
+            "correct_option": "A",
+            "description": "When operating doubles or triples, all shut-off valves should be open except at the rear of the last trailer."
+          }
+        },
+        "53": {
+          "en": {
+            "question": "How can you check if the trailer's service brakes are working properly?",
+            "options": {
+              "A": "Drive in reverse, then apply the foot brake forcefully to check stability.",
+              "B": "Push the brake pedal after disconnecting the trailer to test brake lights.",
+              "C": "First move forward slightly and then stop with the handbrake."
+            },
+            "correct_option": "C",
+            "description": "To test the service brakes, pull forward slightly and apply the trailer handbrake to confirm braking action."
+          }
+        },
+        "54": {
+          "en": {
+            "question": "How can you test the security of a truck-semitrailer connection?",
+            "options": {
+              "A": "Pull gently forward in low gear against the locked trailer brakes; then look at it",
+              "B": "Put the tractor in gear and pull ahead with a sharp jerk.",
+              "C": "Drive slowly in a circle to see if the trailer follows correctly."
+            },
+            "correct_option": "A",
+            "description": "To check the connection, gently pull against the locked trailer brakes and inspect the connection."
+          }
+        },
+        "55": {
+          "en": {
+            "question": "What makes a truck more likely to roll over?",
+            "options": {
+              "A": "Keeping the cargo unsecured",
+              "B": "Driving slowly around curves",
+              "C": "Driving quickly around curves",
+              "D": "Drive the speed limit"
+            },
+            "correct_option": "C",
+            "description": "Taking curves too fast increases the risk of rollover due to the shift in the truck’s center of gravity."
+          }
+        },
+        "56": {
+          "en": {
+            "question": "How can you check if air is reaching all the brakes on the trailers?",
+            "options": {
+              "A": "Check the tire pressure on each trailer.",
+              "B": "Listen for a whistle from the trailer's undercarriage.",
+              "C": "Open the emergency line shut-off valve at the last trailer and listen for air escaping. Then open the service line valve and listen, for air escaping.",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "By opening the emergency and service line valves at the last trailer and listening for air, you can confirm airflow to all brakes."
+          }
+        },
+        "57": {
+          "en": {
+            "question": "When you reverse a truck under a trailer, it is expected that___",
+            "options": {
+              "A": "When the truck backs up under the trailer, it will lift up a little bit.",
+              "B": "The trailer will automatically disconnect from the truck",
+              "C": "The trailer tires will inflate by themselves.",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "When backing under a trailer, the trailer should raise slightly as it settles onto the fifth wheel."
+          }
+        },
+        "58": {
+          "en": {
+            "question": "What does the term \"truck jackknife\" mean?",
+            "options": {
+              "A": "When the trailer detaches from the truck during high-speed maneuvering.",
+              "B": "When the drive wheels on the truck are locked, causing the truck to skid to the side while the trailer continues to move straight.",
+              "C": "When the truck and trailer both move in opposite directions due to braking failure."
+            },
+            "correct_option": "B",
+            "description": "A jackknife happens when a truck's drive wheels lock and the truck skids while the trailer keeps moving straight."
+          }
+        },
+        "59": {
+          "en": {
+            "question": "Which of the following statements is FALSE about the anti-lock braking system?",
+            "options": {
+              "A": "It decreases your braking ability.",
+              "B": "It works in any weather conditions.",
+              "C": "It requires regular manual adjustments.",
+              "D": "Since March 1998, all air-brake vehicles must feature ABS"
+            },
+            "correct_option": "A",
+            "description": "ABS does not reduce braking ability; it helps prevent wheel lockup during emergency stops."
+          }
+        },
+        "60": {
+          "en": {
+            "question": "Trucks made after 1975 must have__",
+            "options": {
+              "A": "Spring brakes",
+              "B": "Disc brakes",
+              "C": "Hydraulic steering systems",
+              "D": "Converter dolly"
+            },
+            "correct_option": "A",
+            "description": "Federal rules require that trucks built after 1975 be equipped with spring brakes for safety."
+          }
+        },
+        "61": {
+          "en": {
+            "question": "What should you check when performing the walk around inspection of a combination vehicle?",
+            "options": {
+              "A": "Check the kingpin to determine if it is damaged or not.",
+              "B": "Check the landing gear is fully raised.",
+              "C": "Check all of the locking pins are present and locked in place.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All of these items should be checked during a walk-around inspection of a combination vehicle."
+          }
+        },
+        "62": {
+          "en": {
+            "question": "How can you determine if your vehicle has an anti-lock braking system (ABS)?",
+            "options": {
+              "A": "Check the color of the brake pads for a specific color indicating ABS.",
+              "B": "Listen for a specific ABS sound when starting the vehicle.",
+              "C": "Look under the vehicle for the electronic control unit and wheel speed sensor wires connected to the back of the brakes."
+            },
+            "correct_option": "C",
+            "description": "To check for ABS, look under the vehicle for an electronic control unit and sensor wires connected to the brakes."
+          }
+        },
+        "63": {
+          "en": {
+            "question": "Which one is NOT a part of checking the fifth wheel?",
+            "options": {
+              "A": "Taking a look at the area around the vehicle",
+              "B": "Inspecting the engine oil level",
+              "C": "Making sure all the lights work",
+              "D": "Verifying the fifth wheel's readiness for attachment"
+            },
+            "correct_option": "A",
+            "description": "Looking around the vehicle isn't specific to the fifth wheel inspection, which focuses on coupling readiness and condition."
+          }
+        },
+        "64": {
+          "en": {
+            "question": "Before you uncouple a trailer, what is the first thing you should do?",
+            "options": {
+              "A": "Ensure the trailer is not moving.",
+              "B": "Check if the ground is stable enough to support the trailer's weight.",
+              "C": "Make sure the air pressure is low."
+            },
+            "correct_option": "B",
+            "description": "Before uncoupling a trailer, ensure the ground is strong and stable to prevent sinking or tipping."
+          }
+        },
+        "65": {
+          "en": {
+            "question": "What might happen if you fail to check your brakes for air leaks before driving?",
+            "options": {
+              "A": "The vehicle's fuel efficiency may improve.",
+              "B": "Your tires may wear out faster.",
+              "C": "The brakes could fail while driving due to significant air loss.",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Air brake systems must be checked for leaks; otherwise, air loss could cause brake failure during driving."
+          }
+        },
+        "66": {
+          "en": {
+            "question": "Jackknifing happens more often when pulling a trailer that is__.",
+            "options": {
+              "A": "Loaded to full capacity",
+              "B": "Loaded halfway.",
+              "C": "Lightly loaded",
+              "D": "Empty"
+            },
+            "correct_option": "D",
+            "description": "Jackknifing is more common with empty trailers due to reduced traction and stability."
+          }
+        },
+        "67": {
+          "en": {
+            "question": "Nearly half of all truck driver fatalities result from which type of collision?",
+            "options": {
+              "A": "Lane changing",
+              "B": "Rollovers.",
+              "C": "Texting while driving",
+              "D": "DUI"
+            },
+            "correct_option": "B",
+            "description": "Rollovers cause nearly 50% of truck driver deaths due to the truck tipping over during turns or evasive actions."
+          }
+        },
+        "68": {
+          "en": {
+            "question": "What is one of the steps to make sure the truck is safe and secure?",
+            "options": {
+              "A": "Pull the parking brake and shift the transmission into neutral.",
+              "B": "Adjust the rearview mirror to see better.",
+              "C": "Turn off the truck's headlights.",
+              "D": "Raise the landing gear"
+            },
+            "correct_option": "A",
+            "description": "Securing the truck includes engaging the parking brake and shifting to neutral to prevent movement."
+          }
+        },
+        "69": {
+          "en": {
+            "question": "Which statement is correct about the trailer air supply control?",
+            "options": {
+              "A": "It is used to get air into the trailer, shut off the air, and turn on the emergency brakes on the trailer.",
+              "B": "It regulates the temperature inside the trailer for sensitive cargo.",
+              "C": "It enables automatic adjustment of the trailer's suspension height."
+            },
+            "correct_option": "A",
+            "description": "The trailer air supply control manages air to the trailer brakes, including emergency functions."
+          }
+        },
+        "70": {
+          "en": {
+            "question": "When checking the coupling, you do NOT have to _",
+            "options": {
+              "A": "Inspect tire pressure on the trailer",
+              "B": "Verify the connection by driving the vehicle.",
+              "C": "Ensure the headlights are functioning properly.",
+              "D": "Make sure the locking lever is in the lock position."
+            },
+            "correct_option": "B",
+            "description": "You don’t need to drive the vehicle to confirm the coupling; visual and manual inspections are sufficient."
+          }
+        },
+        "81": {
+          "en": {
+            "question": "What does the service line, control line, or signal line do?",
+            "options": {
+              "A": "Transfers hydraulic fluid to the trailer's brake system.",
+              "B": "Delivers air to a relay valve that enables the trailer brakes to be promptly engaged.",
+              "C": "Controls the trailer's audio system."
+            },
+            "correct_option": "B",
+            "description": "The service line sends air to a relay valve so the trailer's brakes engage quickly when needed."
+          }
+        },
+        "82": {
+          "en": {
+            "question": "What might go wrong if you try to couple a trailer that's set too high?",
+            "options": {
+              "A": "The trailer might not be properly coupled to the fifth wheel.",
+              "B": "The fifth wheel could get damaged.",
+              "C": "The kingpin might not align with the fifth wheel.",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "If the trailer is too high, it may not properly couple to the fifth wheel, causing an unsafe connection."
+          }
+        },
+        "83": {
+          "en": {
+            "question": "A truck that is full has a __ bigger chance of rolling over during a crash than an empty truck.",
+            "options": {
+              "A": "2 times",
+              "B": "8 times",
+              "C": "6 times",
+              "D": "10 times"
+            },
+            "correct_option": "D",
+            "description": "A fully loaded truck is 10 times more likely to roll over in a crash than an empty one."
+          }
+        },
+        "84": {
+          "en": {
+            "question": "When you park a trailer that doesn't have spring brakes, it's a good idea to use chocks because _",
+            "options": {
+              "A": "Using chocks makes it easier to reconnect later.",
+              "B": "The brakes will not function if the air supply leaks.",
+              "C": "They make it easier to level the trailer.",
+              "D": "All of the above"
+            },
+            "correct_option": "B",
+            "description": "If the trailer has no spring brakes and air leaks, chocks prevent it from moving unintentionally."
+          }
+        },
+        "85": {
+          "en": {
+            "question": "Which trailer is more likely to roll over when you quickly turn while pulling two trailers?",
+            "options": {
+              "A": "The final trailer is twice as likely as the tractor to flip over.",
+              "B": "The front trailer is twice as likely as the tractor to flip over.",
+              "C": "All trailers have the same chance of tipping over as the tractor."
+            },
+            "correct_option": "A",
+            "description": "The rear trailer is the most likely to roll over due to the whip effect in sudden turns."
+          }
+        },
+        "86": {
+          "en": {
+            "question": "What can you use to control the air in the service line?",
+            "options": {
+              "A": "Hand brake of the trailer",
+              "B": "Brake pedal",
+              "C": "Both the hand brake and brake pedal",
+              "D": "Clutch pedal"
+            },
+            "correct_option": "C",
+            "description": "Both the hand brake and the foot brake can control air sent to the service line."
+          }
+        },
+        "87": {
+          "en": {
+            "question": "Should you use the trailer's hand brake to straighten out a jackknifing trailer?",
+            "options": {
+              "A": "Yes, it's essential to adjust your speed using the trailer hand brake for better control.",
+              "B": "No, since the skidding was caused by the trailer's brakes.",
+              "C": "No, only if the trailer is empty and light.",
+              "D": "Yes, the trailer hand brake will lock the wheels and slow down the skid."
+            },
+            "correct_option": "B",
+            "description": "You should not use the trailer hand brake during jackknifing since it's often caused by brake overuse."
+          }
+        },
+        "88": {
+          "en": {
+            "question": "What can you do to stop a combination vehicle from rolling over?",
+            "options": {
+              "A": "Place the heavy cargo beneath the lightest ones to help keep center of gravity low and drive slowly around turns.",
+              "B": "Keep the heaviest cargo at the rear end of the trailer and accelerate quickly after turns.",
+              "C": "Spread the load evenly across all axles and make turns at high speed.",
+              "D": "Place the lightest load on the bottom first so that the center of gravity is lower and drive slowly through the curves."
+            },
+            "correct_option": "A",
+            "description": "Keeping a low center of gravity and taking turns slowly helps prevent rollovers in combination vehicles."
+          }
+        },
+        "89": {
+          "en": {
+            "question": "To check if the truck protection valve works, fill up the trailer air brake system with air, turn off the engine, and then__",
+            "options": {
+              "A": "Engage the cruise control.",
+              "B": "Pump the brake pedal several times.",
+              "C": "Activate the windshield wipers.",
+              "D": "Engage the trailer hand valve fully and hold it in place to check for leaks."
+            },
+            "correct_option": "B",
+            "description": "Pump the brake pedal after filling the system and shutting off the engine to test the protection valve."
+          }
+        },
+        "90": {
+          "en": {
+            "question": "What should you do to back up into a curve to the driver's side?",
+            "options": {
+              "A": "Use all your side mirrors",
+              "B": "Back your vehicle slowly",
+              "C": "Examine your path of backing up and the surrounding of the vehicle",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Backing into a curve on the driver’s side requires full awareness: use mirrors, go slow, and assess the path."
+          }
+        },
+        "91": {
+          "en": {
+            "question": "If a vehicle's load sticks out four feet or more beyond the rear trailer at night, the load must have __ at the end.",
+            "options": {
+              "A": "Two red lights.",
+              "B": "Flashing yellow lights",
+              "C": "A red flag",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "If a load extends 4 feet or more from the rear of the trailer at night, two red lights must be mounted at the end for visibility and safety."
+          }
+        },
+        "92": {
+          "en": {
+            "question": "Compared with a regular five-axle truck-trailer, the final trailer of a triple is__ more likely to roll over.",
+            "options": {
+              "A": "6 times",
+              "B": "3.5 times",
+              "C": "7 times",
+              "D": "5 times"
+            },
+            "correct_option": "B",
+            "description": "The last trailer in a triple trailer setup is 3.5 times more likely to roll over compared to a standard five-axle truck-trailer."
+          }
+        },
+        "93": {
+          "en": {
+            "question": "How should you reverse a trailer?",
+            "options": {
+              "A": "Make sure to use all of your side mirrors",
+              "B": "Back the vehicle in a slow and careful manner.",
+              "C": "Walk all the way around your vehicle to thoroughly inspect the path you will be taking.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "To reverse a trailer safely, use mirrors, go slowly, and check your entire path before backing."
+          }
+        },
+        "94": {
+          "en": {
+            "question": "When doing the walk-around inspection, which of these things is NOT something you check when looking at the sliding fifth wheel?",
+            "options": {
+              "A": "Ensure that the crank handle is securely fastened.",
+              "B": "Checking the tire pressure of the truck",
+              "C": "Checking the engine oil level",
+              "D": "Ensuring that the sliding fifth wheel is not pushed too far forward"
+            },
+            "correct_option": "A",
+            "description": "The crank handle fastening is not part of the sliding fifth wheel check. It's more important to check wheel position and locking mechanisms."
+          }
+        },
+        "95": {
+          "en": {
+            "question": "What is NOT the right way to determine if the trailer has ABS?",
+            "options": {
+              "A": "Look for the ABS indicator light on the left rear of the trailer. If the trailer has ABS, this light should turn on when the ignition is powered and then turn off.",
+              "B": "Check for an ABS electronic control unit (ECU) and wheel speed sensors on the axles.",
+              "C": "A cartoon sticker on the door jamb that says \"ABS\"",
+              "D": "Look for documentation indicating ABS is present."
+            },
+            "correct_option": "C",
+            "description": "A cartoon sticker is not a valid or reliable way to confirm the presence of ABS on a trailer."
+          }
+        },
+        "96": {
+          "en": {
+            "question": "Among the functions of an emergency air line is__",
+            "options": {
+              "A": "To cool down the engine during long drives.",
+              "B": "To turn on the trailer brakes when there is loss of air pressure",
+              "C": "To adjust the radio volume automatically."
+            },
+            "correct_option": "B",
+            "description": "The emergency air line activates the trailer brakes if there’s a drop in air pressure, helping stop the vehicle safely."
+          }
+        },
+        "97": {
+          "en": {
+            "question": "The following distance for a 70-foot combination vehicle driving at 50 mph is ___",
+            "options": {
+              "A": "6 seconds",
+              "B": "11 seconds",
+              "C": "8 seconds",
+              "D": "7 seconds"
+            },
+            "correct_option": "C",
+            "description": "For a 70-foot truck at 50 mph, maintain at least 8 seconds of following distance to allow enough time to react."
+          }
+        },
+        "98": {
+          "en": {
+            "question": "Which of these is more likely to off-track?",
+            "options": {
+              "A": "Properly maintained vehicles do not off-track.",
+              "B": "The truck without any trailers attached.",
+              "C": "A vehicle with anti-lock brakes installed.",
+              "D": "The rearmost trailer of a double combination vehicle."
+            },
+            "correct_option": "D",
+            "description": "In a double trailer, the last trailer is more likely to swing wide or off-track, especially when turning."
+          }
+        },
+        "99": {
+          "en": {
+            "question": "Why do we connect the glad hands to a vehicle that has \"dead-end\" couplers?",
+            "options": {
+              "A": "To improve the grip between the truck and trailer connections.",
+              "B": "To make the brakes respond faster.",
+              "C": "It will keep dirt and water out of the lines.",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Connecting glad hands on a vehicle with dead-end couplers helps seal the system and keeps contaminants out."
+          }
+        },
+        "100": {
+          "en": {
+            "question": "How can you avoid your truck's landing gear getting stuck on railroad tracks or other stuff on the road?",
+            "options": {
+              "A": "Raise it up completely",
+              "B": "Tilt it slightly forward.",
+              "C": "Lower it just before crossing.",
+              "D": "The rule of thumb is 4 feet off the ground"
+            },
+            "correct_option": "A",
+            "description": "To prevent the landing gear from catching on obstacles like train tracks, make sure it’s fully raised before moving."
+          }
+        },
+        "101": {
+          "en": {
+            "question": "If your vehicle breaks down on a railway crossing, what should you do?",
+            "options": {
+              "A": "Wait for the train to pass before doing anything.",
+              "B": "Evacuate the vehicle quickly to a safe location and then call 911.",
+              "C": "Try to push the vehicle off the tracks by yourself.",
+              "D": "Wave at the incoming train to stop it from crashing into your vehicle."
+            },
+            "correct_option": "B",
+            "description": "If your vehicle is stuck on train tracks, get out quickly and move to safety. Then call 911 to report the emergency."
+          }
+        },
+        "102": {
+          "en": {
+            "question": "To stop the cargo from tipping over, the driver should keep the load very low to the ground and__",
+            "options": {
+              "A": "Keep the truck windows open.",
+              "B": "Drive with high beams on at all times.",
+              "C": "Go slowly around turns.",
+              "D": "Raise the landing gear all the way"
+            },
+            "correct_option": "C",
+            "description": "Keeping the load low and taking turns slowly helps prevent the cargo from tipping over."
+          }
+        },
+        "103": {
+          "en": {
+            "question": "Trying to fix a jackknifing trailer by using the trailer hand brake won't help. Why is this method not effective?",
+            "options": {
+              "A": "The trailer hand brake has failed.",
+              "B": "The trailer doesn't have a hand brake.",
+              "C": "The hand brake wire is disconnected.",
+              "D": "The trailer is skidding because of the wheel brakes."
+            },
+            "correct_option": "D",
+            "description": "Using the trailer hand brake can lock the wheels, worsening the skid. That’s why it won’t stop a jackknife."
+          }
+        },
+        "104": {
+          "en": {
+            "question": "What is the least likely to roll over?",
+            "options": {
+              "A": "On-ramps.",
+              "B": "Mountain roads",
+              "C": "Straight segments of highway.",
+              "D": "Curves"
+            },
+            "correct_option": "C",
+            "description": "Straight highways are the least risky for rollovers compared to curved or uneven roads."
+          }
+        },
+        "105": {
+          "en": {
+            "question": "Which one of these statements is correct?",
+            "options": {
+              "A": "The foot brake distributes air to all brakes (including trailers).",
+              "B": "Use trailer hand valve to test the trailer brakes only",
+              "C": "Both of these statements are true."
+            },
+            "correct_option": "C",
+            "description": "Both the foot brake controls all brakes and the hand valve is used to test trailer brakes only."
+          }
+        },
+        "106": {
+          "en": {
+            "question": "Truck protection valve closes automatically if air pressure drops to a certain level. What is that level?",
+            "options": {
+              "A": "20 to 45 psi",
+              "B": "130 to 150 psi",
+              "C": "60 to 80 psi",
+              "D": "100 to 120 psi"
+            },
+            "correct_option": "A",
+            "description": "If the air pressure drops between 20 to 45 psi, the truck protection valve shuts to help keep the system safe."
+          }
+        },
+        "107": {
+          "en": {
+            "question": "Which of the following does NOT help stop a trailer from skidding?",
+            "options": {
+              "A": "Seeing the skid coming",
+              "B": "Let the foot off the brake",
+              "C": "Not using the hand brake",
+              "D": "Using the hand brake"
+            },
+            "correct_option": "D",
+            "description": "Using the hand brake during a skid can worsen it and should be avoided."
+          }
+        },
+        "108": {
+          "en": {
+            "question": "After you have unlocked the fifth wheel, what should you do next?",
+            "options": {
+              "A": "Pull the vehicle backwards.",
+              "B": "Move the tractor forward until it is partly free of the trailer",
+              "C": "Activate your hazard lights",
+              "D": "Disconnect your air lines."
+            },
+            "correct_option": "B",
+            "description": "After unlocking the fifth wheel, move forward slightly to partially disengage from the trailer."
+          }
+        },
+        "109": {
+          "en": {
+            "question": "What does the term \"off-tracking\" mean?",
+            "options": {
+              "A": "The back wheels travel in a turn differently than the front wheels",
+              "B": "The vehicle stopping quicker than usual due to heavy cargo.",
+              "C": "The vehicle's radio losing signal during sharp turns.",
+              "D": "Not tracking your sleep hours when driving interstate trips."
+            },
+            "correct_option": "A",
+            "description": "Off-tracking is when the rear wheels follow a different path than the front wheels during a turn."
+          }
+        },
+        "110": {
+          "en": {
+            "question": "__of a double or triple vehicle have a higher tendency to go off-track.",
+            "options": {
+              "A": "The middle wheels of the second trailer.",
+              "B": "The side wheels of the first trailer.",
+              "C": "The rear wheels of the final trailer",
+              "D": "The front wheels of the final trailer."
+            },
+            "correct_option": "C",
+            "description": "The rear wheels of the last trailer in multi-trailer setups are most prone to going off-track."
+          }
+        },
+        "111": {
+          "en": {
+            "question": "If the fifth wheel locking lever isn't locked after the jaws close around the kingpin, it means:",
+            "options": {
+              "A": "The coupling is not right and should be fixed before driving the coupled unit",
+              "B": "The air pressure is too high for coupling.",
+              "C": "The vehicle's brakes are automatically applied."
+            },
+            "correct_option": "A",
+            "description": "If the locking lever doesn’t lock, the connection isn’t safe. You need to fix the coupling before driving."
+          }
+        },
+        "112": {
+          "en": {
+            "question": "Semi-trailers with air brakes built before 1975:",
+            "options": {
+              "A": "They are usually fitted with spring brakes as a standard safety feature.",
+              "B": "Often do not have spring brakes.",
+              "C": "They commonly include anti-lock braking systems (ABS) for improved stability."
+            },
+            "correct_option": "B",
+            "description": "Older semi-trailers built before 1975 often don’t have spring brakes, unlike modern ones."
+          }
+        },
+        "113": {
+          "en": {
+            "question": "After uncoupling the trailer, you should inspect the trailer supports. What gear should the truck engine be in during this inspection?",
+            "options": {
+              "A": "Low forward",
+              "B": "Neutral.",
+              "C": "High forward"
+            },
+            "correct_option": "B",
+            "description": "When inspecting trailer supports after uncoupling, the truck should be in neutral to prevent movement and ensure safety."
+          }
+        },
+        "114": {
+          "en": {
+            "question": "When is it appropriate to park a combination vehicle with the hand valve?",
+            "options": {
+              "A": "To park on a grade.",
+              "B": "To park at loading docks.",
+              "C": "Never."
+            },
+            "correct_option": "C",
+            "description": "You should never use the hand valve to park a combination vehicle. It's not safe because it can cause the trailer brakes to wear out unevenly. Always use the parking brakes when you need to park."
+          }
+        },
+        "115": {
+          "en": {
+            "question": "You supply air to the trailer tanks by:",
+            "options": {
+              "A": "Flipping the dashboard switch.",
+              "B": "Turning the ignition key to the accessory position.",
+              "C": "Pushing in the trailer air supply valve."
+            },
+            "correct_option": "C",
+            "description": "To provide air to trailer tanks, you press the trailer air supply valve. This valve, often found on the dashboard, sends air from the truck to the trailer to make sure the brakes work properly."
+          }
+        },
+        "116": {
+          "en": {
+            "question": "Before you back under a trailer, make sure that:",
+            "options": {
+              "A": "The track protection valve is normal.",
+              "B": "The trailer brakes are locked.",
+              "C": "The air supply knob is in."
+            },
+            "correct_option": "B",
+            "description": "Before you reverse under a trailer, you need to make sure that the trailer brakes are locked. This prevents the trailer from moving while backing up."
+          }
+        },
+        "117": {
+          "en": {
+            "question": "What components should you connect before reversing under the semitrailer while coupling a truck to it?",
+            "options": {
+              "A": "The emergency and service air lines.",
+              "B": "Connect the water hose.",
+              "C": "Attach the trailer registration document."
+            },
+            "correct_option": "A",
+            "description": "Before backing the truck under the semitrailer, you should connect the emergency and service air lines."
+          }
+        },
+        "118": {
+          "en": {
+            "question": "Once you've secured the kingpin into the fifth wheel, what is the proper method for verifying the connection?",
+            "options": {
+              "A": "Driving in reverse for 10 feet and then stopping quickly",
+              "B": "Pulling the tractor ahead gently with the trailer brakes locked.",
+              "C": "Visually inspecting without applying any force."
+            },
+            "correct_option": "B",
+            "description": "The correct way to check the kingpin connection is to gently pull forward with the trailer brakes locked, ensuring a secure connection."
+          }
+        },
+        "119": {
+          "en": {
+            "question": "After you press the trailer air supply valve, you shouldn't back the truck under a trailer until the entire air system is:",
+            "options": {
+              "A": "At normal pressure.",
+              "B": "Empty.",
+              "C": "Below 20 psi"
+            },
+            "correct_option": "A",
+            "description": "Before hooking a truck to a trailer, make sure the air pressure in the system is normal so brakes and other air systems function properly."
+          }
+        },
+        "120": {
+          "en": {
+            "question": "The locking jaws should close around____ the kingpin.",
+            "options": {
+              "A": "The neck",
+              "B": "The tip",
+              "C": "The shank."
+            },
+            "correct_option": "C",
+            "description": "The locking jaw should close around the shank of the kingpin to ensure a secure connection between the trailer and the tractor."
+          }
+        },
+        "121": {
+          "en": {
+            "question": "If you realize that you can't make your turn without moving into a different lane on the road, you should:",
+            "options": {
+              "A": "Stop in the middle of the turn and wait for traffic to clear.",
+              "B": "Make the turn quickly to avoid traffic.",
+              "C": "Turn wide as you complete the turn."
+            },
+            "correct_option": "C",
+            "description": "If you can't stay in your lane while turning, make a wide turn as you complete the maneuver. Don’t stop or rush."
+          }
+        },
+        "122": {
+          "en": {
+            "question": "When driving, some drivers pull the hand brake before stepping on the foot brake to avoid the jack-knife. Which of these statements is correct?",
+            "options": {
+              "A": "It should not be done.",
+              "B": "It is a safe maneuver to help stabilize the truck during emergency stops.",
+              "C": "It is a technique that enhances control by reducing the risk of wheel lock-up."
+            },
+            "correct_option": "A",
+            "description": "Using the hand brake first can cause trailer wheels to lock and lead to a skid or jackknife. It should not be done except in emergencies."
+          }
+        },
+        "123": {
+          "en": {
+            "question": "Combination vehicles require __ things to check than regular trucks or buses.",
+            "options": {
+              "A": "More",
+              "B": "The same number",
+              "C": "Fewer"
+            },
+            "correct_option": "A",
+            "description": "Combination vehicles like tractor-trailers have more parts and systems, so they require more checks than a regular truck or bus."
+          }
+        },
+        "124": {
+          "en": {
+            "question": "Once the trailer is coupled, you should elevate the landing gear by engaging -",
+            "options": {
+              "A": "Fast gear",
+              "B": "Medium gear",
+              "C": "Low gear."
+            },
+            "correct_option": "C",
+            "description": "After hooking up the trailer, lift the landing gear using the low gear. It's slower but gives you more control to avoid damage."
+          }
+        },
+        "125": {
+          "en": {
+            "question": "A truck with a/an ______ trailer needs the least distance to come to a stop.",
+            "options": {
+              "A": "Fully loaded",
+              "B": "Empty",
+              "C": "Half-loaded"
+            },
+            "correct_option": "A",
+            "description": "A fully loaded trailer is heavier and provides better traction, which can help the truck stop more effectively compared to an empty one."
+          }
+        },
+        "126": {
+          "en": {
+            "question": "If pushing the trailer air supply valve doesn't release the spring brakes, you should:",
+            "options": {
+              "A": "Adjust the mirrors",
+              "B": "Check air line connection.",
+              "C": "Check the tire pressure."
+            },
+            "correct_option": "B",
+            "description": "If the spring brakes don’t release, check the air line connections to ensure proper airflow between the tractor and trailer."
+          }
+        },
+        "127": {
+          "en": {
+            "question": "The risk of a truck-trailer combination rolling over during a turn is highest when the combination involves -",
+            "options": {
+              "A": "A 48 ft. trailer.",
+              "B": "Triple 27 ft. trailers.",
+              "C": "A single 53 ft. trailer."
+            },
+            "correct_option": "B",
+            "description": "A truck with three 27-foot trailers is the most likely to roll over during a turn due to its increased instability."
+          }
+        },
+        "128": {
+          "en": {
+            "question": "If only your trailer has antilock brakes, it __",
+            "options": {
+              "A": "Will give you more control over the vehicle when braking.",
+              "B": "Decreases your braking distance significantly.",
+              "C": "Reduces the effectiveness of your vehicle's overall braking system."
+            },
+            "correct_option": "A",
+            "description": "Having ABS only on the trailer improves control during braking, even though it doesn't shorten braking distance."
+          }
+        },
+        "129": {
+          "en": {
+            "question": "When a trailer is ___, it is at the highest risk of jackknifing.",
+            "options": {
+              "A": "Fully loaded with solid goods",
+              "B": "Half loaded with liquid.",
+              "C": "Empty"
+            },
+            "correct_option": "C",
+            "description": "An empty trailer has less weight to provide traction, making it more prone to jackknifing in slippery or sudden braking conditions."
+          }
+        },
+        "130": {
+          "en": {
+            "question": "When parking a trailer, when is it necessary to use chocks?",
+            "options": {
+              "A": "Only when the trailer is fully loaded.",
+              "B": "Always.",
+              "C": "Only when the parking brake is not working."
+            },
+            "correct_option": "B",
+            "description": "You should always use chocks when parking a trailer to prevent it from rolling away."
+          }
+        },
+        "131": {
+          "en": {
+            "question": "When are you allowed to get out of your vehicle while backing?",
+            "options": {
+              "A": "When you are unsure of your path of travel.",
+              "B": "When you have a clear, unobstructed view of your surroundings.",
+              "C": "When you need to adjust your radio."
+            },
+            "correct_option": "A",
+            "description": "If you’re unsure of your path while backing, get out and check to avoid hitting obstacles."
+          }
+        },
+        "132": {
+          "en": {
+            "question": "What should you do if the antilock braking system on your trailer is not functioning?",
+            "options": {
+              "A": "Ignore the breakdown as it does not affect the overall functionality of the vehicle.",
+              "B": "Not drive until it is repaired.",
+              "C": "Drive normally, but get the system serviced soon."
+            },
+            "correct_option": "C",
+            "description": "If your trailer's ABS isn’t working, you can drive normally but need to get it repaired as soon as possible."
+          }
+        },
+        "133": {
+          "en": {
+            "question": "The indication that the trailer ABS brakes are malfunctioning is when __.",
+            "options": {
+              "A": "Yellow ABS malfunction lamps on the left side of the trailer stays ON.",
+              "B": "Green ABS indicator lights on the trailer's front panel blink rapidly.",
+              "C": "Blue warning lights on the trailer's rear door stay lit"
+            },
+            "correct_option": "A",
+            "description": "If the ABS system isn't working properly, the yellow ABS warning light on the left side of the trailer will remain lit."
+          }
+        },
+        "134": {
+          "en": {
+            "question": "To make a turn safely without entering another traffic lane _",
+            "options": {
+              "A": "You should make the turn as quickly as possible to avoid other vehicles.",
+              "B": "You should turn wide as you complete the turn.",
+              "C": "You should make the turn slowly to watch for other vehicles."
+            },
+            "correct_option": "B",
+            "description": "To turn safely without crossing into another lane, you need to turn wide as you complete the turn. This helps you stay in control and avoid accidents."
+          }
+        },
+        "135": {
+          "en": {
+            "question": "What is the first thing you need to do after colliding with another vehicle?",
+            "options": {
+              "A": "Check underneath the vehicles for any leaks.",
+              "B": "Turn on your four-way flashers.",
+              "C": "Call a friend to come and help you."
+            },
+            "correct_option": "B",
+            "description": "After a crash, the first step is to turn on your hazard lights (four-way flashers) to alert other drivers and prevent further accidents."
+          }
+        },
+        "136": {
+          "en": {
+            "question": "The trailer air supply control valve is designed to close automatically when the air pressure drops to a range of _ psi.",
+            "options": {
+              "A": "20 and 45",
+              "B": "30 and 70",
+              "C": "45 and 90"
+            },
+            "correct_option": "A",
+            "description": "The trailer air supply control valve shuts off automatically if the air pressure drops between 20 and 45 psi, helping to prevent brake failure."
+          }
+        },
+        "137": {
+          "en": {
+            "question": "You can determine if the trailer you are driving is equipped with antilock brakes by checking for __",
+            "options": {
+              "A": "Yellow ABS malfunction lamps on the left side of the trailer.",
+              "B": "Green indicator lights on the trailer's front panel.",
+              "C": "Blue warning signs on the trailer doors"
+            },
+            "correct_option": "A",
+            "description": "To identify if a trailer has ABS, look for yellow ABS lights located on the trailer’s left side."
+          }
+        },
+        "138": {
+          "en": {
+            "question": "What is the quickest and most effective method to identify that the trailer has begun to skid?",
+            "options": {
+              "A": "Seeing it in your mirrors.",
+              "B": "Feeling a sudden change in speed.",
+              "C": "Noticing a change in the trailer's shadow."
+            },
+            "correct_option": "A",
+            "description": "The fastest and most reliable way to notice a trailer skid is by watching your mirrors carefully."
+          }
+        },
+        "139": {
+          "en": {
+            "question": "Loss of air pressure in the emergency line causes:",
+            "options": {
+              "A": "The service brakes to release slowly.",
+              "B": "The air compressor to activate more frequently.",
+              "C": "The trailer's emergency brakes to come on."
+            },
+            "correct_option": "C",
+            "description": "When emergency line air pressure drops, the trailer’s emergency brakes automatically activate to prevent uncontrolled movement."
+          }
+        },
+        "140": {
+          "en": {
+            "question": "Do not reverse a truck under a trailer until the entire air system is __",
+            "options": {
+              "A": "Below 40 psi",
+              "B": "At normal pressure.",
+              "C": "Over 100 psi"
+            },
+            "correct_option": "B",
+            "description": "Ensure that the air system is at normal operating pressure before backing a truck under a trailer. This guarantees safe and proper brake function."
+          }
+        },
+        "141": {
+          "en": {
+            "question": "To unlock the fifth wheel, move the release handle to the _ position.",
+            "options": {
+              "A": "Locked",
+              "B": "Engaged",
+              "C": "Open"
+            },
+            "correct_option": "C",
+            "description": "To disconnect the trailer from the tractor, move the fifth wheel release handle to the 'open' position."
+          }
+        },
+        "142": {
+          "en": {
+            "question": "What combination of a truck and trailer has the highest chance of rolling over in a turn?",
+            "options": {
+              "A": "A single 53 ft. trailer.",
+              "B": "Triple 27 ft. trailers.",
+              "C": "A single 48 ft. trailer."
+            },
+            "correct_option": "B",
+            "description": "Truck-trailer setups with triple 27 ft. trailers have the greatest risk of rollover during turns due to instability."
+          }
+        },
+        "143": {
+          "en": {
+            "question": "To check if the trailer air brake system is working, first fill it up with air. Then, push the red knob that supplies air to the trailer, or set the truck protection valve control in the _ position.",
+            "options": {
+              "A": "Closed",
+              "B": "Released",
+              "C": "Normal"
+            },
+            "correct_option": "C",
+            "description": "To test the trailer air brake system, fill the system with air and set the trailer air supply control to the 'normal' position."
+          }
+        },
+        "144": {
+          "en": {
+            "question": "Emergency air line is__",
+            "options": {
+              "A": "Regulates the flow of music in the cab's entertainment system.",
+              "B": "Controls the flow of hydraulic fluid for steering assistance.",
+              "C": "Controls trailer emergency brake control.",
+              "D": "Providing emergency air supply to the D tractor cabin at the peaks of mountain roads."
+            },
+            "correct_option": "C",
+            "description": "The emergency air line controls the trailer's emergency brake system. It activates the brakes if there's a serious problem, like a break in the line."
+          }
+        },
+        "145": {
+          "en": {
+            "question": "What is the first step in coupling a tractor-semitrailer?",
+            "options": {
+              "A": "Adjust the rearview mirrors",
+              "B": "Fill the fuel tank.",
+              "C": "Inspect the fifth wheel",
+              "D": "Hook up all air lines to the trailer"
+            },
+            "correct_option": "C",
+            "description": "Before coupling, the first thing to do is inspect the fifth wheel for damage or misalignment."
+          }
+        },
+        "146": {
+          "en": {
+            "question": "When is ABS useful?",
+            "options": {
+              "A": "If it is ONLY used during the daytime.",
+              "B": "If it is ONLY used in dry conditions.",
+              "C": "Whether it is the tractor or the trailers."
+            },
+            "correct_option": "C",
+            "description": "ABS helps prevent wheel lockup whether it’s on the tractor, trailer, or both — it's useful in all weather and lighting conditions."
+          }
+        },
+        "147": {
+          "en": {
+            "question": "What happens if the service line has a big leak and you try to stop the truck by pressing the brakes?",
+            "options": {
+              "A": "Brake pedal will feel normal, but brakes won't engage.",
+              "B": "The trailer's emergency brakes are activated.",
+              "C": "Brakes will only work at slower speeds.",
+              "D": "All of the above"
+            },
+            "correct_option": "B",
+            "description": "A major service line leak causes the trailer's emergency brakes to activate to help bring it to a stop safely."
+          }
+        },
+        "148": {
+          "en": {
+            "question": "Which of the following is NOT part of the trailer's airline system?",
+            "options": {
+              "A": "Brake pedal sensitivity adjuster",
+              "B": "Tire pressure monitor",
+              "C": "Locking jaw",
+              "D": "Shut-off valves"
+            },
+            "correct_option": "C",
+            "description": "The locking jaw is part of the hitching mechanism, not the trailer’s air brake system."
+          }
+        },
+        "149": {
+          "en": {
+            "question": "Which of the following truck-trailer combinations is most likely to experience a \"crack-the-whip\" effect?",
+            "options": {
+              "A": "A tractor pulling a flatbed trailer.",
+              "B": "A tractor with a heavy load trailer.",
+              "C": "A tractor hauling three trailers",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "A tractor pulling three trailers is most at risk of a 'crack-the-whip' rollover, which happens when the last trailer swings violently."
+          }
+        },
+        "150": {
+          "en": {
+            "question": "Emergency air lines are used for all of the following, EXCEPT___",
+            "options": {
+              "A": "To supply air to the air tanks of the trailer",
+              "B": "Engaging the emergency (spring) brakes if there is a loss of pressure.",
+              "C": "Activating the trailer's emergency braking system in case of air loss.",
+              "D": "To supply air to the relay valves, which helps the foot brake work faster."
+            },
+            "correct_option": "D",
+            "description": "Emergency air lines don’t supply air to the relay valves for faster foot brake response — that’s handled by the service line."
+          }
+        },
+        "151": {
+          "en": {
+            "question": "You should leave 1 second of distance to the vehicle in front of you for every___ feet of your vehicle's length.",
+            "options": {
+              "A": "10",
+              "B": "5",
+              "C": "30",
+              "D": "25"
+            },
+            "correct_option": "A",
+            "description": "For every 10 feet of vehicle length, you should allow 1 second of following distance for safe stopping."
+          }
+        },
+        "152": {
+          "en": {
+            "question": "What are other names for the service air line?",
+            "options": {
+              "A": "Control line and signal line",
+              "B": "Supply line and management line",
+              "C": "Guidance line and support line",
+              "D": "Emergency line and auxiliary line"
+            },
+            "correct_option": "A",
+            "description": "The service air line is also known as the control line or signal line because it carries air to apply the brakes based on the driver’s brake pedal use."
+          }
+        },
+        "153": {
+          "en": {
+            "question": "What should you avoid doing when you're backing up a trailer?",
+            "options": {
+              "A": "Ignore warning signals.",
+              "B": "Turn off your lights.",
+              "C": "Back up as fast as possible.",
+              "D": "Back up at a slow speed"
+            },
+            "correct_option": "C",
+            "description": "You should never back up a trailer quickly. Always go slow to maintain control and watch for hazards."
+          }
+        },
+        "154": {
+          "en": {
+            "question": "After coupling the fifth wheels, how much gap should there be between the top and bottom fifth wheels?",
+            "options": {
+              "A": "About 2 inches",
+              "B": "About 3/4 inch",
+              "C": "About 1 inch"
+            },
+            "correct_option": "A",
+            "description": "Leaving about 2 inches of gap ensures the kingpin is fully seated and allows for safe articulation without metal-on-metal contact."
+          }
+        },
+        "155": {
+          "en": {
+            "question": "When disconnecting the electrical cable during uncoupling, you should also__",
+            "options": {
+              "A": "Wrap it around the trailer hitch.",
+              "B": "Hang it with the plug facing down.",
+              "C": "Leave it on the ground.",
+              "D": "None of the above"
+            },
+            "correct_option": "B",
+            "description": "Hanging the plug downward prevents water from entering the connector, reducing corrosion and electrical faults."
+          }
+        },
+        "156": {
+          "en": {
+            "question": "Before you start checking the trailer supports or landing gears, first ensure the truck is safely parked by setting the parking brake and putting the transmission in _",
+            "options": {
+              "A": "Neutral",
+              "B": "Park mode",
+              "C": "High gear"
+            },
+            "correct_option": "A",
+            "description": "Putting the transmission in Neutral and setting the parking brake prevents unintended movement during inspection."
+          }
+        },
+        "157": {
+          "en": {
+            "question": "At railroad crossings, low-slung vehicles are more vulnerable than other vehicles because",
+            "options": {
+              "A": "They require a longer distance to stop safely.",
+              "B": "They are much more likely to become stuck on raised railroad crossings.",
+              "C": "They have lower visibility to oncoming trains.",
+              "D": "Their acceleration speed is slower than other vehicles."
+            },
+            "correct_option": "B",
+            "description": "Low-slung frames can catch on the raised rails or approach plates, causing the vehicle to stall or become grounded."
+          }
+        },
+        "158": {
+          "en": {
+            "question": "Which one of these is a description of the \"crack-the-whip\" effect?",
+            "options": {
+              "A": "When you change lanes quickly or move the steering wheel quickly, the back trailer tends to swing out. The force of the back trailer gets amplified, which makes it flip over.",
+              "B": "Driving over a speed bump at high speed, causing the trailer to bounce and lose control.",
+              "C": "Driving too close to the curb, causing the trailer tires to burst."
+            },
+            "correct_option": "A",
+            "description": "Sudden steering inputs amplify movement at the end of a multi-trailer rig, making the last trailer swing out violently."
+          }
+        },
+        "159": {
+          "en": {
+            "question": "What is NOT a step in testing the truck protection valve?",
+            "options": {
+              "A": "Charging the air system.",
+              "B": "Releasing the trailer brakes.",
+              "C": "Reducing air pressure.",
+              "D": "Slowly moving forward, then putting on the trailer brakes"
+            },
+            "correct_option": "D",
+            "description": "Testing the protection valve involves pressurizing and bleeding air, not vehicle movements; slowly moving forward and applying brakes tests coupling, not the valve."
+          }
+        },
+        "160": {
+          "en": {
+            "question": "What might be the result of the crack-the-whip effect?",
+            "options": {
+              "A": "The headlights may suddenly turn off.",
+              "B": "Trailer rolling over",
+              "C": "The vehicle's speed will automatically increase.",
+              "D": "Air compressor will stop filling the air tanks."
+            },
+            "correct_option": "B",
+            "description": "The amplified swing of the last trailer can cause it to tip or roll over."
+          }
+        },
+        "161": {
+          "en": {
+            "question": "When backing a truck under a trailer, you need to ensure that the air pressure is ___ so you can brake safely.",
+            "options": {
+              "A": "Above 100 psi",
+              "B": "At normal pressure",
+              "C": "Between 80 to 90 psi"
+            },
+            "correct_option": "B",
+            "description": "Normal system pressure ensures both tractor and trailer brakes will engage properly during coupling."
+          }
+        },
+        "162": {
+          "en": {
+            "question": "Which type of vehicle is most likely to get stuck at a raised railroad crossing?",
+            "options": {
+              "A": "Moving vans",
+              "B": "Car carriers",
+              "C": "Single-axle tractors hauling a long trailer with its landing gear set for a tandem-axle tractor",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Any vehicle with low ground clearance—vans, car carriers, or mis-geared semis—can snag on raised rails."
+          }
+        },
+        "163": {
+          "en": {
+            "question": "What license do you need to legally drive a triple trailer combination?",
+            "options": {
+              "A": "A Class B CDL",
+              "B": "A Class D CDL",
+              "C": "A Class E CDL",
+              "D": "A Class A CDL with a doubles/triples (T) endorsement"
+            },
+            "correct_option": "D",
+            "description": "Operating triples requires a Class A commercial license plus the ’T’ endorsement for doubles/triples."
+          }
+        },
+        "164": {
+          "en": {
+            "question": "Which of these is most likely to get stuck at a train crossing?",
+            "options": {
+              "A": "Lowboy",
+              "B": "Moving van",
+              "C": "Car carrier",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All of these vehicles have low ground clearance, which increases the risk of getting hung up on raised railroad crossings."
+          }
+        },
+        "165": {
+          "en": {
+            "question": "What purpose does the trailer air supply control serve, and how do you use it?",
+            "options": {
+              "A": "You supply the trailer with air by pushing it in.",
+              "B": "By turning it, you adjust the temperature inside the trailer.",
+              "C": "By sliding it sideways, you control the trailer's lights.",
+              "D": "By pulling it out, you remove air from overinflated tires."
+            },
+            "correct_option": "A",
+            "description": "Pushing in the trailer air supply control sends air to the trailer's brake system, enabling proper brake function."
+          }
+        },
+        "166": {
+          "en": {
+            "question": "Which of the following will stop the cargo from rolling over?",
+            "options": {
+              "A": "Stack all items in a pyramid shape.",
+              "B": "Distribute the cargos in a uniform manner and place the heavy items at the bottom",
+              "C": "Tie all the items loosely together with a rope.",
+              "D": "Put the light items at the bottom and the heavy items at the top."
+            },
+            "correct_option": "B",
+            "description": "Proper cargo distribution with heavy items at the bottom maintains a low center of gravity and reduces rollover risk."
+          }
+        },
+        "167": {
+          "en": {
+            "question": "Where can you find the shut-off valve?",
+            "options": {
+              "A": "On the side of the trailer",
+              "B": "Under the driver's seat.",
+              "C": "In the trailer's back,",
+              "D": "In the trailer's front"
+            },
+            "correct_option": "C",
+            "description": "The shut-off valve is typically located at the back of the trailer and controls air flow between units."
+          }
+        },
+        "168": {
+          "en": {
+            "question": "When the trailer has anti-lock brakes, but the truck pulling it doesn't, the trailer has _",
+            "options": {
+              "A": "Less chances to swing out",
+              "B": "Likely to stop quicker than the tractor.",
+              "C": "More likely to skid uncontrollably",
+              "D": "None of the above"
+            },
+            "correct_option": "A",
+            "description": "ABS on the trailer helps prevent it from locking up, reducing the chance of swinging out even if the tractor doesn't have ABS."
+          }
+        },
+        "169": {
+          "en": {
+            "question": "Which of the following is NOT true about the anti-lock braking system?",
+            "options": {
+              "A": "It increases the stopping distance.",
+              "B": "It makes your vehicle impossible to steer while braking.",
+              "C": "It only works on wet roads.",
+              "D": "Since March 1998, all air-brake vehicles must feature ABS"
+            },
+            "correct_option": "A",
+            "description": "ABS is designed to help maintain control and can reduce stopping distance, not increase it."
+          }
+        },
+        "170": {
+          "en": {
+            "question": "When you are making sure air gets to all the trailers, you do NOT have to _",
+            "options": {
+              "A": "Press the pedal several times to lower the air pressure",
+              "B": "Turn off the engine and remove the keys.",
+              "C": "Adjust the mirrors to see the end of the trailer.",
+              "D": "Walk to the rear of the last trailer"
+            },
+            "correct_option": "A",
+            "description": "Lowering air pressure by pumping the brake pedal is not required to check if air reaches all trailers."
+          }
+        },
+        "171": {
+          "en": {
+            "question": "When you need to back up your vehicle in a curve, it's best to reverse toward the driver's side because _.",
+            "options": {
+              "A": "The driver can monitor the back of vehicle from the side window.",
+              "B": "The mirrors provide a less clear view on this side.",
+              "C": "The vehicle's controls are on that side.",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "Reversing toward the driver’s side improves visibility through the window, allowing for safer maneuvering."
+          }
+        },
+        "172": {
+          "en": {
+            "question": "If your trailer doesn't have spring brakes, should you use chocks to park it?",
+            "options": {
+              "A": "Only if the parking area is flat.",
+              "B": "Only if the vehicle is carrying heavy cargo.",
+              "C": "Always",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "Always use wheel chocks to prevent unintended movement if the trailer is not equipped with spring brakes."
+          }
+        },
+        "173": {
+          "en": {
+            "question": "If you are driving with two trailers and must use the emergency brakes to avoid crashing, you should _",
+            "options": {
+              "A": "Pump the brakes gently.",
+              "B": "Use controlled or stab braking.",
+              "C": "Turn off the engine immediately.",
+              "D": "Use only the hand brakes"
+            },
+            "correct_option": "B",
+            "description": "Controlled or stab braking helps maintain control during emergency stops, especially with multiple trailers."
+          }
+        },
+        "174": {
+          "en": {
+            "question": "Where can you find the yellow ABS malfunction lamp on a trailer?",
+            "options": {
+              "A": "On the top middle of the trailer",
+              "B": "Inside the driver's side door",
+              "C": "On the left front or left rear corner",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "The yellow ABS warning light on a trailer is typically located on the left front or left rear corner to alert the driver of ABS issues."
+          }
+        },
+        "175": {
+          "en": {
+            "question": "When there is a big leak in the brake line, the truck protection valve will shut off and the trailer's__ will turn on.",
+            "options": {
+              "A": "Emergency brake",
+              "B": "Hand brake",
+              "C": "Air pressure gauge",
+              "D": "ABS brake"
+            },
+            "correct_option": "A",
+            "description": "A major leak in the brake line activates the trailer’s emergency brakes to safely stop it."
+          }
+        },
+        "176": {
+          "en": {
+            "question": "When inspecting the lower fifth wheel, you do NOT have to check if _.",
+            "options": {
+              "A": "The fifth wheel plate is properly aligned.",
+              "B": "There are no damaged parts.",
+              "C": "There are no puddles on the ground.",
+              "D": "There is no gap between the upper and lower fifth wheels."
+            },
+            "correct_option": "C",
+            "description": "Puddles on the ground are not part of the fifth wheel inspection during a commercial vehicle check."
+          }
+        },
+        "177": {
+          "en": {
+            "question": "Checking the service brakes on a trailer does not include which of the following?",
+            "options": {
+              "A": "Checking the tire pressure on the trailer",
+              "B": "Putting the trailer air supply control in the \"emergency\" position",
+              "C": "Listening for any unusual noises from the brakes",
+              "D": "Slowly moving forward with your vehicle"
+            },
+            "correct_option": "B",
+            "description": "You don’t place the trailer air supply control in the emergency position when checking service brakes."
+          }
+        },
+        "178": {
+          "en": {
+            "question": "What happens if the air does not flow to the back of a trailer?",
+            "options": {
+              "A": "Your brakes won't work properly.",
+              "B": "Your lights will not turn on.",
+              "C": "Your engine will overheat."
+            },
+            "correct_option": "A",
+            "description": "If air doesn't reach the rear trailer, its brakes may fail to operate correctly, risking safety."
+          }
+        },
+        "179": {
+          "en": {
+            "question": "Which of these is true about going off track?",
+            "options": {
+              "A": "Larger vehicles are not affected by off-tracking.",
+              "B": "Turning sharply doesn't cause off-tracking.",
+              "C": "The rear wheels of the last trailer will off-track the most.",
+              "D": "Off-tracking happens when you brake while turning"
+            },
+            "correct_option": "C",
+            "description": "In turns, the rear wheels of the last trailer follow a tighter path than the front, causing significant off-tracking."
+          }
+        },
+        "180": {
+          "en": {
+            "question": "Approximately what percentage of truck drivers die in rollover crashes?",
+            "options": {
+              "A": "Exactly 15%",
+              "B": "More than 50%",
+              "C": "Around 10%",
+              "D": "More than 30%"
+            },
+            "correct_option": "B",
+            "description": "Over half of truck driver fatalities result from rollover crashes, highlighting their danger."
+          }
+        },
+        "181": {
+          "en": {
+            "question": "Why shouldn't you use the trailer hand valve when driving?",
+            "options": {
+              "A": "It increases fuel consumption.",
+              "B": "It reduces the turning radius of the vehicle.",
+              "C": "The trailer may skid because of it."
+            },
+            "correct_option": "C",
+            "description": "Using the trailer hand valve while moving can cause the trailer to skid, risking a loss of control."
+          }
+        },
+        "182": {
+          "en": {
+            "question": "Why should you use wheel chocks when parking a vehicle without spring brakes?",
+            "options": {
+              "A": "To secure the trailer from moving.",
+              "B": "To balance the trailer on uneven ground.",
+              "C": "To adjust the trailer height for easier access.",
+              "D": "To provide something solid for the land gear."
+            },
+            "correct_option": "A",
+            "description": "Wheel chocks prevent unintended trailer movement when spring brakes are not present."
+          }
+        },
+        "183": {
+          "en": {
+            "question": "Your vehicle got stuck on the railroad tracks. What should you do in this situation?",
+            "options": {
+              "A": "You should wait inside the vehicle for help to arrive.",
+              "B": "You should try to push the vehicle off the track.",
+              "C": "You should move away from your vehicle and call 911 or the posted emergency number."
+            },
+            "correct_option": "C",
+            "description": "Leave the vehicle immediately and call emergency services for assistance if stuck on train tracks."
+          }
+        },
+        "184": {
+          "en": {
+            "question": "Why does a combination vehicle with no load take more time to stop than when it's fully loaded?",
+            "options": {
+              "A": "There isn't as much traction",
+              "B": "Brakes work better on heavier loads.",
+              "C": "The center of gravity is lower.",
+              "D": "Drivers tend to drive faster in empty vehicles."
+            },
+            "correct_option": "A",
+            "description": "Empty combination vehicles have less traction because they don't press as firmly against the road, making it harder to stop."
+          }
+        },
+        "185": {
+          "en": {
+            "question": "If you have to back up on a curved path, where should you turn so that there is a rear view?",
+            "options": {
+              "A": "Left side or driver's side",
+              "B": "Using rearview mirror only",
+              "C": "With assistance from a co-driver",
+              "D": "At driver's discretion."
+            },
+            "correct_option": "A",
+            "description": "Backing toward the driver’s side gives better visibility and control, making it the safest option."
+          }
+        },
+        "186": {
+          "en": {
+            "question": "How far (in seconds) should a 40-foot vehicle going 30 mph be from the vehicle in front of it?",
+            "options": {
+              "A": "4 seconds",
+              "B": "3 seconds",
+              "C": "8 seconds",
+              "D": "7 seconds"
+            },
+            "correct_option": "A",
+            "description": "A 40-foot vehicle at 30 mph should maintain at least a 4-second following distance to allow safe stopping."
+          }
+        },
+        "187": {
+          "en": {
+            "question": "When the air pressure gets to a __ level, the knob that controls the air supply on a trailer will pop out.",
+            "options": {
+              "A": "30 to 60 psi",
+              "B": "20 to 45 psi",
+              "C": "40 to 70 psi",
+              "D": "75 to 100 psi"
+            },
+            "correct_option": "B",
+            "description": "The trailer air supply control will pop out when pressure falls between 20 and 45 psi, activating the emergency brakes."
+          }
+        },
+        "188": {
+          "en": {
+            "question": "Which of the following vehicles is more likely to roll over?",
+            "options": {
+              "A": "A single trailer loaded above its weight limit",
+              "B": "The rearmost trailer of a triple combination",
+              "C": "A single trailer with balanced cargo distribution"
+            },
+            "correct_option": "B",
+            "description": "The last trailer in a triple combination is most likely to roll over due to increased sway and reduced stability."
+          }
+        },
+        "189": {
+          "en": {
+            "question": "Since what year are new trucks required to have anti-lock brake systems (ABS)?",
+            "options": {
+              "A": "1975",
+              "B": "1998",
+              "C": "1996",
+              "D": "2005"
+            },
+            "correct_option": "B",
+            "description": "As of March 1, 1998, all new air-braked trucks are required to be equipped with ABS for improved braking safety."
+          }
+        },
+        "190": {
+          "en": {
+            "question": "To check if the truck protection valve functions properly, in what position should the red air supply control knob be?",
+            "options": {
+              "A": "Emergency",
+              "B": "Pulled out",
+              "C": "Neutral",
+              "D": "Pushed in"
+            },
+            "correct_option": "A",
+            "description": "Set the red knob to the 'Emergency' position when testing the truck protection valve to ensure it works correctly."
           }
         }
       }
