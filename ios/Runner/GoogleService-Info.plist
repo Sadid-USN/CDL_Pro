@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.cdlPro</string>
+	<string>com.darulasar.cdlPro</string>
 	<key>PROJECT_ID</key>
 	<string>cdl-pro-cb12c</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:899513564439:ios:0e7147a2867c13df4a4b52</string>
+	<string>1:899513564439:ios:49395974a48047a24a4b52</string>
 </dict>
 </plist>
