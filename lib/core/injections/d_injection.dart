@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:dio/dio.dart';
@@ -16,8 +18,6 @@ import 'package:talker_flutter/talker_flutter.dart';
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
-
-  
   final talker = TalkerFlutter.init(
     settings: TalkerSettings(
       enabled: true,
@@ -29,14 +29,18 @@ Future<void> initDependencies() async {
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
 
-  await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: 'AIzaSyDnJscXti1wBxSWB8LZojTf20NZFb5NO1w',
-      appId: '1:899513564439:android:8e5c83dff1c340b34a4b52',
-      messagingSenderId: '899513564439',
-      projectId: 'cdl-pro-cb12c',
-    ),
-  );
+  if (Platform.isAndroid) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: 'AIzaSyDnJscXti1wBxSWB8LZojTf20NZFb5NO1w',
+        appId: '1:899513564439:android:8e5c83dff1c340b34a4b52',
+        messagingSenderId: '899513564439',
+        projectId: 'cdl-pro-cb12c',
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
   final dio = Dio();
   // interceptors Получает информацию о любом запросе, который производит клиент Dio
   dio.interceptors.add(

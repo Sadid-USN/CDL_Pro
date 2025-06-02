@@ -29,11 +29,7 @@ class QuizPage extends StatelessWidget {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop) {
-          // Обработка случая, когда выход не был успешным.
-          return;
-        }
-        // Логика при успешном закрытии страницы.
+        if (!didPop) return;
       },
       child: Scaffold(
         appBar: AppBar(
@@ -41,28 +37,20 @@ class QuizPage extends StatelessWidget {
             '$chapterTitle (${startIndex + context.read<CDLTestsBloc>().currentPage} / ${questions.length})',
             style: AppTextStyles.manrope10,
           ),
-
-          //            RichText(
-          //   text:
-          //   QuizHeaderBuilder.build(
-          //     chapterTitle: widget.chapterTitle,
-          //     currentIndex: widget.startIndex + context.read<CDLTestsBloc>().currentPage,
-          //     totalQuestions: widget.questions.length,
-          //     incorrectAnswers: 2,
-          //   ),
-          // ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              //context.router.pop();
-              _showExitConfirmation(context);
-            },
+            onPressed: () => _showExitConfirmation(context),
           ),
         ),
         body: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
           builder: (context, state) {
             if (state is QuizLoadedState) {
-              return _buildSingleQuestionView(context, state);
+              return SingleQuestionView(
+                state: state,
+                chapterTitle: chapterTitle,
+                questions: questions,
+                startIndex: startIndex,
+              );
             }
             return const Center(child: CircularProgressIndicator());
           },
@@ -71,7 +59,50 @@ class QuizPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSingleQuestionView(BuildContext context, QuizLoadedState state) {
+  Future<void> _showExitConfirmation(BuildContext context) async {
+    final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: const Text('Подтверждение'),
+            content: const Text(
+              'Вы уверены, что хотите выйти? Прогресс будет потерян.',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: const Text('Нет'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(true),
+                child: const Text('Да'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+
+    if (shouldExit && context.mounted) {
+      context.router.pop();
+    }
+  }
+}
+
+class SingleQuestionView extends StatelessWidget {
+  final QuizLoadedState state;
+  final String chapterTitle;
+  final List<Question> questions;
+  final int startIndex;
+
+  const SingleQuestionView({
+    super.key,
+    required this.state,
+    required this.chapterTitle,
+    required this.questions,
+    required this.startIndex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     final currentQuestion = state.allQuestions[state.currentPage];
     final questionNumber = state.currentPage + 1;
     final userAnswer = state.userAnswers[currentQuestion.question];
@@ -83,39 +114,52 @@ class QuizPage extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            child: _buildQuestionCard(
-              context,
+            child: QuestionCard(
               question: currentQuestion,
               questionNumber: questionNumber,
               isAnswered: isAnswered,
               userAnswer: userAnswer,
               isCorrect: isCorrect,
+              allQuestions: state.allQuestions,
+              userAnswers: state.userAnswers,
             ),
           ),
         ),
-        if (isAnswered) _buildNextButton(context, state),
+        if (isAnswered)
+          NextQuestionButton(
+            isLastQuestion: state.currentPage == state.allQuestions.length - 1,
+          ),
       ],
     );
   }
+}
 
-  Widget _buildQuestionCard(
-    BuildContext context, {
-    required Question question,
-    required int questionNumber,
-    required bool isAnswered,
-    required String? userAnswer,
-    required bool isCorrect,
-  }) {
-    final bloc = context.read<CDLTestsBloc>();
-    final state = bloc.state as QuizLoadedState;
+class QuestionCard extends StatelessWidget {
+  final Question question;
+  final int questionNumber;
+  final bool isAnswered;
+  final String? userAnswer;
+  final bool isCorrect;
+  final List<Question> allQuestions;
+  final Map<String, String> userAnswers;
 
-    // Подсчёт правильных и неправильных ответов
-    final correctCount =
-        state.allQuestions
-            .where((q) => state.userAnswers[q.question] == q.correctOption)
-            .length;
+  const QuestionCard({
+    super.key,
+    required this.question,
+    required this.questionNumber,
+    required this.isAnswered,
+    required this.userAnswer,
+    required this.isCorrect,
+    required this.allQuestions,
+    required this.userAnswers,
+  });
 
-    final incorrectCount = state.userAnswers.length - correctCount;
+  @override
+  Widget build(BuildContext context) {
+    final correctCount = allQuestions
+        .where((q) => userAnswers[q.question] == q.correctOption)
+        .length;
+    final incorrectCount = userAnswers.length - correctCount;
 
     return Card(
       color: AppColors.lightBackground,
@@ -125,7 +169,6 @@ class QuizPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Заголовок: вопрос + счётчик
             Text(
               LocaleKeys.question.tr(
                 namedArgs: {"questionNumber": questionNumber.toString()},
@@ -136,7 +179,7 @@ class QuizPage extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '$questionNumber из ${state.allQuestions.length} /',
+                  '$questionNumber из ${allQuestions.length} /',
                   style: AppTextStyles.robotoMonoBold14,
                 ),
                 const SizedBox(width: 4),
@@ -157,16 +200,14 @@ class QuizPage extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(question.question, style: AppTextStyles.regular16),
-             SizedBox(height: 16.h),
-
-            ..._buildQuestionOptions(
+            SizedBox(height: 16.h),
+            ...QuestionOptions.buildOptions(
               context,
               question,
               isAnswered,
               userAnswer,
               isCorrect,
             ),
-
             if (isAnswered) ...[
               const SizedBox(height: 16),
               Text(
@@ -174,87 +215,113 @@ class QuizPage extends StatelessWidget {
                 style: AppTextStyles.manrope14,
               ),
             ],
-
-             
           ],
         ),
       ),
     );
   }
-
-List<Widget> _buildQuestionOptions(
-  BuildContext context,
-  Question question,
-  bool isAnswered,
-  String? userAnswer,
-  bool isCorrect,
-) {
-  return question.options.entries.map((entry) {
-    final optionKey = entry.key;
-    final optionText = entry.value;
-    final isSelected = userAnswer == optionKey;
-    final isCorrectOption = optionKey == question.correctOption;
-
-    Color backgroundColor = Colors.white;
-    Color textColor = Colors.black;
-    Color? iconColor;
-
-    if (isAnswered) {
-      if (isCorrectOption) {
-        // Правильный ответ всегда зеленый
-        backgroundColor = AppColors.greenSoft;
-        textColor = AppColors.darkBackground;
-        iconColor = AppColors.simpleGreen;
-      } else if (isSelected) {
-        // Выбранный неправильный ответ красный
-        backgroundColor = AppColors.errorColor.withValues(alpha: 0.4);
-        textColor = AppColors.darkBackground;
-        iconColor = AppColors.errorColor;
-      }
-    }
-
-    return InkWell(
-      onTap: !isAnswered
-          ? () => context.read<CDLTestsBloc>().add(
-                AnswerQuestionEvent(question.question, optionKey),
-              )
-          : null,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Container(
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              Text('$optionKey. ', style: TextStyle(color: textColor)),
-              Expanded(child: Text(optionText, style: TextStyle(color: textColor))),
-              if (isAnswered && (isSelected || isCorrectOption))
-                SvgPicture.asset(
-                  isCorrectOption ? AppLogos.correct : AppLogos.wrong,
-                  height: 20.h,
-                  colorFilter: iconColor != null 
-                      ? ColorFilter.mode(iconColor, BlendMode.srcIn)
-                      : null,
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }).toList();
 }
-  Widget _buildNextButton(BuildContext context, QuizLoadedState state) {
-    final isLastQuestion = state.currentPage == state.allQuestions.length - 1;
 
-    return Padding(
-      padding:  EdgeInsets.only(bottom: 50.h),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-        //  minimumSize: const Size(double.infinity, 50),
+class QuestionOptions extends StatelessWidget {
+  final Question question;
+  final bool isAnswered;
+  final String? userAnswer;
+  final bool isCorrect;
+
+  const QuestionOptions({
+    super.key,
+    required this.question,
+    required this.isAnswered,
+    required this.userAnswer,
+    required this.isCorrect,
+  });
+
+  static List<Widget> buildOptions(
+    BuildContext context,
+    Question question,
+    bool isAnswered,
+    String? userAnswer,
+    bool isCorrect,
+  ) {
+    return question.options.entries.map((entry) {
+      final optionKey = entry.key;
+      final optionText = entry.value;
+      final isSelected = userAnswer == optionKey;
+      final isCorrectOption = optionKey == question.correctOption;
+
+      Color backgroundColor = Colors.white;
+      Color textColor = Colors.black;
+      Color? iconColor;
+
+      if (isAnswered) {
+        if (isCorrectOption) {
+          backgroundColor = AppColors.greenSoft;
+          textColor = AppColors.darkBackground;
+          iconColor = AppColors.simpleGreen;
+        } else if (isSelected) {
+          backgroundColor = AppColors.errorColor.withValues(alpha: 0.4);
+          textColor = AppColors.darkBackground;
+          iconColor = AppColors.errorColor;
+        }
+      }
+
+      return InkWell(
+        onTap: !isAnswered
+            ? () => context.read<CDLTestsBloc>().add(
+                  AnswerQuestionEvent(question.question, optionKey),
+              )
+            : null,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Container(
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Text('$optionKey. ', style: TextStyle(color: textColor)),
+                Expanded(
+                    child: Text(optionText, style: TextStyle(color: textColor))),
+                if (isAnswered && (isSelected || isCorrectOption))
+                  SvgPicture.asset(
+                    isCorrectOption ? AppLogos.correct : AppLogos.wrong,
+                    height: 20.h,
+                    colorFilter: iconColor != null
+                        ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                        : null,
+                  ),
+              ],
+            ),
+          ),
         ),
+      );
+    }).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: buildOptions(context, question, isAnswered, userAnswer, isCorrect),
+    );
+  }
+}
+
+class NextQuestionButton extends StatelessWidget {
+  final bool isLastQuestion;
+
+  const NextQuestionButton({
+    super.key,
+    required this.isLastQuestion,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 50.h),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(),
         onPressed: () {
           if (isLastQuestion) {
             Navigator.of(context).pop();
@@ -269,41 +336,7 @@ List<Widget> _buildQuestionOptions(
       ),
     );
   }
-
-  Future<void> _showExitConfirmation(BuildContext context) async {
-    final shouldExit =
-        await showDialog<bool>(
-          context: context,
-          builder:
-              (dialogContext) => AlertDialog(
-                title: const Text('Подтверждение'),
-                content: const Text(
-                  'Вы уверены, что хотите выйти? Прогресс будет потерян.',
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(dialogContext).pop(false),
-                    child: const Text('Нет'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // 👇 Закрываем диалог, возвращая true
-                      Navigator.of(dialogContext).pop(true);
-                    },
-                    child: const Text('Да'),
-                  ),
-                ],
-              ),
-        ) ??
-        false;
-
-    if (shouldExit && context.mounted) {
-      // 👇 Только теперь — закрываем QuizPage
-      context.router.pop();
-    }
-  }
 }
-
 
 
 
