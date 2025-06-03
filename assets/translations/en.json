@@ -22,7 +22,7 @@
     "yes": "Yes",
     "no": "No",
     "outOf": "Out of",
-    "explanation:": "Explanation: {description}",
-    "completeTheTest:": "Complete the test",
-    "nextQuestion:": "Next question"
+    "explanation": "Explanation:",
+    "completeTheTest": "Complete the test",
+    "nextQuestion": "Next question"
 }

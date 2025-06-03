@@ -16,10 +16,9 @@ class ChangeLanguageEvent extends AbstractCDLTestsEvent {
 }
 class LoadQuizEvent extends AbstractCDLTestsEvent {
   final List<Question> questions;
-  const LoadQuizEvent(this.questions);
+  final String initialLanguage;
 
-  @override
-  List<Object?> get props => [questions];
+  const LoadQuizEvent(this.questions, {this.initialLanguage = 'en'});
 }
 
 class AnswerQuestionEvent extends AbstractCDLTestsEvent {

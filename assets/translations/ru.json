@@ -22,7 +22,7 @@
     "yes": "Да",
     "no": "Нет",
     "outOf": "Из",
-    "explanation": "Объяснение: {description}",
+    "explanation": "Объяснение:",
     "completeTheTest": "Завершить тест",
     "nextQuestion": "Следующий вопрос"
 }
