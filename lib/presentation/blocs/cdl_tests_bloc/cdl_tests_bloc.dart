@@ -23,27 +23,53 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<ChangeLanguageEvent>(_onChangeLanguage);
   }
 
-   void _onChangeLanguage(
-    ChangeLanguageEvent event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) {
-    if (state is QuizLoadedState) {
-      final currentState = state as QuizLoadedState;
-      _selectedLanguage = currentState.selectedLanguage == event.languageCode 
-          ? 'en' 
-          : event.languageCode;
+  void _onChangeLanguage(
+  ChangeLanguageEvent event,
+  Emitter<AbstractCDLTestsState> emit,
+) async {
+  if (state is QuizLoadedState) {
+    final currentState = state as QuizLoadedState;
+    // Сохраняем новый язык
+    _selectedLanguage = currentState.selectedLanguage == event.languageCode 
+        ? 'en' 
+        : event.languageCode;
 
-      emit(
-        QuizLoadedState(
-          selectedLanguage: _selectedLanguage,
-          allQuestions: currentState.allQuestions,
-          userAnswers: currentState.userAnswers,
-          currentPage: currentState.currentPage,
-          quizCompleted: currentState.quizCompleted,
-        ),
-      );
-    }
+    // Создаем копию текущего состояния с новым языком
+    final newState = QuizLoadedState(
+      selectedLanguage: _selectedLanguage,
+      allQuestions: currentState.allQuestions,
+      userAnswers: currentState.userAnswers,
+      currentPage: currentState.currentPage,
+      quizCompleted: currentState.quizCompleted,
+    );
+
+    // Эмитим новое состояние
+    emit(newState);
+    
+    // Принудительно обновляем переводы
+    await _precacheTranslations(newState);
   }
+}
+
+Future<void> _precacheTranslations(QuizLoadedState state) async {
+  try {
+    // Предзагружаем перевод текущего вопроса
+    final currentQuestion = state.allQuestions[state.currentPage];
+    await translateText(currentQuestion.question, state.selectedLanguage);
+    
+    // Предзагружаем перевод вариантов ответов
+    for (final option in currentQuestion.options.values) {
+      await translateText(option, state.selectedLanguage);
+    }
+    
+    // Предзагружаем перевод описания (если вопрос отвечен)
+    if (state.userAnswers.containsKey(currentQuestion.question)) {
+      await translateText(currentQuestion.description, state.selectedLanguage);
+    }
+  } catch (e) {
+    debugPrint('Precache translations error: $e');
+  }
+}
 
   Future<String> translateText(String text, String? targetLanguage) async {
     // Если язык не выбран или выбран английский - возвращаем оригинальный текст

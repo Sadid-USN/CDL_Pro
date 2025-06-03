@@ -166,12 +166,12 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final correctCount =
-        allQuestions
-            .where((q) => userAnswers[q.question] == q.correctOption)
-            .length;
+    final correctCount = allQuestions
+        .where((q) => userAnswers[q.question] == q.correctOption)
+        .length;
     final incorrectCount = userAnswers.length - correctCount;
     final bloc = context.read<CDLTestsBloc>();
+
     return Card(
       color: AppColors.lightBackground,
       margin: const EdgeInsets.only(bottom: 16),
@@ -197,12 +197,6 @@ class QuestionCard extends StatelessWidget {
                 ),
               ],
             ),
-            // Text(
-            //   LocaleKeys.question.tr(
-            //     namedArgs: {"questionNumber": questionNumber.toString()},
-            //   ),
-            //   style: AppTextStyles.robotoMonoBold14,
-            // ),
             const SizedBox(height: 8),
             Row(
               children: [
@@ -228,14 +222,16 @@ class QuestionCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             FutureBuilder<String>(
-              future:
-                  selectedLanguage.isNotEmpty && selectedLanguage != 'en'
-                      ? bloc.translateText(question.question, selectedLanguage)
-                      : Future.value(question.question),
+              future: selectedLanguage != 'en'
+                  ? bloc.translateText(question.question, selectedLanguage)
+                  : Future.value(question.question),
               builder: (context, snapshot) {
-                return Text(
-                  snapshot.data ?? question.question,
-                  style: AppTextStyles.regular16,
+                return KeyedSubtree(
+                  key: ValueKey('question_${question.question}_$selectedLanguage'),
+                  child: Text(
+                    snapshot.data ?? question.question,
+                    style: AppTextStyles.regular16,
+                  ),
                 );
               },
             ),
@@ -250,32 +246,28 @@ class QuestionCard extends StatelessWidget {
             ),
             if (isAnswered) ...[
               const SizedBox(height: 16),
-              if (isAnswered) ...[
-                const SizedBox(height: 16),
-                FutureBuilder<String>(
-                  future:
-                      selectedLanguage !=
-                              'en' // Упрощаем условие
-                          ? bloc.translateText(
-                            question.description,
-                            selectedLanguage,
-                          )
-                          : Future.value(question.description),
-                  builder: (context, snapshot) {
-                    return Column(
-                     crossAxisAlignment: CrossAxisAlignment.start,
+              FutureBuilder<String>(
+                future: selectedLanguage != 'en'
+                    ? bloc.translateText(question.description, selectedLanguage)
+                    : Future.value(question.description),
+                builder: (context, snapshot) {
+                  return KeyedSubtree(
+                    key: ValueKey('description_${question.description}_$selectedLanguage'),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(LocaleKeys.explanation.tr(),),
+                        Text(LocaleKeys.explanation.tr()),
+                        const SizedBox(height: 4),
                         Text(
-                          snapshot.data ?? question.description ,
+                          snapshot.data ?? question.description,
                           style: AppTextStyles.manrope14,
                         ),
                       ],
-                    );
-                  },
-                ),
-              ],
+                    ),
+                  );
+                },
+              ),
             ],
           ],
         ),
@@ -306,7 +298,7 @@ class QuestionOptions extends StatelessWidget {
     bool isAnswered,
     String? userAnswer,
     bool isCorrect,
-    String selectedLanguage, // Добавляем параметр языка
+    String selectedLanguage,
   ) {
     final bloc = context.read<CDLTestsBloc>();
 
@@ -333,12 +325,11 @@ class QuestionOptions extends StatelessWidget {
       }
 
       return InkWell(
-        onTap:
-            !isAnswered
-                ? () => context.read<CDLTestsBloc>().add(
+        onTap: !isAnswered
+            ? () => context.read<CDLTestsBloc>().add(
                   AnswerQuestionEvent(question.question, optionKey),
                 )
-                : null,
+            : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
@@ -352,14 +343,16 @@ class QuestionOptions extends StatelessWidget {
                 Text('$optionKey. ', style: TextStyle(color: textColor)),
                 Expanded(
                   child: FutureBuilder<String>(
-                    future:
-                        selectedLanguage.isNotEmpty && selectedLanguage != 'en'
-                            ? bloc.translateText(optionText, selectedLanguage)
-                            : Future.value(optionText),
+                    future: selectedLanguage != 'en'
+                        ? bloc.translateText(optionText, selectedLanguage)
+                        : Future.value(optionText),
                     builder: (context, snapshot) {
-                      return Text(
-                        snapshot.data ?? optionText,
-                        style: TextStyle(color: textColor),
+                      return KeyedSubtree(
+                        key: ValueKey('option_${optionText}_$selectedLanguage'),
+                        child: Text(
+                          snapshot.data ?? optionText,
+                          style: TextStyle(color: textColor),
+                        ),
                       );
                     },
                   ),
@@ -368,10 +361,9 @@ class QuestionOptions extends StatelessWidget {
                   SvgPicture.asset(
                     isCorrectOption ? AppLogos.correct : AppLogos.wrong,
                     height: 20.h,
-                    colorFilter:
-                        iconColor != null
-                            ? ColorFilter.mode(iconColor, BlendMode.srcIn)
-                            : null,
+                    colorFilter: iconColor != null
+                        ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                        : null,
                   ),
               ],
             ),
@@ -395,7 +387,6 @@ class QuestionOptions extends StatelessWidget {
     );
   }
 }
-
 class NextQuestionButton extends StatelessWidget {
   final bool isLastQuestion;
 
