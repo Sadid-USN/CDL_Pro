@@ -2,7 +2,7 @@
   "chapters": {
     "general_knowledge": {
       "free_limit": 50,
-      "total": 300,
+      "total": 800,
       "questions": {
         "1": {
           "en": {
@@ -4027,7 +4027,7 @@
     },
     "combination": {
       "free_limit": 25,
-      "total": 80,
+      "total": 180,
       "questions": {
         "1": {
           "en": {
@@ -6272,7 +6272,7 @@
     },
     "airBrakes": {
       "free_limit": 25,
-      "total": 100,
+      "total": 150,
       "questions": {
         "1": {
           "en": {
@@ -9457,7 +9457,7 @@
     },
     "doubleAndTriple": {
       "free_limit": 20,
-      "total": 100,
+      "total": 80,
       "questions": {
         "1": {
           "en": {
