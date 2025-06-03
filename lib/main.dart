@@ -3,6 +3,7 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
@@ -17,7 +18,15 @@ void main() async {
       WidgetsFlutterBinding.ensureInitialized();
 
       await initDependencies();
-      runApp(LocalizationWrapper(child: MyApp()));
+
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]).then((_) {
+        runApp(LocalizationWrapper(child: MyApp()));
+      });
     },
     (error, stack) {
       return GetIt.I<Talker>().handle(error, stack);

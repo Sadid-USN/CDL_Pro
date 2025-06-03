@@ -11,7 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
-class QuizPage extends StatelessWidget {
+@RoutePage()
+class QuizPage extends StatefulWidget {
   final String chapterTitle;
   final List<Question> questions;
   final int startIndex;
@@ -24,14 +25,27 @@ class QuizPage extends StatelessWidget {
   });
 
   @override
+  State<QuizPage> createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true; // Сохраняет состояние при повороте экрана
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context); // Важно для AutomaticKeepAliveClientMixin
+    
     final bloc = context.read<CDLTestsBloc>();
     final initialLanguage =
         bloc.state is QuizLoadedState
             ? (bloc.state as QuizLoadedState).selectedLanguage
             : 'en';
 
-    bloc.add(LoadQuizEvent(questions, initialLanguage: initialLanguage));
+    // Загружаем квиз только если он еще не загружен
+    if (bloc.state is! QuizLoadedState) {
+      bloc.add(LoadQuizEvent(widget.questions, initialLanguage: initialLanguage));
+    }
 
     return PopScope(
       canPop: false,
@@ -40,26 +54,38 @@ class QuizPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            '$chapterTitle (${startIndex + context.read<CDLTestsBloc>().currentPage} / ${questions.length})',
-            style: AppTextStyles.manrope10,
+          title: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
+            builder: (context, state) {
+              final currentPage = state is QuizLoadedState 
+                  ? state.currentPage 
+                  : 0;
+              return Text(
+                '${widget.chapterTitle} (${widget.startIndex + currentPage + 1} / ${widget.questions.length})',
+                style: AppTextStyles.manrope10,
+              );
+            },
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () => _showExitConfirmation(context),
           ),
         ),
-        body: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
-          builder: (context, state) {
-            if (state is QuizLoadedState) {
-              return SingleQuestionView(
-                state: state,
-                chapterTitle: chapterTitle,
-                questions: questions,
-                startIndex: startIndex,
-              );
-            }
-            return const Center(child: CircularProgressIndicator());
+        body: OrientationBuilder(
+          builder: (context, orientation) {
+            return BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
+              builder: (context, state) {
+                if (state is QuizLoadedState) {
+                  return SingleQuestionView(
+                    key: ValueKey(state.currentPage), // Уникальный ключ для сохранения состояния
+                    state: state,
+                    chapterTitle: widget.chapterTitle,
+                    questions: widget.questions,
+                    startIndex: widget.startIndex,
+                  );
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
+            );
           },
         ),
       ),
@@ -67,33 +93,29 @@ class QuizPage extends StatelessWidget {
   }
 
   Future<void> _showExitConfirmation(BuildContext context) async {
-    final shouldExit =
-        await showDialog<bool>(
-          context: context,
-          builder:
-              (dialogContext) => AlertDialog(
-                title: Text(LocaleKeys.confirm.tr()),
-                content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(dialogContext).pop(false),
-                    child: Text(LocaleKeys.no.tr()),
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.of(dialogContext).pop(true),
-                    child: Text(LocaleKeys.yes.tr()),
-                  ),
-                ],
-              ),
-        ) ??
-        false;
+    final shouldExit = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(LocaleKeys.confirm.tr()),
+        content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(LocaleKeys.no.tr()),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(LocaleKeys.yes.tr()),
+          ),
+        ],
+      ),
+    ) ?? false;
 
     if (shouldExit && context.mounted) {
       context.router.pop();
     }
   }
 }
-
 class SingleQuestionView extends StatelessWidget {
   final QuizLoadedState state;
   final String chapterTitle;
@@ -166,9 +188,10 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final correctCount = allQuestions
-        .where((q) => userAnswers[q.question] == q.correctOption)
-        .length;
+    final correctCount =
+        allQuestions
+            .where((q) => userAnswers[q.question] == q.correctOption)
+            .length;
     final incorrectCount = userAnswers.length - correctCount;
     final bloc = context.read<CDLTestsBloc>();
 
@@ -222,12 +245,15 @@ class QuestionCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             FutureBuilder<String>(
-              future: selectedLanguage != 'en'
-                  ? bloc.translateText(question.question, selectedLanguage)
-                  : Future.value(question.question),
+              future:
+                  selectedLanguage != 'en'
+                      ? bloc.translateText(question.question, selectedLanguage)
+                      : Future.value(question.question),
               builder: (context, snapshot) {
                 return KeyedSubtree(
-                  key: ValueKey('question_${question.question}_$selectedLanguage'),
+                  key: ValueKey(
+                    'question_${question.question}_$selectedLanguage',
+                  ),
                   child: Text(
                     snapshot.data ?? question.question,
                     style: AppTextStyles.regular16,
@@ -247,12 +273,18 @@ class QuestionCard extends StatelessWidget {
             if (isAnswered) ...[
               const SizedBox(height: 16),
               FutureBuilder<String>(
-                future: selectedLanguage != 'en'
-                    ? bloc.translateText(question.description, selectedLanguage)
-                    : Future.value(question.description),
+                future:
+                    selectedLanguage != 'en'
+                        ? bloc.translateText(
+                          question.description,
+                          selectedLanguage,
+                        )
+                        : Future.value(question.description),
                 builder: (context, snapshot) {
                   return KeyedSubtree(
-                    key: ValueKey('description_${question.description}_$selectedLanguage'),
+                    key: ValueKey(
+                      'description_${question.description}_$selectedLanguage',
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -325,11 +357,12 @@ class QuestionOptions extends StatelessWidget {
       }
 
       return InkWell(
-        onTap: !isAnswered
-            ? () => context.read<CDLTestsBloc>().add(
+        onTap:
+            !isAnswered
+                ? () => context.read<CDLTestsBloc>().add(
                   AnswerQuestionEvent(question.question, optionKey),
                 )
-            : null,
+                : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
@@ -343,9 +376,10 @@ class QuestionOptions extends StatelessWidget {
                 Text('$optionKey. ', style: TextStyle(color: textColor)),
                 Expanded(
                   child: FutureBuilder<String>(
-                    future: selectedLanguage != 'en'
-                        ? bloc.translateText(optionText, selectedLanguage)
-                        : Future.value(optionText),
+                    future:
+                        selectedLanguage != 'en'
+                            ? bloc.translateText(optionText, selectedLanguage)
+                            : Future.value(optionText),
                     builder: (context, snapshot) {
                       return KeyedSubtree(
                         key: ValueKey('option_${optionText}_$selectedLanguage'),
@@ -361,9 +395,10 @@ class QuestionOptions extends StatelessWidget {
                   SvgPicture.asset(
                     isCorrectOption ? AppLogos.correct : AppLogos.wrong,
                     height: 20.h,
-                    colorFilter: iconColor != null
-                        ? ColorFilter.mode(iconColor, BlendMode.srcIn)
-                        : null,
+                    colorFilter:
+                        iconColor != null
+                            ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                            : null,
                   ),
               ],
             ),
@@ -387,6 +422,7 @@ class QuestionOptions extends StatelessWidget {
     );
   }
 }
+
 class NextQuestionButton extends StatelessWidget {
   final bool isLastQuestion;
 
