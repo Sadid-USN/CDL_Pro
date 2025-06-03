@@ -24,52 +24,56 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   void _onChangeLanguage(
-  ChangeLanguageEvent event,
-  Emitter<AbstractCDLTestsState> emit,
-) async {
-  if (state is QuizLoadedState) {
-    final currentState = state as QuizLoadedState;
-    // Сохраняем новый язык
-    _selectedLanguage = currentState.selectedLanguage == event.languageCode 
-        ? 'en' 
-        : event.languageCode;
+    ChangeLanguageEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) async {
+    if (state is QuizLoadedState) {
+      final currentState = state as QuizLoadedState;
+      // Сохраняем новый язык
+      _selectedLanguage =
+          currentState.selectedLanguage == event.languageCode
+              ? 'en'
+              : event.languageCode;
 
-    // Создаем копию текущего состояния с новым языком
-    final newState = QuizLoadedState(
-      selectedLanguage: _selectedLanguage,
-      allQuestions: currentState.allQuestions,
-      userAnswers: currentState.userAnswers,
-      currentPage: currentState.currentPage,
-      quizCompleted: currentState.quizCompleted,
-    );
+      // Создаем копию текущего состояния с новым языком
+      final newState = QuizLoadedState(
+        selectedLanguage: _selectedLanguage,
+        allQuestions: currentState.allQuestions,
+        userAnswers: currentState.userAnswers,
+        currentPage: currentState.currentPage,
+        quizCompleted: currentState.quizCompleted,
+      );
 
-    // Эмитим новое состояние
-    emit(newState);
-    
-    // Принудительно обновляем переводы
-    await _precacheTranslations(newState);
-  }
-}
+      // Эмитим новое состояние
+      emit(newState);
 
-Future<void> _precacheTranslations(QuizLoadedState state) async {
-  try {
-    // Предзагружаем перевод текущего вопроса
-    final currentQuestion = state.allQuestions[state.currentPage];
-    await translateText(currentQuestion.question, state.selectedLanguage);
-    
-    // Предзагружаем перевод вариантов ответов
-    for (final option in currentQuestion.options.values) {
-      await translateText(option, state.selectedLanguage);
+      // Принудительно обновляем переводы
+      await _precacheTranslations(newState);
     }
-    
-    // Предзагружаем перевод описания (если вопрос отвечен)
-    if (state.userAnswers.containsKey(currentQuestion.question)) {
-      await translateText(currentQuestion.description, state.selectedLanguage);
-    }
-  } catch (e) {
-    debugPrint('Precache translations error: $e');
   }
-}
+
+  Future<void> _precacheTranslations(QuizLoadedState state) async {
+    try {
+      // Предзагружаем перевод текущего вопроса
+      final currentQuestion = state.allQuestions[state.currentPage];
+      await translateText(currentQuestion.question, state.selectedLanguage);
+
+      // Предзагружаем перевод вариантов ответов
+      for (final option in currentQuestion.options.values) {
+        await translateText(option, state.selectedLanguage);
+      }
+
+      // Предзагружаем перевод описания (если вопрос отвечен)
+      if (state.userAnswers.containsKey(currentQuestion.question)) {
+        await translateText(
+          currentQuestion.description,
+          state.selectedLanguage,
+        );
+      }
+    } catch (e) {
+      debugPrint('Precache translations error: $e');
+    }
+  }
 
   Future<String> translateText(String text, String? targetLanguage) async {
     // Если язык не выбран или выбран английский - возвращаем оригинальный текст
@@ -107,26 +111,25 @@ Future<void> _precacheTranslations(QuizLoadedState state) async {
     emit(PremiumLoaded(true));
   }
 
-  // Новые методы для квиза
-   void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
-    _quizQuestions = event.questions;
-    _userAnswers = {};
-    _currentQuestionIndex = 0;
-    _quizCompleted = false;
-   _selectedLanguage = event.initialLanguage; 
-
-
-    emit(
-      QuizLoadedState(
-        selectedLanguage: _selectedLanguage, // Используем сохраненный язык
-        allQuestions: _quizQuestions,
-        userAnswers: _userAnswers,
-        currentPage: _currentQuestionIndex,
-        quizCompleted: _quizCompleted,
-      ),
-    );
-  }
-
+void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
+  // Сохраняем текущий прогресс при пересоздании
+  final currentPage = state is QuizLoadedState 
+      ? (state as QuizLoadedState).currentPage 
+      : 0;
+  
+  _quizQuestions = event.questions;
+  _userAnswers = state is QuizLoadedState 
+      ? (state as QuizLoadedState).userAnswers 
+      : {};
+  
+  emit(QuizLoadedState(
+    selectedLanguage: event.initialLanguage,
+    allQuestions: _quizQuestions,
+    userAnswers: _userAnswers,
+    currentPage: currentPage, // Восстанавливаем позицию
+    quizCompleted: false,
+  ));
+}
   void _onAnswerQuestion(
     AnswerQuestionEvent event,
     Emitter<AbstractCDLTestsState> emit,
@@ -144,7 +147,6 @@ Future<void> _precacheTranslations(QuizLoadedState state) async {
       ),
     );
   }
-
 
   void _onNextQuestions(
     NextQuestionsEvent event,
