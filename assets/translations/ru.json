@@ -16,5 +16,13 @@
     "hazMat": "Опасные грузы",
     "total": "Всего {totalQuestions}",
     "free": "Бесплатно {freeQuestions}",
-    "question": "Питання {questionNumber}"
+    "question": "Питання {questionNumber}",
+    "confirm": "Подтвердить",
+    "areYouSureYouWantToExit": "Вы уверены, что хотите выйти? Прогресс будет сохранён автоматически.",
+    "yes": "Да",
+    "no": "Нет",
+    "outOf": "Из",
+    "explanation": "Объяснение: {description}",
+    "completeTheTest": "Завершить тест",
+    "nextQuestion": "Следующий вопрос"
 }

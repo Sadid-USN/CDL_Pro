@@ -16,5 +16,13 @@
     "hazMat": "Борҳои хатарнок",
     "total": "Ҳамагӣ {totalQuestions}",
     "free": "Ройгон {freeQuestions}",
-    "question": "Савол {questionNumber}"
+    "question": "Савол {questionNumber}",
+    "confirm": "Тасдиқ кардан",
+    "areYouSureYouWantToExit": "Шумо мутааккид ҳастед, ки баромадан мехоҳед? Маълумот ба таври худкор сабт мешавад.",
+    "yes": "Ҳа",
+    "no": "Не",
+    "outOf": "Аз",
+    "explanation": "Шарҳ: {description}",
+    "completeTheTest": "Тестро иҷро кунед",
+    "nextQuestion": "Саволҳои навбатӣ"
 }
