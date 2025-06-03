@@ -23,19 +23,19 @@ class CDLTestsView extends StatelessWidget {
 
     final data = docs.first.data() as Map<String, dynamic>;
     final model = TestsDataModel.fromJson(data);
-  
+
     // Создаем список глав с помощью метода расширения
     final chapters = model.chapters.toChapterList(context);
 
     return ListView.builder(
       itemCount: chapters.length,
-      padding:  EdgeInsets.all(8.h),
-      
+      padding: EdgeInsets.all(8.h),
+
       itemBuilder: (context, index) {
         final chapter = chapters[index];
 
         return Padding(
-          padding:  EdgeInsets.only(bottom: 4.h),
+          padding: EdgeInsets.only(bottom: 4.h),
           child: _CategoryCard(
             image: chapter.image,
             title: chapter.title,
@@ -46,7 +46,8 @@ class CDLTestsView extends StatelessWidget {
                 context,
                 route: OverviewCategoryRoute(
                   categoryKey: chapter.key,
-                   model: model),
+                  model: model,
+                ),
               );
             },
           ),
@@ -59,46 +60,76 @@ class CDLTestsView extends StatelessWidget {
 // Расширение для Chapters, которое преобразует свойства в список
 extension ChaptersExtension on Chapters {
   List<ChapterItem> toChapterList(BuildContext context) {
+    String getLocalizedTitle(
+      BuildContext context,
+      String localizedKey,
+      String englishTitle,
+    ) {
+      final currentLocale = context.locale.languageCode;
+      if (currentLocale == 'en') {
+        return localizedKey;
+      } else {
+        return '$localizedKey\n$englishTitle';
+      }
+    }
+
     return [
       ChapterItem(
         image: AppLogos.generalKnowlage,
         key: 'general_knowledge',
-        title: LocaleKeys.generalKnowledge.tr(),
+        title: getLocalizedTitle(
+          context,
+          LocaleKeys.generalKnowledge.tr(),
+          'GeneralKnowledge',
+        ),
         total: generalKnowledge.total,
         freeLimit: generalKnowledge.freeLimit,
       ),
       ChapterItem(
         image: AppLogos.combination,
         key: 'combination',
-        title: LocaleKeys.combination.tr(),
+        title: getLocalizedTitle(
+          context,
+          LocaleKeys.combination.tr(),
+          "Combination",
+        ),
+
         total: combination.total,
         freeLimit: combination.freeLimit,
       ),
       ChapterItem(
         image: AppLogos.airbrake,
         key: 'airBrakes',
-        title: LocaleKeys.airBrakes.tr(),
+        title: getLocalizedTitle(
+          context,
+          LocaleKeys.airBrakes.tr(),
+          'AirBrakes',
+        ),
         total: airBrakes.total,
         freeLimit: airBrakes.freeLimit,
       ),
       ChapterItem(
         image: AppLogos.tanker,
         key: 'tanker',
-        title: LocaleKeys.tanker.tr(),
+        title: getLocalizedTitle(context, LocaleKeys.tanker.tr(), 'Tanker'),
         total: tanker.total,
         freeLimit: tanker.freeLimit,
       ),
       ChapterItem(
         image: AppLogos.doubleAndTriple,
         key: 'doubleAndTriple',
-        title: LocaleKeys.doubleAndTriple.tr(),
+        title: getLocalizedTitle(
+          context,
+          LocaleKeys.doubleAndTriple.tr(),
+          'Double&Triple',
+        ),
         total: doubleAndTriple.total,
         freeLimit: doubleAndTriple.freeLimit,
       ),
       ChapterItem(
         image: AppLogos.hazMat,
         key: 'hazMat',
-        title: LocaleKeys.hazMat.tr(),
+        title: getLocalizedTitle(context, LocaleKeys.hazMat.tr(), 'HazMat'),
         total: hazMat.total,
         freeLimit: hazMat.freeLimit,
       ),
@@ -125,7 +156,6 @@ class ChapterItem {
 
 class _CategoryCard extends StatelessWidget {
   final String image;
-
   final String title;
   final int totalQuestions;
   final int freeQuestions;
@@ -216,7 +246,7 @@ class _CategoryCard extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-          SizedBox(width: 4.w),
+      
           // Подстрой цвет под фон
           SizedBox(width: 4.w),
           Text(

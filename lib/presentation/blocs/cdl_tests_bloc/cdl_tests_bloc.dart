@@ -1,16 +1,18 @@
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:translator/translator.dart';
 
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
-   final GoogleTranslator _translator = GoogleTranslator();
+  final GoogleTranslator _translator = GoogleTranslator();
   bool _isPremium = false;
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
   int get currentPage => _currentQuestionIndex;
   int _currentQuestionIndex = 0;
   bool _quizCompleted = false;
+  String _selectedLanguage = 'en';
 
   CDLTestsBloc() : super(PremiumInitial()) {
     on<CheckPremiumStatus>(_onCheckPremiumStatus);
@@ -18,6 +20,44 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
     on<NextQuestionsEvent>(_onNextQuestions);
+    on<ChangeLanguageEvent>(_onChangeLanguage);
+  }
+
+   void _onChangeLanguage(
+    ChangeLanguageEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) {
+    if (state is QuizLoadedState) {
+      final currentState = state as QuizLoadedState;
+      _selectedLanguage = currentState.selectedLanguage == event.languageCode 
+          ? 'en' 
+          : event.languageCode;
+
+      emit(
+        QuizLoadedState(
+          selectedLanguage: _selectedLanguage,
+          allQuestions: currentState.allQuestions,
+          userAnswers: currentState.userAnswers,
+          currentPage: currentState.currentPage,
+          quizCompleted: currentState.quizCompleted,
+        ),
+      );
+    }
+  }
+
+  Future<String> translateText(String text, String? targetLanguage) async {
+    // Если язык не выбран или выбран английский - возвращаем оригинальный текст
+    if (text.isEmpty || targetLanguage == null || targetLanguage == 'en') {
+      return text;
+    }
+
+    try {
+      final translation = await _translator.translate(text, to: targetLanguage);
+      return translation.text;
+    } catch (e) {
+      debugPrint('Translation error: $e');
+      return text;
+    }
   }
 
   // Существующие методы...
@@ -42,19 +82,18 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // Новые методы для квиза
-  void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
+   void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     _quizQuestions = event.questions;
     _userAnswers = {};
-    _currentQuestionIndex = 0; // Сбрасываем индекс текущего вопроса
+    _currentQuestionIndex = 0;
     _quizCompleted = false;
 
     emit(
       QuizLoadedState(
-        selectedLanguage: '',
+        selectedLanguage: _selectedLanguage, // Используем сохраненный язык
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
-        currentPage:
-            _currentQuestionIndex, // Теперь используем currentQuestionIndex
+        currentPage: _currentQuestionIndex,
         quizCompleted: _quizCompleted,
       ),
     );
@@ -65,12 +104,11 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     Emitter<AbstractCDLTestsState> emit,
   ) {
     _userAnswers = Map<String, String>.from(_userAnswers)
-  ..[event.questionId] = event.selectedOption;
-
+      ..[event.questionId] = event.selectedOption;
 
     emit(
       QuizLoadedState(
-        selectedLanguage: '',
+        selectedLanguage: _selectedLanguage, // Сохраняем язык
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
@@ -79,11 +117,11 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     );
   }
 
+
   void _onNextQuestions(
     NextQuestionsEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) {
-    // Переходим к следующему вопросу, если это не последний вопрос
     if (_currentQuestionIndex < _quizQuestions.length - 1) {
       _currentQuestionIndex++;
     } else {
@@ -92,7 +130,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     emit(
       QuizLoadedState(
-        selectedLanguage: '',
+        selectedLanguage: _selectedLanguage, // Сохраняем язык
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
