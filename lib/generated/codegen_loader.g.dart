@@ -32,7 +32,15 @@ class CodegenLoader extends AssetLoader{
   "hazMat": "Опасные грузы",
   "total": "Всего {totalQuestions}",
   "free": "Бесплатно {freeQuestions}",
-  "question": "Питання {questionNumber}"
+  "question": "Питання {questionNumber}",
+  "confirm": "Подтвердить",
+  "areYouSureYouWantToExit": "Вы уверены, что хотите выйти? Прогресс будет сохранён автоматически.",
+  "yes": "Да",
+  "no": "Нет",
+  "outOf": "Из",
+  "explanation": "Объяснение: {description}",
+  "completeTheTest": "Завершить тест",
+  "nextQuestion": "Следующий вопрос"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -51,7 +59,15 @@ static const Map<String,dynamic> _uk = {
   "doubleAndTriple": "Подвійні/потрійні причепи",
   "hazMat": "Небезпечні вантажі",
   "total": "Всього  {totalQuestions}",
-  "free": "Безкоштовно {freeQuestions}"
+  "free": "Безкоштовно {freeQuestions}",
+  "confirm": "Підтвердити",
+  "areYouSureYouWantToExit": "Ви впевнені, що хочете вийти? Прогрес буде збережено автоматично.",
+  "yes": "Так",
+  "no": "Ні",
+  "outOf": "З",
+  "explanation": "Пояснення: {description}",
+  "completeTheTest": "Завершити тест",
+  "nextQuestion": "Наступне питання"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -71,7 +87,15 @@ static const Map<String,dynamic> _en = {
   "hazMat": "HazMat",
   "total": "Total {totalQuestions}",
   "free": "Free {freeQuestions}",
-  "question": "Question {questionNumber}"
+  "question": "Question {questionNumber}",
+  "confirm": "Сonfirm",
+  "areYouSureYouWantToExit?": "Are you sure you want to exit? Your progress will be saved automatically.",
+  "yes": "Yes",
+  "no": "No",
+  "outOf": "Out of",
+  "explanation:": "Explanation: {description}",
+  "completeTheTest:": "Complete the test",
+  "nextQuestion:": "Next question"
 };
 static const Map<String,dynamic> _fr = {
   "home": "Асосӣ",
@@ -91,7 +115,15 @@ static const Map<String,dynamic> _fr = {
   "hazMat": "Борҳои хатарнок",
   "total": "Ҳамагӣ {totalQuestions}",
   "free": "Ройгон {freeQuestions}",
-  "question": "Савол {questionNumber}"
+  "question": "Савол {questionNumber}",
+  "confirm": "Тасдиқ кардан",
+  "areYouSureYouWantToExit": "Шумо мутааккид ҳастед, ки баромадан мехоҳед? Маълумот ба таври худкор сабт мешавад.",
+  "yes": "Ҳа",
+  "no": "Не",
+  "outOf": "Аз",
+  "explanation": "Шарҳ: {description}",
+  "completeTheTest": "Тестро иҷро кунед",
+  "nextQuestion": "Саволҳои навбатӣ"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "fr": _fr};
 }

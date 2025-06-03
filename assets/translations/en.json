@@ -16,5 +16,13 @@
     "hazMat": "HazMat",
     "total": "Total {totalQuestions}",
     "free": "Free {freeQuestions}",
-    "question": "Question {questionNumber}"
+    "question": "Question {questionNumber}",
+    "confirm": "Сonfirm",
+    "areYouSureYouWantToExit?": "Are you sure you want to exit? Your progress will be saved automatically.",
+    "yes": "Yes",
+    "no": "No",
+    "outOf": "Out of",
+    "explanation:": "Explanation: {description}",
+    "completeTheTest:": "Complete the test",
+    "nextQuestion:": "Next question"
 }

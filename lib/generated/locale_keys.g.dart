@@ -21,5 +21,13 @@ abstract class  LocaleKeys {
   static const total = 'total';
   static const free = 'free';
   static const question = 'question';
+  static const confirm = 'confirm';
+  static const areYouSureYouWantToExit = 'areYouSureYouWantToExit';
+  static const yes = 'yes';
+  static const no = 'no';
+  static const outOf = 'outOf';
+  static const explanation = 'explanation';
+  static const completeTheTest = 'completeTheTest';
+  static const nextQuestion = 'nextQuestion';
 
 }

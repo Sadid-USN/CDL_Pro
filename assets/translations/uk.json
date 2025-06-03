@@ -15,5 +15,13 @@
     "doubleAndTriple": "Подвійні/потрійні причепи",
     "hazMat": "Небезпечні вантажі",
     "total": "Всього  {totalQuestions}",
-    "free": "Безкоштовно {freeQuestions}"
+    "free": "Безкоштовно {freeQuestions}",
+    "confirm": "Підтвердити",
+    "areYouSureYouWantToExit": "Ви впевнені, що хочете вийти? Прогрес буде збережено автоматично.",
+    "yes": "Так",
+    "no": "Ні",
+    "outOf": "З",
+    "explanation": "Пояснення: {description}",
+    "completeTheTest": "Завершити тест",
+    "nextQuestion": "Наступне питання"
 }

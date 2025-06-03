@@ -60,24 +60,24 @@ class QuizPage extends StatelessWidget {
   }
 
   Future<void> _showExitConfirmation(BuildContext context) async {
-    final shouldExit = await showDialog<bool>(
+    final shouldExit =
+        await showDialog<bool>(
           context: context,
-          builder: (dialogContext) => AlertDialog(
-            title: const Text('Подтверждение'),
-            content: const Text(
-              'Вы уверены, что хотите выйти? Прогресс будет потерян.',
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: const Text('Нет'),
+          builder:
+              (dialogContext) => AlertDialog(
+                title: Text(LocaleKeys.confirm.tr()),
+                content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(dialogContext).pop(false),
+                    child: Text(LocaleKeys.no.tr()),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(dialogContext).pop(true),
+                    child: Text(LocaleKeys.yes.tr()),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: const Text('Да'),
-              ),
-            ],
-          ),
         ) ??
         false;
 
@@ -156,9 +156,10 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final correctCount = allQuestions
-        .where((q) => userAnswers[q.question] == q.correctOption)
-        .length;
+    final correctCount =
+        allQuestions
+            .where((q) => userAnswers[q.question] == q.correctOption)
+            .length;
     final incorrectCount = userAnswers.length - correctCount;
 
     return Card(
@@ -179,7 +180,7 @@ class QuestionCard extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '$questionNumber из ${allQuestions.length} /',
+                  '$questionNumber ${LocaleKeys.outOf.tr()} ${allQuestions.length} /',
                   style: AppTextStyles.robotoMonoBold14,
                 ),
                 const SizedBox(width: 4),
@@ -211,7 +212,7 @@ class QuestionCard extends StatelessWidget {
             if (isAnswered) ...[
               const SizedBox(height: 16),
               Text(
-                'Объяснение: ${question.description}',
+                '${LocaleKeys.explanation.tr()} ${question.description}',
                 style: AppTextStyles.manrope14,
               ),
             ],
@@ -266,11 +267,12 @@ class QuestionOptions extends StatelessWidget {
       }
 
       return InkWell(
-        onTap: !isAnswered
-            ? () => context.read<CDLTestsBloc>().add(
+        onTap:
+            !isAnswered
+                ? () => context.read<CDLTestsBloc>().add(
                   AnswerQuestionEvent(question.question, optionKey),
-              )
-            : null,
+                )
+                : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
@@ -283,14 +285,16 @@ class QuestionOptions extends StatelessWidget {
               children: [
                 Text('$optionKey. ', style: TextStyle(color: textColor)),
                 Expanded(
-                    child: Text(optionText, style: TextStyle(color: textColor))),
+                  child: Text(optionText, style: TextStyle(color: textColor)),
+                ),
                 if (isAnswered && (isSelected || isCorrectOption))
                   SvgPicture.asset(
                     isCorrectOption ? AppLogos.correct : AppLogos.wrong,
                     height: 20.h,
-                    colorFilter: iconColor != null
-                        ? ColorFilter.mode(iconColor, BlendMode.srcIn)
-                        : null,
+                    colorFilter:
+                        iconColor != null
+                            ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                            : null,
                   ),
               ],
             ),
@@ -303,7 +307,13 @@ class QuestionOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: buildOptions(context, question, isAnswered, userAnswer, isCorrect),
+      children: buildOptions(
+        context,
+        question,
+        isAnswered,
+        userAnswer,
+        isCorrect,
+      ),
     );
   }
 }
@@ -311,10 +321,7 @@ class QuestionOptions extends StatelessWidget {
 class NextQuestionButton extends StatelessWidget {
   final bool isLastQuestion;
 
-  const NextQuestionButton({
-    super.key,
-    required this.isLastQuestion,
-  });
+  const NextQuestionButton({super.key, required this.isLastQuestion});
 
   @override
   Widget build(BuildContext context) {
@@ -330,15 +337,15 @@ class NextQuestionButton extends StatelessWidget {
           }
         },
         child: Text(
-          isLastQuestion ? 'Завершить тест' : 'Следующий вопрос',
+          isLastQuestion
+              ? LocaleKeys.completeTheTest.tr()
+              : LocaleKeys.nextQuestion.tr(),
           style: const TextStyle(fontSize: 16),
         ),
       ),
     );
   }
 }
-
-
 
 // class QuizHeaderBuilder {
 //   static InlineSpan build({
