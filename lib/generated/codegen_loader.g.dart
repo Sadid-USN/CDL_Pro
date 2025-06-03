@@ -38,7 +38,7 @@ class CodegenLoader extends AssetLoader{
   "yes": "Да",
   "no": "Нет",
   "outOf": "Из",
-  "explanation": "Объяснение: {description}",
+  "explanation": "Объяснение:",
   "completeTheTest": "Завершить тест",
   "nextQuestion": "Следующий вопрос"
 };
@@ -65,7 +65,7 @@ static const Map<String,dynamic> _uk = {
   "yes": "Так",
   "no": "Ні",
   "outOf": "З",
-  "explanation": "Пояснення: {description}",
+  "explanation": "Пояснення:",
   "completeTheTest": "Завершити тест",
   "nextQuestion": "Наступне питання"
 };
@@ -93,9 +93,9 @@ static const Map<String,dynamic> _en = {
   "yes": "Yes",
   "no": "No",
   "outOf": "Out of",
-  "explanation:": "Explanation: {description}",
-  "completeTheTest:": "Complete the test",
-  "nextQuestion:": "Next question"
+  "explanation": "Explanation:",
+  "completeTheTest": "Complete the test",
+  "nextQuestion": "Next question"
 };
 static const Map<String,dynamic> _fr = {
   "home": "Асосӣ",
@@ -121,7 +121,7 @@ static const Map<String,dynamic> _fr = {
   "yes": "Ҳа",
   "no": "Не",
   "outOf": "Аз",
-  "explanation": "Шарҳ: {description}",
+  "explanation": "Шарҳ:",
   "completeTheTest": "Тестро иҷро кунед",
   "nextQuestion": "Саволҳои навбатӣ"
 };

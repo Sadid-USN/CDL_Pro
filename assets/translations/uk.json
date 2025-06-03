@@ -21,7 +21,7 @@
     "yes": "Так",
     "no": "Ні",
     "outOf": "З",
-    "explanation": "Пояснення: {description}",
+    "explanation": "Пояснення:",
     "completeTheTest": "Завершити тест",
     "nextQuestion": "Наступне питання"
 }

@@ -87,6 +87,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     _userAnswers = {};
     _currentQuestionIndex = 0;
     _quizCompleted = false;
+   _selectedLanguage = event.initialLanguage; 
+
 
     emit(
       QuizLoadedState(

@@ -25,7 +25,13 @@ class QuizPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<CDLTestsBloc>().add(LoadQuizEvent(questions));
+    final bloc = context.read<CDLTestsBloc>();
+    final initialLanguage =
+        bloc.state is QuizLoadedState
+            ? (bloc.state as QuizLoadedState).selectedLanguage
+            : 'en';
+
+    bloc.add(LoadQuizEvent(questions, initialLanguage: initialLanguage));
 
     return PopScope(
       canPop: false,
@@ -248,20 +254,24 @@ class QuestionCard extends StatelessWidget {
                 const SizedBox(height: 16),
                 FutureBuilder<String>(
                   future:
-                      selectedLanguage.isNotEmpty && selectedLanguage != 'en'
+                      selectedLanguage !=
+                              'en' // Упрощаем условие
                           ? bloc.translateText(
                             question.description,
                             selectedLanguage,
                           )
                           : Future.value(question.description),
                   builder: (context, snapshot) {
-                    return Text(
-                      LocaleKeys.explanation.tr(
-                        namedArgs: {
-                          'description': snapshot.data ?? question.description,
-                        },
-                      ),
-                      style: AppTextStyles.manrope14,
+                    return Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(LocaleKeys.explanation.tr(),),
+                        Text(
+                          snapshot.data ?? question.description ,
+                          style: AppTextStyles.manrope14,
+                        ),
+                      ],
                     );
                   },
                 ),
@@ -414,8 +424,6 @@ class NextQuestionButton extends StatelessWidget {
     );
   }
 }
-
-
 
 // class QuizHeaderBuilder {
 //   static InlineSpan build({
