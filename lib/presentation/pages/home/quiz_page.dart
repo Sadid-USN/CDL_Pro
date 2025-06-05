@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
-@RoutePage()
 class QuizPage extends StatefulWidget {
   final String chapterTitle;
   final List<Question> questions;
@@ -28,94 +27,139 @@ class QuizPage extends StatefulWidget {
   State<QuizPage> createState() => _QuizPageState();
 }
 
-class _QuizPageState extends State<QuizPage> with AutomaticKeepAliveClientMixin {
+class _QuizPageState extends State<QuizPage>
+    with AutomaticKeepAliveClientMixin {
+  late String _quizId;
+  bool _initialLoadComplete = false;
+
   @override
-  bool get wantKeepAlive => true; // Сохраняет состояние при повороте экрана
+  void initState() {
+    super.initState();
+    _quizId =
+        widget.questions
+            .map((q) => q.question.hashCode.toString())
+            .join('_')
+            .hashCode
+            .toString();
+
+    // Инициируем загрузку квиза при инициализации
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final bloc = context.read<CDLTestsBloc>();
+      bloc.add(LoadQuizEvent(widget.questions, initialLanguage: 'en'));
+    });
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // Важно для AutomaticKeepAliveClientMixin
-    
+    super.build(context);
     final bloc = context.read<CDLTestsBloc>();
-    final initialLanguage =
-        bloc.state is QuizLoadedState
-            ? (bloc.state as QuizLoadedState).selectedLanguage
-            : 'en';
 
-    // Загружаем квиз только если он еще не загружен
-    if (bloc.state is! QuizLoadedState) {
-      bloc.add(LoadQuizEvent(widget.questions, initialLanguage: initialLanguage));
-    }
-
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) {
-        if (!didPop) return;
+    return BlocConsumer<CDLTestsBloc, AbstractCDLTestsState>(
+      listener: (context, state) {
+        if (state is QuizLoadedState) {
+          _initialLoadComplete = true;
+          bloc.add(SaveQuizProgressEvent());
+        }
       },
-      child: Scaffold(
-        appBar: AppBar(
-          title: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
-            builder: (context, state) {
-              final currentPage = state is QuizLoadedState 
-                  ? state.currentPage 
-                  : 0;
-              return Text(
-                '${widget.chapterTitle} (${widget.startIndex + currentPage + 1} / ${widget.questions.length})',
-                style: AppTextStyles.manrope10,
-              );
-            },
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () => _showExitConfirmation(context),
-          ),
-        ),
-        body: OrientationBuilder(
+      builder: (context, state) {
+        return OrientationBuilder(
           builder: (context, orientation) {
-            return BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
-              builder: (context, state) {
-                if (state is QuizLoadedState) {
-                  return SingleQuestionView(
-                    key: ValueKey(state.currentPage), // Уникальный ключ для сохранения состояния
-                    state: state,
-                    chapterTitle: widget.chapterTitle,
-                    questions: widget.questions,
-                    startIndex: widget.startIndex,
-                  );
+            return PopScope(
+              canPop: false,
+              onPopInvokedWithResult: (didPop, result) async {
+                if (!didPop) {
+                  await bloc.saveProgress();
                 }
-                return const Center(child: CircularProgressIndicator());
               },
+              child: Scaffold(
+                appBar: AppBar(
+                  title: _buildAppBarTitle(state),
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    onPressed: () => _showExitConfirmation(context),
+                  ),
+                ),
+                body: _buildBody(state),
+              ),
             );
           },
-        ),
-      ),
+        );
+      },
     );
   }
 
+  Widget _buildAppBarTitle(AbstractCDLTestsState state) {
+    final currentPage = state is QuizLoadedState ? state.currentPage : 0;
+    return Text(
+      '${widget.chapterTitle} (${widget.startIndex + currentPage + 1} / ${widget.questions.length})',
+      style: AppTextStyles.manrope10,
+    );
+  }
+
+  Widget _buildBody(AbstractCDLTestsState state) {
+    if (state is QuizLoadedState) {
+      return OrientationBuilder(
+        builder: (context, orientation) {
+          return SingleQuestionView(
+            key: ValueKey(state.currentPage),
+            state: state,
+            chapterTitle: widget.chapterTitle,
+            questions: widget.questions,
+            startIndex: widget.startIndex,
+          );
+        },
+      );
+    } else if (state is QuizProgressLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (state is PremiumInitial || state is PremiumLoading) {
+      // Показываем загрузку, пока проверяется премиум-статус
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    // Fallback - если состояние неизвестно
+    return const Center(child: CircularProgressIndicator());
+  }
+
   Future<void> _showExitConfirmation(BuildContext context) async {
-    final shouldExit = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(LocaleKeys.confirm.tr()),
-        content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(LocaleKeys.no.tr()),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(LocaleKeys.yes.tr()),
-          ),
-        ],
-      ),
-    ) ?? false;
+    final bloc = context.read<CDLTestsBloc>();
+    final shouldExit =
+        await showDialog<bool>(
+          context: context,
+          builder:
+              (dialogContext) => AlertDialog(
+                title: Text(LocaleKeys.confirm.tr()),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [Text(LocaleKeys.areYouSureYouWantToExit.tr())],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(dialogContext).pop(false),
+                    child: Text(LocaleKeys.no.tr()),
+                  ),
+                  TextButton(
+                    onPressed: () async {
+                      await bloc.saveProgress();
+                      if (dialogContext.mounted) {
+                        Navigator.of(dialogContext).pop(true);
+                      }
+                    },
+                    child: Text(LocaleKeys.yes.tr()),
+                  ),
+                ],
+              ),
+        ) ??
+        false;
 
     if (shouldExit && context.mounted) {
       context.router.pop();
     }
   }
 }
+
 class SingleQuestionView extends StatelessWidget {
   final QuizLoadedState state;
   final String chapterTitle;
@@ -212,11 +256,18 @@ class QuestionCard extends StatelessWidget {
                   ),
                   style: AppTextStyles.robotoMonoBold14,
                 ),
-                TranslationButton(
-                  initialLanguage: selectedLanguage,
-                  onLanguageChanged: (lang) {
-                    bloc.add(ChangeLanguageEvent(lang));
-                  },
+                Row(
+                  children: [
+                    const ResetButton(),
+                    const SizedBox(width: 8),
+
+                    TranslationButton(
+                      initialLanguage: selectedLanguage,
+                      onLanguageChanged: (lang) {
+                        bloc.add(ChangeLanguageEvent(lang));
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -436,6 +487,8 @@ class NextQuestionButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(),
         onPressed: () {
           if (isLastQuestion) {
+            // При завершении теста сбрасываем данные
+            context.read<CDLTestsBloc>().add(const ResetQuizEvent());
             Navigator.of(context).pop();
           } else {
             context.read<CDLTestsBloc>().add(const NextQuestionsEvent());
@@ -452,39 +505,47 @@ class NextQuestionButton extends StatelessWidget {
   }
 }
 
-// class QuizHeaderBuilder {
-//   static InlineSpan build({
-//     required String chapterTitle,
-//     required int currentIndex,
-//     required int totalQuestions,
-//     required int incorrectAnswers,
-//   }) {
-//     return TextSpan(
-//       style: AppTextStyles.manrope10, // Базовый стиль
-//       children: [
-//         TextSpan(
-//           text: chapterTitle,
-//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.bold),
-//         ),
-//         const TextSpan(text: ' (Вопрос '),
-//         TextSpan(
-//           text: '${currentIndex + 1}',
-//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w600),
-//         ),
-//         TextSpan(text: ' из $totalQuestions', style: AppTextStyles.manrope10),
-//         const TextSpan(text: ') • Ошибки: '),
-//         TextSpan(
-//           text: '$incorrectAnswers',
-//           style: AppTextStyles.manrope10.copyWith(
-//             color: Colors.red,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-//         TextSpan(
-//           text: '/$totalQuestions',
-//           style: AppTextStyles.manrope10.copyWith(fontWeight: FontWeight.w500),
-//         ),
-//       ],
-//     );
-//   }
-// }
+class ResetButton extends StatelessWidget {
+  const ResetButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.restart_alt),
+      tooltip: LocaleKeys.resetQuiz.tr(),
+      onPressed: () {
+        _showResetConfirmationDialog(context);
+      },
+    );
+  }
+
+  void _showResetConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            title: Text(
+              LocaleKeys.resetQuiz.tr(),
+              style: TextStyle(color: AppColors.darkBackground),
+            ),
+            content: Text(
+              LocaleKeys.startTheQuizOverText.tr(),
+              style: TextStyle(color: AppColors.darkBackground),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(LocaleKeys.cancel.tr()),
+              ),
+              TextButton(
+                onPressed: () {
+                  context.read<CDLTestsBloc>().add(const ResetQuizEvent());
+                  Navigator.of(context).pop();
+                },
+                child: Text(LocaleKeys.reset.tr()),
+              ),
+            ],
+          ),
+    );
+  }
+}

@@ -17,48 +17,52 @@ class QuizInitialState extends AbstractCDLTestsState {
 }
 
 class QuizLoadedState extends AbstractCDLTestsState {
+  final String selectedLanguage;
   final List<Question> allQuestions;
   final Map<String, String> userAnswers;
   final int currentPage;
   final bool quizCompleted;
-  final String selectedLanguage; // <- Новое поле
+  final bool isLoadingProgress; // Новое поле для индикации загрузки
 
   const QuizLoadedState({
+    required this.selectedLanguage,
     required this.allQuestions,
     required this.userAnswers,
     required this.currentPage,
     required this.quizCompleted,
-    required this.selectedLanguage,
+    this.isLoadingProgress = false, // По умолчанию false
   });
 
-  Question get currentQuestion => allQuestions[currentPage];
-
-  bool get isCurrentQuestionAnswered => userAnswers.containsKey(currentQuestion.question);
-
-  bool get isLastQuestion => currentPage == allQuestions.length - 1;
-
   QuizLoadedState copyWith({
+    String? selectedLanguage,
     List<Question>? allQuestions,
     Map<String, String>? userAnswers,
     int? currentPage,
     bool? quizCompleted,
-    String? selectedLanguage,
+    bool? isLoadingProgress,
   }) {
     return QuizLoadedState(
+      selectedLanguage: selectedLanguage ?? this.selectedLanguage,
       allQuestions: allQuestions ?? this.allQuestions,
       userAnswers: userAnswers ?? this.userAnswers,
       currentPage: currentPage ?? this.currentPage,
       quizCompleted: quizCompleted ?? this.quizCompleted,
-      selectedLanguage: selectedLanguage ?? this.selectedLanguage,
+      isLoadingProgress: isLoadingProgress ?? this.isLoadingProgress,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [allQuestions, userAnswers, currentPage, quizCompleted, selectedLanguage];
+  List<Object?> get props => [
+        selectedLanguage,
+        allQuestions,
+        userAnswers,
+        currentPage,
+        quizCompleted,
+        isLoadingProgress,
+      ];
 }
 
-
+class QuizProgressLoading extends AbstractCDLTestsState {} 
 class PremiumInitial extends AbstractCDLTestsState {
   const PremiumInitial();
 }

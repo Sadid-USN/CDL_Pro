@@ -29,5 +29,9 @@ abstract class  LocaleKeys {
   static const explanation = 'explanation';
   static const completeTheTest = 'completeTheTest';
   static const nextQuestion = 'nextQuestion';
+  static const resetQuiz = 'resetQuiz';
+  static const cancel = 'cancel';
+  static const reset = 'reset';
+  static const startTheQuizOverText = 'startTheQuizOverText';
 
 }

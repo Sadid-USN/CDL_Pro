@@ -40,7 +40,11 @@ class CodegenLoader extends AssetLoader{
   "outOf": "Из",
   "explanation": "Объяснение:",
   "completeTheTest": "Завершить тест",
-  "nextQuestion": "Следующий вопрос"
+  "nextQuestion": "Следующий вопрос",
+  "resetQuiz": "Сбросить викторину",
+  "cancel": "Отмена",
+  "reset": "Сбросить",
+  "startTheQuizOverText": "Вы уверены, что хотите сбросить прогресс и начать викторину сначала?"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -67,7 +71,11 @@ static const Map<String,dynamic> _uk = {
   "outOf": "З",
   "explanation": "Пояснення:",
   "completeTheTest": "Завершити тест",
-  "nextQuestion": "Наступне питання"
+  "nextQuestion": "Наступне питання",
+  "resetQuiz": "Скинути вікторину",
+  "cancel": "Скасувати",
+  "reset": "Скидання",
+  "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -89,13 +97,17 @@ static const Map<String,dynamic> _en = {
   "free": "Free {freeQuestions}",
   "question": "Question {questionNumber}",
   "confirm": "Сonfirm",
-  "areYouSureYouWantToExit?": "Are you sure you want to exit? Your progress will be saved automatically.",
+  "areYouSureYouWantToExit": "Are you sure you want to exit? Your progress will be saved automatically.",
   "yes": "Yes",
   "no": "No",
   "outOf": "Out of",
   "explanation": "Explanation:",
   "completeTheTest": "Complete the test",
-  "nextQuestion": "Next question"
+  "nextQuestion": "Next question",
+  "resetQuiz": "Reset Quiz",
+  "cancel": "Cancel",
+  "reset": "Reset",
+  "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?"
 };
 static const Map<String,dynamic> _fr = {
   "home": "Асосӣ",
@@ -123,7 +135,10 @@ static const Map<String,dynamic> _fr = {
   "outOf": "Аз",
   "explanation": "Шарҳ:",
   "completeTheTest": "Тестро иҷро кунед",
-  "nextQuestion": "Саволҳои навбатӣ"
+  "nextQuestion": "Саволҳои навбатӣ",
+  "resetQuiz": "Аз нав ибтидо кардан",
+  "cancel": "Илғо",
+  "startTheQuizOverText": "Шумо мутмаин ҳастед, ки мехоҳед пешрафтро пок кунед ва викторинаро аз нав оғоз намоед?"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "fr": _fr};
 }
