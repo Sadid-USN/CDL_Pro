@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:translator/translator.dart';
 
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
@@ -13,14 +15,118 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   int _currentQuestionIndex = 0;
   bool _quizCompleted = false;
   String _selectedLanguage = 'en';
+  final SharedPreferences _prefs;
+  String? _currentQuizId;
 
-  CDLTestsBloc() : super(PremiumInitial()) {
+  CDLTestsBloc(this._prefs) : super(PremiumInitial()) {
     on<CheckPremiumStatus>(_onCheckPremiumStatus);
     on<PurchasePremium>(_onPurchasePremium);
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
     on<NextQuestionsEvent>(_onNextQuestions);
     on<ChangeLanguageEvent>(_onChangeLanguage);
+    on<SaveQuizProgressEvent>(_onSaveQuizProgress);
+    on<LoadQuizProgressEvent>(_onLoadQuizProgress);
+      on<ResetQuizEvent>(_onResetQuiz);
+  }
+
+
+void _onResetQuiz(
+    ResetQuizEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) {
+    _currentQuestionIndex = 0;
+    _userAnswers = {};
+    _quizCompleted = false;
+
+    // Очищаем сохраненный прогресс
+    if (_currentQuizId != null) {
+      _prefs.remove('${_currentQuizId}_currentPage');
+      _prefs.remove('${_currentQuizId}_userAnswers');
+    }
+
+    emit(
+      QuizLoadedState(
+        selectedLanguage: _selectedLanguage,
+        allQuestions: _quizQuestions,
+        userAnswers: _userAnswers,
+        currentPage: _currentQuestionIndex,
+        quizCompleted: _quizCompleted,
+      ),
+    );
+  }
+  Future<void> saveProgress() async {
+    if (_currentQuizId == null) return;
+
+    await _prefs.setInt('${_currentQuizId}_currentPage', _currentQuestionIndex);
+    await _prefs.setString(
+      '${_currentQuizId}_userAnswers',
+      jsonEncode(_userAnswers),
+    );
+    await _prefs.setString('${_currentQuizId}_language', _selectedLanguage);
+  }
+
+  Future<void> loadProgress(String quizId) async {
+    _currentQuizId = quizId;
+
+    final page = _prefs.getInt('${quizId}_currentPage') ?? 0;
+    final answersJson = _prefs.getString('${quizId}_userAnswers');
+    final language = _prefs.getString('${quizId}_language') ?? 'en';
+
+    _currentQuestionIndex = page;
+    _selectedLanguage = language;
+    _userAnswers =
+        answersJson != null
+            ? Map<String, String>.from(jsonDecode(answersJson))
+            : {};
+  }
+
+  void _onSaveQuizProgress(
+    SaveQuizProgressEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) async {
+    await saveProgress();
+  }
+
+  void _onLoadQuizProgress(
+    LoadQuizProgressEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) async {
+    await loadProgress(event.quizId);
+  }
+
+  void _onLoadQuiz(
+    LoadQuizEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) async {
+    // Генерируем уникальный ID квиза на основе вопросов
+    final quizId = _generateQuizId(event.questions);
+    _currentQuizId = quizId;
+
+    // Загружаем сохраненный прогресс
+    await loadProgress(quizId);
+
+    _quizQuestions = event.questions;
+    _quizCompleted = false;
+
+    emit(
+      QuizLoadedState(
+        selectedLanguage: _selectedLanguage,
+        allQuestions: _quizQuestions,
+        userAnswers: _userAnswers,
+        currentPage: _currentQuestionIndex,
+        quizCompleted: _quizCompleted,
+      ),
+    );
+  }
+
+  String _generateQuizId(List<Question> questions) {
+    // Простой способ генерации ID без использования crypto
+    return questions
+        .map((q) => q.question.hashCode.toString())
+        .join('_')
+        .hashCode
+        .toString();
   }
 
   void _onChangeLanguage(
@@ -111,25 +217,6 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     emit(PremiumLoaded(true));
   }
 
-void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
-  // Сохраняем текущий прогресс при пересоздании
-  final currentPage = state is QuizLoadedState 
-      ? (state as QuizLoadedState).currentPage 
-      : 0;
-  
-  _quizQuestions = event.questions;
-  _userAnswers = state is QuizLoadedState 
-      ? (state as QuizLoadedState).userAnswers 
-      : {};
-  
-  emit(QuizLoadedState(
-    selectedLanguage: event.initialLanguage,
-    allQuestions: _quizQuestions,
-    userAnswers: _userAnswers,
-    currentPage: currentPage, // Восстанавливаем позицию
-    quizCompleted: false,
-  ));
-}
   void _onAnswerQuestion(
     AnswerQuestionEvent event,
     Emitter<AbstractCDLTestsState> emit,
@@ -148,7 +235,7 @@ void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     );
   }
 
-  void _onNextQuestions(
+ void _onNextQuestions(
     NextQuestionsEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) {
@@ -156,11 +243,16 @@ void _onLoadQuiz(LoadQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
       _currentQuestionIndex++;
     } else {
       _quizCompleted = true;
+      // Очищаем прогресс при завершении теста
+      if (_currentQuizId != null) {
+        _prefs.remove('${_currentQuizId}_currentPage');
+        _prefs.remove('${_currentQuizId}_userAnswers');
+      }
     }
 
     emit(
       QuizLoadedState(
-        selectedLanguage: _selectedLanguage, // Сохраняем язык
+        selectedLanguage: _selectedLanguage,
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,

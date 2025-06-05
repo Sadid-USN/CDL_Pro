@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
@@ -28,6 +29,7 @@ Future<void> initDependencies() async {
   GetIt.I.registerSingleton(talker);
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
+   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   if (Platform.isAndroid) {
     await Firebase.initializeApp(
@@ -82,5 +84,5 @@ Future<void> initDependencies() async {
   //   ),
   // );
   GetIt.I.registerLazySingleton(() => SettingsBloc());
-  GetIt.I.registerLazySingleton(() => CDLTestsBloc());
+  GetIt.I.registerLazySingleton(() => CDLTestsBloc(prefs));
 }

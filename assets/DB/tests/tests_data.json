@@ -5011,38 +5011,2195 @@
         },
         "411": {
           "en": {
-            "question": "",
+            "question": "What can happen if your brakes get wet?",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "The brakes will stop working.",
+              "B": "The brakes could get rust.",
+              "C": "The brakes could apply unevenly",
+              "D": "All of the above"
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "C",
+            "description": "When brakes get wet, they are more likely to apply unevenly, which can cause the vehicle to pull to one side or make braking less effective."
+          }
+        },
+        "412": {
+          "en": {
+            "question": "When conducting a walk-around inspection at the front of your vehicle, what should NOT be on your checklist?",
+            "options": {
+              "A": "The front axle",
+              "B": "The windshield wipers",
+              "C": "The air pressure gauge",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "Checking the air pressure gauge is not typically part of the front walk-around inspection since it is located inside the cab and checked during the in-cab inspection."
+          }
+        },
+        "413": {
+          "en": {
+            "question": "When checking your vehicle's load, ensure it meets__",
+            "options": {
+              "A": "The manufacturer's packaging guidelines.",
+              "B": "Federal laws only",
+              "C": "The destination state's laws.",
+              "D": "All local, state, and federal laws applicable"
+            },
+            "correct_option": "D",
+            "description": "Ensure the vehicle's load complies with all applicable local, state, and federal laws to ensure legal compliance and safety."
+          }
+        },
+        "414": {
+          "en": {
+            "question": "If you have more than one driving license, which of these things is least likely to happen?",
+            "options": {
+              "A": "Imprisonment",
+              "B": "A $5,000 fine",
+              "C": "California CDL cancellation",
+              "D": "First-offense warning"
+            },
+            "correct_option": "D",
+            "description": "Having more than one license is a serious offense. It is unlikely you would only receive a warning; fines, license cancellation, or jail time are more probable."
+          }
+        },
+        "415": {
+          "en": {
+            "question": "What are the main components of the vehicle's steering system?",
+            "options": {
+              "A": "Oil filter, brake pedal, and headlight",
+              "B": "Gear box, spindel, and tie rod",
+              "C": "Fuel injector, exhaust pipe, and radiator",
+              "D": "Bearing plate, main spring, and spring shackle"
+            },
+            "correct_option": "B",
+            "description": "The gear box, spindle, and tie rod are fundamental components of a vehicle's steering system."
+          }
+        },
+        "416": {
+          "en": {
+            "question": "Why is it important to always check your vehicle in the same order?",
+            "options": {
+              "A": "Because it will save time.",
+              "B": "Because it makes it easier to start the vehicle.",
+              "C": "Because you will remember them better.",
+              "D": "Because you can get someone to help with another step."
+            },
+            "correct_option": "C",
+            "description": "Following a consistent inspection routine helps with memory and ensures nothing is missed."
+          }
+        },
+        "417": {
+          "en": {
+            "question": "When do the rules say you have to wear a seat belt?",
+            "options": {
+              "A": "When operating a CMV",
+              "B": "Only when you are driving on public roads",
+              "C": "Only when driving faster than 55 mph",
+              "D": "Only when driving through a construction zone."
+            },
+            "correct_option": "A",
+            "description": "You must wear a seat belt at all times when operating a commercial motor vehicle (CMV), according to federal regulations."
+          }
+        },
+        "418": {
+          "en": {
+            "question": "What is the most important hand signal that both you and your helper should understand?",
+            "options": {
+              "A": "Backup signal",
+              "B": "Slow down signal",
+              "C": "Stop signal",
+              "D": "Good job signal"
+            },
+            "correct_option": "C",
+            "description": "The stop signal is crucial because it immediately halts all movement to prevent accidents or collisions."
+          }
+        },
+        "419": {
+          "en": {
+            "question": "What should you NOT do if someone is driving too closely behind you?",
+            "options": {
+              "A": "Instead, you should increase your distance to the vehicle in front of you",
+              "B": "Don't merge sharply into another lane",
+              "C": "Stay to the right if possible, allowing the tailgater to pass.",
+              "D": "Speed up"
+            },
+            "correct_option": "D",
+            "description": "Speeding up is not a safe response to tailgating. Increase your following distance and allow the tailgater to pass safely."
+          }
+        },
+        "420": {
+          "en": {
+            "question": "What is the primary purpose of the emergency air brake system in a commercial vehicle?",
+            "options": {
+              "A": "To assist with parking on hills",
+              "B": "To stop the vehicle if the service brake system fails",
+              "C": "To reduce brake wear during long trips",
+              "D": "To improve fuel efficiency"
+            },
+            "correct_option": "B",
+            "description": "The emergency air brake system is designed to stop the vehicle if the service brake system fails, ensuring safety during brake system malfunctions."
           }
         },
         "421": {
           "en": {
-            "question": "",
+            "question": "For which types of fire is an A:B:C fire extinguisher appropriate?",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "Electrical fires",
+              "B": "Cloth fires",
+              "C": "Grease fires",
+              "D": "All of the above"
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "D",
+            "description": "An A:B:C fire extinguisher is designed to handle Class A (ordinary combustibles), Class B (flammable liquids), and Class C (electrical) fires."
+          }
+        },
+        "422": {
+          "en": {
+            "question": "You have a 15-foot-long load secured with two tie-downs. How many additional tie-downs are needed?",
+            "options": {
+              "A": "Zero",
+              "B": "Two",
+              "C": "Four",
+              "D": "Five"
+            },
+            "correct_option": "A",
+            "description": "According to FMCSA regulations, a 15-foot load requires at least two tie-downs. No additional tie-downs are needed if already secured with two."
+          }
+        },
+        "423": {
+          "en": {
+            "question": "What serious violation could result in CDL revocation?",
+            "options": {
+              "A": "Speeding more than 15 mph above the limit",
+              "B": "Reckless driving",
+              "C": "Tailgating",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Speeding, reckless driving, and tailgating are all serious violations that can lead to the revocation of a Commercial Driver's License (CDL)."
+          }
+        },
+        "424": {
+          "en": {
+            "question": "In which of the following scenarios is it advisable to downshift?",
+            "options": {
+              "A": "When you are low on fuel",
+              "B": "When about to go down steep grades",
+              "C": "When you are driving in heavy traffic",
+              "D": "When the roads are flat and straight"
+            },
+            "correct_option": "B",
+            "description": "Downshifting before descending steep grades helps with speed control and prevents brake overheating using engine braking."
+          }
+        },
+        "425": {
+          "en": {
+            "question": "Which of the following strategies can help you stay awake and focused while driving?",
+            "options": {
+              "A": "Listen to very loud music constantly",
+              "B": "Drink lots of coffee to keep you awake",
+              "C": "Schedule rest breaks regularly to prevent sleepiness",
+              "D": "Speed up your vehicle to increase your adrenaline level"
+            },
+            "correct_option": "C",
+            "description": "Scheduling regular rest breaks is an effective strategy for preventing fatigue and staying alert on long trips."
+          }
+        },
+        "426": {
+          "en": {
+            "question": "According to regulations, who bears the responsibility for conducting a pre-trip inspection of a commercial vehicle?",
+            "options": {
+              "A": "The dispatcher",
+              "B": "The mechanic",
+              "C": "The driver",
+              "D": "The owner"
+            },
+            "correct_option": "C",
+            "description": "The driver is legally responsible for ensuring a commercial vehicle is safe before starting a trip, which includes conducting a pre-trip inspection."
+          }
+        },
+        "427": {
+          "en": {
+            "question": "What does the term 'hazard' mean?",
+            "options": {
+              "A": "Something that cleans the road",
+              "B": "Something that makes driving more comfortable",
+              "C": "Something you must stop for",
+              "D": "A road user or road condition that might be a possible danger"
+            },
+            "correct_option": "D",
+            "description": "A 'hazard' refers to any road user or condition that could present a potential danger to the driver."
+          }
+        },
+        "428": {
+          "en": {
+            "question": "When driving at night, which lights should you use most often?",
+            "options": {
+              "A": "Turn signals",
+              "B": "High beams",
+              "C": "Fog lights",
+              "D": "Cabin lights"
+            },
+            "correct_option": "B",
+            "description": "High beams should be used most often during nighttime driving in low-traffic areas to increase visibility, unless approaching or following another vehicle."
+          }
+        },
+        "429": {
+          "en": {
+            "question": "How might your vehicle's brakes be impacted by heavy rain?",
+            "options": {
+              "A": "The brakes are not as effective when wet",
+              "B": "Longer braking distances",
+              "C": "All of the above",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "Heavy rain can reduce brake effectiveness and increase stopping distance, making it harder to slow down or stop safely."
+          }
+        },
+        "430": {
+          "en": {
+            "question": "You are checking the tires before a trip. Which of the following statements is correct?",
+            "options": {
+              "A": "On the same vehicle, you shouldn't use tires of different sizes.",
+              "B": "Radial and bias-ply tires can be mixed on the same axle.",
+              "C": "Steering axle tires should have a tread depth of 2/32 inches.",
+              "D": "None of the above"
+            },
+            "correct_option": "A",
+            "description": "Tires of different sizes should not be used on the same vehicle as this can impact handling and stability."
           }
         },
         "431": {
           "en": {
-            "question": "",
+            "question": "The perception distance is the distance your vehicle covers__",
             "options": {
-              "A": "",
-              "B": "",
-              "C": ""
+              "A": "From when the hazard is detected until the brakes are fully applied.",
+              "B": "From when the hazard appears to when it disappears from view.",
+              "C": "From when your eyes notice a hazard and when your brain processes it as a hazard",
+              "D": "From when your eyes notice a hazard to when the vehicle stops completely."
             },
-            "correct_option": "",
-            "description": ""
+            "correct_option": "C",
+            "description": "Perception distance is the distance your vehicle travels from the time your eyes detect a hazard until your brain recognizes it as a hazard and you start to react."
+          }
+        },
+        "432": {
+          "en": {
+            "question": "If you get a parking ticket on your vehicle, do you have to report it to your boss?",
+            "options": {
+              "A": "Yes, you have to report it within 24 hours.",
+              "B": "Yes, you have to report it before your next shift starts.",
+              "C": "Yes, you have to report it within 30 days.",
+              "D": "No, you do not have to report it."
+            },
+            "correct_option": "D",
+            "description": "Parking tickets typically do not need to be reported to your employer, as they are considered minor infractions and are generally the responsibility of the driver to pay."
+          }
+        },
+        "433": {
+          "en": {
+            "question": "By driving at 55 mph instead of 65 mph, you can improve your vehicle's fuel efficiency by",
+            "options": {
+              "A": "An extra mile per gallon.",
+              "B": "Two gallons of fuel for every 50 miles",
+              "C": "A gallon fuel saved each week.",
+              "D": "A gallon of fuel saved each month."
+            },
+            "correct_option": "A",
+            "description": "By driving at 55 mph instead of 65 mph, you can improve your vehicle's fuel efficiency by approximately an extra mile per gallon due to reduced aerodynamic drag and engine load."
+          }
+        },
+        "434": {
+          "en": {
+            "question": "Why is it important to check your vehicle before driving it?",
+            "options": {
+              "A": "Because both state and federal laws required inspections",
+              "B": "Inspections can help find problems with the vehicle early and prevent those problems from becoming safety hazards.",
+              "C": "All of the above.",
+              "D": "None of the above."
+            },
+            "correct_option": "C",
+            "description": "Vehicle inspections are required by law and help identify safety issues early, preventing breakdowns or accidents."
+          }
+        },
+        "435": {
+          "en": {
+            "question": "The distance your vehicle travels from when you notice a hazard until your brain understands it is called _",
+            "options": {
+              "A": "Perception distance",
+              "B": "Thinking distance",
+              "C": "Observation length",
+              "D": "Viewing distance"
+            },
+            "correct_option": "A",
+            "description": "Perception distance is the distance your vehicle travels from when you notice a hazard until your brain understands it."
+          }
+        },
+        "436": {
+          "en": {
+            "question": "When fastening your seatbelt, it's crucial to verify that___",
+            "options": {
+              "A": "It is mounted firmly",
+              "B": "Make sure it's loosely fitted for comfort.",
+              "C": "It can be easily cut for quick release.",
+              "D": "Seatbelts are optional."
+            },
+            "correct_option": "A",
+            "description": "Ensuring that the seatbelt is mounted firmly is crucial for providing effective protection in the event of an accident."
+          }
+        },
+        "437": {
+          "en": {
+            "question": "The objective of a vehicle inspection is _.",
+            "options": {
+              "A": "To increase the vehicle's speed and performance.",
+              "B": "To improve the vehicle's color and appearance.",
+              "C": "To check if your vehicle is safe",
+              "D": "To make sure your vehicle looks clean."
+            },
+            "correct_option": "C",
+            "description": "The main goal of a vehicle inspection is to ensure that the vehicle is safe to operate."
+          }
+        },
+        "438": {
+          "en": {
+            "question": "While driving, use your mirrors to check _.",
+            "options": {
+              "A": "Tires and cargo condition.",
+              "B": "Whether the back hit anything while turning.",
+              "C": "All of the above",
+              "D": "Only the sides of your vehicle."
+            },
+            "correct_option": "C",
+            "description": "Use your mirrors while driving to monitor the condition of tires and cargo and ensure the rear doesn't hit anything during turns."
+          }
+        },
+        "439": {
+          "en": {
+            "question": "In an emergency kit, which components are considered non-essential?",
+            "options": {
+              "A": "Reflective triangles",
+              "B": "A backup battery",
+              "C": "A fire extinguisher",
+              "D": "Replacement fuses"
+            },
+            "correct_option": "B",
+            "description": "While useful, a backup battery is not considered essential in a basic emergency kit, unlike safety items like reflective triangles or fire extinguishers."
+          }
+        },
+        "440": {
+          "en": {
+            "question": "What is an effective method for assessing the sufficiency of following distance?",
+            "options": {
+              "A": "When the vehicle in front passed a tree or a landmark, you start counting the seconds it takes for you to get to the same location.",
+              "B": "Use the shadow of the vehicle in front to estimate the distance.",
+              "C": "Wait for the vehicle in front to signal a turn and then count the time it takes for the turn to be completed.",
+              "D": "Bring out a calculator and calculate the traveling speed into feet per second"
+            },
+            "correct_option": "A",
+            "description": "Use the three-second rule: count the seconds between when the vehicle in front passes a fixed point and when you reach it. Adjust for weather or traffic."
+          }
+        },
+        "441": {
+          "en": {
+            "question": "If your personal vehicle's driving privileges are revoked due to non-alcohol/drug/illegal activity-related violations, what remains true regarding your CDL?",
+            "options": {
+              "A": "Your CDL will be suspended for the same time.",
+              "B": "Your CDL will only allow you to drive in your home state.",
+              "C": "Your CDL will require a special permit for interstate travel.",
+              "D": "Your CDL will be limited to driving at night time."
+            },
+            "correct_option": "A",
+            "description": "If your personal vehicle's driving privileges are revoked due to violations, your CDL will also be suspended for the same duration, regardless of the nature of the violation."
+          }
+        },
+        "442": {
+          "en": {
+            "question": "Which of the following is the least likely to cause vehicle fires?",
+            "options": {
+              "A": "Disc brakes overheating",
+              "B": "Underinflated tires",
+              "C": "LED headlights",
+              "D": "Flammable cargo"
+            },
+            "correct_option": "C",
+            "description": "LED headlights are the least likely to cause vehicle fires. Other factors like overheated brakes, underinflated tires, and flammable cargo pose a greater fire risk."
+          }
+        },
+        "443": {
+          "en": {
+            "question": "How many hours of sleep do you need to not feel sleep-deprived?",
+            "options": {
+              "A": "Exactly 6 hours",
+              "B": "7 to 9 hours",
+              "C": "5 to 6 hours",
+              "D": "More than 11 hours"
+            },
+            "correct_option": "B",
+            "description": "Most adults need 7 to 9 hours of sleep per night to avoid sleep deprivation and maintain optimal cognitive and physical performance."
+          }
+        },
+        "444": {
+          "en": {
+            "question": "Do federal inspectors possess the power to inspect and possibly place your vehicle out of service if deemed necessary?",
+            "options": {
+              "A": "Yes, they can inspect and place it out of service.",
+              "B": "They can inspect only on weekdays.",
+              "C": "Yes, they can only inspect if you agree.",
+              "D": "No, they cannot inspect and cannot place it out of service."
+            },
+            "correct_option": "A",
+            "description": "Federal inspectors have the authority to inspect commercial vehicles and place them out of service if they are unsafe or violate regulations."
+          }
+        },
+        "445": {
+          "en": {
+            "question": "Identify the group of drivers who might operate a Commercial Motor Vehicle (CMV) with a specialized non-CDL license.",
+            "options": {
+              "A": "Firefighters",
+              "B": "Taxi drivers",
+              "C": "Private security personnel",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "Firefighters may operate CMVs with a specialized non-CDL license for emergency use, depending on the jurisdiction."
+          }
+        },
+        "446": {
+          "en": {
+            "question": "Which of the following can be caused by accidents?",
+            "options": {
+              "A": "People getting killed.",
+              "B": "People getting injured.",
+              "C": "Vehicle damages",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Accidents can lead to fatalities, injuries, and vehicle damage—all of the listed outcomes are possible."
+          }
+        },
+        "447": {
+          "en": {
+            "question": "During your pre-trip inspection, check your mirrors and windshields for cracks, dirt, prohibited stickers, and other obstructions. You should _",
+            "options": {
+              "A": "Ignore them until your next break.",
+              "B": "Clean and adjust them if needed.",
+              "C": "Cover them with decorative stickers.",
+              "D": "Leave them if they are small."
+            },
+            "correct_option": "B",
+            "description": "Clean and adjust your mirrors and windshields during pre-trip inspections to ensure clear visibility and safe operation."
+          }
+        },
+        "448": {
+          "en": {
+            "question": "What should be used for monitoring your vehicle's condition while on the road?",
+            "options": {
+              "A": "Your phone",
+              "B": "An external camera system",
+              "C": "A smartwatch with GPS tracking",
+              "D": "The four senses using the eyes, ears, nose, and hand"
+            },
+            "correct_option": "D",
+            "description": "Using your senses—sight, hearing, smell, and touch—is an effective way to monitor your vehicle’s condition in real time while driving."
+          }
+        },
+        "449": {
+          "en": {
+            "question": "The total stopping distance is made up of",
+            "options": {
+              "A": "Observation distance + maneuvering distance + halting distance",
+              "B": "Acceleration distance + observation distance + braking distance",
+              "C": "Perception distance + reaction distance + braking distance.",
+              "D": "Initiation distance + concentration distance + reaction distance + braking distance."
+            },
+            "correct_option": "C",
+            "description": "Total stopping distance includes perception distance, reaction distance, and braking distance—each critical in stopping safely."
+          }
+        },
+        "450": {
+          "en": {
+            "question": "To drive a vehicle with a GVWR of __, a Commercial Driver's License (CDL) is required.",
+            "options": {
+              "A": "25,001 pounds or more",
+              "B": "20,001 pounds or more.",
+              "C": "26,001 pounds or more.",
+              "D": "15,001 pounds or more"
+            },
+            "correct_option": "C",
+            "description": "A CDL is required to operate any vehicle with a Gross Vehicle Weight Rating (GVWR) of 26,001 pounds or more."
+          }
+        },
+        "451": {
+          "en": {
+            "question": "To prevent drowsiness prior to or while on a trip, drivers are advised to _.",
+            "options": {
+              "A": "Get plenty of sleep by sleeping for at least 8-9 hours",
+              "B": "Do not take any drugs that might make you sleepy.",
+              "C": "Schedule regular breaks during long trips.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "To stay alert while driving, it’s crucial to get enough sleep, avoid sleep-inducing medications, and take regular breaks."
+          }
+        },
+        "452": {
+          "en": {
+            "question": "What's the best strategy for handling an aggressive driver encountered on the road?",
+            "options": {
+              "A": "Do not make eye contact.",
+              "B": "Remain calm by ignoring rude gestures",
+              "C": "Call the police using a cell phone when it is safe to do so.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Avoiding confrontation, staying calm, and contacting authorities if necessary are the safest ways to deal with aggressive drivers."
+          }
+        },
+        "453": {
+          "en": {
+            "question": "You've just delivered your truck's cargo and are returning the same way with an empty truck. What should you keep in mind?",
+            "options": {
+              "A": "You will be more tired.",
+              "B": "Your truck will be louder.",
+              "C": "Braking distance will be shorter.",
+              "D": "The height of truck may have increased"
+            },
+            "correct_option": "D",
+            "description": "Without cargo weight, your truck may sit higher, which can affect clearance under bridges and signs."
+          }
+        },
+        "454": {
+          "en": {
+            "question": "When you start driving on a road that's snowy or icy, what should you do?",
+            "options": {
+              "A": "Accelerate in a moderate and gradual manner.",
+              "B": "Accelerate as rapidly as you can.",
+              "C": "Gently tap the brake before accelerating.",
+              "D": "Shift into the highest gear possible before accelerating."
+            },
+            "correct_option": "A",
+            "description": "Gradual acceleration helps prevent wheel spin and loss of traction on snowy or icy roads."
+          }
+        },
+        "455": {
+          "en": {
+            "question": "If someone is driving too close behind you, what should you do?",
+            "options": {
+              "A": "Increase your following distance.",
+              "B": "Switch on your rear lights and flash your brake lights.",
+              "C": "Speed up to make the vehicle behind you fall behind you.",
+              "D": "Ignore them and maintain your speed no matter what."
+            },
+            "correct_option": "A",
+            "description": "By increasing the distance from the vehicle in front of you, you give yourself more time to react without braking suddenly."
+          }
+        },
+        "456": {
+          "en": {
+            "question": "How can you avoid crashing into a driver who quickly moves into your lane and stops right in front of you?",
+            "options": {
+              "A": "Flash your headlights to signal the motorist to keep moving.",
+              "B": "Accelerate to pass the vehicle before it fully stops.",
+              "C": "Rear-ending another vehicle is less risky than avoiding it.",
+              "D": "Avoiding an obstacle by steering your truck away is always faster than stopping completely."
+            },
+            "correct_option": "D",
+            "description": "Steering away is generally a quicker and safer reaction than attempting a full stop, especially with heavy vehicles."
+          }
+        },
+        "457": {
+          "en": {
+            "question": "What safety gear is not mandatory but recommended?",
+            "options": {
+              "A": "Tire chains",
+              "B": "Reflective triangles",
+              "C": "A functioning fire extinguisher",
+              "D": "None of the above"
+            },
+            "correct_option": "A",
+            "description": "Tire chains are not always required but are strongly recommended in snowy or icy conditions for better traction."
+          }
+        },
+        "458": {
+          "en": {
+            "question": "When driving an automatic transmission vehicle, in which of the following situations should you downshift?",
+            "options": {
+              "A": "When you are passing another vehicle.",
+              "B": "When you are starting a steep downgrade",
+              "C": "When you want to speed up quickly.",
+              "D": "When your vehicle is about to skid"
+            },
+            "correct_option": "B",
+            "description": "Downshifting before a downgrade helps use engine braking to control your speed and avoid overheating the brakes."
+          }
+        },
+        "459": {
+          "en": {
+            "question": "If a fire starts in the trailer you're pulling, what steps should you take?",
+            "options": {
+              "A": "Call the fire department while still driving.",
+              "B": "Do not open any doors of the trailer.",
+              "C": "Drive towards an open field and release the trailer.",
+              "D": "Drive to the nearest lake or waterways."
+            },
+            "correct_option": "B",
+            "description": "Opening the trailer doors can supply oxygen and worsen the fire. Avoid opening them if the fire is inside."
+          }
+        },
+        "460": {
+          "en": {
+            "question": "To reverse a trailer, you need to _",
+            "options": {
+              "A": "Put the vehicle in neutral and coast back.",
+              "B": "Turn off your headlights to see better in the mirror.",
+              "C": "Honk the horn as you back",
+              "D": "Back up straight"
+            },
+            "correct_option": "D",
+            "description": "Backing up straight is critical for maintaining control and avoiding jackknifing. Use mirrors and adjust as needed."
+          }
+        },
+        "461": {
+          "en": {
+            "question": "For descending a steep, lengthy slope with a manual transmission, you should___",
+            "options": {
+              "A": "Switch off the engine and coast down.",
+              "B": "Use a lower gear than you would for hill climbing.",
+              "C": "Keep the transmission in its highest gear."
+            },
+            "correct_option": "B",
+            "description": "Using a lower gear while descending helps control your speed through engine braking, preventing brake overheating."
+          }
+        },
+        "462": {
+          "en": {
+            "question": "What precautions should you take when operating a vehicle more than 13 feet in height?",
+            "options": {
+              "A": "Stop and pull to the side to verify the vertical clearance if you are uncertain.",
+              "B": "Drive faster to reduce the chance of hitting anything.",
+              "C": "Ignore the height signs and continue driving."
+            },
+            "correct_option": "A",
+            "description": "Always verify vertical clearance when unsure to avoid collisions with low structures."
+          }
+        },
+        "463": {
+          "en": {
+            "question": "In which situations should you opt to downshift with an automatic transmission?",
+            "options": {
+              "A": "When you are driving through a tunnel.",
+              "B": "When you are driving down on steep hills.",
+              "C": "When your vehicle is starting to skid.",
+              "D": "When you are approaching a green traffic light."
+            },
+            "correct_option": "B",
+            "description": "Downshifting while descending steep hills helps maintain a safe speed using engine braking."
+          }
+        },
+        "464": {
+          "en": {
+            "question": "What is the best way to apply the brake pedal when descending a steep hill?",
+            "options": {
+              "A": "Braking below a safe speed then letting speed build up again, repeat this process over and over in addition to using the engine brake.",
+              "B": "Tap the brake quickly multiple times in a row.",
+              "C": "Gently pressing the brake pedal periodically without using the engine brake.",
+              "D": "Pressing the gas and brake pedals at the same time."
+            },
+            "correct_option": "A",
+            "description": "The correct technique is to slow below a safe speed, release the brake to let speed rise, and repeat—using the engine brake too."
+          }
+        },
+        "465": {
+          "en": {
+            "question": "Which skill listed below is not needed to drive a commercial vehicle?",
+            "options": {
+              "A": "Ability to steer safely",
+              "B": "Ability to speed up safely",
+              "C": "Ability to perform all the vehicular repairs.",
+              "D": "Ability to back the vehicle safely."
+            },
+            "correct_option": "C",
+            "description": "While some basic maintenance knowledge is useful, you don’t need to perform all repairs to drive commercially."
+          }
+        },
+        "466": {
+          "en": {
+            "question": "Which of the following statements regarding different drivers is TRUE?",
+            "options": {
+              "A": "Drivers in residential areas are less likely to cause accidents.",
+              "B": "Drivers of sports cars always follow speed limits and safety rules.",
+              "C": "Daily rental truck drivers aren't accustomed to the restricted view and pose a danger."
+            },
+            "correct_option": "C",
+            "description": "Rental truck drivers may lack experience with blind spots and limited visibility, making them more risky on the road."
+          }
+        },
+        "467": {
+          "en": {
+            "question": "If you have to stop your vehicle beyond a curve where it's not visible to others within 500 feet, where should warning devices be positioned?",
+            "options": {
+              "A": "50 feet in the back and up to 100 feet in the back of vehicle.",
+              "B": "10 feet in the back and up to 500 feet in the back of vehicle.",
+              "C": "20 feet in the front and 250 feet in the back of vehicle."
+            },
+            "correct_option": "B",
+            "description": "Place warning devices 10 feet and up to 500 feet behind your vehicle to ensure visibility after a curve."
+          }
+        },
+        "468": {
+          "en": {
+            "question": "Why is it important to be aware of hazards early?",
+            "options": {
+              "A": "To make sure you use less fuel.",
+              "B": "To ensure your cargo gets delivered faster.",
+              "C": "If the risk becomes an emergency, you will have time to plan the escape.",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "Spotting hazards early gives you the time and space to plan how to avoid them safely."
+          }
+        },
+        "469": {
+          "en": {
+            "question": "Oil pressure should stabilize within __ after starting the engine.",
+            "options": {
+              "A": "Seconds",
+              "B": "A day",
+              "C": "Minutes"
+            },
+            "correct_option": "A",
+            "description": "Oil pressure should stabilize within seconds. A delay may signal a serious engine problem."
+          }
+        },
+        "470": {
+          "en": {
+            "question": "Why is it important to cover your cargo?",
+            "options": {
+              "A": "To protect people from any spilled cargo",
+              "B": "To protect your cargo from weather related damages.",
+              "C": "Quite a few states required it",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Covering cargo ensures safety, protects the goods, and meets legal requirements in many areas."
+          }
+        },
+        "471": {
+          "en": {
+            "question": "What minimum tread depth is required for tires that are not on the front?",
+            "options": {
+              "A": "2/32 inch",
+              "B": "6/32 inch",
+              "C": "7/32 inch",
+              "D": "5/52 inch"
+            },
+            "correct_option": "A",
+            "description": "The legal minimum tread depth for tires not on the front is 2/32 inch, though more tread is recommended in poor conditions."
+          }
+        },
+        "472": {
+          "en": {
+            "question": "Which of these drivers is eligible for a special off-road CDL?",
+            "options": {
+              "A": "Someone living In a rural area",
+              "B": "Someone who only drives in city parks.",
+              "C": "Someone who drives only during holidays.",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "Special off-road CDLs are typically for rural drivers operating on farms or construction sites—not general road use."
+          }
+        },
+        "473": {
+          "en": {
+            "question": "Which of the following is a potential cause of a vehicle fire?",
+            "options": {
+              "A": "Smoking at a safe distance in a rest stop.",
+              "B": "Regular maintenance checks on the engine",
+              "C": "Using water to clean engine oil spills",
+              "D": "Short circuits and loose connections of electrical components."
+            },
+            "correct_option": "D",
+            "description": "Electrical short circuits and loose connections can create sparks or overheating, which can cause vehicle fires."
+          }
+        },
+        "474": {
+          "en": {
+            "question": "What health requirements do you need to meet to get your CDL?",
+            "options": {
+              "A": "You don't have an alcohol addiction.",
+              "B": "You don't have a drug addiction.",
+              "C": "You don't have a heart disease that prevents you from driving safely.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "CDL applicants must not have conditions like alcohol/drug addiction or heart disease that would affect safe driving."
+          }
+        },
+        "475": {
+          "en": {
+            "question": "When you do the walk-around inspection, you need to make sure the brakes are okay by checking for___",
+            "options": {
+              "A": "Cracked drums.",
+              "B": "Shoes or pads with fluids on them.",
+              "C": "Worn or broken shoes.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Brake inspections should include checking for cracks, contamination by fluids, and wear or damage to brake components."
+          }
+        },
+        "476": {
+          "en": {
+            "question": "When you park your vehicle, you should search for a parking space _.",
+            "options": {
+              "A": "That is close to a water source.",
+              "B": "That has a charging station for electric vehicles.",
+              "C": "That you can pull straight through",
+              "D": "That is inside a gated facility."
+            },
+            "correct_option": "C",
+            "description": "Choose a spot where you can pull through to avoid backing up when leaving—safer and easier for large vehicles."
+          }
+        },
+        "477": {
+          "en": {
+            "question": "What should you check for when you look at the wheel bearing seals?",
+            "options": {
+              "A": "Loose lug nuts",
+              "B": "Cracked wheel hub",
+              "C": "Damaged axel",
+              "D": "Leaks"
+            },
+            "correct_option": "D",
+            "description": "Wheel bearing seals should be checked for leaks—oil or grease seepage could indicate a serious mechanical issue."
+          }
+        },
+        "478": {
+          "en": {
+            "question": "While driving through urban areas, how far ahead is it advisable to look?",
+            "options": {
+              "A": "1 block",
+              "B": "3 blocks",
+              "C": "4 blocks"
+            },
+            "correct_option": "A",
+            "description": "In city driving, looking 1 block ahead helps anticipate stops, hazards, and traffic signals in time."
+          }
+        },
+        "479": {
+          "en": {
+            "question": "What actions can you take at an accident site to prevent further incidents?",
+            "options": {
+              "A": "Take photos of the accident for social media.",
+              "B": "Put up warning signs to keep other vehicles from driving into the scene of the",
+              "C": "Drive closer to the scene to get a better look.",
+              "D": "Just stay inside the vehicle and do nothing"
+            },
+            "correct_option": "B",
+            "description": "Putting up warning signs at an accident site alerts other drivers and helps prevent additional collisions."
+          }
+        },
+        "480": {
+          "en": {
+            "question": "Under what conditions does a truck have the shortest stopping distance?",
+            "options": {
+              "A": "During a heavy rainstorm.",
+              "B": "Fully loaded with cargo.",
+              "C": "Tires are underinflated.",
+              "D": "It has old brakes."
+            },
+            "correct_option": "B",
+            "description": "Heavy trucks stop more effectively when fully loaded due to better traction and optimal brake design performance."
+          }
+        },
+        "481": {
+          "en": {
+            "question": "What is true about brake fade?",
+            "options": {
+              "A": "It happens immediately after the brake pads are replaced.",
+              "B": "It only happens in cold weather.",
+              "C": "It occurs when the brakes become too hot."
+            },
+            "correct_option": "C",
+            "description": "Brake fade happens when the braking system overheats, reducing its ability to stop the vehicle effectively."
+          }
+        },
+        "482": {
+          "en": {
+            "question": "In the context of safe driving, what does 'communicating' mean?",
+            "options": {
+              "A": "Notifying other drivers of your presence",
+              "B": "Using loud music to signal other drivers",
+              "C": "Using headlights during daylight to signal intentions",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "Safe driving involves communicating your intentions using signals, lights, or horn so other drivers can react appropriately."
+          }
+        },
+        "483": {
+          "en": {
+            "question": "Where within your load is it recommended to place the heaviest items?",
+            "options": {
+              "A": "Always place evenly distributed on the sides of the vehicle.",
+              "B": "Always place the heaviest items at the bottom.",
+              "C": "Always place in the middle of the vehicle.",
+              "D": "Always place at the back section of the vehicle."
+            },
+            "correct_option": "B",
+            "description": "To keep the vehicle stable, always place the heaviest items at the bottom of the load."
+          }
+        },
+        "484": {
+          "en": {
+            "question": "Placards are put up _.",
+            "options": {
+              "A": "To make the truck look bigger",
+              "B": "For decoration on the truck",
+              "C": "To communicate the risk",
+              "D": "None of the above"
+            },
+            "correct_option": "C",
+            "description": "Placards are warning signs that inform others about hazardous materials being transported."
+          }
+        },
+        "485": {
+          "en": {
+            "question": "What's the right method to see if your parking brakes are in good working condition?",
+            "options": {
+              "A": "Stop the vehicle, engage the parking brake, and pull lightly forward in low gear.",
+              "B": "Drive at a low speed and engage the parking brake to see if it stops the vehicle.",
+              "C": "Listen for a clicking sound when applying the parking brake.",
+              "D": "Move your vehicle to a downhill position and set the parking brake to see if it moves."
+            },
+            "correct_option": "A",
+            "description": "The proper way to test parking brakes is to stop the vehicle, apply the brake, and try to move forward gently in low gear."
+          }
+        },
+        "486": {
+          "en": {
+            "question": "When inspecting hoses during the pre-trip test with an instructor, on what should your focus be?",
+            "options": {
+              "A": "Leaks on the hose",
+              "B": "Mud stuck on hose",
+              "C": "Scratches on the tire",
+              "D": "Ensuring the hoses have the correct manufacturer date codes printed on them."
+            },
+            "correct_option": "A",
+            "description": "During pre-trip inspections, look for any leaks in the hoses, which could lead to mechanical issues."
+          }
+        },
+        "487": {
+          "en": {
+            "question": "What actions could lead to the loss of your CDL?",
+            "options": {
+              "A": "Speeding at 15 mph or more above legal speed limit",
+              "B": "Failing to use turn signals",
+              "C": "Not checking your mirrors regularly",
+              "D": "All of the above"
+            },
+            "correct_option": "A",
+            "description": "Serious violations like speeding over 15 mph above the limit can result in losing your CDL."
+          }
+        },
+        "488": {
+          "en": {
+            "question": "Identify potential threats that might compromise your ability to drive safely.",
+            "options": {
+              "A": "Alcoholic beverages",
+              "B": "Some over the counter drugs for treating flu.",
+              "C": "Some prescription drugs",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Alcohol, over-the-counter, and prescription drugs can impair your driving ability and pose a safety risk."
+          }
+        },
+        "489": {
+          "en": {
+            "question": "What should you NOT do if someone is driving too close behind you?",
+            "options": {
+              "A": "Ignore your mirrors.",
+              "B": "Tap your horn frequently",
+              "C": "Avoid flashing your brake lights.",
+              "D": "Accelerate faster"
+            },
+            "correct_option": "D",
+            "description": "When someone is tailgating you, speeding up is dangerous. Maintain a safe speed and allow them to pass if possible."
+          }
+        },
+        "490": {
+          "en": {
+            "question": "Upon moving to a new state permanently, within how many days must you inform the relevant authorities?",
+            "options": {
+              "A": "45 days",
+              "B": "30 days",
+              "C": "60 days",
+              "D": "180 days"
+            },
+            "correct_option": "B",
+            "description": "When you move to a new state, you must notify authorities and update your license or registration within 30 days."
+          }
+        },
+        "491": {
+          "en": {
+            "question": "What is a pull-up?",
+            "options": {
+              "A": "Turning your vehicle left to align with the dock.",
+              "B": "When you are backing up, you pull your vehicle forward to better position your trailer.",
+              "C": "Changing your vehicle's gears without stopping.",
+              "D": "Turning the landing gear all the way up and securing the crank handle."
+            },
+            "correct_option": "B",
+            "description": "A pull-up is when you move forward while backing up to better align your trailer with a target."
+          }
+        },
+        "492": {
+          "en": {
+            "question": "What is true about retarders from the choices given?",
+            "options": {
+              "A": "Retarders slow a vehicle, minimizing the need for braking.",
+              "B": "The retarder may cause your drive wheels to skid when they have low traction.",
+              "C": "You should turn the retarder off whenever the road is wet, icy, or snow-covered.",
+              "D": "All of the statements above are true."
+            },
+            "correct_option": "D",
+            "description": "Retarders assist with slowing the vehicle but can cause skidding on slippery roads, so they should be turned off in such conditions."
+          }
+        },
+        "493": {
+          "en": {
+            "question": "What strategies can you use to prevent drowsiness during a trip?",
+            "options": {
+              "A": "Schedule the driving time during the daytime.",
+              "B": "Sleep at least 8 hours a day.",
+              "C": "Avoid medications that cause drowsiness.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All listed actions help prevent drowsiness and ensure alertness during a trip."
+          }
+        },
+        "494": {
+          "en": {
+            "question": "What is the primary function of a header board?",
+            "options": {
+              "A": "To enhance vehicle speed.",
+              "B": "To increase fuel efficiency.",
+              "C": "To protect you and your cargo in case of an accident or abrupt stop",
+              "D": "To make loading and unloading easier."
+            },
+            "correct_option": "C",
+            "description": "A header board provides a protective barrier between the cargo and the driver in case of a sudden stop or crash."
+          }
+        },
+        "495": {
+          "en": {
+            "question": "What is the best way to prevent all skids?",
+            "options": {
+              "A": "Recover enough traction to all tires.",
+              "B": "Increase speed during turns to maintain momentum.",
+              "C": "Ensure all tires are properly inflated before driving.",
+              "D": "Drink enough coffee to stay alert."
+            },
+            "correct_option": "A",
+            "description": "Skids can be avoided by ensuring all tires have proper traction with the road surface."
+          }
+        },
+        "496": {
+          "en": {
+            "question": "What should you do if you are driving on a long road trip?",
+            "options": {
+              "A": "Take a break for every two hours of driving or 100 miles traveled.",
+              "B": "Drive with the windows down to stay alert.",
+              "C": "Only use cruise control for the majority of the trip.",
+              "D": "Turn up the volume of the radio when you are sleepy."
+            },
+            "correct_option": "A",
+            "description": "Taking breaks regularly helps you stay alert and reduces the risk of fatigue on long trips."
+          }
+        },
+        "497": {
+          "en": {
+            "question": "When you're getting ready for your CDL skills test, you should NEVER",
+            "options": {
+              "A": "Practice at the official test sites.",
+              "B": "Practice without a valid learner's permit.",
+              "C": "Practice during heavy rain.",
+              "D": "Practice with an empty vehicle."
+            },
+            "correct_option": "A",
+            "description": "Practicing at official CDL test sites is typically not allowed before the actual test."
+          }
+        },
+        "498": {
+          "en": {
+            "question": "Which of the following is NOT a right way to signal?",
+            "options": {
+              "A": "Turn on your high beams while signaling.",
+              "B": "Flash your signals and honk your horn at the same time.",
+              "C": "Wave your hand out the window to signal.",
+              "D": "Continue to signal until you have completed your turn or lane change."
+            },
+            "correct_option": "B",
+            "description": "Flashing signals and honking your horn together is not an appropriate or safe way to signal."
+          }
+        },
+        "499": {
+          "en": {
+            "question": "What does 'black ice' refer to?",
+            "options": {
+              "A": "Ice dyed with chemical substances",
+              "B": "Frost formed from vehicle exhaust.",
+              "C": "A very thin covering of ice that is transparent and drivers can still see the road surface below it."
+            },
+            "correct_option": "C",
+            "description": "Black ice is a nearly invisible layer of ice on the road that creates extremely slippery conditions."
+          }
+        },
+        "500": {
+          "en": {
+            "question": "When checking your tires, which condition should NOT worry you?",
+            "options": {
+              "A": "Tire color difference",
+              "B": "Mismatched tire sizes",
+              "C": "Tires made by various brands"
+            },
+            "correct_option": "C",
+            "description": "Using tires from different brands is acceptable as long as they are in good condition and meet safety requirements."
+          }
+        },
+        "501": {
+          "en": {
+            "question": "When you come up to a traffic light that's been green for a while, you should _",
+            "options": {
+              "A": "Tap your brakes to warn drivers behind you.",
+              "B": "Slow down SO that you can stop in time if the light turns red.",
+              "C": "Keep driving at the same speed and hope it stays green."
+            },
+            "correct_option": "B",
+            "description": "Slow down a bit when you see a green light that has been on for a while, so you can stop safely if it changes."
+          }
+        },
+        "502": {
+          "en": {
+            "question": "During the inspection of the hydraulic system's service brakes, which of the following signs indicates a potential issue?",
+            "options": {
+              "A": "The brake pedal falls to the floor.",
+              "B": "When the brake is pressed, the vehicle pulls to one side",
+              "C": "It takes longer to stop than before.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All these signs indicate potential problems with hydraulic brakes and should be checked."
+          }
+        },
+        "503": {
+          "en": {
+            "question": "Facing a second railroad crossing violation within three years leads to _.",
+            "options": {
+              "A": "45 days disqualification",
+              "B": "90 days disqualification",
+              "C": "120 days disqualification.",
+              "D": "180 days disqualification"
+            },
+            "correct_option": "C",
+            "description": "A second violation at railroad crossings within three years results in a 120-day disqualification."
+          }
+        },
+        "504": {
+          "en": {
+            "question": "When people's blood alcohol level (BAC) gets to _, they often faint or even die.",
+            "options": {
+              "A": "0.4",
+              "B": "0.55",
+              "C": "0.25",
+              "D": "0.75"
+            },
+            "correct_option": "A",
+            "description": "A BAC of 0.4 is extremely dangerous and can cause fainting or death."
+          }
+        },
+        "505": {
+          "en": {
+            "question": "Upon losing sight of an overtaking vehicle in your mirror, what should be your next step before lane shifting?",
+            "options": {
+              "A": "Make sure the vehicle is not in the blind spots before changing lanes.",
+              "B": "Turn on the windshield wipers before changing lanes.",
+              "C": "Flash your headlights before changing lanes.",
+              "D": "The other vehicle will always yield when you signal your intention."
+            },
+            "correct_option": "A",
+            "description": "Always check blind spots before changing lanes, even if the vehicle is no longer visible in your mirror."
+          }
+        },
+        "506": {
+          "en": {
+            "question": "What is correct about using mirrors?",
+            "options": {
+              "A": "You cannot see all the blind spots using mirrors.",
+              "B": "Mirrors provide a complete view of the area around your vehicle.",
+              "C": "Mirrors adjust automatically while driving.",
+              "D": "You can drive safely without mirrors"
+            },
+            "correct_option": "A",
+            "description": "Mirrors do not cover all blind spots, so you must be cautious and aware of those areas."
+          }
+        },
+        "507": {
+          "en": {
+            "question": "What action is recommended before you begin a descent on a steep downgrade?",
+            "options": {
+              "A": "Downshift to a low gear",
+              "B": "Turn off the engine to save fuel.",
+              "C": "Open all windows for better airflow",
+              "D": "Upshift to a high gear"
+            },
+            "correct_option": "A",
+            "description": "Shifting to a low gear helps control speed on steep descents without overusing the brakes."
+          }
+        },
+        "508": {
+          "en": {
+            "question": "For what types of fires is a B:C extinguisher applicable?",
+            "options": {
+              "A": "Electrical fires and burning liquids",
+              "B": "Paper fires",
+              "C": "Cooking oil fires only",
+              "D": "Wood fires only"
+            },
+            "correct_option": "A",
+            "description": "B:C fire extinguishers are effective against electrical and flammable liquid fires."
+          }
+        },
+        "509": {
+          "en": {
+            "question": "Why is it suggested to always reverse the truck on the side where the driver sits?",
+            "options": {
+              "A": "The side window provides a clearer view of the vehicle's rear.",
+              "B": "It increases fuel efficiency.",
+              "C": "The sun's position affects visibility less on the driver's side.",
+              "D": "All of the above are true."
+            },
+            "correct_option": "A",
+            "description": "Reversing on the driver's side gives the best rear view through the side window."
+          }
+        },
+        "510": {
+          "en": {
+            "question": "What is a mandatory feature for a commercial vehicle's GPS?",
+            "options": {
+              "A": "Can be used by normal cars.",
+              "B": "Needs to update traffic info via satellite.",
+              "C": "Is waterproof and shock-resistant.",
+              "D": "Should be designed for truck navigation."
+            },
+            "correct_option": "D",
+            "description": "Commercial vehicle GPS units must be designed for truck navigation, considering vehicle size and restrictions."
+          }
+        },
+        "511": {
+          "en": {
+            "question": "What's correct about using mirrors?",
+            "options": {
+              "A": "You cannot see all the blind spots using mirrors.",
+              "B": "Mirrors give a complete view of the road behind you.",
+              "C": "Mirrors adjust automatically to show the blind spots.",
+              "D": "You can drive safely without mirrors"
+            },
+            "correct_option": "A",
+            "description": "Mirrors don't show every hidden spot around your truck, so be cautious."
+          }
+        },
+        "512": {
+          "en": {
+            "question": "When descending a slope with a manual transmission, you should _.",
+            "options": {
+              "A": "Downshift into a lower gear.",
+              "B": "Accelerate slowly.",
+              "C": "Turn off the engine.",
+              "D": "Shift into a higher gear."
+            },
+            "correct_option": "A",
+            "description": "Downshifting helps control speed on downhill slopes without overusing brakes."
+          }
+        },
+        "513": {
+          "en": {
+            "question": "When driving at night, what other drivers' condition or action should not worry you?",
+            "options": {
+              "A": "Eating while driving",
+              "B": "Increased speed due to lower traffic.",
+              "C": "Sleepiness from being tired",
+              "D": "Playing loud music"
+            },
+            "correct_option": "D",
+            "description": "Other drivers playing loud music isn't something you need to worry about when driving at night."
+          }
+        },
+        "514": {
+          "en": {
+            "question": "If you start feeling sleepy while driving, what should you do?",
+            "options": {
+              "A": "Chew gum to keep yourself alert.",
+              "B": "Drink a large cup of coffee.",
+              "C": "Go to a rest stop and sleep.",
+              "D": "Pinch yourself to stay awake."
+            },
+            "correct_option": "C",
+            "description": "If sleepy, find a safe spot and rest before continuing to drive."
+          }
+        },
+        "515": {
+          "en": {
+            "question": "What's the best method to check the sides and back of a vehicle when you're driving?",
+            "options": {
+              "A": "Adjust the radio to improve visibility.",
+              "B": "Use all the mirrors",
+              "C": "Pull over and walk around to check",
+              "D": "All of the above"
+            },
+            "correct_option": "B",
+            "description": "Use all mirrors while driving to monitor your truck’s sides and back."
+          }
+        },
+        "516": {
+          "en": {
+            "question": "Which statement is correct about incorrectly loaded or secured cargo?",
+            "options": {
+              "A": "The cargo could cause an accident",
+              "B": "The cargo could fall if there was a sudden stop",
+              "C": "Both of the above statement are correct."
+            },
+            "correct_option": "C",
+            "description": "Incorrectly secured cargo can cause accidents or fall during sudden stops."
+          }
+        },
+        "517": {
+          "en": {
+            "question": "For a first-time violation, which offense would lead to a minimum one-year revocation of your CDL?",
+            "options": {
+              "A": "Refusing to get a blood test for alcohol",
+              "B": "Committing a felony involving the use of a CMV",
+              "C": "Driving under the influence of controlled substances or alcohol",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "All listed offenses cause a one-year minimum CDL revocation for a first-time violation."
+          }
+        },
+        "518": {
+          "en": {
+            "question": "If you are found guilty of driving a commercial vehicle that has been officially declared by inspectors as not safe or not allowed to be on the road, what will happen?",
+            "options": {
+              "A": "You will get a discount on future vehicle services.",
+              "B": "You will receive a free vehicle service.",
+              "C": "CDL will be suspended for 30 days.",
+              "D": "CDL will be suspended for 3 months."
+            },
+            "correct_option": "D",
+            "description": "Driving a vehicle declared unsafe will result in a 3-month CDL suspension."
+          }
+        },
+        "519": {
+          "en": {
+            "question": "Which of these steps is included in the pre-trip inspection?",
+            "options": {
+              "A": "Make sure the cargo is balanced.",
+              "B": "Make sure the cargo is secured.",
+              "C": "Both of the above"
+            },
+            "correct_option": "C",
+            "description": "Pre-trip inspection includes checking cargo balance and securing."
+          }
+        },
+        "520": {
+          "en": {
+            "question": "Shifting to a lower gear ahead of time helps when you need to _",
+            "options": {
+              "A": "Stop at a red light.",
+              "B": "Enter a curve or go down a hill.",
+              "C": "Navigate through heavy traffic.",
+              "D": "Drive through a narrow highway"
+            },
+            "correct_option": "B",
+            "description": "Downshifting helps control speed when entering curves or driving downhill."
+          }
+        },
+        "521": {
+          "en": {
+            "question": "In the event that the vehicle's rear wheels lock",
+            "options": {
+              "A": "The steering wheel may become unresponsive.",
+              "B": "The vehicle might start skidding or jackknifing.",
+              "C": "The headlights could stop working.",
+              "D": "All of the above"
+            },
+            "correct_option": "B",
+            "description": "If the back wheels lock, the vehicle can start sliding sideways or jackknife."
+          }
+        },
+        "522": {
+          "en": {
+            "question": "You need to park your truck in a warehouse, but you can't reverse it on the driver's side from where you are now. What should you do?",
+            "options": {
+              "A": "Pull forward and then reverse in a zigzag pattern.",
+              "B": "Drive away and come back to get in the right back up position.",
+              "C": "Turn the truck around in a nearby parking lot.",
+              "D": "Call the carrier to let the receiver know."
+            },
+            "correct_option": "B",
+            "description": "Drive away and return so you can back up on the driver's side for better visibility."
+          }
+        },
+        "523": {
+          "en": {
+            "question": "To prevent issues with wet brakes, what measures can you take?",
+            "options": {
+              "A": "Avoid using brakes altogether.",
+              "B": "Slow down, use low gear, and gently apply the brakes.",
+              "C": "Drive in reverse."
+            },
+            "correct_option": "B",
+            "description": "When brakes are wet, slow down, shift to low gear, and brake gently to keep them working."
+          }
+        },
+        "524": {
+          "en": {
+            "question": "Why is it important to always have someone help you when you're reversing a truck?",
+            "options": {
+              "A": "Because the mirrors cannot see all the blind spots",
+              "B": "To ensure you follow the correct route while reversing.",
+              "C": "To make it easier to play music while backing up.",
+              "D": "You can back at a faster speed when using a helper."
+            },
+            "correct_option": "A",
+            "description": "Helpers can watch blind spots that mirrors don’t cover when backing up."
+          }
+        },
+        "525": {
+          "en": {
+            "question": "When it comes to mirrors, which of the following statements is TRUE?",
+            "options": {
+              "A": "Mirrors should be cleaned weekly.",
+              "B": "You cannot see all the blind spots using mirrors.",
+              "C": "You should adjust your mirrors while driving to get a better view.",
+              "D": "Look at all mirrors every time."
+            },
+            "correct_option": "B",
+            "description": "Mirrors don’t show all blind spots; some areas remain hidden."
+          }
+        },
+        "526": {
+          "en": {
+            "question": "For extinguishing what kinds of fires is an A:B:C type fire extinguisher intended?",
+            "options": {
+              "A": "Wood, paper, and cloth",
+              "B": "Electrical",
+              "C": "Gasoline",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "A:B:C extinguishers work on wood, paper, cloth, electrical fires, and gasoline fires."
+          }
+        },
+        "527": {
+          "en": {
+            "question": "Faced with a DUI conviction while operating a commercial vehicle for the first time, what consequences might follow?",
+            "options": {
+              "A": "Required to attend a 6-month driving school",
+              "B": "Minimum 1 year suspension of your CDL",
+              "C": "Mandatory 30 days community service"
+            },
+            "correct_option": "B",
+            "description": "A first DUI conviction results in at least a 1-year CDL suspension."
+          }
+        },
+        "528": {
+          "en": {
+            "question": "What should you do if you were in an accident that resulted in casualties, injuries, or significant property damage (over $1000)?",
+            "options": {
+              "A": "Report the incident on social media.",
+              "B": "Take a vacation until everything is sorted out.",
+              "C": "Fill out form SR-1 and turn it in within 10 days.",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "You must complete and submit form SR-1 within 10 days for serious accidents."
+          }
+        },
+        "529": {
+          "en": {
+            "question": "Navigating through poorly lit areas at night where headlight visibility is compromised, what adjustments should you consider?",
+            "options": {
+              "A": "Use sunglasses to improve visibility.",
+              "B": "Switch off all lights to reduce glare.",
+              "C": "Turn on the high beams when legal",
+              "D": "Adjust on the instrumentation panel lights to brightest settings."
+            },
+            "correct_option": "C",
+            "description": "Use high beams at night when legal to improve visibility in dark areas."
+          }
+        },
+        "530": {
+          "en": {
+            "question": "To evaluate the effectiveness of your service brakes, at what speed should the testing be conducted?",
+            "options": {
+              "A": "15 mph",
+              "B": "5 mph",
+              "C": "25 mph",
+              "D": "20 mph"
+            },
+            "correct_option": "B",
+            "description": "Service brakes should be tested at 5 mph for effectiveness."
+          }
+        },
+        "531": {
+          "en": {
+            "question": "At 55 mph in a 40-foot vehicle, how many seconds of following distance is advised?",
+            "options": {
+              "A": "8",
+              "B": "5",
+              "C": "3",
+              "D": "7"
+            },
+            "correct_option": "B",
+            "description": "Keep a 5-second gap when driving a 40-foot vehicle at 55 mph to react and stop safely."
+          }
+        },
+        "532": {
+          "en": {
+            "question": "In which scenarios is it advisable to engage a lower gear?",
+            "options": {
+              "A": "Going down a hill and entering a curve",
+              "B": "Going up a hill and leaving a curve",
+              "C": "When driving on a straight, flat road",
+              "D": "When reversing into a parking spot"
+            },
+            "correct_option": "A",
+            "description": "Use a lower gear when going downhill or entering a curve for better control."
+          }
+        },
+        "533": {
+          "en": {
+            "question": "Why is it inadvisable to steer excessively to the left during a right turn with your vehicle?",
+            "options": {
+              "A": "It can confuse pedestrians crossing the street.",
+              "B": "It gives other drivers enough space to pass you on the right hand side",
+              "C": "It makes it harder to see traffic coming from the left.",
+              "D": "You won't be able to turn right"
+            },
+            "correct_option": "B",
+            "description": "Swinging too far left can tempt others to pass you on the right, creating a hazard."
+          }
+        },
+        "534": {
+          "en": {
+            "question": "The following situations may make a vehicle at its legal maximum weight limit unsafe, EXCEPT?",
+            "options": {
+              "A": "Driving on mountain roads.",
+              "B": "Driving in a desert.",
+              "C": "Driving through a quiet neighborhood.",
+              "D": "Bumper-to-bumper traffic"
+            },
+            "correct_option": "D",
+            "description": "Heavy trucks are still generally safe in slow, bumper-to-bumper traffic."
+          }
+        },
+        "535": {
+          "en": {
+            "question": "Which of the following statements about spare tires is FALSE?",
+            "options": {
+              "A": "It must match the regular tires in size and tread pattern.",
+              "B": "It has to be the same brand and model.",
+              "C": "It must have the same speed rating as the primary tires.",
+              "D": "It has be inflated properly."
+            },
+            "correct_option": "B",
+            "description": "Spare tires don’t need to be the same brand or model, but must match in size, tread, and be inflated."
+          }
+        },
+        "536": {
+          "en": {
+            "question": "It's advised to look ahead for 12–15 seconds when driving. On city streets, how far does that mean you should look?",
+            "options": {
+              "A": "100 feet",
+              "B": "200 feet",
+              "C": "One block (1/4 mile)",
+              "D": "A mile"
+            },
+            "correct_option": "C",
+            "description": "Looking ahead 12–15 seconds in city driving usually equals about one block or 1/4 mile."
+          }
+        },
+        "537": {
+          "en": {
+            "question": "If you get less than _ hours of sleep the night before, you're three times more likely to fall asleep while driving.",
+            "options": {
+              "A": "2 hours",
+              "B": "8 hours",
+              "C": "6 hours",
+              "D": "10 hours"
+            },
+            "correct_option": "C",
+            "description": "Getting less than 6 hours of sleep triples your chances of falling asleep at the wheel."
+          }
+        },
+        "538": {
+          "en": {
+            "question": "When descending a lengthy downgrade, what factor should NOT influence your speed selection?",
+            "options": {
+              "A": "Road surface conditions",
+              "B": "The mileage traveled",
+              "C": "Brake performance",
+              "D": "The total vehicle and cargo weight"
+            },
+            "correct_option": "B",
+            "description": "Distance driven doesn’t affect safe speed on a downgrade. Road and vehicle conditions do."
+          }
+        },
+        "539": {
+          "en": {
+            "question": "If you get into an accident with hazardous materials, you should _",
+            "options": {
+              "A": "Take care of the injured",
+              "B": "Keep open flames out of the area and do not smoke",
+              "C": "Warn people of the accident",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "In a hazmat accident, help the injured, prevent ignition sources, and warn others. Do all of the above."
+          }
+        },
+        "540": {
+          "en": {
+            "question": "Under which circumstances is hydroplaning most likely to occur?",
+            "options": {
+              "A": "You are driving right after it started to rain.",
+              "B": "Your tires are brand new.",
+              "C": "You are driving with slightly underinflated tires.",
+              "D": "You are driving in a straight line in normal weather."
+            },
+            "correct_option": "A",
+            "description": "Hydroplaning risk is highest just after it starts raining, due to mixed oils and water on the road."
+          }
+        },
+        "541": {
+          "en": {
+            "question": "Is the stopping distance for an empty truck typically shorter than that of one fully loaded?",
+            "options": {
+              "A": "No, only with anti-lock brakes.",
+              "B": "No",
+              "C": "No, only if the driver has more than 5 years of experience.",
+              "D": "Yes, if it is newer truck."
+            },
+            "correct_option": "B",
+            "description": "Empty trucks often take longer to stop because they have less traction than loaded ones."
+          }
+        },
+        "542": {
+          "en": {
+            "question": "According to regulations, where should you place warning devices when forced to stop on a one-way road or divided highway?",
+            "options": {
+              "A": "10 feet, 100 feet, and 200 feet in the direction of oncoming vehicles",
+              "B": "5 feet, 50 feet, and 150 feet in the direction of oncoming vehicles.",
+              "C": "40 feet, 80 feet, and 160 feet in the direction of oncoming vehicles"
+            },
+            "correct_option": "A",
+            "description": "Place warning devices 10, 100, and 200 feet in the direction of oncoming traffic on one-way or divided roads."
+          }
+        },
+        "543": {
+          "en": {
+            "question": "When should you avoid using your vehicle's low-beam headlights?",
+            "options": {
+              "A": "When crossing a bridge.",
+              "B": "During a clear afternoon",
+              "C": "When travelling through a road with many patches of shadows",
+              "D": "At midnight"
+            },
+            "correct_option": "C",
+            "description": "Avoid using low beams where there are many patches of shadows, as it can reduce visibility."
+          }
+        },
+        "544": {
+          "en": {
+            "question": "When traveling at 40 mph in a 40-foot vehicle on a day with clear visibility, what is the minimum recommended following distance to maintain safety?",
+            "options": {
+              "A": "2 seconds",
+              "B": "4 seconds",
+              "C": "1 second",
+              "D": "6 seconds"
+            },
+            "correct_option": "B",
+            "description": "A 4-second following distance is safe at 40 mph in a 40-foot vehicle under good conditions."
+          }
+        },
+        "545": {
+          "en": {
+            "question": "What is sleep debt?",
+            "options": {
+              "A": "Falling asleep at the wheel due to lack of sleep.",
+              "B": "A way to improve your driving skills by practicing more hours.",
+              "C": "Feeling more alert after drinking coffee or energy drinks."
+            },
+            "correct_option": "A",
+            "description": "Sleep debt is the result of not getting enough sleep and can lead to falling asleep while driving."
+          }
+        },
+        "546": {
+          "en": {
+            "question": "What is the most effective method to eliminate sleep debt?",
+            "options": {
+              "A": "Drink a lot of coffee.",
+              "B": "Take short breaks to walk around.",
+              "C": "Only getting enough sleep will get rid of it.",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "The only true solution for sleep debt is getting adequate sleep."
+          }
+        },
+        "547": {
+          "en": {
+            "question": "Given optimal driving conditions, what is the recommended following distance for a 40-foot vehicle traveling at 50 mph?",
+            "options": {
+              "A": "1 second",
+              "B": "2 seconds",
+              "C": "5 seconds",
+              "D": "6 seconds"
+            },
+            "correct_option": "C",
+            "description": "Maintain a 5-second gap at 50 mph when driving a 40-foot truck to ensure enough reaction time."
+          }
+        },
+        "548": {
+          "en": {
+            "question": "What are the regulated height limitations for splash guards (mud flaps) on a vehicle?",
+            "options": {
+              "A": "They must be transparent.",
+              "B": "No federal requirements, but each state has its own regulations.",
+              "C": "They must cover the entire width of the tire.",
+              "D": "They are optional."
+            },
+            "correct_option": "B",
+            "description": "There are no federal rules for splash guard height, but each state may have its own laws."
+          }
+        },
+        "549": {
+          "en": {
+            "question": "How can you make other drivers aware of your vehicle's presence?",
+            "options": {
+              "A": "If it's legal and you're about to pass, you can gently tap your horn.",
+              "B": "If you flash your headlights at night when you are about to pass.",
+              "C": "Turn on your headlights in poor visibility",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Use your horn, headlights, and driving lights to alert other drivers to your presence when appropriate."
+          }
+        },
+        "550": {
+          "en": {
+            "question": "Which of the following factors should be considered when determining a safe speed for descending a steep grade?",
+            "options": {
+              "A": "How much the vehicle and its cargo weigh together",
+              "B": "How steep the grade is",
+              "C": "Whether the roads are slippery.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Weight, steepness, and road condition all affect how safely you can descend a grade."
+          }
+        },
+        "551": {
+          "en": {
+            "question": "What is the total stopping distance required when traveling at 55 mph under favorable weather conditions?",
+            "options": {
+              "A": "75 feet or more",
+              "B": "150 feet or more",
+              "C": "209 feet or more",
+              "D": "419 feet or more."
+            },
+            "correct_option": "D",
+            "description": "At 55 mph, a large truck may need 419 feet or more to come to a complete stop in good conditions."
+          }
+        },
+        "552": {
+          "en": {
+            "question": "When crossing railroad tracks, how many times should you shift gears?",
+            "options": {
+              "A": "0",
+              "B": "1",
+              "C": "2",
+              "D": "4"
+            },
+            "correct_option": "A",
+            "description": "Never shift gears while crossing railroad tracks. Always cross in one gear to avoid stalling."
+          }
+        },
+        "553": {
+          "en": {
+            "question": "Some rules and limits apply only to trucks and buses. Which of the following statements is correct?",
+            "options": {
+              "A": "State regulations do not apply to trucks and buses in interstate commerce.",
+              "B": "Federal regulations are optional for trucks and buses.",
+              "C": "Local limits and regulations might differ.",
+              "D": "Only the CDL issuing state's laws apply to interstate drivers."
+            },
+            "correct_option": "C",
+            "description": "Local regulations can vary, so trucks and buses need to be aware of specific area rules."
+          }
+        },
+        "554": {
+          "en": {
+            "question": "During a backing maneuver, which side is preferable to back towards?",
+            "options": {
+              "A": "The right side",
+              "B": "The left side or driver's side",
+              "C": "Towards the center of the road",
+              "D": "Towards the nearest building"
+            },
+            "correct_option": "B",
+            "description": "Backing toward the driver's side is safest because visibility is better."
+          }
+        },
+        "555": {
+          "en": {
+            "question": "Before moving on to the second step of the 7-step inspection, which includes checking the engine area, you should check __.",
+            "options": {
+              "A": "The wheels are chocked and the parking brakes are applied",
+              "B": "The headlights and turn signals are turned off.",
+              "C": "The engine is off",
+              "D": "The mirrors are adjusted properly."
+            },
+            "correct_option": "A",
+            "description": "Before inspecting the engine area, always secure the vehicle by chocking wheels and setting parking brakes."
+          }
+        },
+        "556": {
+          "en": {
+            "question": "Which of the following steps is NOT included in checking the engine compartment during the 7-step inspection?",
+            "options": {
+              "A": "Checking the brake lights function",
+              "B": "Checking the oil pressure gauge",
+              "C": "Checking the tire pressure",
+              "D": "Checking the battery fluid level"
+            },
+            "correct_option": "B",
+            "description": "The oil pressure gauge is checked from inside the cab, not during the engine compartment inspection."
+          }
+        },
+        "557": {
+          "en": {
+            "question": "What's the most effective method to monitor the actions of another driver?",
+            "options": {
+              "A": "Monitor for the movements of the driver's head and body.",
+              "B": "Watch the driver through a high-powered telescope.",
+              "C": "Listen to the engine sounds of their vehicle.",
+              "D": "Just assume all drivers are safe and follow all the rules."
+            },
+            "correct_option": "A",
+            "description": "Watching a driver's head and body movements helps anticipate their actions on the road."
+          }
+        },
+        "558": {
+          "en": {
+            "question": "What is the minimum aggregate load limit for tie-downs as required by federal regulations for securing cargo?",
+            "options": {
+              "A": "Equal to half the weight of the vehicle.",
+              "B": "One and one-half times the total weight of the cargo",
+              "C": "Half the total weight of the cargo.",
+              "D": "Three times the total weight of the cargo"
+            },
+            "correct_option": "B",
+            "description": "The total strength of tie-downs must be at least 1.5 times the cargo weight to prevent load shifts."
+          }
+        },
+        "559": {
+          "en": {
+            "question": "What should you look for in the wheel bearing seals when you check them?",
+            "options": {
+              "A": "Color changes",
+              "B": "Tire tread pattern alignment",
+              "C": "The oil level in the hub and any leaks",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Check wheel bearing seals for proper oil level and signs of leaking oil."
+          }
+        },
+        "560": {
+          "en": {
+            "question": "In the event of hydraulic brake failure, what should you NOT do?",
+            "options": {
+              "A": "Shift to a higher gear",
+              "B": "Downshift to a lower gear to use engine braking.",
+              "C": "Pump the brakes to see if some braking power remains.",
+              "D": "Look for an escape ramp"
+            },
+            "correct_option": "A",
+            "description": "Shifting to a higher gear reduces control. Use lower gears, pump brakes, or seek escape ramps instead."
+          }
+        },
+        "561": {
+          "en": {
+            "question": "What should be your course of action if you encounter difficulty engaging the next gear using a double-clutch system?",
+            "options": {
+              "A": "Adjust your seat closer to the steering wheel.",
+              "B": "Turn off the engine and restart the vehicle.",
+              "C": "Press on the gas pedal to get the engine speed faster than road speed.",
+              "D": "Shift back to neutral then rev the engine speed to match road speed, and shift into gear."
+            },
+            "correct_option": "D",
+            "description": "If shifting gears fails, return to neutral, rev the engine to match road speed, and try again to smoothly engage the gear."
+          }
+        },
+        "562": {
+          "en": {
+            "question": "What must you do before you begin driving with a sealed load?",
+            "options": {
+              "A": "Ensure the vehicle has enough fuel for the journey.",
+              "B": "Drive without checking the seal status.",
+              "C": "Make sure that you don't go over the limits for gross weight and axle weight.",
+              "D": "All of the above"
+            },
+            "correct_option": "C",
+            "description": "Even if the load is sealed, you must ensure your gross and axle weights are within legal limits before driving."
+          }
+        },
+        "563": {
+          "en": {
+            "question": "What is not TRUE from the options given?",
+            "options": {
+              "A": "Drinking water in between alcoholic drinks will not prevent BAC from rising.",
+              "B": "Your height can affect your blood alcohol content (BAC) greatly.",
+              "C": "Eating fatty foods before drinking will not lower your BAC."
+            },
+            "correct_option": "B",
+            "description": "Your height has little to no impact on BAC; weight and other factors matter more."
+          }
+        },
+        "564": {
+          "en": {
+            "question": "Loads that exceed standard dimensions or weight might necessitate the use of what?",
+            "options": {
+              "A": "Special transit permits",
+              "B": "Driving limited to certain times.",
+              "C": "Police escort",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Oversized or overweight loads may require permits, time restrictions, and escorts for safety."
+          }
+        },
+        "565": {
+          "en": {
+            "question": "What is a \"header board\"?",
+            "options": {
+              "A": "A special mirror to see behind the truck.",
+              "B": "A dashboard decoration.",
+              "C": "A term to describe a driver who has taken a lot of rest stops",
+              "D": "A safety device behind you"
+            },
+            "correct_option": "D",
+            "description": "A header board protects the driver from cargo that may shift or move forward."
+          }
+        },
+        "566": {
+          "en": {
+            "question": "What is correct about brake shoes?",
+            "options": {
+              "A": "Brake shoes can be lubricated to enhance performance.",
+              "B": "Brake shoes should not be worn dangerously thin.",
+              "C": "Brake shoes must be replaced every 1000 miles.",
+              "D": "Brake shoes are optional."
+            },
+            "correct_option": "B",
+            "description": "Brake shoes must not be dangerously worn or thin to maintain safe braking performance."
+          }
+        },
+        "567": {
+          "en": {
+            "question": "Which of the following statements about hours of service is TRUE?",
+            "options": {
+              "A": "Drivers must log 30 minutes of exercise daily.",
+              "B": "Drivers are allowed to skip sleep if they're not tired.",
+              "C": "You should get the right amount of sleep and work hours to stay alert.",
+              "D": "You can work 24 hours straight with enough caffeine"
+            },
+            "correct_option": "C",
+            "description": "Proper rest and working hours are essential to stay alert and follow Hours of Service regulations."
+          }
+        },
+        "568": {
+          "en": {
+            "question": "For every ___ feet of cargo, you need at least one tie-down to secure it from moving.",
+            "options": {
+              "A": "10",
+              "B": "20",
+              "C": "15",
+              "D": "24"
+            },
+            "correct_option": "A",
+            "description": "At least one tie-down is required for every 10 feet of cargo to ensure safe transportation."
+          }
+        },
+        "569": {
+          "en": {
+            "question": "What qualifies as a serious traffic violation that could lead to a suspension of your license for at least 60 days upon two convictions within three years?",
+            "options": {
+              "A": "Driving without wearing a seatbelt",
+              "B": "Driving 15 mph over the speed limit.",
+              "C": "Driving with a broken tail light.",
+              "D": "Driving 5 mph over the speed limit."
+            },
+            "correct_option": "B",
+            "description": "Driving 15 mph or more over the limit is considered a serious traffic violation and can lead to license suspension after repeated offenses."
+          }
+        },
+        "570": {
+          "en": {
+            "question": "If you have a flat tire, what should you NOT do?",
+            "options": {
+              "A": "Drive at the same speed.",
+              "B": "Turn the steering wheel back and forth quickly.",
+              "C": "Press the brakes quickly and hard.",
+              "D": "Know that a tire has gone flat."
+            },
+            "correct_option": "C",
+            "description": "Hard braking with a flat tire is dangerous and could lead to a loss of control. Brake gently and gradually instead."
+          }
+        },
+        "571": {
+          "en": {
+            "question": "Which of the following is a key part of steering?",
+            "options": {
+              "A": "Front axle",
+              "B": "Brake pedal",
+              "C": "Tire tread",
+              "D": "Steering Gear box"
+            },
+            "correct_option": "D",
+            "description": "The steering gear box plays a critical role in helping the driver turn the wheels of the vehicle effectively."
+          }
+        },
+        "572": {
+          "en": {
+            "question": "What is deemed the most effective method for managing your speed while descending a slope?",
+            "options": {
+              "A": "Downshift to leverage engine braking.",
+              "B": "Turn off the engine to save fuel.",
+              "C": "Use cruise control to maintain a steady speed",
+              "D": "Driving in the middle of two lanes if no other vehicles around you."
+            },
+            "correct_option": "A",
+            "description": "Downshifting allows the engine to help slow the vehicle, offering better control when going downhill."
+          }
+        },
+        "573": {
+          "en": {
+            "question": "What are the recommended steps if your vehicle gets stuck on railroad tracks during crossing?",
+            "options": {
+              "A": "Get out of the vehicle quickly and walk to a safe location away from the tracks.",
+              "B": "Turn on hazard lights and wait for help.",
+              "C": "Call for a tow truck immediately.",
+              "D": "Ask bystanders for help to move the vehicle"
+            },
+            "correct_option": "A",
+            "description": "If your vehicle is stuck on the tracks, exit quickly and move away to a safe distance to avoid injury."
+          }
+        },
+        "574": {
+          "en": {
+            "question": "What should you check during a pre-trip inspection?",
+            "options": {
+              "A": "If all the lights on the vehicle are working and clean.",
+              "B": "Windshield wipers",
+              "C": "All the brakes (hand brake and brake pedal)",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Pre-trip inspections must include all lights, wipers, and both types of brakes to ensure safe operation."
+          }
+        },
+        "575": {
+          "en": {
+            "question": "What's the best method to check hydraulic brakes for any leaks?",
+            "options": {
+              "A": "Look under the vehicle for puddles before driving.",
+              "B": "Tap the brake pedal lightly and check for fluid on the ground.",
+              "C": "Press the brake pedal for 5 seconds and look at the brake for leak",
+              "D": "Pump the brake pedal 3 times, then hold it down for 5 seconds."
+            },
+            "correct_option": "D",
+            "description": "Pumping the brake and holding it helps reveal leaks through loss of pedal pressure or visible fluid."
+          }
+        },
+        "576": {
+          "en": {
+            "question": "When confronted with an aggressive driver, how should you react?",
+            "options": {
+              "A": "Avoid direct eye contact.",
+              "B": "Ignore impolite behaviors and refuse to respond angrily.",
+              "C": "Call the authority if you can do it safely.",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Stay calm, avoid escalating the situation, and involve authorities if necessary—all of these steps help de-escalate danger."
+          }
+        },
+        "577": {
+          "en": {
+            "question": "During the inspection of the engine compartment before a trip, which item is NOT typically included?",
+            "options": {
+              "A": "Engine oil temperature",
+              "B": "Electrical wiring insulation for cracks and wear",
+              "C": "Belt tightness and excessive wear",
+              "D": "Windshield washer fluid level"
+            },
+            "correct_option": "A",
+            "description": "You don’t check engine oil temperature during a pre-trip inspection; the focus is on visible damage or low fluid levels."
+          }
+        },
+        "578": {
+          "en": {
+            "question": "What consequences do you face for operating a commercial vehicle without possessing a CDL?",
+            "options": {
+              "A": "$2000 maximum fine and possibly jail time.",
+              "B": "$7500 maximum fine and possibly jail time",
+              "C": "$5000 maximum fine and possibly jail time.",
+              "D": "$10,000 maximum fine and possibly jail time."
+            },
+            "correct_option": "C",
+            "description": "Driving a commercial vehicle without a CDL may result in a fine up to $5,000 and possible imprisonment."
+          }
+        },
+        "579": {
+          "en": {
+            "question": "What are signs that show a driver is not sober?",
+            "options": {
+              "A": "Having trouble staying in their own lane",
+              "B": "Having trouble keeping up with the speed",
+              "C": "Suddenly stopping for no clear reason",
+              "D": "All of the above"
+            },
+            "correct_option": "D",
+            "description": "Drifting lanes, erratic speed, and abrupt stops are all signs that a driver may be impaired."
+          }
+        },
+        "580": {
+          "en": {
+            "question": "The fastest way to avoid a hazard is almost always to _ rather than stop completely.",
+            "options": {
+              "A": "Increase your speed.",
+              "B": "Steer away from it",
+              "C": "Turn on your windshield wipers.",
+              "D": "Try driving through the hazard."
+            },
+            "correct_option": "B",
+            "description": "In most emergency situations, steering around the hazard is faster and safer than trying to stop."
           }
         }
       }

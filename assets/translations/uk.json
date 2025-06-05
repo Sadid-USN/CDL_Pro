@@ -23,5 +23,9 @@
     "outOf": "З",
     "explanation": "Пояснення:",
     "completeTheTest": "Завершити тест",
-    "nextQuestion": "Наступне питання"
+    "nextQuestion": "Наступне питання",
+    "resetQuiz": "Скинути вікторину",
+    "cancel": "Скасувати",
+    "reset": "Скидання",
+    "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?"
 }
