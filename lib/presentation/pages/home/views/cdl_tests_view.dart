@@ -29,7 +29,7 @@ class CDLTestsView extends StatelessWidget {
 
     return ListView.builder(
       itemCount: chapters.length,
-      padding: EdgeInsets.all(8.h),
+      padding: EdgeInsets.only(right: 8.w, left: 8.w, top: 8.w, bottom: 25.h),
 
       itemBuilder: (context, index) {
         final chapter = chapters[index];
@@ -246,7 +246,7 @@ class _CategoryCard extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-      
+
           // Подстрой цвет под фон
           SizedBox(width: 4.w),
           Text(

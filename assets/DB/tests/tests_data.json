@@ -7206,7 +7206,7 @@
     },
     "combination": {
       "free_limit": 25,
-      "total": 180,
+      "total": 190,
       "questions": {
         "1": {
           "en": {
@@ -9958,18 +9958,6 @@
             },
             "correct_option": "A",
             "description": "Foundation brakes are installed on all the wheels and are the main braking components of the vehicle."
-          }
-        },
-        "41": {
-          "en": {
-            "question": "",
-            "options": {
-              "A": "",
-              "B": "",
-              "C": ""
-            },
-            "correct_option": "A",
-            "description": ""
           }
         },
         "41": {
@@ -14337,6 +14325,7 @@
             "description": "Drivers must have a Commercial Driver’s License (CDL) with a Hazardous Materials (HazMat) endorsement to legally and safely transport hazardous materials."
           }
         }
+        
       }
     }
   }

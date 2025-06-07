@@ -1,13 +1,10 @@
 import 'dart:convert';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:translator/translator.dart';
 
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
-  final GoogleTranslator _translator = GoogleTranslator();
   bool _isPremium = false;
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
@@ -24,17 +21,13 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
     on<NextQuestionsEvent>(_onNextQuestions);
-    on<ChangeLanguageEvent>(_onChangeLanguage);
+
     on<SaveQuizProgressEvent>(_onSaveQuizProgress);
     on<LoadQuizProgressEvent>(_onLoadQuizProgress);
-      on<ResetQuizEvent>(_onResetQuiz);
+    on<ResetQuizEvent>(_onResetQuiz);
   }
 
-
-void _onResetQuiz(
-    ResetQuizEvent event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) {
+  void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     _currentQuestionIndex = 0;
     _userAnswers = {};
     _quizCompleted = false;
@@ -47,7 +40,6 @@ void _onResetQuiz(
 
     emit(
       QuizLoadedState(
-        selectedLanguage: _selectedLanguage,
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
@@ -55,6 +47,7 @@ void _onResetQuiz(
       ),
     );
   }
+
   Future<void> saveProgress() async {
     if (_currentQuizId == null) return;
 
@@ -111,7 +104,6 @@ void _onResetQuiz(
 
     emit(
       QuizLoadedState(
-        selectedLanguage: _selectedLanguage,
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
@@ -129,74 +121,6 @@ void _onResetQuiz(
         .toString();
   }
 
-  void _onChangeLanguage(
-    ChangeLanguageEvent event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) async {
-    if (state is QuizLoadedState) {
-      final currentState = state as QuizLoadedState;
-      // Сохраняем новый язык
-      _selectedLanguage =
-          currentState.selectedLanguage == event.languageCode
-              ? 'en'
-              : event.languageCode;
-
-      // Создаем копию текущего состояния с новым языком
-      final newState = QuizLoadedState(
-        selectedLanguage: _selectedLanguage,
-        allQuestions: currentState.allQuestions,
-        userAnswers: currentState.userAnswers,
-        currentPage: currentState.currentPage,
-        quizCompleted: currentState.quizCompleted,
-      );
-
-      // Эмитим новое состояние
-      emit(newState);
-
-      // Принудительно обновляем переводы
-      await _precacheTranslations(newState);
-    }
-  }
-
-  Future<void> _precacheTranslations(QuizLoadedState state) async {
-    try {
-      // Предзагружаем перевод текущего вопроса
-      final currentQuestion = state.allQuestions[state.currentPage];
-      await translateText(currentQuestion.question, state.selectedLanguage);
-
-      // Предзагружаем перевод вариантов ответов
-      for (final option in currentQuestion.options.values) {
-        await translateText(option, state.selectedLanguage);
-      }
-
-      // Предзагружаем перевод описания (если вопрос отвечен)
-      if (state.userAnswers.containsKey(currentQuestion.question)) {
-        await translateText(
-          currentQuestion.description,
-          state.selectedLanguage,
-        );
-      }
-    } catch (e) {
-      debugPrint('Precache translations error: $e');
-    }
-  }
-
-  Future<String> translateText(String text, String? targetLanguage) async {
-    // Если язык не выбран или выбран английский - возвращаем оригинальный текст
-    if (text.isEmpty || targetLanguage == null || targetLanguage == 'en') {
-      return text;
-    }
-
-    try {
-      final translation = await _translator.translate(text, to: targetLanguage);
-      return translation.text;
-    } catch (e) {
-      debugPrint('Translation error: $e');
-      return text;
-    }
-  }
-
-  // Существующие методы...
   Future<void> _onCheckPremiumStatus(
     CheckPremiumStatus event,
     Emitter<AbstractCDLTestsState> emit,
@@ -226,7 +150,6 @@ void _onResetQuiz(
 
     emit(
       QuizLoadedState(
-        selectedLanguage: _selectedLanguage, // Сохраняем язык
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,
@@ -235,7 +158,7 @@ void _onResetQuiz(
     );
   }
 
- void _onNextQuestions(
+  void _onNextQuestions(
     NextQuestionsEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) {
@@ -252,7 +175,6 @@ void _onResetQuiz(
 
     emit(
       QuizLoadedState(
-        selectedLanguage: _selectedLanguage,
         allQuestions: _quizQuestions,
         userAnswers: _userAnswers,
         currentPage: _currentQuestionIndex,

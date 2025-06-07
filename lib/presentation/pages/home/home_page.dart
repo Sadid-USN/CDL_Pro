@@ -17,23 +17,37 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
+        // Функция для получения правильного типа данных в зависимости от языка
+        AppDataType getLocalizedDataType(AppDataType baseType) {
+          if (baseType == AppDataType.cdlTests) {
+            switch (state.selectedLang) {
+              case AppLanguage.russian:
+                return AppDataType.cdlTestsRu;
+              case AppLanguage.ukrainian:
+                return AppDataType.cdlTestsUk;
+              case AppLanguage.spanish:
+                return AppDataType.cdlTestsEs;
+              case AppLanguage.english:
+                return AppDataType.cdlTests;
+            }
+          }
+          return baseType; // For other types return as-is
+        }
+
         final collectionTypes = [
           {
             'label': LocaleKeys.cdlTests.tr(),
-            'type': AppDataType.cdlTests,
-            'flag': '🇺🇸',
+            'type': getLocalizedDataType(AppDataType.cdlTests),
             'assetImage': AppLogos.cdlTest,
           },
           {
             'label': LocaleKeys.preTripInspection.tr(),
             'type': AppDataType.tripInseption,
-            'flag': '🇹🇯',
             'assetImage': AppLogos.preTripInspection,
           },
           {
             'label': LocaleKeys.roadSigns.tr(),
             'type': AppDataType.roadSign,
-            'flag': '🇷🇺',
             'assetImage': AppLogos.roadSigns,
           },
         ];
@@ -48,13 +62,8 @@ class HomePage extends StatelessWidget {
             return ElevatedContainer(
               assetImage: item["assetImage"] as String,
               onTap: () {
-                // Update the selected type in the bloc
                 context.read<SettingsBloc>().add(ChangeType(type));
-                // Navigate to CategoryPage - no need to pass collectionType
-                navigateToPage(
-                  context,
-                  route: MainCategoryRoute(),
-                );
+                navigateToPage(context, route: MainCategoryRoute());
               },
               child: Text(
                 item['label'] as String,
