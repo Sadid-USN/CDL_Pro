@@ -16,6 +16,12 @@ class MainCategoryPage extends StatelessWidget {
     switch (type) {
       case AppDataType.cdlTests:
         return 'CDLTests';
+      case AppDataType.cdlTestsRu:
+        return 'CDLTestsRu';
+      case AppDataType.cdlTestsUk:
+        return 'CDLTestsUk';
+      case AppDataType.cdlTestsEs:
+        return 'CDLTestsSp';
       case AppDataType.roadSign:
         return 'RoadSign';
       case AppDataType.tripInseption:
@@ -42,21 +48,19 @@ class MainCategoryPage extends StatelessWidget {
           final stream = state.collectionStream;
 
           if (stream == null) {
-            return Center(
-              child: Text('No data $stream'),
-            );
+            return Center(child: Text('No data $stream'));
           }
 
           return StreamBuilder<QuerySnapshot>(
             stream: stream,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return  Center(
-              child: LottieBuilder.asset(
-                'assets/lottie/truck_loader.json',
-                height: 100,
-              ),
-            );
+                return Center(
+                  child: LottieBuilder.asset(
+                    'assets/lottie/truck_loader.json',
+                    height: 100,
+                  ),
+                );
               } else if (snapshot.hasError) {
                 return Center(child: Text("Error: ${snapshot.error}"));
               } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
@@ -67,6 +71,12 @@ class MainCategoryPage extends StatelessWidget {
 
               switch (state.selectedType) {
                 case AppDataType.cdlTests:
+                  return CDLTestsView(docs: docs);
+                case AppDataType.cdlTestsRu:
+                  return CDLTestsView(docs: docs);
+                case AppDataType.cdlTestsUk:
+                  return CDLTestsView(docs: docs);
+                case AppDataType.cdlTestsEs:
                   return CDLTestsView(docs: docs);
                 case AppDataType.roadSign:
                   return RoadSignView(docs: docs);

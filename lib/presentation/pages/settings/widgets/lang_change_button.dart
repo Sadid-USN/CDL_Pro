@@ -11,14 +11,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class LangChangeButton extends StatelessWidget {
   final SettingsBloc localBloc;
 
-  const LangChangeButton({
-    super.key,
-    required this.localBloc,
-  });
+  const LangChangeButton({super.key, required this.localBloc});
 
   // Убираем BuildContext из этого метода
   Future<void> _onLanguageSelected(
-      AppLanguage language, BuildContext context) async {
+    AppLanguage language,
+    BuildContext context,
+  ) async {
     localBloc.add(ChangeLanguage(language));
     await context.setLocale(Locale(SettingsBloc.getLanguageCode(language)));
   }
@@ -27,9 +26,9 @@ class LangChangeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> languages = [
       {"lang": "English", "language": AppLanguage.english},
-
       {"lang": "Русский", "language": AppLanguage.russian},
       {"lang": "Українська", "language": AppLanguage.ukrainian},
+      {"lang": "Español", "language": AppLanguage.spanish},
     ];
 
     return BlocBuilder<SettingsBloc, SettingsState>(
@@ -48,14 +47,13 @@ class LangChangeButton extends StatelessWidget {
             showMenu<AppLanguage>(
               context: context,
               position: PopupMenuPositionHelper.getPopupPosition(context),
-              items: languages.map((lang) {
-                return PopupMenuItem<AppLanguage>(
-                  value: lang["language"],
-                  child: Text(
-                    lang["lang"],
-                  ),
-                );
-              }).toList(),
+              items:
+                  languages.map((lang) {
+                    return PopupMenuItem<AppLanguage>(
+                      value: lang["language"],
+                      child: Text(lang["lang"]),
+                    );
+                  }).toList(),
             ).then((language) {
               if (language != null && context.mounted) {
                 // Передаем context здесь, а не в асинхронном методе

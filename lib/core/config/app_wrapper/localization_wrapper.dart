@@ -5,9 +5,10 @@ class LocalizationWrapper extends StatelessWidget {
   static final List<Locale> locales = [
     const Locale('en'),
     const Locale('ru'),
-    const Locale('fr'),
     const Locale('uk'),
-    // const Locale('es'), // Испанский (Spanish)
+    const Locale('es'),
+    // const Locale('fr'),
+    // Испанский (Spanish)
     // const Locale('ar'), // Арабский (Arabic)
     // const Locale('tr'), // Турецкий (Turkish)
     // const Locale('pt'), // Португальский (Portuguese)

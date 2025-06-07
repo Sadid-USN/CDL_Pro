@@ -107,6 +107,12 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
     switch (dataType) {
       case AppDataType.cdlTests:
         return firebaseStore.collection('CDLTests');
+      case AppDataType.cdlTestsRu:
+        return firebaseStore.collection('CDLTestsRu');
+      case AppDataType.cdlTestsUk:
+        return firebaseStore.collection('CDLTestsUk');
+      case AppDataType.cdlTestsEs:
+        return firebaseStore.collection('CDLTestsEs');
       case AppDataType.roadSign:
         return firebaseStore.collection('RoadSign');
       case AppDataType.tripInseption:
@@ -172,6 +178,18 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
             final quizData = TestsDataModel.fromJson(jsonData);
             batch.set(docRef, quizData.toJson());
             break;
+          case AppDataType.cdlTestsRu:
+            final quizData = TestsDataModel.fromJson(jsonData);
+            batch.set(docRef, quizData.toJson());
+            break;
+          case AppDataType.cdlTestsUk:
+            final quizData = TestsDataModel.fromJson(jsonData);
+            batch.set(docRef, quizData.toJson());
+            break;
+          case AppDataType.cdlTestsEs:
+            final quizData = TestsDataModel.fromJson(jsonData);
+            batch.set(docRef, quizData.toJson());
+            break;
           case AppDataType.roadSign:
             final sign = RoadSignResponse.fromJson(jsonData);
             batch.set(docRef, sign.toJson());
@@ -197,6 +215,12 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
     switch (dataType) {
       case AppDataType.cdlTests:
         return 'assets/DB/tests';
+      case AppDataType.cdlTestsRu:
+        return 'assets/DB/tests_ru';
+      case AppDataType.cdlTestsUk:
+        return 'assets/DB/tests_uk';
+      case AppDataType.cdlTestsEs:
+        return 'assets/DB/tests_es';
       case AppDataType.roadSign:
         return 'assets/DB/road_signs';
       case AppDataType.tripInseption:
@@ -213,6 +237,8 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
         return 'Русский';
       case AppLanguage.ukrainian:
         return 'Українська';
+      case AppLanguage.spanish:
+        return 'Español';
     }
   }
 
@@ -225,6 +251,8 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
         return AppLanguage.russian;
       case 'uk':
         return AppLanguage.ukrainian;
+      case 'es':
+        return AppLanguage.spanish;
       default:
         return AppLanguage.english;
     }
@@ -239,6 +267,8 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
         return 'uk';
       case AppLanguage.russian:
         return 'ru';
+      case AppLanguage.spanish:
+        return 'es';
     }
   }
 }

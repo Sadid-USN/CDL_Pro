@@ -28,13 +28,7 @@ class LoadQuizProgressEvent extends AbstractCDLTestsEvent {
   @override
   List<Object?> get props => [quizId];
 }
-class ChangeLanguageEvent extends AbstractCDLTestsEvent {
-  final String languageCode; // 'ru', 'es', и т.д.
-  const ChangeLanguageEvent(this.languageCode);
 
-  @override
-  List<Object?> get props => [languageCode];
-}
 class LoadQuizEvent extends AbstractCDLTestsEvent {
   final List<Question> questions;
   final String initialLanguage;
@@ -73,12 +67,5 @@ class PurchasePremium extends AbstractCDLTestsEvent {
   @override
   List<Object?> get props => [];
 }
-class TranslateEvent extends AbstractCDLTestsEvent {
-  final String targetLangCode;
 
-  const TranslateEvent(this.targetLangCode);
-
-  @override
-  List<Object?> get props => [targetLangCode];
-}
 

@@ -1,0 +1,112 @@
+{
+    "chapters": {
+        "general_knowledge": {
+            "free_limit": 50,
+            "total": 800,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "Uk",
+                        "options": {
+                            "A": "1sdsas",
+                            "B": "fdfdf",
+                            "C": "dfdf"
+                        },
+                        "correct_option": "C",
+                        "description": "description"
+                    }
+                }
+            }
+        },
+        "combination": {
+            "free_limit": 25,
+            "total": 190,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "Hi",
+                        "options": {
+                            "A": "sdsas",
+                            "B": "sdsas",
+                            "C": "sdsas"
+                        },
+                        "correct_option": "B",
+                        "description": "description"
+                    }
+                }
+            }
+        },
+        "airBrakes": {
+            "free_limit": 25,
+            "total": 150,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "hi",
+                        "options": {
+                            "A": "dfdf",
+                            "B": "dfdf",
+                            "C": "dfdf"
+                        },
+                        "correct_option": "A",
+                        "description": "description"
+                    }
+                }
+            }
+        },
+        "tanker": {
+            "free_limit": 20,
+            "total": 107,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "hola",
+                        "options": {
+                            "A": "dffd",
+                            "B": "2dfdf",
+                            "C": "dfdf"
+                        },
+                        "correct_option": "C",
+                        "description": "description"
+                    }
+                }
+            }
+        },
+        "doubleAndTriple": {
+            "free_limit": 20,
+            "total": 80,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "question",
+                        "options": {
+                            "A": "dfdf",
+                            "B": "dfdf",
+                            "C": "dfd"
+                        },
+                        "correct_option": "A",
+                        "description": "description"
+                    }
+                }
+            }
+        },
+        "hazMat": {
+            "free_limit": 30,
+            "total": 60,
+            "questions": {
+                "1": {
+                    "uk": {
+                        "question": "fff",
+                        "options": {
+                            "A": "dfdf",
+                            "B": "dfdf",
+                            "C": "dfdf"
+                        },
+                        "correct_option": "A",
+                        "description": "description"
+                    }
+                }
+            }
+        }
+    }
+}

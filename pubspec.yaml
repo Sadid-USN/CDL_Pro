@@ -92,6 +92,9 @@ flutter:
     - assets/lottie/
     - assets/icons/
     - assets/DB/tests/
+    - assets/DB/tests_ru/
+    - assets/DB/tests_uk/
+    - assets/DB/tests_es/
     - assets/DB/road_signs/
     - assets/DB/trip_inspection/
 
