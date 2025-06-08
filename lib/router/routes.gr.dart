@@ -134,6 +134,8 @@ class QuizRoute extends PageRouteInfo<QuizRouteArgs> {
     required String chapterTitle,
     required List<Question> questions,
     required int startIndex,
+    required String categoryKey,
+    required TestsDataModel model,
     List<PageRouteInfo>? children,
   }) : super(
          QuizRoute.name,
@@ -142,6 +144,8 @@ class QuizRoute extends PageRouteInfo<QuizRouteArgs> {
            chapterTitle: chapterTitle,
            questions: questions,
            startIndex: startIndex,
+           categoryKey: categoryKey,
+           model: model,
          ),
          initialChildren: children,
        );
@@ -157,6 +161,8 @@ class QuizRoute extends PageRouteInfo<QuizRouteArgs> {
         chapterTitle: args.chapterTitle,
         questions: args.questions,
         startIndex: args.startIndex,
+        categoryKey: args.categoryKey,
+        model: args.model,
       );
     },
   );
@@ -168,6 +174,8 @@ class QuizRouteArgs {
     required this.chapterTitle,
     required this.questions,
     required this.startIndex,
+    required this.categoryKey,
+    required this.model,
   });
 
   final Key? key;
@@ -178,9 +186,13 @@ class QuizRouteArgs {
 
   final int startIndex;
 
+  final String categoryKey;
+
+  final TestsDataModel model;
+
   @override
   String toString() {
-    return 'QuizRouteArgs{key: $key, chapterTitle: $chapterTitle, questions: $questions, startIndex: $startIndex}';
+    return 'QuizRouteArgs{key: $key, chapterTitle: $chapterTitle, questions: $questions, startIndex: $startIndex, categoryKey: $categoryKey, model: $model}';
   }
 }
 

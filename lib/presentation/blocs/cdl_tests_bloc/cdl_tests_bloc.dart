@@ -25,7 +25,9 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<SaveQuizProgressEvent>(_onSaveQuizProgress);
     on<LoadQuizProgressEvent>(_onLoadQuizProgress);
     on<ResetQuizEvent>(_onResetQuiz);
+  
   }
+
 
   void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     _currentQuestionIndex = 0;

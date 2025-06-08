@@ -44,7 +44,9 @@ class CodegenLoader extends AssetLoader{
   "resetQuiz": "Сбросить викторину",
   "cancel": "Отмена",
   "reset": "Сбросить",
-  "startTheQuizOverText": "Вы уверены, что хотите сбросить прогресс и начать викторину сначала?"
+  "exit": "Выйти из викторины",
+  "startTheQuizOverText": "Вы уверены, что хотите сбросить прогресс и начать викторину сначала?",
+  "allQuestions": "Все вопросы"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -75,7 +77,9 @@ static const Map<String,dynamic> _uk = {
   "resetQuiz": "Скинути вікторину",
   "cancel": "Скасувати",
   "reset": "Скидання",
-  "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?"
+  "exit": "Вихід з вікторини",
+  "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?",
+  "allQuestions": "Всі питання"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -107,38 +111,43 @@ static const Map<String,dynamic> _en = {
   "resetQuiz": "Reset Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
-  "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?"
+  "exit": "Exit the Quiz",
+  "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?",
+  "allQuestions": "All questions"
 };
-static const Map<String,dynamic> _fr = {
-  "home": "Асосӣ",
-  "tests": "Тестҳо",
-  "profile": "Профил",
-  "settings": "Танзимот",
-  "light": "Равшан",
-  "dark": "Торик",
-  "roadSigns": "Нишонаҳои роҳ",
-  "cdlTests": "Имтиҳонҳои CDL",
-  "preTripInspection": "Санҷиши пеш аз сафaр",
-  "generalKnowledge": "Маълумоти асоси",
-  "combination": "Трейлерхо ва иттисолот",
-  "airBrakes": "Тормозҳои ҳавоӣ",
-  "tanker": "Танкер",
-  "doubleAndTriple": "Трейлери ду ва сегона",
-  "hazMat": "Борҳои хатарнок",
-  "total": "Ҳамагӣ {totalQuestions}",
-  "free": "Ройгон {freeQuestions}",
-  "question": "Савол {questionNumber}",
-  "confirm": "Тасдиқ кардан",
-  "areYouSureYouWantToExit": "Шумо мутааккид ҳастед, ки баромадан мехоҳед? Маълумот ба таври худкор сабт мешавад.",
-  "yes": "Ҳа",
-  "no": "Не",
-  "outOf": "Аз",
-  "explanation": "Шарҳ:",
-  "completeTheTest": "Тестро иҷро кунед",
-  "nextQuestion": "Саволҳои навбатӣ",
-  "resetQuiz": "Аз нав ибтидо кардан",
-  "cancel": "Илғо",
-  "startTheQuizOverText": "Шумо мутмаин ҳастед, ки мехоҳед пешрафтро пок кунед ва викторинаро аз нав оғоз намоед?"
+static const Map<String,dynamic> _es = {
+  "home": "Inicio",
+  "tests": "Pruebas",
+  "profile": "Perfil",
+  "settings": "Configuración",
+  "light": "Claro",
+  "dark": "Oscuro",
+  "roadSigns": "Señales de tráfico",
+  "cdlTests": "Pruebas CDL",
+  "preTripInspection": "Inspección previa al viaje",
+  "generalKnowledge": "Conocimientos generales",
+  "combination": "Combinación",
+  "airBrakes": "Frenos de aire",
+  "tanker": "Camión cisterna",
+  "doubleAndTriple": "Doble y triple",
+  "hazMat": "Materiales peligrosos",
+  "total": "Total {totalQuestions}",
+  "free": "Gratis {freeQuestions}",
+  "question": "Pregunta {questionNumber}",
+  "confirm": "Confirmar",
+  "areYouSureYouWantToExit": "¿Estás seguro de que quieres salir? Tu progreso se guardará automáticamente.",
+  "yes": "Sí",
+  "no": "No",
+  "outOf": "De",
+  "explanation": "Explicación:",
+  "completeTheTest": "Completar la prueba",
+  "nextQuestion": "Siguiente pregunta",
+  "resetQuiz": "Reiniciar prueba",
+  "cancel": "Cancelar",
+  "reset": "Reiniciar",
+  "exit": "Salir del cuestionario",
+  "startTheQuizOverText": "¿Estás seguro de que quieres reiniciar tu progreso y comenzar la prueba de nuevo?",
+  "allQuestions": "Todas las preguntas"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "fr": _fr};
+static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

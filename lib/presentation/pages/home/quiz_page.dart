@@ -3,6 +3,7 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,28 +15,54 @@ class QuizPage extends StatelessWidget {
   final String chapterTitle;
   final List<Question> questions;
   final int startIndex;
+  final String categoryKey; // Добавляем параметр для возврата
+  final TestsDataModel model; // Добавляем параметр для возврата
 
   const QuizPage({
     super.key,
     required this.chapterTitle,
     required this.questions,
     required this.startIndex,
+    required this.categoryKey,
+    required this.model,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Инициируем загрузку квиза при построении
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final bloc = context.read<CDLTestsBloc>();
-      bloc.add(LoadQuizEvent(questions, initialLanguage: 'en'));
-    });
-
     final bloc = context.read<CDLTestsBloc>();
+    bloc.add(LoadQuizEvent(questions, initialLanguage: 'en'));
 
+    return _QuizPageContent(
+      model: model,
+      categoryKey: categoryKey,
+      chapterTitle: chapterTitle,
+      questions: questions,
+      startIndex: startIndex,
+    );
+  }
+}
+
+class _QuizPageContent extends StatelessWidget {
+  final String chapterTitle;
+  final List<Question> questions;
+  final int startIndex;
+  final String categoryKey;
+  final TestsDataModel model;
+
+  const _QuizPageContent({
+    required this.chapterTitle,
+    required this.questions,
+    required this.startIndex,
+    required this.categoryKey,
+    required this.model,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return BlocConsumer<CDLTestsBloc, AbstractCDLTestsState>(
       listener: (context, state) {
         if (state is QuizLoadedState) {
-          bloc.add(SaveQuizProgressEvent());
+          context.read<CDLTestsBloc>().add(SaveQuizProgressEvent());
         }
       },
       builder: (context, state) {
@@ -45,7 +72,7 @@ class QuizPage extends StatelessWidget {
               canPop: false,
               onPopInvokedWithResult: (didPop, result) async {
                 if (!didPop) {
-                  await bloc.saveProgress();
+                  await context.read<CDLTestsBloc>().saveProgress();
                 }
               },
               child: Scaffold(
@@ -66,69 +93,59 @@ class QuizPage extends StatelessWidget {
   }
 
   Widget _buildAppBarTitle(AbstractCDLTestsState state) {
-    final currentPage = state is QuizLoadedState ? state.currentPage : 0;
-    return Text(
-      '$chapterTitle (${startIndex + currentPage + 1} / ${questions.length})',
-      style: AppTextStyles.manrope10,
-    );
+    if (state is QuizLoadedState) {
+      return Text(chapterTitle, style: AppTextStyles.merriweatherBold14);
+    }
+    return Text(chapterTitle, style: AppTextStyles.manropeBold14);
   }
 
   Widget _buildBody(AbstractCDLTestsState state) {
     if (state is QuizLoadedState) {
-      return OrientationBuilder(
-        builder: (context, orientation) {
-          return SingleQuestionView(
-            key: ValueKey(state.currentPage),
-            state: state,
-            chapterTitle: chapterTitle,
-            questions: questions,
-            startIndex: startIndex,
-          );
-        },
+      return SingleQuestionView(
+        key: ValueKey(state.currentPage),
+        state: state,
+        chapterTitle: chapterTitle,
+        questions: questions,
+        startIndex: startIndex,
       );
-    } else if (state is QuizProgressLoading) {
-      return const Center(child: CircularProgressIndicator());
-    } else if (state is PremiumInitial || state is PremiumLoading) {
-      return const Center(child: CircularProgressIndicator());
     }
-
     return const Center(child: CircularProgressIndicator());
   }
 
-  Future<void> _showExitConfirmation(BuildContext context) async {
-    final bloc = context.read<CDLTestsBloc>();
-    final shouldExit =
-        await showDialog<bool>(
-          context: context,
-          builder:
-              (dialogContext) => AlertDialog(
-                title: Text(LocaleKeys.confirm.tr()),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [Text(LocaleKeys.areYouSureYouWantToExit.tr())],
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(dialogContext).pop(false),
-                    child: Text(LocaleKeys.no.tr()),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      await bloc.saveProgress();
-                      if (dialogContext.mounted) {
-                        Navigator.of(dialogContext).pop(true);
-                      }
-                    },
-                    child: Text(LocaleKeys.yes.tr()),
-                  ),
-                ],
+  Future<bool> _showExitConfirmation(BuildContext context) async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            title: Text(
+              LocaleKeys.exit.tr(),
+              style: AppTextStyles.merriweatherBold14,
+            ),
+            content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text(LocaleKeys.no.tr()),
               ),
-        ) ??
-        false;
+              TextButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: Text(LocaleKeys.yes.tr()),
+              ),
+            ],
+          ),
+    );
 
-    if (shouldExit && context.mounted) {
-      context.router.pop();
+    if (result == true && context.mounted) {
+      // Используем navigateToPage для возврата на OverviewCategoryPage
+      navigateToPage(
+        context,
+        route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
+        replace:
+            true, // или clearStack: true, в зависимости от вашей навигационной логики
+      );
+      return true;
     }
+    return false;
   }
 }
 
@@ -211,7 +228,7 @@ class QuestionCard extends StatelessWidget {
       color: AppColors.lightBackground,
       margin: const EdgeInsets.only(bottom: 16),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(12.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -222,33 +239,49 @@ class QuestionCard extends StatelessWidget {
                   LocaleKeys.question.tr(
                     namedArgs: {"questionNumber": questionNumber.toString()},
                   ),
-                  style: AppTextStyles.robotoMonoBold14,
+                  style: AppTextStyles.merriweatherBold14,
                 ),
-                const ResetButton(),
               ],
             ),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                Text(
-                  '$questionNumber ${LocaleKeys.outOf.tr()} ${allQuestions.length} /',
-                  style: AppTextStyles.robotoMonoBold14,
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              padding: EdgeInsets.only(left: 8.w, bottom: 2.h, top: 2.h),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Theme.of(context).primaryColorDark,
+                  width: 0.5,
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  '$incorrectCount',
-                  style: AppTextStyles.robotoMonoBold14.copyWith(
-                    color: Colors.red,
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        '$questionNumber ${LocaleKeys.outOf.tr()} ${allQuestions.length} /',
+                        style: AppTextStyles.robotoMono16,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        '$incorrectCount',
+                        style: AppTextStyles.robotoMono16.copyWith(
+                          color: Colors.red,
+                        ),
+                      ),
+                      const Text(' / '),
+                      Text(
+                        '$correctCount',
+                        style: AppTextStyles.robotoMono16.copyWith(
+                          color: Colors.green,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const Text(' / '),
-                Text(
-                  '$correctCount',
-                  style: AppTextStyles.robotoMonoBold14.copyWith(
-                    color: Colors.green,
-                  ),
-                ),
-              ],
+                  const ResetButton(),
+                ],
+              ),
             ),
             const SizedBox(height: 8),
             Text(question.question, style: AppTextStyles.regular16),
@@ -266,9 +299,53 @@ class QuestionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(LocaleKeys.explanation.tr()),
-                  const SizedBox(height: 4),
-                  Text(question.description, style: AppTextStyles.manrope14),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment:
+                        CrossAxisAlignment
+                            .center, // Добавлено для выравнивания по центру
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          right: 8.w,
+                        ), // Увеличено пространство между иконкой и текстом
+                        child: SvgPicture.asset(
+                          AppLogos.explanation,
+                          height: 24.h, // Стандартный размер для иконок
+                          width: 24.h, // Добавлено для сохранения пропорций
+                          colorFilter: ColorFilter.mode(
+                            Theme.of(context).iconTheme.color!,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        LocaleKeys.explanation.tr(),
+                        style: AppTextStyles.manropeBold14.copyWith(
+                          color:
+                              Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
+                                  ?.color, // Использование тематического цвета
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ), // Увеличено пространство между заголовком и описанием
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 32.w,
+                    ), // Отступ для выравнивания с иконкой
+                    child: Text(
+                      question.description,
+                      style: AppTextStyles.merriweatherBold14.copyWith(
+                        color: Theme.of(context).textTheme.bodyMedium?.color,
+                        height: 1.4, // Улучшенный межстрочный интервал
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -409,12 +486,27 @@ class ResetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.restart_alt),
-      tooltip: LocaleKeys.resetQuiz.tr(),
+    return ElevatedButton(
       onPressed: () {
         _showResetConfirmationDialog(context);
       },
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+
+        elevation: 3,
+        backgroundColor: Theme.of(
+          context,
+        ).colorScheme.primary.withValues(alpha: 0.3),
+        shadowColor: Colors.black.withValues(alpha: 0.2),
+      ),
+      child: SvgPicture.asset(
+        AppLogos.reset,
+        height: 20.h,
+        colorFilter: ColorFilter.mode(
+          Theme.of(context).iconTheme.color!,
+          BlendMode.srcIn,
+        ),
+      ),
     );
   }
 
@@ -423,14 +515,8 @@ class ResetButton extends StatelessWidget {
       context: context,
       builder:
           (context) => AlertDialog(
-            title: Text(
-              LocaleKeys.resetQuiz.tr(),
-              style: TextStyle(color: AppColors.darkBackground),
-            ),
-            content: Text(
-              LocaleKeys.startTheQuizOverText.tr(),
-              style: TextStyle(color: AppColors.darkBackground),
-            ),
+            title: Text(LocaleKeys.resetQuiz.tr()),
+            content: Text(LocaleKeys.startTheQuizOverText.tr()),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),

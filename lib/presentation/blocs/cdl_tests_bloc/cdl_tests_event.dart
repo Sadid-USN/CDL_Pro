@@ -3,19 +3,22 @@ import 'package:equatable/equatable.dart';
 
 abstract class AbstractCDLTestsEvent extends Equatable {
   const AbstractCDLTestsEvent();
-  
+
   @override
   List<Object?> get props => [];
 }
+
+
 class ResetQuizEvent extends AbstractCDLTestsEvent {
   const ResetQuizEvent();
-  
+
   @override
   List<Object?> get props => [];
 }
+
 class SaveQuizProgressEvent extends AbstractCDLTestsEvent {
   const SaveQuizProgressEvent();
-  
+
   @override
   List<Object?> get props => [];
 }
@@ -24,7 +27,7 @@ class LoadQuizProgressEvent extends AbstractCDLTestsEvent {
   final String quizId;
 
   const LoadQuizProgressEvent(this.quizId);
-  
+
   @override
   List<Object?> get props => [quizId];
 }
@@ -54,18 +57,16 @@ class NextQuestionsEvent extends AbstractCDLTestsEvent {
 
 class CheckPremiumStatus extends AbstractCDLTestsEvent {
   final bool? isPremium; // Временное упрощение
-  
+
   const CheckPremiumStatus({this.isPremium});
-  
+
   @override
   List<Object?> get props => [isPremium];
 }
 
 class PurchasePremium extends AbstractCDLTestsEvent {
   const PurchasePremium();
-  
+
   @override
   List<Object?> get props => [];
 }
-
-

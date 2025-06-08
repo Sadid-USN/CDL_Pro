@@ -33,6 +33,12 @@ class MainCategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.router.pop();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
         centerTitle: true,
         title: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) {
