@@ -1,4 +1,3 @@
-import 'package:cdl_pro/core/themes/app_colors.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -23,7 +22,7 @@ class NextBackButtons extends StatelessWidget {
     final bloc = context.read<CDLTestsBloc>();
 
     return Padding(
-      padding:  EdgeInsets.only(bottom: 40.h, right: 12.w, left: 12.w),
+      padding: EdgeInsets.only(bottom: 40.h, right: 12.w, left: 12.w),
       child: Row(
         children: [
           // Кнопка "Назад" - показываем всегда, кроме первого вопроса
@@ -51,9 +50,8 @@ class NextBackButtons extends StatelessWidget {
   Widget _buildPreviousButton(CDLTestsBloc bloc) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.darkPrimary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       ),
       onPressed: () => bloc.add(PreviousQuestionsEvent()),
       child: const Icon(Icons.arrow_back_ios),
@@ -63,8 +61,8 @@ class NextBackButtons extends StatelessWidget {
   Widget _buildNextButton(BuildContext context, CDLTestsBloc bloc) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       ),
       onPressed: () {
         if (isLastQuestion) {
