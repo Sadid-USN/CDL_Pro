@@ -44,7 +44,11 @@ class OverviewCategoryPage extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
-        title: Text(title),
+        title: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          child: Text(title, style: AppTextStyles.merriweatherBold14,),
+        ),
         centerTitle: true,
       ),
       body: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(

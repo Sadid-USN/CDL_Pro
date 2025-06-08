@@ -15,8 +15,8 @@ class QuizPage extends StatelessWidget {
   final String chapterTitle;
   final List<Question> questions;
   final int startIndex;
-  final String categoryKey; // Добавляем параметр для возврата
-  final TestsDataModel model; // Добавляем параметр для возврата
+  final String categoryKey;
+  final TestsDataModel model;
 
   const QuizPage({
     super.key,
@@ -93,10 +93,16 @@ class _QuizPageContent extends StatelessWidget {
   }
 
   Widget _buildAppBarTitle(AbstractCDLTestsState state) {
+    final textWidget = Text(
+      chapterTitle,
+      style: AppTextStyles.merriweatherBold14,
+      overflow: TextOverflow.fade, // Важно для длинного текста
+    );
+
     if (state is QuizLoadedState) {
-      return Text(chapterTitle, style: AppTextStyles.merriweatherBold14);
+      return textWidget;
     }
-    return Text(chapterTitle, style: AppTextStyles.manropeBold14);
+    return textWidget;
   }
 
   Widget _buildBody(AbstractCDLTestsState state) {
@@ -384,17 +390,17 @@ class QuestionOptions extends StatelessWidget {
       final isCorrectOption = optionKey == question.correctOption;
 
       Color backgroundColor = Colors.white;
-      Color textColor = Colors.black;
+
       Color? iconColor;
 
       if (isAnswered) {
         if (isCorrectOption) {
           backgroundColor = AppColors.greenSoft;
-          textColor = AppColors.darkBackground;
+
           iconColor = AppColors.simpleGreen;
         } else if (isSelected) {
           backgroundColor = AppColors.errorColor.withValues(alpha: 0.4);
-          textColor = AppColors.darkBackground;
+
           iconColor = AppColors.errorColor;
         }
       }
@@ -406,31 +412,42 @@ class QuestionOptions extends StatelessWidget {
                   AnswerQuestionEvent(question.question, optionKey),
                 )
                 : null,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Container(
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              children: [
-                Text('$optionKey. ', style: TextStyle(color: textColor)),
-                Expanded(
-                  child: Text(optionText, style: TextStyle(color: textColor)),
+        child: Container(
+          margin: EdgeInsets.only(bottom: 8.h),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                '$optionKey •',
+                style: AppTextStyles.merriweatherBold16.copyWith(
+                  color: AppColors.darkBackground,
                 ),
-                if (isAnswered && (isSelected || isCorrectOption))
-                  SvgPicture.asset(
-                    isCorrectOption ? AppLogos.correct : AppLogos.wrong,
-                    height: 20.h,
-                    colorFilter:
-                        iconColor != null
-                            ? ColorFilter.mode(iconColor, BlendMode.srcIn)
-                            : null,
+              ),
+
+              SizedBox(width: 7.w),
+              Expanded(
+                child: Text(
+                  optionText,
+                  style: AppTextStyles.merriweather12.copyWith(
+                    color: AppColors.darkBackground,
                   ),
-              ],
-            ),
+                ),
+              ),
+              if (isAnswered && (isSelected || isCorrectOption))
+                SvgPicture.asset(
+                  isCorrectOption ? AppLogos.correct : AppLogos.wrong,
+                  height: 20.h,
+                  colorFilter:
+                      iconColor != null
+                          ? ColorFilter.mode(iconColor, BlendMode.srcIn)
+                          : null,
+                ),
+            ],
           ),
         ),
       );
