@@ -8,6 +8,7 @@ abstract class AbstractCDLTestsState extends Equatable {
   List<Object?> get props => [];
 }
 
+
 class QuizInitialState extends AbstractCDLTestsState {
   const QuizInitialState();
 

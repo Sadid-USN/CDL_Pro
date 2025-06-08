@@ -9,13 +9,16 @@ class AppLogos {
   static const String lockClosed = 'assets/svgs/lock_closed.svg';
   static const String correct = 'assets/svgs/correct.svg';
   static const String wrong = 'assets/svgs/wrong.svg';
+  static const String explanation = 'assets/svgs/explanation.svg';
+  static const String checked = 'assets/svgs/checked.svg';
+  static const String reset = 'assets/svgs/reset.svg';
 
 
   //JSON PATH
   static const String truckLoader = 'assets/svgs/truck_loader.json';
   static const String movingTruck = 'assets/svgs/moving_truck.json';
 
-  //Images PATH
+  //Images PNG PATH
 
    static const String cdlTest = 'assets/images/cdl_tests.png';
    static const String roadSigns = 'assets/images/road_signs.png';
@@ -26,6 +29,7 @@ class AppLogos {
    static const String airbrake = 'assets/images/airbrake.png';
    static const String doubleAndTriple = 'assets/images/doubleAndTriple.png';
    static const String hazMat = 'assets/images/hazmat.png';
+
 
 
 }

@@ -25,9 +25,10 @@
     "explanation": "Explanation:",
     "completeTheTest": "Complete the test",
     "nextQuestion": "Next question",
-
     "resetQuiz": "Reset Quiz",
     "cancel": "Cancel",
-     "reset": "Reset",
-     "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?"
+    "reset": "Reset",
+    "exit": "Exit the Quiz",
+    "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?",
+    "allQuestions": "All questions"
 }

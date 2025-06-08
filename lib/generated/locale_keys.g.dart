@@ -32,6 +32,8 @@ abstract class  LocaleKeys {
   static const resetQuiz = 'resetQuiz';
   static const cancel = 'cancel';
   static const reset = 'reset';
+  static const exit = 'exit';
   static const startTheQuizOverText = 'startTheQuizOverText';
+  static const allQuestions = 'allQuestions';
 
 }
