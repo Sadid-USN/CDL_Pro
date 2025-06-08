@@ -1,4 +1,4 @@
-import 'package:cdl_pro/core/constants/constants.dart';
+import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -20,16 +20,13 @@ class ResetButton extends StatelessWidget {
         shape: const CircleBorder(),
 
         elevation: 3,
-        backgroundColor: Theme.of(
-          context,
-        ).colorScheme.primary.withValues(alpha: 0.3),
-        shadowColor: Colors.black.withValues(alpha: 0.2),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       child: SvgPicture.asset(
         AppLogos.reset,
-        height: 20.h,
+        height: 22.h,
         colorFilter: ColorFilter.mode(
-          Theme.of(context).iconTheme.color!,
+          AppColors.lightBackground,
           BlendMode.srcIn,
         ),
       ),
