@@ -35,5 +35,15 @@ abstract class  LocaleKeys {
   static const exit = 'exit';
   static const startTheQuizOverText = 'startTheQuizOverText';
   static const allQuestions = 'allQuestions';
+  static const congratulations = 'congratulations';
+  static const sorryYouFailed = 'sorryYouFailed';
+  static const totalQuestions = 'totalQuestions';
+  static const correctAnswers = 'correctAnswers';
+  static const wrongAnswers = 'wrongAnswers';
+  static const youPassedExam = 'youPassedExam';
+  static const youNeedMorePractice = 'youNeedMorePractice';
+  static const startAgain = 'startAgain';
+  static const finishTest = 'finishTest';
+  static const returnToHome = 'returnToHome';
 
 }

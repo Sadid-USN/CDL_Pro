@@ -29,5 +29,15 @@
     "reset": "Скидання",
     "exit": "Вихід з вікторини",
     "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?",
-    "allQuestions": "Всі питання"
+    "allQuestions": "Всі питання",
+    "congratulations": "Вітаємо! Ви успішно пройшли тест.",
+    "sorryYouFailed": "На жаль, ви не сдали тест",
+    "totalQuestions": "Усього питань",
+    "correctAnswers": "Правильні відповіді",
+    "wrongAnswers": "Неправильні відповіді",
+    "youPassedExam": "Ви блискуче склали іспит!",
+    "youNeedMorePractice": "Вам потрібно більше практики, щоб скласти іспит.",
+    "startAgain": "Почати знову",
+    "finishTest": "Завершити тест",
+    "returnToHome": "На головну"
 }
