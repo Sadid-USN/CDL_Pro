@@ -39,11 +39,9 @@ class NextBackButtons extends StatelessWidget {
 
           // Кнопка "Далее" - показываем только при ответе на вопрос
           if (isAnswered)
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: _buildNextButton(context, bloc),
-              ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: _buildNextButton(context, bloc),
             ),
         ],
       ),
