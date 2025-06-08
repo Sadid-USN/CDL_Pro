@@ -46,7 +46,17 @@ class CodegenLoader extends AssetLoader{
   "reset": "Сбросить",
   "exit": "Выйти из викторины",
   "startTheQuizOverText": "Вы уверены, что хотите сбросить прогресс и начать викторину сначала?",
-  "allQuestions": "Все вопросы"
+  "allQuestions": "Все вопросы",
+  "congratulations": "Поздравляем! Вы успешно прошли тест.",
+  "sorryYouFailed": "К сожалению, вы не сдали тест",
+  "totalQuestions": "Всего вопросов",
+  "correctAnswers": "Правильные ответы",
+  "wrongAnswers": "Неправильные ответы",
+  "youPassedExam": "Вы с блеском сдали экзамен!",
+  "youNeedMorePractice": "Вам нужно больше практики, чтобы сдать экзамен.",
+  "startAgain": "Начать заново",
+  "finishTest": "Завершить тест",
+  "returnToHome": "На главную"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -79,7 +89,17 @@ static const Map<String,dynamic> _uk = {
   "reset": "Скидання",
   "exit": "Вихід з вікторини",
   "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?",
-  "allQuestions": "Всі питання"
+  "allQuestions": "Всі питання",
+  "congratulations": "Вітаємо! Ви успішно пройшли тест.",
+  "sorryYouFailed": "На жаль, ви не сдали тест",
+  "totalQuestions": "Усього питань",
+  "correctAnswers": "Правильні відповіді",
+  "wrongAnswers": "Неправильні відповіді",
+  "youPassedExam": "Ви блискуче склали іспит!",
+  "youNeedMorePractice": "Вам потрібно більше практики, щоб скласти іспит.",
+  "startAgain": "Почати знову",
+  "finishTest": "Завершити тест",
+  "returnToHome": "На головну"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -113,7 +133,17 @@ static const Map<String,dynamic> _en = {
   "reset": "Reset",
   "exit": "Exit the Quiz",
   "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?",
-  "allQuestions": "All questions"
+  "allQuestions": "All questions",
+  "congratulations": "Congratulations! You have successfully passed the test.",
+  "sorryYouFailed": "Unfortunately, you failed the test.",
+  "totalQuestions": "Total questions",
+  "correctAnswers": "Correct answers",
+  "wrongAnswers": "Wrong answers",
+  "youPassedExam": "You've passed the exam with flying colors!",
+  "youNeedMorePractice": "You need more practice to pass the exam.",
+  "startAgain": "Start Again",
+  "finishTest": "Finish Test",
+  "returnToHome": "Main page"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -147,7 +177,17 @@ static const Map<String,dynamic> _es = {
   "reset": "Reiniciar",
   "exit": "Salir del cuestionario",
   "startTheQuizOverText": "¿Estás seguro de que quieres reiniciar tu progreso y comenzar la prueba de nuevo?",
-  "allQuestions": "Todas las preguntas"
+  "allQuestions": "Todas las preguntas",
+  "congratulations": "¡Felicitaciones! Has aprobado el examen con éxito.",
+  "sorryYouFailed": "Lamentablemente, usted no pasó la prueba.",
+  "totalQuestions": "Total de preguntas",
+  "correctAnswers": "Respuestas correctas",
+  "wrongAnswers": "Respuestas incorrectas",
+  "youPassedExam": "¡Has aprobado el examen con gran éxito!",
+  "youNeedMorePractice": "Necesitas más práctica para aprobar el examen.",
+  "startAgain": "Empezar de nuevo",
+  "finishTest": "Terminar prueba",
+  "returnToHome": "A la página principal"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

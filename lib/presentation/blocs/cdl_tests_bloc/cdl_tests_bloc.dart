@@ -28,8 +28,28 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<ResetQuizEvent>(_onResetQuiz);
   }
 
+  Map<String, dynamic> calculateResults() {
+    int totalQuestions = _quizQuestions.length;
+    int correctAnswers = 0;
 
-  
+    for (var question in _quizQuestions) {
+      if (_userAnswers[question.question] == question.correctOption) {
+        correctAnswers++;
+      }
+    }
+
+    int wrongAnswers = totalQuestions - correctAnswers;
+    double percentage = (correctAnswers / totalQuestions) * 100;
+
+    return {
+      'total': totalQuestions,
+      'correct': correctAnswers,
+      'wrong': wrongAnswers,
+      'percentage': percentage,
+      'passed': percentage >= 90,
+    };
+  }
+
   void _onPreviousQuestions(
     PreviousQuestionsEvent event,
     Emitter<AbstractCDLTestsState> emit,
