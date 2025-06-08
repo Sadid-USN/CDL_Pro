@@ -8,6 +8,8 @@ abstract class AbstractCDLTestsEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class PreviousQuestionsEvent extends AbstractCDLTestsEvent {}
+
 
 class ResetQuizEvent extends AbstractCDLTestsEvent {
   const ResetQuizEvent();

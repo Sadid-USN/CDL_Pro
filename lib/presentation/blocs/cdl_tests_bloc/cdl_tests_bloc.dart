@@ -21,13 +21,32 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
     on<NextQuestionsEvent>(_onNextQuestions);
+    on<PreviousQuestionsEvent>(_onPreviousQuestions);
 
     on<SaveQuizProgressEvent>(_onSaveQuizProgress);
     on<LoadQuizProgressEvent>(_onLoadQuizProgress);
     on<ResetQuizEvent>(_onResetQuiz);
-  
   }
 
+
+  
+  void _onPreviousQuestions(
+    PreviousQuestionsEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) {
+    if (_currentQuestionIndex > 0) {
+      _currentQuestionIndex--;
+    }
+
+    emit(
+      QuizLoadedState(
+        allQuestions: _quizQuestions,
+        userAnswers: _userAnswers,
+        currentPage: _currentQuestionIndex,
+        quizCompleted: _quizCompleted,
+      ),
+    );
+  }
 
   void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     _currentQuestionIndex = 0;

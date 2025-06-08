@@ -3,6 +3,7 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/pages/home/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -93,16 +94,21 @@ class _QuizPageContent extends StatelessWidget {
   }
 
   Widget _buildAppBarTitle(AbstractCDLTestsState state) {
-    final textWidget = Text(
-      chapterTitle,
-      style: AppTextStyles.merriweatherBold14,
-      overflow: TextOverflow.fade, // Важно для длинного текста
-    );
+    final cardNumber = ((startIndex - 1) ~/ questions.length) + 1;
 
-    if (state is QuizLoadedState) {
-      return textWidget;
-    }
-    return textWidget;
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      physics: const BouncingScrollPhysics(),
+      child: Row(
+        children: [
+          Text(chapterTitle, style: AppTextStyles.merriweatherBold14),
+          Text(
+            ' #$cardNumber',
+            style: AppTextStyles.robotoMonoBold14.copyWith(),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildBody(AbstractCDLTestsState state) {
@@ -193,10 +199,11 @@ class SingleQuestionView extends StatelessWidget {
             ),
           ),
         ),
-        if (isAnswered)
-          NextQuestionButton(
-            isLastQuestion: state.currentPage == state.allQuestions.length - 1,
-          ),
+        NextBackButtons(
+          isFirstQuestion: state.currentPage == 0,
+          isLastQuestion: state.currentPage == state.allQuestions.length - 1,
+          isAnswered: isAnswered,
+        ),
       ],
     );
   }
@@ -250,46 +257,15 @@ class QuestionCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              padding: EdgeInsets.only(left: 8.w, bottom: 2.h, top: 2.h),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).primaryColorDark,
-                  width: 0.5,
-                ),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        '$questionNumber ${LocaleKeys.outOf.tr()} ${allQuestions.length} /',
-                        style: AppTextStyles.robotoMono16,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '$incorrectCount',
-                        style: AppTextStyles.robotoMono16.copyWith(
-                          color: Colors.red,
-                        ),
-                      ),
-                      const Text(' / '),
-                      Text(
-                        '$correctCount',
-                        style: AppTextStyles.robotoMono16.copyWith(
-                          color: Colors.green,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const ResetButton(),
-                ],
-              ),
+
+            ProgressBar(
+              questionNumber: questionNumber,
+              allQuestions: allQuestions.length,
+              incorrectCount: incorrectCount,
+              correctCount: correctCount,
             ),
-            const SizedBox(height: 8),
+
+            SizedBox(height: 8.h),
             Text(question.question, style: AppTextStyles.regular16),
             SizedBox(height: 16.h),
             ...QuestionOptions.buildOptions(
@@ -464,90 +440,6 @@ class QuestionOptions extends StatelessWidget {
         userAnswer,
         isCorrect,
       ),
-    );
-  }
-}
-
-class NextQuestionButton extends StatelessWidget {
-  final bool isLastQuestion;
-
-  const NextQuestionButton({super.key, required this.isLastQuestion});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 50.h),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(),
-        onPressed: () {
-          if (isLastQuestion) {
-            context.read<CDLTestsBloc>().add(const ResetQuizEvent());
-            Navigator.of(context).pop();
-          } else {
-            context.read<CDLTestsBloc>().add(const NextQuestionsEvent());
-          }
-        },
-        child: Text(
-          isLastQuestion
-              ? LocaleKeys.completeTheTest.tr()
-              : LocaleKeys.nextQuestion.tr(),
-          style: const TextStyle(fontSize: 16),
-        ),
-      ),
-    );
-  }
-}
-
-class ResetButton extends StatelessWidget {
-  const ResetButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        _showResetConfirmationDialog(context);
-      },
-      style: ElevatedButton.styleFrom(
-        shape: const CircleBorder(),
-
-        elevation: 3,
-        backgroundColor: Theme.of(
-          context,
-        ).colorScheme.primary.withValues(alpha: 0.3),
-        shadowColor: Colors.black.withValues(alpha: 0.2),
-      ),
-      child: SvgPicture.asset(
-        AppLogos.reset,
-        height: 20.h,
-        colorFilter: ColorFilter.mode(
-          Theme.of(context).iconTheme.color!,
-          BlendMode.srcIn,
-        ),
-      ),
-    );
-  }
-
-  void _showResetConfirmationDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(LocaleKeys.resetQuiz.tr()),
-            content: Text(LocaleKeys.startTheQuizOverText.tr()),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text(LocaleKeys.cancel.tr()),
-              ),
-              TextButton(
-                onPressed: () {
-                  context.read<CDLTestsBloc>().add(const ResetQuizEvent());
-                  Navigator.of(context).pop();
-                },
-                child: Text(LocaleKeys.reset.tr()),
-              ),
-            ],
-          ),
     );
   }
 }
