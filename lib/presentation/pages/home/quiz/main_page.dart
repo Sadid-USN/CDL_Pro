@@ -23,11 +23,10 @@ class MainPage extends StatelessWidget {
       builder: (context, state) {
         return AutoTabsRouter(
           routes: [
-            HomeRoute(),
-            // TestingRoute(),
-            ProfileRoute(),
-            SettingsRoute(),
-          ],
+                   HomeRoute(), 
+                   ProfileRoute(), 
+                   SettingsRoute()
+                   ],
           builder: (context, child) {
             final List<String> svgPictures = [
               AppLogos.home,
@@ -38,7 +37,7 @@ class MainPage extends StatelessWidget {
             final tabsRouter = AutoTabsRouter.of(context);
             final titles = [
               LocaleKeys.home.tr(),
-              // LocaleKeys.tests.tr(),
+
               LocaleKeys.profile.tr(),
               LocaleKeys.settings.tr(),
             ];
