@@ -4,16 +4,17 @@ import 'package:intl/intl.dart';
 
 class DateFormatters {
   static const dMyDashedTemplate = 'dd-MM-yyyy';
-  static const dMyMonthTextTemplate = 'MMMM/dd/yyyy'; 
+  static const dMyMonthTextTemplate = 'MMMM/dd/yyyy';
 
   static const dMyDashedDotsTemplate = 'dd.MM.yy';
   static const dMyHmSlashedTimeTemplate = 'dd.MM.yy - HH:mm';
   static const dMyHmFullTimeTemplate = 'dd.MM.yyyy/HH:mm';
 
   static String? datetimeToSlashedNullable(DateTime? dateTime) {
-    final result = dateTime != null
-        ? DateFormat(dMyDashedTemplate).format(dateTime)
-        : null;
+    final result =
+        dateTime != null
+            ? DateFormat(dMyDashedTemplate).format(dateTime)
+            : null;
 
     return result;
   }
@@ -30,7 +31,7 @@ class DateFormatters {
 
         // Затем преобразуем в 12-часовой формат с AM/PM
         String formattedTime = DateFormat('hh:mm a').format(parsedTime);
-        
+
         // Убираем пробел между временем и AM/PM
         return formattedTime.replaceAll(RegExp(r'\s'), '');
       } catch (e) {
@@ -57,9 +58,10 @@ class DateFormatters {
   }
 
   static String? datetimeddMMyyDotsTemplateNullable(DateTime? dateTime) {
-    final result = dateTime != null
-        ? DateFormat(dMyDashedDotsTemplate).format(dateTime)
-        : null;
+    final result =
+        dateTime != null
+            ? DateFormat(dMyDashedDotsTemplate).format(dateTime)
+            : null;
 
     return result;
   }
@@ -81,19 +83,29 @@ class DateFormatters {
     return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
-  static bool isPrayerTimeNow(String prayerTime, List<String> prayerTimings, List<String> times) {
+  static bool isPrayerTimeNow(
+    String prayerTime,
+    List<String> prayerTimings,
+    List<String> times,
+  ) {
     // Получаем текущее время
-    final currentTimeParsed = DateFormat('hh:mm a').parse(DateFormat('hh:mm a').format(DateTime.now()));
+    final currentTimeParsed = DateFormat(
+      'hh:mm a',
+    ).parse(DateFormat('hh:mm a').format(DateTime.now()));
 
     // Находим время молитвы по индексу prayerTimings
     for (int i = 0; i < prayerTimings.length; i++) {
       // Очищаем строки от лишних пробелов
       final formattedPrayerTime = times[i].trim();
       try {
-        final prayerTimeParsed = DateFormat('hh:mm a').parse(formattedPrayerTime);
-        
+        final prayerTimeParsed = DateFormat(
+          'hh:mm a',
+        ).parse(formattedPrayerTime);
+
         // Сравниваем, наступило ли время молитвы
-        if (prayerTime == prayerTimings[i] && currentTimeParsed.isAfter(prayerTimeParsed) || currentTimeParsed.isAtSameMomentAs(prayerTimeParsed)) {
+        if (prayerTime == prayerTimings[i] &&
+                currentTimeParsed.isAfter(prayerTimeParsed) ||
+            currentTimeParsed.isAtSameMomentAs(prayerTimeParsed)) {
           return true;
         }
       } catch (e) {
@@ -101,5 +113,13 @@ class DateFormatters {
       }
     }
     return false;
+  }
+
+  static String formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    String twoDigitHours = twoDigits(duration.inHours);
+    return "$twoDigitHours:$twoDigitMinutes:$twoDigitSeconds";
   }
 }

@@ -601,7 +601,11 @@
                             "C": "Движение грузовика и прицепа в противоположных направлениях из-за отказа тормозов."
                         },
                         "correct_option": "B",
-                        "description": "Джекнайф — это ситуация, когда ведущие колёса грузовика блокируются, грузовик заносит, а прицеп продолжает движение прямо."
+                        "description": "Джекнайф — это ситуация, когда ведущие колёса грузовика блокируются, грузовик заносит, а прицеп продолжает движение прямо.",
+                        "images": [
+                            "https://www.montagnalaw.com/wp-content/uploads/2023/04/Where-Do-Jackknifing-Accidents-Mainly-Occur.jpg",
+                            "https://www.dolmanlaw.com/wp-content/uploads/2022/06/What-Causes-Jackknife-Truck-Accidents.jpg"
+                        ]
                     }
                 },
                 "59": {
@@ -716,7 +720,13 @@
                             "D": "Вождение в состоянии опьянения."
                         },
                         "correct_option": "B",
-                        "description": "Опрокидывания вызывают почти 50% смертей водителей грузовиков из-за переворачивания при поворотах или экстренных манёврах."
+                        "description": "Опрокидывания вызывают почти 50% смертей водителей грузовиков из-за переворачивания при поворотах или экстренных манёврах.",
+                        "images": [
+                            "https://cdn11.bigcommerce.com/s-kh80nbh17m/images/stencil/1280x1280/products/4786/24738/AAF02A7F-425A-459F-868D-FDDB5CAF249E-xl__85376.1577730081.jpg?c=2",
+                            "https://t4.ftcdn.net/jpg/06/23/67/29/360_F_623672979_9bUWEi2DnVOXwq1XvIBIaLI0UmfqyzT9.jpg",
+                            "https://img.fleetowner.com/files/base/ebm/fleetowner/image/2021/08/16x9/truck_crash_white_semi_c_sorvillo.5e2086684037e.6125063758b73.png?auto=format,compress&fit=fill&fill=blur&w=1200&h=630",
+                            "https://media.istockphoto.com/id/488302295/photo/big-rig-rollover.jpg?s=612x612&w=0&k=20&c=Ng-mAqkm5xf0p-J4c8AOUu8xoit-ycSEK9awJWZf4RQ="
+                        ]
                     }
                 },
                 "68": {
@@ -1727,7 +1737,10 @@
                             "C": "Движение слишком близко к бордюру, вызывающее разрыв шин прицепа."
                         },
                         "correct_option": "A",
-                        "description": "Внезапные повороты руля усиливают движение на конце многоприцепного состава, из-за чего последний прицеп может резко раскачиваться."
+                        "description": "Внезапные повороты руля усиливают движение на конце многоприцепного состава, из-за чего последний прицеп может резко раскачиваться.",
+                        "images": [
+                            "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/CDL%20PRO%20Images%2Fcrack-the-whip.jpeg?alt=media&token=93579d85-a254-43e0-91c3-3f87133394a3"
+                        ]
                     }
                 },
                 "159": {
@@ -1998,7 +2011,10 @@
                             "D": "Вынос оси происходит при торможении в повороте."
                         },
                         "correct_option": "C",
-                        "description": "При поворотах задние колёса последнего прицепа идут по более узкой траектории, вызывая максимальный вынос оси."
+                        "description": "При поворотах задние колёса последнего прицепа идут по более узкой траектории, вызывая максимальный вынос оси.",
+                        "images": [
+                            "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/CDL%20PRO%20Images%2Foff-tracking.png?alt=media&token=a0b9233d-c7f9-411c-bc35-1ba36a60bedd"
+                        ]
                     }
                 },
                 "180": {

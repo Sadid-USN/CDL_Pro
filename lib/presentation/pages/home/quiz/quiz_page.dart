@@ -1,15 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
-import 'package:cdl_pro/presentation/pages/home/widgets/widgets.dart';
+import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 @RoutePage()
 class QuizPage extends StatelessWidget {
@@ -125,40 +127,103 @@ class _QuizPageContent extends StatelessWidget {
   }
 
   Future<bool> _showExitConfirmation(BuildContext context) async {
-    final result = await showDialog<bool>(
+    bool confirmed = false;
+
+    await showConfirmationDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(
-              LocaleKeys.exit.tr(),
-              style: AppTextStyles.merriweatherBold14,
-            ),
-            content: Text(LocaleKeys.areYouSureYouWantToExit.tr()),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: Text(LocaleKeys.no.tr()),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, true),
-                child: Text(LocaleKeys.yes.tr()),
-              ),
-            ],
-          ),
+      title: LocaleKeys.exit.tr(),
+      description: LocaleKeys.areYouSureYouWantToExit.tr(),
+      cancelText: LocaleKeys.no.tr(),
+      confirmText: LocaleKeys.yes.tr(),
+      onConfirm: () {
+        confirmed = true;
+      },
     );
 
-    if (result == true && context.mounted) {
-      // Используем navigateToPage для возврата на OverviewCategoryPage
+    if (confirmed && context.mounted) {
       navigateToPage(
         context,
         route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-        replace:
-            true, // или clearStack: true, в зависимости от вашей навигационной логики
+        replace: true,
       );
-      return true;
     }
-    return false;
+
+    return confirmed;
   }
+
+  // Future<bool> _showExitConfirmation(BuildContext context) async {
+  //   bool? result;
+
+  //   await
+
+  //   Alert(
+  //     context: context,
+  //     // title: LocaleKeys.exit.tr(),
+  //     // desc: LocaleKeys.areYouSureYouWantToExit.tr(),
+  //     style: AlertStyle(
+  //       titleStyle: AppTextStyles.merriweatherBold14,
+  //       descStyle: AppTextStyles.merriweather12,
+  //     ),
+  //     content: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: [
+  //         Text(
+  //           LocaleKeys.exit.tr(),
+  //           style:
+  //               AppTextStyles
+  //                   .merriweatherBold14,
+  //         ),
+  //         const SizedBox(height: 12),
+  //         Text(
+  //           LocaleKeys.areYouSureYouWantToExit.tr(),
+  //           style: AppTextStyles.merriweather12,
+  //           textAlign: TextAlign.left,
+  //         ),
+  //       ],
+  //     ),
+
+  //     buttons: [
+  //       DialogButton(
+  //         onPressed: () {
+  //           result = false;
+  //           Navigator.pop(context);
+  //         },
+  //         color: AppColors.lightPrimary,
+  //         child: Text(
+  //           LocaleKeys.no.tr(),
+  //           style: AppTextStyles.merriweather12.copyWith(
+  //             color: AppColors.lightBackground,
+  //           ),
+  //         ),
+  //       ),
+  //       DialogButton(
+  //         color: AppColors.lightPrimary,
+  //         child: Text(
+  //           LocaleKeys.yes.tr(),
+  //           style: AppTextStyles.merriweather12.copyWith(
+  //             color: AppColors.lightBackground,
+  //           ),
+  //         ),
+
+  //         onPressed: () {
+  //           result = true;
+  //           Navigator.pop(context);
+  //         },
+  //       ),
+  //     ],
+  //   ).show();
+
+  //   if (result == true && context.mounted) {
+  //     navigateToPage(
+  //       context,
+  //       route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
+  //       replace: true,
+  //     );
+  //     return true;
+  //   }
+  //   return false;
+  // }
 }
 
 class SingleQuestionView extends StatelessWidget {
@@ -237,103 +302,124 @@ class QuestionCard extends StatelessWidget {
             .length;
     final incorrectCount = userAnswers.length - correctCount;
 
-    return Card(
-      color: AppColors.lightBackground,
-      margin: const EdgeInsets.only(bottom: 16),
-      child: Padding(
-        padding: EdgeInsets.all(12.r),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  LocaleKeys.question.tr(
-                    namedArgs: {"questionNumber": questionNumber.toString()},
-                  ),
-                  style: AppTextStyles.merriweatherBold14,
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-
-            ProgressBar(
-              questionNumber: questionNumber,
-              allQuestions: allQuestions.length,
-              incorrectCount: incorrectCount,
-              correctCount: correctCount,
-            ),
-
-            SizedBox(height: 8.h),
-            Text(question.question, style: AppTextStyles.regular16),
-            SizedBox(height: 16.h),
-            ...QuestionOptions.buildOptions(
-              context,
-              question,
-              isAnswered,
-              userAnswer,
-              isCorrect,
-            ),
-            if (isAnswered) ...[
-              const SizedBox(height: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment:
-                        CrossAxisAlignment
-                            .center, // Добавлено для выравнивания по центру
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                          right: 8.w,
-                        ), // Увеличено пространство между иконкой и текстом
-                        child: SvgPicture.asset(
-                          AppLogos.explanation,
-                          height: 24.h, // Стандартный размер для иконок
-                          width: 24.h, // Добавлено для сохранения пропорций
-                          colorFilter: ColorFilter.mode(
-                            Theme.of(context).iconTheme.color!,
-                            BlendMode.srcIn,
+    return BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
+      builder: (context, state) {
+        return StreamBuilder<Duration>(
+          stream: context.read<CDLTestsBloc>().timerStream,
+          initialData: Duration.zero,
+          builder: (context, snapshot) {
+            final elapsedTime = snapshot.data ?? Duration.zero;
+            return Card(
+              color: AppColors.lightBackground,
+              margin: const EdgeInsets.only(bottom: 16),
+              child: Padding(
+                padding: EdgeInsets.all(12.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          LocaleKeys.question.tr(
+                            namedArgs: {
+                              "questionNumber": questionNumber.toString(),
+                            },
                           ),
+                          style: AppTextStyles.merriweatherBold14,
                         ),
-                      ),
-                      Text(
-                        LocaleKeys.explanation.tr(),
-                        style: AppTextStyles.manropeBold14.copyWith(
-                          color:
-                              Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.color, // Использование тематического цвета
+
+                        Text(
+                          DateFormatters.formatDuration(elapsedTime),
+                          style: AppTextStyles.robotoMono14,
                         ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+
+                    ProgressBar(
+                      questionNumber: questionNumber,
+                      allQuestions: allQuestions.length,
+                      incorrectCount: incorrectCount,
+                      correctCount: correctCount,
+                    ),
+
+                    SizedBox(height: 8.h),
+                    Text(question.question, style: AppTextStyles.regular16),
+                    SizedBox(height: 16.h),
+                    ...QuestionOptions.buildOptions(
+                      context,
+                      question,
+                      isAnswered,
+                      userAnswer,
+                      isCorrect,
+                    ),
+                    if (isAnswered) ...[
+                      const SizedBox(height: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(right: 8.w),
+                                child: SvgPicture.asset(
+                                  AppLogos.explanation,
+                                  height: 24.h,
+                                  width: 24.h,
+                                  colorFilter: ColorFilter.mode(
+                                    Theme.of(context).iconTheme.color!,
+                                    BlendMode.srcIn,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                LocaleKeys.explanation.tr(),
+                                style: AppTextStyles.manropeBold14.copyWith(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.titleMedium?.color,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 8.h),
+                          Padding(
+                            padding: EdgeInsets.only(left: 32.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  question.description,
+                                  style: AppTextStyles.merriweatherBold14
+                                      .copyWith(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).textTheme.bodyMedium?.color,
+                                        height: 1.4,
+                                      ),
+                                ),
+                                SizedBox(height: 12.h),
+                                if (question.images?.isNotEmpty ?? false)
+                                  GalleryButton(images: question.images),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                  SizedBox(
-                    height: 8.h,
-                  ), // Увеличено пространство между заголовком и описанием
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 32.w,
-                    ), // Отступ для выравнивания с иконкой
-                    child: Text(
-                      question.description,
-                      style: AppTextStyles.merriweatherBold14.copyWith(
-                        color: Theme.of(context).textTheme.bodyMedium?.color,
-                        height: 1.4, // Улучшенный межстрочный интервал
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ],
-          ],
-        ),
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }

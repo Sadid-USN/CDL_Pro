@@ -17,7 +17,6 @@ class TestChapter extends Equatable {
     final questionsJson = json['questions'] as Map<String, dynamic>? ?? {};
 
     questionsJson.forEach((key, questionData) {
-      // Поддержка как обычных вопросов, так и локализованных (с ключами 'uk', 'en' и т.д.)
       if (questionData is Map<String, dynamic>) {
         if (questionData.containsKey('uk') ||
             questionData.containsKey('en') ||
@@ -136,60 +135,62 @@ class Chapters extends Equatable {
   ];
 }
 
-// Модель вопроса остается без изменений
 class Question extends Equatable {
   final String question;
   final Map<String, String> options;
   final String correctOption;
   final String description;
+  final List<String>? images;
 
   const Question({
     required this.question,
     required this.options,
     required this.correctOption,
     required this.description,
+    this.images,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) {
-    // Если вопрос локализован (содержит ключ языка)
+    // Обработка локализованного вопроса
     if (json.containsKey('uk') ||
         json.containsKey('en') ||
         json.containsKey('ru') ||
         json.containsKey('es')) {
-      // Получаем локализованную версию (например, 'uk')
       final localized = json['uk'] ?? json['en'] ?? json['ru'] ?? json['es'];
       return Question(
         question: localized['question'] as String? ?? '',
         options: Map<String, String>.from(localized['options'] as Map? ?? {}),
         correctOption: localized['correct_option'] as String? ?? '',
         description: localized['description'] as String? ?? '',
+        images: (localized['images'] as List?)?.cast<String>(),
       );
     }
 
-    // Обычная структура вопроса
+    // Обычная структура
     return Question(
       question: json['question'] as String? ?? '',
       options: Map<String, String>.from(json['options'] as Map? ?? {}),
       correctOption: json['correct_option'] as String? ?? '',
       description: json['description'] as String? ?? '',
+      images: (json['images'] as List?)?.cast<String>(),
     );
   }
 
-  // Остальные методы остаются без изменений
   Map<String, dynamic> toJson() {
     return {
       'question': question,
       'options': options,
       'correct_option': correctOption,
       'description': description,
+      if (images != null) 'images': images,
     };
   }
 
   @override
-  List<Object?> get props => [question, options, correctOption, description];
+  List<Object?> get props => [question, options, correctOption, description, images];
 }
 
-// Основная модель данных тестов
+
 class TestsDataModel extends Equatable {
   final Chapters chapters;
 
@@ -209,29 +210,4 @@ class TestsDataModel extends Equatable {
 
   @override
   List<Object?> get props => [chapters];
-}
-
-class QuestionLocalized extends Equatable {
-  final Map<String, Question> translations;
-
-  const QuestionLocalized({required this.translations});
-
-  factory QuestionLocalized.fromJson(Map<String, dynamic> json) {
-    return QuestionLocalized(
-      translations: (json).map(
-        (key, value) => MapEntry(key, Question.fromJson(value)),
-      ),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return translations.map((key, value) => MapEntry(key, value.toJson()));
-  }
-
-  QuestionLocalized copyWith({Map<String, Question>? translations}) {
-    return QuestionLocalized(translations: translations ?? this.translations);
-  }
-
-  @override
-  List<Object?> get props => [translations];
 }

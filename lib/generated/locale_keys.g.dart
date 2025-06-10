@@ -44,6 +44,8 @@ abstract class  LocaleKeys {
   static const youNeedMorePractice = 'youNeedMorePractice';
   static const startAgain = 'startAgain';
   static const finishTest = 'finishTest';
+  static const view = 'view';
+  static const gallery = 'gallery';
   static const returnToHome = 'returnToHome';
 
 }

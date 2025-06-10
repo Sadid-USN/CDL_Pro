@@ -12,6 +12,7 @@ class AppLogos {
   static const String explanation = 'assets/svgs/explanation.svg';
   static const String checked = 'assets/svgs/checked.svg';
   static const String reset = 'assets/svgs/reset.svg';
+  static const String gallery = 'assets/svgs/gallery.svg';
 
 
   //JSON PATH
