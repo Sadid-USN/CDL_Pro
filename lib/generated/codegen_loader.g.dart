@@ -56,6 +56,8 @@ class CodegenLoader extends AssetLoader{
   "youNeedMorePractice": "Вам нужно больше практики, чтобы сдать экзамен.",
   "startAgain": "Начать заново",
   "finishTest": "Завершить тест",
+  "view": "Просмотр",
+  "gallery": "Галерея",
   "returnToHome": "На главную"
 };
 static const Map<String,dynamic> _uk = {
@@ -99,6 +101,8 @@ static const Map<String,dynamic> _uk = {
   "youNeedMorePractice": "Вам потрібно більше практики, щоб скласти іспит.",
   "startAgain": "Почати знову",
   "finishTest": "Завершити тест",
+  "view": "Перегляд",
+  "gallery": "Галерея",
   "returnToHome": "На головну"
 };
 static const Map<String,dynamic> _en = {
@@ -143,6 +147,8 @@ static const Map<String,dynamic> _en = {
   "youNeedMorePractice": "You need more practice to pass the exam.",
   "startAgain": "Start Again",
   "finishTest": "Finish Test",
+  "view": "View",
+  "gallery": "Gallery",
   "returnToHome": "Main page"
 };
 static const Map<String,dynamic> _es = {
@@ -187,6 +193,8 @@ static const Map<String,dynamic> _es = {
   "youNeedMorePractice": "Necesitas más práctica para aprobar el examen.",
   "startAgain": "Empezar de nuevo",
   "finishTest": "Terminar prueba",
+  "view": "Ver",
+  "gallery": "Galería",
   "returnToHome": "A la página principal"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};

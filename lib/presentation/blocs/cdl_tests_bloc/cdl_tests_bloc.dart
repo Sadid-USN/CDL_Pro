@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
@@ -14,6 +15,11 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   String _selectedLanguage = 'en';
   final SharedPreferences _prefs;
   String? _currentQuizId;
+  Timer? _timer;
+  Duration _elapsedTime = Duration.zero;
+  final StreamController<Duration> _timerController =
+      StreamController<Duration>.broadcast();
+  Stream<Duration> get timerStream => _timerController.stream;
 
   CDLTestsBloc(this._prefs) : super(PremiumInitial()) {
     on<CheckPremiumStatus>(_onCheckPremiumStatus);
@@ -26,6 +32,25 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<SaveQuizProgressEvent>(_onSaveQuizProgress);
     on<LoadQuizProgressEvent>(_onLoadQuizProgress);
     on<ResetQuizEvent>(_onResetQuiz);
+    on<StartTimerEvent>(_onStartTimer);
+    on<StopTimerEvent>(_onStopTimer);
+  }
+
+  // Add these new methods for timer control
+  void _onStartTimer(
+    StartTimerEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) {
+    _timer?.cancel();
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      _elapsedTime += Duration(seconds: 1);
+      _timerController.add(_elapsedTime);
+    });
+  }
+
+  void _onStopTimer(StopTimerEvent event, Emitter<AbstractCDLTestsState> emit) {
+    _timer?.cancel();
+    _timer = null;
   }
 
   Map<String, dynamic> calculateResults() {
@@ -72,11 +97,21 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     _currentQuestionIndex = 0;
     _userAnswers = {};
     _quizCompleted = false;
+    _elapsedTime = Duration.zero;
+    _timerController.add(_elapsedTime);
+
+    // Cancel and reset timer
+    _timer?.cancel();
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      _elapsedTime += Duration(seconds: 1);
+      _timerController.add(_elapsedTime);
+    });
 
     // Очищаем сохраненный прогресс
     if (_currentQuizId != null) {
       _prefs.remove('${_currentQuizId}_currentPage');
       _prefs.remove('${_currentQuizId}_userAnswers');
+      _prefs.remove('${_currentQuizId}_elapsedTime');
     }
 
     emit(
@@ -89,6 +124,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     );
   }
 
+  // Update saveProgress to include quizId in the timer key
   Future<void> saveProgress() async {
     if (_currentQuizId == null) return;
 
@@ -98,14 +134,20 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
       jsonEncode(_userAnswers),
     );
     await _prefs.setString('${_currentQuizId}_language', _selectedLanguage);
+    await _prefs.setInt(
+      '${_currentQuizId}_elapsedTime',
+      _elapsedTime.inSeconds,
+    );
   }
 
+  // Update loadProgress to load timer state for specific quiz
   Future<void> loadProgress(String quizId) async {
     _currentQuizId = quizId;
 
     final page = _prefs.getInt('${quizId}_currentPage') ?? 0;
     final answersJson = _prefs.getString('${quizId}_userAnswers');
     final language = _prefs.getString('${quizId}_language') ?? 'en';
+    final elapsedSeconds = _prefs.getInt('${quizId}_elapsedTime') ?? 0;
 
     _currentQuestionIndex = page;
     _selectedLanguage = language;
@@ -113,6 +155,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
         answersJson != null
             ? Map<String, String>.from(jsonDecode(answersJson))
             : {};
+    _elapsedTime = Duration(seconds: elapsedSeconds);
+    _timerController.add(_elapsedTime);
   }
 
   void _onSaveQuizProgress(
@@ -133,11 +177,21 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     LoadQuizEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) async {
-    // Генерируем уникальный ID квиза на основе вопросов
+    // Generate unique quiz ID based on questions
     final quizId = _generateQuizId(event.questions);
-    _currentQuizId = quizId;
 
-    // Загружаем сохраненный прогресс
+    // If this is a different quiz, reset the timer
+    if (_currentQuizId != quizId) {
+      _elapsedTime = Duration.zero;
+      _timerController.add(_elapsedTime);
+      _timer?.cancel();
+      _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+        _elapsedTime += Duration(seconds: 1);
+        _timerController.add(_elapsedTime);
+      });
+    }
+
+    _currentQuizId = quizId;
     await loadProgress(quizId);
 
     _quizQuestions = event.questions;
@@ -151,6 +205,13 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
         quizCompleted: _quizCompleted,
       ),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _timer?.cancel();
+    _timerController.close();
+    return super.close();
   }
 
   String _generateQuizId(List<Question> questions) {

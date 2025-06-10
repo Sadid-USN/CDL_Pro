@@ -5,7 +5,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_state.dart';
-import 'package:cdl_pro/presentation/pages/home/widgets/widgets.dart';
+import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -38,12 +38,13 @@ class MainPage extends StatelessWidget {
             final tabsRouter = AutoTabsRouter.of(context);
             final titles = [
               LocaleKeys.home.tr(),
-             // LocaleKeys.tests.tr(),
+              // LocaleKeys.tests.tr(),
               LocaleKeys.profile.tr(),
               LocaleKeys.settings.tr(),
             ];
 
             return AppScaffold(
+              canPop: true,
               appBar: AppBar(
                 title: FadeInRight(
                   duration: const Duration(milliseconds: 600),

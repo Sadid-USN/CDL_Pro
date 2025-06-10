@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
-import 'package:cdl_pro/presentation/pages/home/views/views.dart';
+import 'package:cdl_pro/presentation/pages/home/quiz/views/views.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

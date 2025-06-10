@@ -9,6 +9,8 @@ abstract class AbstractCDLTestsEvent extends Equatable {
 }
 
 class PreviousQuestionsEvent extends AbstractCDLTestsEvent {}
+class StartTimerEvent extends AbstractCDLTestsEvent {}
+class StopTimerEvent extends AbstractCDLTestsEvent {}
 
 
 class ResetQuizEvent extends AbstractCDLTestsEvent {

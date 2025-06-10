@@ -8,7 +8,6 @@ abstract class AbstractCDLTestsState extends Equatable {
   List<Object?> get props => [];
 }
 
-
 class QuizInitialState extends AbstractCDLTestsState {
   const QuizInitialState();
 
@@ -21,14 +20,14 @@ class QuizLoadedState extends AbstractCDLTestsState {
   final Map<String, String> userAnswers;
   final int currentPage;
   final bool quizCompleted;
-  final bool isLoadingProgress; // Новое поле для индикации загрузки
+  final bool isLoadingProgress;
 
   const QuizLoadedState({
     required this.allQuestions,
     required this.userAnswers,
     required this.currentPage,
     required this.quizCompleted,
-    this.isLoadingProgress = false, // По умолчанию false
+    this.isLoadingProgress = false,
   });
 
   QuizLoadedState copyWith({

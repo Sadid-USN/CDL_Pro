@@ -27,6 +27,43 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ImagesPage]
+class ImagesRoute extends PageRouteInfo<ImagesRouteArgs> {
+  ImagesRoute({
+    Key? key,
+    required List<String> imageUrls,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ImagesRoute.name,
+         args: ImagesRouteArgs(key: key, imageUrls: imageUrls),
+         initialChildren: children,
+       );
+
+  static const String name = 'ImagesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ImagesRouteArgs>();
+      return ImagesPage(key: args.key, imageUrls: args.imageUrls);
+    },
+  );
+}
+
+class ImagesRouteArgs {
+  const ImagesRouteArgs({this.key, required this.imageUrls});
+
+  final Key? key;
+
+  final List<String> imageUrls;
+
+  @override
+  String toString() {
+    return 'ImagesRouteArgs{key: $key, imageUrls: $imageUrls}';
+  }
+}
+
+/// generated route for
 /// [MainCategoryPage]
 class MainCategoryRoute extends PageRouteInfo<void> {
   const MainCategoryRoute({List<PageRouteInfo>? children})
