@@ -5,6 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -16,8 +17,11 @@ void main() async {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+      WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
       await initDependencies();
+     
 
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
@@ -26,6 +30,7 @@ void main() async {
         DeviceOrientation.landscapeRight,
       ]).then((_) {
         runApp(LocalizationWrapper(child: MyApp()));
+         FlutterNativeSplash.remove();
       });
     },
     (error, stack) {

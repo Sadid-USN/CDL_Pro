@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CDLTestsView extends StatelessWidget {
@@ -27,32 +28,40 @@ class CDLTestsView extends StatelessWidget {
     // Создаем список глав с помощью метода расширения
     final chapters = model.chapters.toChapterList(context);
 
-    return ListView.builder(
-      itemCount: chapters.length,
-      padding: EdgeInsets.only(right: 8.w, left: 8.w, top: 8.w, bottom: 25.h),
-
-      itemBuilder: (context, index) {
-        final chapter = chapters[index];
-
-        return Padding(
-          padding: EdgeInsets.only(bottom: 4.h),
-          child: _CategoryCard(
-            image: chapter.image,
-            title: chapter.title,
-            totalQuestions: chapter.total,
-            freeQuestions: chapter.freeLimit,
-            onTap: () {
-              navigateToPage(
-                context,
-                route: OverviewCategoryRoute(
-                  categoryKey: chapter.key,
-                  model: model,
+    return AnimationLimiter(
+      child: ListView.builder(
+        itemCount: chapters.length,
+        padding: EdgeInsets.only(right: 8.w, left: 8.w, top: 8.w, bottom: 25.h),
+      
+        itemBuilder: (context, index) {
+          final chapter = chapters[index];
+      
+          return AnimationConfiguration.staggeredList(
+             position: index,
+                duration: const Duration(milliseconds: 600),
+            child: FlipAnimation(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 4.h),
+                child: _CategoryCard(
+                  image: chapter.image,
+                  title: chapter.title,
+                  totalQuestions: chapter.total,
+                  freeQuestions: chapter.freeLimit,
+                  onTap: () {
+                    navigateToPage(
+                      context,
+                      route: OverviewCategoryRoute(
+                        categoryKey: chapter.key,
+                        model: model,
+                      ),
+                    );
+                  },
                 ),
-              );
-            },
-          ),
-        );
-      },
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

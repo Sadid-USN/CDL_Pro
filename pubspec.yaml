@@ -1,7 +1,6 @@
 name: cdl_pro
 description: "CDL Pro is a quiz-based app to help you prepare for the CDL exam with interactive tests and explanations."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -59,7 +58,7 @@ dependencies:
   firebase_ai: ^2.0.0
   flutter_gemini: ^3.0.0
   rflutter_alert: ^2.0.7
- 
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -81,7 +80,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -101,12 +99,25 @@ flutter:
     - assets/DB/road_signs/
     - assets/DB/trip_inspection/
 
-
 flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icons/truck_icon.png"
   remove_alpha_ios: true
+
+flutter_native_splash:
+  android: true
+  ios: true
+  background_image: "assets/icons/bg.png"
+  image: "assets/icons/truck.png"
+  branding: "assets/icons/truck.png"
+
+  web: false
+
+android_12:
+color: "#d44ed"
+image: "assets/icons/truck.png"
+branding: "assets/icons/truck.png"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

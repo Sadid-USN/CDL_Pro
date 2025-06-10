@@ -8,6 +8,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -52,27 +53,36 @@ class HomePage extends StatelessWidget {
           },
         ];
 
-        return ListView.separated(
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-          separatorBuilder: (context, index) => SizedBox(height: 8.h),
-          itemCount: collectionTypes.length,
-          itemBuilder: (context, index) {
-            final item = collectionTypes[index];
-            final type = item['type'] as AppDataType;
-            return ElevatedContainer(
-              assetImage: item["assetImage"] as String,
-              onTap: () {
-                context.read<SettingsBloc>().add(ChangeType(type));
-                navigateToPage(context, route: MainCategoryRoute());
-              },
-              child: Text(
-                item['label'] as String,
-                style: AppTextStyles.bold20.copyWith(
-                  color: AppColors.lightBackground,
+        return AnimationLimiter(
+          child: ListView.separated(
+            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+            separatorBuilder: (context, index) => SizedBox(height: 8.h),
+            itemCount: collectionTypes.length,
+            itemBuilder: (context, index) {
+              final item = collectionTypes[index];
+              final type = item['type'] as AppDataType;
+              return AnimationConfiguration.staggeredList(
+                position: index,
+                duration: const Duration(milliseconds: 600),
+                child: FlipAnimation(
+               
+                  child: ElevatedContainer(
+                    assetImage: item["assetImage"] as String,
+                    onTap: () {
+                      context.read<SettingsBloc>().add(ChangeType(type));
+                      navigateToPage(context, route: MainCategoryRoute());
+                    },
+                    child: Text(
+                      item['label'] as String,
+                      style: AppTextStyles.bold20.copyWith(
+                        color: AppColors.lightBackground,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         );
       },
     );
