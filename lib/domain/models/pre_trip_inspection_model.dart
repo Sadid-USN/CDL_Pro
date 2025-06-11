@@ -1,33 +1,24 @@
 import 'package:equatable/equatable.dart';
 
 
-
 class PreTripInspectionListModel extends Equatable {
   final List<PreTripSection> preTripInspection;
 
   const PreTripInspectionListModel({required this.preTripInspection});
 
- factory PreTripInspectionListModel.fromJson(Map<String, dynamic> json) {
-  final list = json['pre_trip_inspection'] as List<dynamic>?;
-
-  return PreTripInspectionListModel(
-    preTripInspection: list != null
-        ? list.map((x) => PreTripSection.fromJson(x)).toList()
-        : [],
-  );
-}
-
-  Map<String, dynamic> toJson() => {
-        'pre_trip_inspection': preTripInspection.map((x) => x.toJson()).toList(),
-      };
-
-  PreTripInspectionListModel copyWith({
-    List<PreTripSection>? preTripInspection,
-  }) {
+  factory PreTripInspectionListModel.fromJson(Map<String, dynamic> json) {
+    final list = json['pre_trip_inspection'] as List<dynamic>?;
     return PreTripInspectionListModel(
-      preTripInspection: preTripInspection ?? this.preTripInspection,
+      preTripInspection: list != null
+          ? list.map((x) => PreTripSection.fromJson(x)).toList()
+          : [],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'pre_trip_inspection':
+            preTripInspection.map((x) => x.toJson()).toList(),
+      };
 
   @override
   List<Object?> get props => [preTripInspection];
@@ -35,90 +26,91 @@ class PreTripInspectionListModel extends Equatable {
 
 class PreTripSection extends Equatable {
   final int id;
-  final String ruTitle;
-  final String enTitle;
-  final List<PreTripItem> content;
+  final List<PreTripContent> content;
 
-  const PreTripSection({
-    required this.id,
-    required this.ruTitle,
-    required this.enTitle,
-    required this.content,
-  });
+  const PreTripSection({required this.id, required this.content});
 
   factory PreTripSection.fromJson(Map<String, dynamic> json) {
     return PreTripSection(
       id: json['id'],
-      ruTitle: json['ruTitle'],
-      enTitle: json['enTitle'],
-      content: List<PreTripItem>.from(
-        json['content'].map((x) => PreTripItem.fromJson(x)),
+      content: List<PreTripContent>.from(
+        json['content'].map((x) => PreTripContent.fromJson(x)),
       ),
     );
   }
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'ruTitle': ruTitle,
-        'enTitle': enTitle,
         'content': content.map((x) => x.toJson()).toList(),
       };
 
-  PreTripSection copyWith({
-    int? id,
-    String? ruTitle,
-    String? enTitle,
-    List<PreTripItem>? content,
-  }) {
-    return PreTripSection(
-      id: id ?? this.id,
-      ruTitle: ruTitle ?? this.ruTitle,
-      enTitle: enTitle ?? this.enTitle,
-      content: content ?? this.content,
-    );
-  }
-
   @override
-  List<Object?> get props => [id, ruTitle, enTitle, content];
+  List<Object?> get props => [id, content];
 }
 
-class PreTripItem extends Equatable {
-  final String ruText;
-  final String enText;
-  final String pronunciation;
 
-  const PreTripItem({
-    required this.ruText,
-    required this.enText,
-    required this.pronunciation,
+class PreTripContent extends Equatable {
+  // заголовки (присутствуют только в первом элементе content)
+  final String? ruTitle;
+  final String? enTitle;
+  final String? ukTitle;
+  final String? esTitle;
+
+  // текстовые пункты
+  final String? ruText;
+  final String? enText;
+  final String? ukText;
+  final String? esText;
+  final String? pronunciation;
+
+  const PreTripContent({
+    this.ruTitle,
+    this.enTitle,
+    this.ukTitle,
+    this.esTitle,
+    this.ruText,
+    this.enText,
+    this.ukText,
+    this.esText,
+    this.pronunciation,
   });
 
-  factory PreTripItem.fromJson(Map<String, dynamic> json) {
-    return PreTripItem(
+  factory PreTripContent.fromJson(Map<String, dynamic> json) {
+    return PreTripContent(
+      ruTitle: json['ruTitle'],
+      enTitle: json['enTitle'],
+      ukTitle: json['ukTitle'],
+      esTitle: json['esTitle'],
       ruText: json['ruText'],
       enText: json['enText'],
+      ukText: json['ukText'],
+      esText: json['esText'],
       pronunciation: json['pronunciation'],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'ruText': ruText,
-        'enText': enText,
-        'pronunciation': pronunciation,
+        if (ruTitle != null) 'ruTitle': ruTitle,
+        if (enTitle != null) 'enTitle': enTitle,
+        if (ukTitle != null) 'ukTitle': ukTitle,
+        if (esTitle != null) 'esTitle': esTitle,
+        if (ruText != null) 'ruText': ruText,
+        if (enText != null) 'enText': enText,
+        if (ukText != null) 'ukText': ukText,
+        if (esText != null) 'esText': esText,
+        if (pronunciation != null) 'pronunciation': pronunciation,
       };
 
-  PreTripItem copyWith({
-    String? ruText,
-    String? enText,
-    String? pronunciation,
-  }) {
-    return PreTripItem(
-      ruText: ruText ?? this.ruText,
-      enText: enText ?? this.enText,
-      pronunciation: pronunciation ?? this.pronunciation,
-    );
-  }
-
   @override
-  List<Object?> get props => [ruText, enText, pronunciation];
+  List<Object?> get props => [
+        ruTitle,
+        enTitle,
+        ukTitle,
+        esTitle,
+        ruText,
+        enText,
+        ukText,
+        esText,
+        pronunciation,
+      ];
 }

@@ -108,7 +108,7 @@ class NextBackButtons extends StatelessWidget {
       ),
       desc:
           results['passed']
-              ? LocaleKeys.youPassedExam.tr()
+              ? ''
               : LocaleKeys.youNeedMorePractice.tr(),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
