@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   // Light Theme
   static const Color lightPrimary = Color(0xFF3F51B5); // Indigo
-  static const Color lightBackground = Color(0xFFF5F7FA); // Светлый фон
+  static const Color lightBackground = Color(0xFFF5F5F5); // Светлый фон
+  static const Color whiteColor = Color(0xFFFFFFFF); // Светлый фон
 
   // Dark Theme
   static const Color darkPrimary = Color(0xFF008B8B); // Dark Cyan

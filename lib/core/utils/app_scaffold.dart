@@ -55,6 +55,7 @@ class AppScaffold extends StatelessWidget {
       child: Stack(
         children: [
           Scaffold(
+            
             key: scaffoldKey,
             appBar: _buildAppBar(),
             drawer: drawer,

@@ -39,7 +39,6 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
       final title = section.content.first;
 
       for (int i = 1; i < section.content.length; i++) {
-        final item = section.content[i];
         allItems.add({
           'sectionIndex': sectionIndex,
           'itemIndex': i,

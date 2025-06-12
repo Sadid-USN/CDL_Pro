@@ -1,111 +1,174 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/constants/constants.dart';
+import 'package:cdl_pro/core/themes/themes.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
+import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+final _formKey = GlobalKey<FormState>();
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key, });
-   
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // SizedBox(
-            //   height: 50,
-            //   child: ListView(
-            //     padding:
-            //         const EdgeInsets.only(right: 5.0, left: 5.0, top: 8),
-            //     scrollDirection: Axis.horizontal,
-            //     children:
-            //       controller.categories.keys
-            //           .map(
-            //             (category) => Padding(
-            //               padding: const EdgeInsets.symmetric(horizontal: 3),
-            //               child: FilterChip(
-            //                 selected: controller.selectedCategories
-            //                     .contains(category),
-            //                 label: Text(
-            //                   controller.getTranslatedCategory(category.tr()),
-            //                   style: const TextStyle(
-            //                     color: Colors.black87,
-            //                     fontSize: 12,
-            //                     fontWeight: FontWeight.w500,
-            //                   ),
-            //                 ),
-            //                 onSelected: (vaSelected) {
-            //                   controller.toggleCategory(category);
-            //                 },
-            //               ),
-            //             ),
-            //           )
-            //           .toList(),
-            //   ),
-            // ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 2 * 1.4,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: 5, top: 10, left: 10, right: 10),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder:
+          (context, state) => Center(
+            child: SingleChildScrollView(
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+
+                child: Padding(
+                  padding: EdgeInsets.all(20.r),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          LocaleKeys.login.tr(),
+                          style: AppTextStyles.merriweatherBold16,
+                          textAlign: TextAlign.center,
                         ),
-                        elevation: 2.0,
-                      ),
-                      onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) {
-                        //       return OverviewPage(
-                        //         index: index,
-                        //         book: filteredBooksList[index],
-                        //         title: filteredBooksList[index].title,
-                        //       );
-                        //     },
-                        //   ),
-                        // );
-                      },
-                      child: Row(
-                        children: [
-                          // Hero(
-                          //   tag: filteredBooksList[index].image ?? noImage,
-                          //   child: _BookImageCard(
-                          //     id: filteredBooksList[index].id ?? "0.0",
-                          //     image: filteredBooksList[index].image ?? noImage,
-                          //   ),
-                          // ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // _BuildRow(
-                                //   label: LocaleKeys.libTitle.tr(),
-                                //   data: book.title ?? "_",
-                                // ),
-                              ],
+                        SizedBox(height: 20.h),
+
+                        /// Email field
+                        AppTextFormField(
+                          controller: emailController,
+                          hint: LocaleKeys.enterEmail.tr(),
+                          textInputType: TextInputType.emailAddress,
+                          validate: (value) {
+                            if (value == null || value.isEmpty) {
+                              return LocaleKeys.enterEmail.tr();
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 12),
+
+                        /// Password field
+                        AppTextFormField(
+                          controller: passwordController,
+                          hint: LocaleKeys.password.tr(),
+                          obscureText: true,
+                          validate: (value) {
+                            if (value == null || value.isEmpty) {
+                              return LocaleKeys.enterPassword.tr();
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 24),
+
+                        /// Login button
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {}
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                        ],
-                      ),
+                          child: Text(LocaleKeys.login.tr()),
+                        ),
+                        SizedBox(height: 5.h),
+
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            LocaleKeys.forgotPassword.tr(),
+                            style: AppTextStyles.manropeBold12,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            LocaleKeys.signUp.tr(),
+                            style: AppTextStyles.manropeBold12,
+                          ),
+                        ),
+                        SizedBox(height: 10.h),
+
+                        /// Login via Google & Apple
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  AppLogos.googleIcon,
+                                  height: 24.h,
+                                ),
+                                label: Text(
+                                  "Google",
+                                  style: AppTextStyles.regular12.copyWith(
+                                    color: AppColors.darkBackground,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 2,
+                                  backgroundColor: AppColors.whiteColor,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.r),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  AppLogos.appleIcon,
+                                  height: 24.h,
+                                ),
+                                label: Text(
+                                  "Apple ID",
+                                  style: AppTextStyles.regular12.copyWith(
+                                    color: AppColors.darkBackground,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 2,
+                                  backgroundColor: AppColors.whiteColor,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.r),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 }

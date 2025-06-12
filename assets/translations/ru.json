@@ -36,11 +36,17 @@
   "totalQuestions": "Всего вопросов",
   "correctAnswers": "Правильные ответы",
   "wrongAnswers": "Неправильные ответы",
-
   "youNeedMorePractice": "Вам нужно больше практики, чтобы сдать экзамен.",
   "startAgain": "Начать заново",
   "finishTest": "Завершить тест",
   "view": "Просмотр",
   "gallery": "Галерея",
-  "returnToHome": "На главную"
+  "returnToHome": "На главную",
+  "login": "Вход",
+  "signIn": "Войти",
+  "forgotPassword": "Забыли пароль?",
+  "signUp": "Регистрация",
+  "enterPassword": "Введите пароль",
+  "enterEmail": "Введите Email",
+  "password": "Пароль"
 }

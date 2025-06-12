@@ -36,11 +36,17 @@
   "totalQuestions": "Total questions",
   "correctAnswers": "Correct answers",
   "wrongAnswers": "Wrong answers",
- 
   "youNeedMorePractice": "You need more practice to pass the exam.",
   "startAgain": "Start Again",
   "finishTest": "Finish Test",
-   "view": "View",
-     "gallery": "Gallery",
-  "returnToHome": "Main page"
+  "view": "View",
+  "gallery": "Gallery",
+  "returnToHome": "Main page",
+  "login": "Login",
+  "signIn": "Sign In",
+  "forgotPassword": "Forgot password?",
+  "signUp": "Sign Up",
+  "enterPassword": "Enter password",
+  "enterEmail": "Enter email",
+  "password": "Password"
 }

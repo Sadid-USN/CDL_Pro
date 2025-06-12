@@ -43,6 +43,7 @@ class MainPage extends StatelessWidget {
             ];
 
             return AppScaffold(
+              scaffoldBackground: AppColors.lightBackground,
               canPop: true,
               appBar: AppBar(
                 title: FadeInRight(
