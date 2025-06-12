@@ -13,6 +13,8 @@ class AppLogos {
   static const String checked = 'assets/svgs/checked.svg';
   static const String reset = 'assets/svgs/reset.svg';
   static const String gallery = 'assets/svgs/gallery.svg';
+  static const String appleIcon = 'assets/svgs/apple_icon.svg';
+  static const String googleIcon = 'assets/svgs/google_icon.svg';
 
 
   //JSON PATH

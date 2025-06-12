@@ -35,11 +35,17 @@
     "totalQuestions": "Усього питань",
     "correctAnswers": "Правильні відповіді",
     "wrongAnswers": "Неправильні відповіді",
-  
     "youNeedMorePractice": "Вам потрібно більше практики, щоб скласти іспит.",
     "startAgain": "Почати знову",
     "finishTest": "Завершити тест",
     "view": "Перегляд",
     "gallery": "Галерея",
-    "returnToHome": "На головну"
+    "returnToHome": "На головну",
+    "login": "Вхід",
+    "signIn": "Увійти",
+    "forgotPassword": "Забули пароль?",
+    "signUp": "Реєстрація",
+    "enterPassword": "Введіть пароль",
+    "enterEmail": "Введіть Email",
+    "password": "Пароль"
 }

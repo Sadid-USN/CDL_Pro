@@ -36,11 +36,17 @@
   "totalQuestions": "Total de preguntas",
   "correctAnswers": "Respuestas correctas",
   "wrongAnswers": "Respuestas incorrectas",
-
   "youNeedMorePractice": "Necesitas más práctica para aprobar el examen.",
   "startAgain": "Empezar de nuevo",
   "finishTest": "Terminar prueba",
   "view": "Ver",
   "gallery": "Galería",
-  "returnToHome": "A la página principal"
+  "returnToHome": "A la página principal",
+  "login": "Inicio de sesión",
+  "signIn": "Iniciar sesión",
+  "forgotPassword": "¿Olvidaste tu contraseña?",
+  "signUp": "Registrarse",
+  "enterPassword": "Introduce la contraseña",
+  "enterEmail": "Introduce el Email",
+  "password": "Contraseña"
 }

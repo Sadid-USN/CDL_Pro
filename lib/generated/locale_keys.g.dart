@@ -46,5 +46,12 @@ abstract class  LocaleKeys {
   static const view = 'view';
   static const gallery = 'gallery';
   static const returnToHome = 'returnToHome';
+  static const login = 'login';
+  static const signIn = 'signIn';
+  static const forgotPassword = 'forgotPassword';
+  static const signUp = 'signUp';
+  static const enterPassword = 'enterPassword';
+  static const enterEmail = 'enterEmail';
+  static const password = 'password';
 
 }
