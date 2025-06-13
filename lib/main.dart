@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,6 @@ void main() async {
       FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
       await initDependencies();
-     
 
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
@@ -30,7 +30,7 @@ void main() async {
         DeviceOrientation.landscapeRight,
       ]).then((_) {
         runApp(LocalizationWrapper(child: MyApp()));
-         FlutterNativeSplash.remove();
+        FlutterNativeSplash.remove();
       });
     },
     (error, stack) {
@@ -53,6 +53,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<CDLTestsBloc>(
           create: (context) => GetIt.I<CDLTestsBloc>(),
+        ),
+        BlocProvider<RoadSignBloc>(
+          create: (context) => GetIt.I<RoadSignBloc>(),
         ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(

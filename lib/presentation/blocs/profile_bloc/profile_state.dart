@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class ProfileState extends Equatable {
+class AbstarctProfileState extends Equatable {
   @override
   List<Object?> get props => [];
 }
