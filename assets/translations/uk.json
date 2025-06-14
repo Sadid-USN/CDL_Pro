@@ -47,5 +47,6 @@
     "signUp": "Реєстрація",
     "enterPassword": "Введіть пароль",
     "enterEmail": "Введіть Email",
-    "password": "Пароль"
+    "password": "Пароль",
+    "size": "Розмір"
 }

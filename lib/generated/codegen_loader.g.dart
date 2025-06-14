@@ -64,7 +64,8 @@ class CodegenLoader extends AssetLoader{
   "signUp": "Регистрация",
   "enterPassword": "Введите пароль",
   "enterEmail": "Введите Email",
-  "password": "Пароль"
+  "password": "Пароль",
+  "size": "Размер"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -115,7 +116,8 @@ static const Map<String,dynamic> _uk = {
   "signUp": "Реєстрація",
   "enterPassword": "Введіть пароль",
   "enterEmail": "Введіть Email",
-  "password": "Пароль"
+  "password": "Пароль",
+  "size": "Розмір"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -167,7 +169,8 @@ static const Map<String,dynamic> _en = {
   "signUp": "Sign Up",
   "enterPassword": "Enter password",
   "enterEmail": "Enter email",
-  "password": "Password"
+  "password": "Password",
+  "size": "Size"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -219,7 +222,8 @@ static const Map<String,dynamic> _es = {
   "signUp": "Registrarse",
   "enterPassword": "Introduce la contraseña",
   "enterEmail": "Introduce el Email",
-  "password": "Contraseña"
+  "password": "Contraseña",
+  "size": "Tamaño"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

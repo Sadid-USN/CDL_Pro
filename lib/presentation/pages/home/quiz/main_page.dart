@@ -22,15 +22,11 @@ class MainPage extends StatelessWidget {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         return AutoTabsRouter(
-          routes: [
-                   HomeRoute(), 
-                   ProfileRoute(), 
-                   SettingsRoute()
-                   ],
+          routes: [HomeRoute(), ProfileRoute(), SettingsRoute()],
           builder: (context, child) {
             final List<String> svgPictures = [
               AppLogos.home,
-              // AppLogos.tests,
+
               AppLogos.profile,
               AppLogos.settings,
             ];

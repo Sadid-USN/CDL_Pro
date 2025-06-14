@@ -55,8 +55,8 @@ class HomePage extends StatelessWidget {
 
         return AnimationLimiter(
           child: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-            separatorBuilder: (context, index) => SizedBox(height: 8.h),
+            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 25.h),
+            separatorBuilder: (context, index) => SizedBox(height: 12.h),
             itemCount: collectionTypes.length,
             itemBuilder: (context, index) {
               final item = collectionTypes[index];
@@ -65,7 +65,6 @@ class HomePage extends StatelessWidget {
                 position: index,
                 duration: const Duration(milliseconds: 600),
                 child: FlipAnimation(
-               
                   child: ElevatedContainer(
                     assetImage: item["assetImage"] as String,
                     onTap: () {
@@ -74,6 +73,7 @@ class HomePage extends StatelessWidget {
                     },
                     child: Text(
                       item['label'] as String,
+
                       style: AppTextStyles.bold20.copyWith(
                         color: AppColors.lightBackground,
                       ),

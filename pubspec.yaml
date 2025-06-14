@@ -110,7 +110,7 @@ flutter_native_splash:
   ios: true
   background_image: "assets/icons/bg.png"
   image: "assets/icons/truck.png"
-  branding: "assets/icons/truck.png"
+  
 
   web: false
 

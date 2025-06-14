@@ -15,13 +15,13 @@ class ElevatedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+ 
     return Material(
       elevation: 1.5,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(20.r),
         bottomRight: Radius.circular(20.r),
       ),
-
       child: InkWell(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
@@ -29,23 +29,32 @@ class ElevatedContainer extends StatelessWidget {
         ),
         onTap: onTap,
         child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 2.w),
+         
+          height: 150.h,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(assetImage),
               fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                Colors.black.withValues(alpha: 0.6),
-                BlendMode.darken, // или multiply, overlay и др.
-              ),
             ),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.r),
               bottomRight: Radius.circular(20.r),
             ),
           ),
-          child: child,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+              decoration: BoxDecoration(
+                color: Colors.black.withValues(alpha: 0.6),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(20.r),
+                ),
+              ),
+              child: child,
+            ),
+          ),
         ),
       ),
     );
