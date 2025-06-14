@@ -48,5 +48,6 @@
   "signUp": "Registrarse",
   "enterPassword": "Introduce la contraseña",
   "enterEmail": "Introduce el Email",
-  "password": "Contraseña"
+  "password": "Contraseña",
+  "size": "Tamaño"
 }

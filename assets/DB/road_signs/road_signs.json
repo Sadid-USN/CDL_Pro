@@ -24,97 +24,97 @@
     "5": {
       "enTitle": "Wrong Way",
       "ruTitle": "Неправильный Путь",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fwrong_way.png?alt=media&token=d42d825d-d313-4707-a386-9bc48bd34f97"
     },
     "6": {
       "enTitle": "Speed Limit",
       "ruTitle": "Ограничение Скорости",
-      "imageUrl": ""
+      "imageUrl": "https://signaturestreetscapes.com/cdn/shop/products/speed-limit-sign-R2-1-15_750x.png.jpg?v=1648646154"
     },
     "7": {
       "enTitle": "Yield",
       "ruTitle": "Уступите дорогу",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fyield_sign.png?alt=media&token=03414001-2c30-4cfe-968f-9dc98fb289a1"
     },
     "8": {
       "enTitle": "To Oncoming Traffic",
       "ruTitle": "На встречную полосу",
-      "imageUrl": ""
+      "imageUrl": "https://www.tssco.com/wp-content/uploads/2018/10/Ongoing_traffic.jpg"
     },
     "9": {
       "enTitle": "Divided Highway",
       "ruTitle": "Разделенное шоссе",
-      "imageUrl": ""
+      "imageUrl": "https://www.tssco.com/wp-content/uploads/2020/03/R6-3.jpg"
     },
     "10": {
       "enTitle": "Do Not Enter",
       "ruTitle": "Не въезжать",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fdo_not_enter.png?alt=media&token=7fa78b09-2ea1-4945-a06c-70e8739750b6"
     },
     "11": {
       "enTitle": "Do Not Pass",
       "ruTitle": "Не обгонять",
-      "imageUrl": ""
+      "imageUrl": "https://translineinc.com/wp-content/uploads/2024/08/R4-1-Do-Not-Pass-Sign.png"
     },
     "12": {
       "enTitle": "Pass With Care",
       "ruTitle": "Обгоняйте с осторожностью",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fpass_with_care.png?alt=media&token=7aff769d-268d-4263-8785-4d4d8f1307e8"
     },
     "13": {
       "enTitle": "Keep Right",
       "ruTitle": "Держитесь правой стороны",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fkeep_right.png?alt=media&token=25534b1b-8295-4244-ac2f-72a9ca51b301"
     },
     "14": {
       "enTitle": "Left Turn Yield On Green",
       "ruTitle": "Поворот налево при условии что водитель уступит дорогу встречному транспорту",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fleft_turn_yield_on_green.png?alt=media&token=f24b46f1-4f23-4525-9381-9817619f9640"
     },
     "15": {
       "enTitle": "No Bicycles",
       "ruTitle": "Нет проезда велосипеду",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fno_bicycle.png?alt=media&token=9304e9e3-8563-4fc1-bf1a-d8b66aeaeaac"
     },
     "16": {
       "enTitle": "No Left Turn",
       "ruTitle": "Левый поворот запрещен",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fno_left_turn.png?alt=media&token=f00433fa-9405-428d-afc8-fa3d3ea2a3c8"
     },
     "17": {
       "enTitle": "No Right Turn",
       "ruTitle": "Правый поворот запрещен",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fno_right_turn.png?alt=media&token=a707223d-1309-4dd2-aca4-6de802e6ddd8"
     },
     "18": {
       "enTitle": "No Parking",
       "ruTitle": "Парковка запрещена",
-      "imageUrl": ""
+      "imageUrl": "https://www.roadtrafficsigns.com/img/lg/X/No-Parking-Sign-X-R8-3.png"
     },
     "19": {
       "enTitle": "No Pedestrians",
       "ruTitle": "Запрещено пешеходам",
-      "imageUrl": ""
+      "imageUrl": "https://cdn.creazilla.com/cliparts/3514893/no-pedestrians-sign-in-uruguay-clipart-lg.png"
     },
     "20": {
       "enTitle": "No Trucks",
       "ruTitle": "Запрещено Тракам",
-      "imageUrl": ""
+      "imageUrl": "https://www.accuform.com/files/damObject/Image/huge/FRR041.jpg"
     },
     "21": {
       "enTitle": "No U-Turn",
       "ruTitle": "Разворот запрещен",
-      "imageUrl": ""
+      "imageUrl": "https://cdn.creazilla.com/cliparts/3514896/no-u-turn-sign-in-uruguay-clipart-original.png"
     },
     "22": {
       "enTitle": "One Way",
       "ruTitle": "Одностороннее движение",
-      "imageUrl": ""
+      "imageUrl": "https://img.uline.com/is/image/uline/H-5757?$Mobile_Zoom$"
     },
     "23": {
       "enTitle": "Railroad Crossing",
       "ruTitle": "Железнодорожный переезд",
-      "imageUrl": ""
+      "imageUrl": "https://www.stopsignsandmore.com/images/product/large/4770.jpg"
     },
     "24": {
       "enTitle": "Reserved Parking",

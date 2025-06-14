@@ -1,12 +1,15 @@
 # Dhikr_pro
 
+# flutter_native_splash comand
+flutter pub run flutter_native_splash:create
+
 # watch build script comand
 > dart run build_runner watch --delete-conflicting-outputs
 
 # run build script comand
 > dart run build_runner build --delete-conflicting-outputs
 
-## Description
+# Description
 >For now this project has only base templates 
 
 >when building or running application use `--release` or `--debug` tags

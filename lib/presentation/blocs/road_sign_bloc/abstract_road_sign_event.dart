@@ -7,6 +7,15 @@ abstract class AbstractRoadSignEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class ToggleViewModeEvent extends AbstractRoadSignEvent {
+  final bool isGridView;
+
+  const ToggleViewModeEvent({required this.isGridView});
+
+  @override
+  List<Object> get props => [isGridView];
+}
+
 // Конкретные события
 class ZoomInEvent extends AbstractRoadSignEvent {
   const ZoomInEvent();
@@ -16,6 +25,3 @@ class ZoomOutEvent extends AbstractRoadSignEvent {
   const ZoomOutEvent();
 }
 
-class ResetZoomEvent extends AbstractRoadSignEvent {
-  const ResetZoomEvent();
-}
