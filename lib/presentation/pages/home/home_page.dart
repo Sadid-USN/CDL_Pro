@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                     child: Text(
                       item['label'] as String,
 
-                      style: AppTextStyles.bold20.copyWith(
+                      style: AppTextStyles.merriweatherBold18.copyWith(
                         color: AppColors.lightBackground,
                       ),
                     ),
