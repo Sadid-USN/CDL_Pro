@@ -33,8 +33,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
-        _showPlatformSpecificMessages(context, state);
-        _handleNavigation(context, state);
+        if (_shouldNavigateToProfile(state)) {
+          _handleNavigation(context, state);
+        } else {
+          _showPlatformSpecificMessages(context, state);
+        }
       },
       builder: (context, state) {
         return _buildSignUpForm(
@@ -53,24 +56,24 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
-    if (state.errorMessage != null && !state.isLoading) {
-      final email = signUpemailController.text.trim();
-      final String message;
+void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
+  if (state.errorMessage != null && !state.isLoading && state.user == null) {
+    final email = signUpemailController.text.trim();
+    final String message;
 
-      if (_isEmailAlreadyInUseError(state.errorMessage!)) {
-        message = LocaleKeys.emailAlreadyInUse.tr(namedArgs: {'email': email});
-      } else {
-        message = LocaleKeys.emailAlreadyInUse.tr(namedArgs: {'email': email});
-      }
+    if (_isEmailAlreadyInUseError(state.errorMessage!)) {
+      message = LocaleKeys.emailAlreadyInUse.tr(namedArgs: {'email': email});
+    } else {
+      message = state.errorMessage!; // или переведите через .tr()
+    }
 
-      if (Platform.isIOS) {
-        _showCupertinoAlert(context, message);
-      } else {
-        _showMaterialSnackBar(context, message);
-      }
+    if (Platform.isIOS) {
+      _showCupertinoAlert(context, message);
+    } else {
+      _showMaterialSnackBar(context, message);
     }
   }
+}
 
   void _showCupertinoAlert(BuildContext context, String message) {
     showCupertinoDialog(
