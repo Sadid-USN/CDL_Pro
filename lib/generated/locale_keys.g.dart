@@ -54,5 +54,12 @@ abstract class  LocaleKeys {
   static const enterEmail = 'enterEmail';
   static const password = 'password';
   static const size = 'size';
+  static const invalidEmail = 'invalidEmail';
+  static const passwordTooShort = 'passwordTooShort';
+  static const ok = 'ok';
+  static const notification = 'notification';
+  static const emailAlreadyInUse = 'emailAlreadyInUse';
+  static const incorrectEmailOrPassword = 'incorrectEmailOrPassword';
+  static const loginError = 'loginError';
 
 }

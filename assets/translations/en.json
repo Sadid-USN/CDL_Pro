@@ -47,7 +47,15 @@
   "forgotPassword": "Forgot password?",
   "signUp": "Sign Up",
   "enterPassword": "Enter password",
-  "enterEmail": "Enter email",
+  "enterEmail": "Email",
   "password": "Password",
-  "size": "Size"
+  "size": "Size",
+  "invalidEmail": "Invalid Email",
+  "passwordTooShort": "Password too short",
+  "emailAlreadyInUse": "The email {email} is already in use by another user.",
+  "notification": "Notification",
+  "ok": "Ok",
+  "incorrectEmailOrPassword": "Incorrect Email or Password",
+  "loginError": "Login Error"
+
 }

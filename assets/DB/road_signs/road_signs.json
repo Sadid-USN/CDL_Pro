@@ -119,17 +119,17 @@
     "24": {
       "enTitle": "Reserved Parking",
       "ruTitle": "Парковка по резервации",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Freserved_parking.png?alt=media&token=7886bb2d-546c-40ab-a52b-7662e2397f24"
     },
     "25": {
       "enTitle": "Center Turn Lane",
       "ruTitle": "Центральная полоса для поворота",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2Fcenter_line.png?alt=media&token=c2e873ad-58ab-4cf9-b95b-5b86dc2ed62c"
     },
     "26": {
       "enTitle": "Advanced Intersection Control",
       "ruTitle": "Расширенный контроль перекрестков",
-      "imageUrl": ""
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/Road%20sign%2FAdvanced_Intersection_Control.png?alt=media&token=52a03116-e9aa-404e-9c03-879475bf14a9"
     },
     "27": {
       "enTitle": "Option sign for left turn or straight",
