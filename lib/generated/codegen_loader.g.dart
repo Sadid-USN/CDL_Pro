@@ -63,9 +63,16 @@ class CodegenLoader extends AssetLoader{
   "forgotPassword": "Забыли пароль?",
   "signUp": "Регистрация",
   "enterPassword": "Введите пароль",
-  "enterEmail": "Введите Email",
+  "enterEmail": "Email",
   "password": "Пароль",
-  "size": "Размер"
+  "size": "Размер",
+  "invalidEmail": "Неверный адрес электронной почты",
+  "passwordTooShort": "Пароль слишком короткий",
+  "ok": "Ok",
+  "notification": "Уведомление",
+  "emailAlreadyInUse": "Email {email} уже используется другим пользователем.",
+  "incorrectEmailOrPassword": "Неверный email или пароль",
+  "loginError": "Ошибка входа"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -115,9 +122,16 @@ static const Map<String,dynamic> _uk = {
   "forgotPassword": "Забули пароль?",
   "signUp": "Реєстрація",
   "enterPassword": "Введіть пароль",
-  "enterEmail": "Введіть Email",
+  "enterEmail": "Email",
   "password": "Пароль",
-  "size": "Розмір"
+  "size": "Розмір",
+  "invalidEmail": "Неправильна електронна адреса",
+  "passwordTooShort": "Пароль занадто короткий",
+  "ok": "Ok",
+  "notification": "Сповіщення",
+  "emailAlreadyInUse": "Цей e-mail {email} вже використовується іншим користувачем.",
+  "incorrectEmailOrPassword": "Невірний email або пароль",
+  "loginError": "Помилка входу"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -168,9 +182,16 @@ static const Map<String,dynamic> _en = {
   "forgotPassword": "Forgot password?",
   "signUp": "Sign Up",
   "enterPassword": "Enter password",
-  "enterEmail": "Enter email",
+  "enterEmail": "Email",
   "password": "Password",
-  "size": "Size"
+  "size": "Size",
+  "invalidEmail": "Invalid Email",
+  "passwordTooShort": "Password too short",
+  "emailAlreadyInUse": "The email {email} is already in use by another user.",
+  "notification": "Notification",
+  "ok": "Ok",
+  "incorrectEmailOrPassword": "Incorrect Email or Password",
+  "loginError": "Login Error"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -221,9 +242,16 @@ static const Map<String,dynamic> _es = {
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "signUp": "Registrarse",
   "enterPassword": "Introduce la contraseña",
-  "enterEmail": "Introduce el Email",
+  "enterEmail": "Email",
   "password": "Contraseña",
-  "size": "Tamaño"
+  "size": "Tamaño",
+  "invalidEmail": "Dirección de correo electrónico no válida",
+  "passwordTooShort": "La contraseña es demasiado corta",
+  "ok": "Ok",
+  "notification": "Notificación",
+  "emailAlreadyInUse": "Este correo electrónico {email} ya está siendo utilizado por otro usuario.",
+  "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
+  "loginError": "Error de inicio de sesión"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

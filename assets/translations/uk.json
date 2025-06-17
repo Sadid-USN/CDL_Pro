@@ -46,7 +46,14 @@
     "forgotPassword": "Забули пароль?",
     "signUp": "Реєстрація",
     "enterPassword": "Введіть пароль",
-    "enterEmail": "Введіть Email",
+    "enterEmail": "Email",
     "password": "Пароль",
-    "size": "Розмір"
+    "size": "Розмір",
+    "invalidEmail": "Неправильна електронна адреса",
+    "passwordTooShort": "Пароль занадто короткий",
+    "ok": "Ok",
+    "notification": "Сповіщення",
+    "emailAlreadyInUse": "Цей e-mail {email} вже використовується іншим користувачем.",
+    "incorrectEmailOrPassword": "Невірний email або пароль",
+    "loginError": "Помилка входу"
 }

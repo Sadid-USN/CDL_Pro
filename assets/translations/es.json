@@ -47,7 +47,14 @@
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "signUp": "Registrarse",
   "enterPassword": "Introduce la contraseña",
-  "enterEmail": "Introduce el Email",
+  "enterEmail": "Email",
   "password": "Contraseña",
-  "size": "Tamaño"
+  "size": "Tamaño",
+  "invalidEmail": "Dirección de correo electrónico no válida",
+  "passwordTooShort": "La contraseña es demasiado corta",
+  "ok": "Ok",
+  "notification": "Notificación",
+  "emailAlreadyInUse": "Este correo electrónico {email} ya está siendo utilizado por otro usuario.",
+  "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
+  "loginError": "Error de inicio de sesión"
 }

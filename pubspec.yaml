@@ -32,8 +32,8 @@ dependencies:
   talker_flutter: ^4.7.0
   json_annotation: ^4.9.0
   freezed_annotation: ^3.0.0
-  firebase_core: ^3.12.1
-  auto_route: ^10.0.1
+  firebase_core: 3.14.0
+  auto_route: ^10.1.0
   talker_dio_logger: ^4.7.0
   talker_bloc_logger: ^4.7.0
   easy_localization: ^3.0.7
@@ -41,9 +41,9 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   freezed: ^3.0.6
   flutter_screenutil: ^5.9.3
-  firebase_database: ^11.3.5
+  firebase_database: ^11.3.7
   google_fonts: ^6.2.1
-  cloud_firestore: ^5.6.6
+  cloud_firestore: ^5.6.9
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   simple_animations: ^5.1.0
@@ -59,6 +59,9 @@ dependencies:
   flutter_gemini: ^3.0.0
   rflutter_alert: ^2.0.7
   flutter_native_splash: ^2.4.6
+  firebase_auth: 5.5.4
+  google_sign_in: ^6.3.0
+  email_validator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -102,7 +105,7 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icons/truck_icon.png"
+  image_path: "assets/icons/truck.png"
   remove_alpha_ios: true
 
 flutter_native_splash:
@@ -116,8 +119,8 @@ flutter_native_splash:
 
 android_12:
 color: "#d44ed"
-image: "assets/icons/truck.png"
-branding: "assets/icons/truck.png"
+image: "assets/icons/truck2.png"
+branding: "assets/icons/truck2.png"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cdl_pro/core/constants/constants.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/blocs/profile_bloc/profile_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:dio/dio.dart';
@@ -93,4 +94,5 @@ Future<void> initDependencies() async {
   GetIt.I.registerLazySingleton(() => RoadSignBloc([]));
 
   GetIt.I.registerLazySingleton(() => CDLTestsBloc(prefs));
+  GetIt.I.registerLazySingleton(() => ProfileBloc());
 }
