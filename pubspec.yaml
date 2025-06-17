@@ -105,7 +105,7 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icons/truck.png"
+  image_path: "assets/icons/truck_icon.png"
   remove_alpha_ios: true
 
 flutter_native_splash:
