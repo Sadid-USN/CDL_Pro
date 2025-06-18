@@ -8,3 +8,4 @@ export 'eleveted_container.dart';
 export 'show_confirmation_dialog.dart';
 export 'no_leading_space_formatter.dart';
 export 'app_text_form_field.dart';
+export 'secure_storage_service.dart';
