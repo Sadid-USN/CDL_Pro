@@ -24,7 +24,6 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     on<SignOut>(_signOut);
   }
 
-  // В методе _signInWithEmailAndPassword измените обработку ошибок:
   Future<void> _signInWithEmailAndPassword(
     SignInWithEmailAndPassword event,
     Emitter<ProfileState> emit,
@@ -44,25 +43,26 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
           isLoading: false,
           isNewUser: false,
           errorMessage: null,
+          lastEvent: event,
         ),
       );
     } on FirebaseAuthException catch (e) {
       final errorType = FirebaseErrorHandler.fromCode(e.code);
-      final errorMessage = FirebaseErrorHandler.getErrorKey(errorType);
-      print("USER NOT FOUND ----->>>> ${e.code}");
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: errorMessage,
+          errorMessage: errorType,
           isNewUser: false,
+          lastEvent: event,
         ),
       );
-    } catch (e) {
+    } catch (_) {
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: LocaleKeys.loginError.tr(),
+          errorMessage: FirebaseAuthErrorType.unknown,
           isNewUser: false,
+          lastEvent: event,
         ),
       );
     }
@@ -75,7 +75,7 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     prefs = await SharedPreferences.getInstance();
 
     _auth.authStateChanges().listen((User? user) {
-      add(UpdateProfile(user)); // ✅ Просто отправляем, даже если user == null
+      add(UpdateProfile(user));
     });
 
     emit(state.copyWith(user: _auth.currentUser));
@@ -88,21 +88,12 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     emit(state.copyWith(user: event.user, isLoading: false));
   }
 
-  Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
-    emit(state.copyWith(isLoading: true));
-    try {
-      await _auth.signOut();
-      emit(state.copyWith(user: null, isLoading: false, errorMessage: null));
-    } catch (_) {
-      emit(state.copyWith(isLoading: false, errorMessage: 'Logout failed'));
-    }
-  }
-
   Future<void> _signUpWithEmailAndPassword(
     SignUpWithEmailAndPassword event,
     Emitter<ProfileState> emit,
   ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null, isNewUser: true));
+
     try {
       final UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(
@@ -110,7 +101,6 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
             password: event.password,
           );
 
-      // Сохраняем данные пользователя в Firestore
       await firebaseStore.collection('users').doc(userCredential.user?.uid).set(
         {'email': event.email, 'createdAt': FieldValue.serverTimestamp()},
       );
@@ -119,24 +109,28 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         state.copyWith(
           user: userCredential.user,
           isLoading: false,
-          isNewUser: true, // Явно указываем, что это новый пользователь
+          errorMessage: null,
+          isNewUser: true,
+          lastEvent: event,
         ),
       );
     } on FirebaseAuthException catch (e) {
-      final isEmailInUse = e.code == 'email-already-in-use';
+      final errorType = FirebaseErrorHandler.fromCode(e.code);
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: e.message ?? 'Sign up failed',
-          isNewUser: !isEmailInUse,
+          errorMessage: errorType,
+          isNewUser: errorType != FirebaseAuthErrorType.emailAlreadyInUse,
+          lastEvent: event,
         ),
       );
-    } catch (e) {
+    } catch (_) {
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: 'An unexpected error occurred',
+          errorMessage: FirebaseAuthErrorType.unknown,
           isNewUser: true,
+          lastEvent: event,
         ),
       );
     }
@@ -165,7 +159,6 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         credential,
       );
 
-      // Save user data to Firestore if new user
       if (userCredential.additionalUserInfo?.isNewUser ?? false) {
         await firebaseStore
             .collection('users')
@@ -178,17 +171,13 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
 
       emit(state.copyWith(user: userCredential.user, isLoading: false));
     } on FirebaseAuthException catch (e) {
+      final errorType = FirebaseErrorHandler.fromCode(e.code);
+      emit(state.copyWith(isLoading: false, errorMessage: errorType));
+    } catch (_) {
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: e.message ?? 'Google sign in failed',
-        ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          isLoading: false,
-          errorMessage: 'An unexpected error occurred',
+          errorMessage: FirebaseAuthErrorType.unknown,
         ),
       );
     }
@@ -206,7 +195,6 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
           appleProvider,
         );
 
-        // Save user data to Firestore if new user
         if (userCredential.additionalUserInfo?.isNewUser ?? false) {
           await firebaseStore
               .collection('users')
@@ -222,22 +210,35 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         emit(
           state.copyWith(
             isLoading: false,
-            errorMessage: 'Apple sign in is only available on iOS',
+            errorMessage:
+                FirebaseAuthErrorType
+                    .unknown, // можно сделать свой enum AppleNotAvailable
           ),
         );
       }
     } on FirebaseAuthException catch (e) {
+      final errorType = FirebaseErrorHandler.fromCode(e.code);
+      emit(state.copyWith(isLoading: false, errorMessage: errorType));
+    } catch (_) {
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: e.message ?? 'Apple sign in failed',
+          errorMessage: FirebaseAuthErrorType.unknown,
         ),
       );
-    } catch (e) {
+    }
+  }
+
+  Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      await _auth.signOut();
+      emit(state.copyWith(user: null, isLoading: false, errorMessage: null));
+    } catch (_) {
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: 'An unexpected error occurred',
+          errorMessage: FirebaseAuthErrorType.unknown,
         ),
       );
     }

@@ -9,7 +9,7 @@ enum FirebaseAuthErrorType {
   weakPassword,
   networkError,
   tooManyRequests,
-  unknown, 
+  unknown,
 }
 
 class FirebaseErrorHandler {
@@ -34,25 +34,24 @@ class FirebaseErrorHandler {
     }
   }
 
-static String getErrorKey(FirebaseAuthErrorType errorType) {
-  switch (errorType) {
-    case FirebaseAuthErrorType.wrongPassword:
-    case FirebaseAuthErrorType.userNotFound:
-      return LocaleKeys.incorrectEmailOrPassword.tr();
-    case FirebaseAuthErrorType.emailAlreadyInUse:
-      return LocaleKeys.emailAlreadyInUse.tr();
-    case FirebaseAuthErrorType.invalidEmail:
-      return LocaleKeys.invalidEmail.tr();
-    case FirebaseAuthErrorType.weakPassword:
-      return LocaleKeys.passwordTooShort.tr();
-    case FirebaseAuthErrorType.networkError:
-      return 'noInternetConnection';
-    case FirebaseAuthErrorType.tooManyRequests:
-      return 'tooManyAttempts';
-    case FirebaseAuthErrorType.unknown:
-      return LocaleKeys.loginError.tr();
+  static String getErrorKey(FirebaseAuthErrorType errorType) {
+
+    switch (errorType) {
+      case FirebaseAuthErrorType.wrongPassword:
+      case FirebaseAuthErrorType.userNotFound:
+        return LocaleKeys.incorrectEmailOrPassword.tr();
+      case FirebaseAuthErrorType.emailAlreadyInUse:
+        return LocaleKeys.emailAlreadyInUse.tr();
+      case FirebaseAuthErrorType.invalidEmail:
+        return LocaleKeys.invalidEmail.tr();
+      case FirebaseAuthErrorType.weakPassword:
+        return LocaleKeys.passwordTooShort.tr();
+      case FirebaseAuthErrorType.networkError:
+        return 'noInternetConnection';
+      case FirebaseAuthErrorType.tooManyRequests:
+        return 'tooManyAttempts';
+      case FirebaseAuthErrorType.unknown:
+        return LocaleKeys.loginError.tr();
+    }
   }
-}
-
-
 }

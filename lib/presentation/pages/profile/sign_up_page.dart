@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/errors/error.dart';
 import 'package:cdl_pro/core/themes/themes.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
@@ -56,24 +57,22 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
-  if (state.errorMessage != null && !state.isLoading && state.user == null) {
-    final email = signUpemailController.text.trim();
-    final String message;
+  void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
+    final error = state.errorMessage;
+    if (error != null && !state.isLoading && state.user == null) {
+      final email = signUpemailController.text.trim();
+      final String message =
+          error == FirebaseAuthErrorType.emailAlreadyInUse
+              ? LocaleKeys.emailAlreadyInUse.tr(namedArgs: {'email': email})
+              : FirebaseErrorHandler.getErrorKey(error);
 
-    if (_isEmailAlreadyInUseError(state.errorMessage!)) {
-      message = LocaleKeys.emailAlreadyInUse.tr(namedArgs: {'email': email});
-    } else {
-      message = state.errorMessage!; // или переведите через .tr()
-    }
-
-    if (Platform.isIOS) {
-      _showCupertinoAlert(context, message);
-    } else {
-      _showMaterialSnackBar(context, message);
+      if (Platform.isIOS) {
+        _showCupertinoAlert(context, message);
+      } else {
+        _showMaterialSnackBar(context, message);
+      }
     }
   }
-}
 
   void _showCupertinoAlert(BuildContext context, String message) {
     showCupertinoDialog(
@@ -108,10 +107,10 @@ void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
     );
   }
 
-  bool _isEmailAlreadyInUseError(String error) {
-    return error.contains('email-already-in-use') ||
-        error.contains('Учетная запись уже существует');
-  }
+  // bool _isEmailAlreadyInUseError(String error) {
+  //   return error.contains('email-already-in-use') ||
+  //       error.contains('Учетная запись уже существует');
+  // }
 
   Widget _buildSignUpForm(
     BuildContext context,
@@ -240,8 +239,9 @@ void _showPlatformSpecificMessages(BuildContext context, ProfileState state) {
 
   Widget _buildLoginTextButton(BuildContext context) {
     return TextButton(
-      onPressed:
-          () => navigateToPage(context, route: ProfileRoute(), replace: false),
+      onPressed: () {
+        navigateToPage(context, route: ProfileRoute(), clearStack: true);
+      },
       child: Text(LocaleKeys.login.tr(), style: AppTextStyles.manropeBold12),
     );
   }

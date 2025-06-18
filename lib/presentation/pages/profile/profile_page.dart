@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/constants/constants.dart';
+import 'package:cdl_pro/core/errors/error.dart';
 import 'package:cdl_pro/core/themes/themes.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
@@ -53,14 +54,23 @@ class _ProfilePageState extends State<ProfilePage> {
         }
 
         if (state.user == null) {
-          return _buildLoginForm(context, state.errorMessage);
+          return _buildLoginForm(context, state.errorMessage, state);
         }
         return _buildProfileView(context, state.user!);
       },
     );
   }
 
-  Widget _buildLoginForm(BuildContext context, String? errorMessage) {
+  Widget _buildLoginForm(
+    BuildContext context,
+    FirebaseAuthErrorType? error,
+    ProfileState state,
+  ) {
+    final errorText =
+        error != null && state.lastEvent is SignInWithEmailAndPassword
+            ? FirebaseErrorHandler.getErrorKey(error)
+            : null;
+
     return Center(
       child: SingleChildScrollView(
         child: Card(
@@ -73,7 +83,6 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Form(
               key: _formKey,
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
@@ -83,11 +92,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const SizedBox(height: 20),
 
-                  if (errorMessage != null)
+                  if (errorText != null)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 16),
                       child: Text(
-                        errorMessage,
+                        errorText,
                         style: AppTextStyles.manrope14.copyWith(
                           color: AppColors.errorColor,
                         ),
@@ -99,12 +108,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     controller: emailController,
                     hint: LocaleKeys.enterEmail.tr(),
                     textInputType: TextInputType.emailAddress,
-                    validate: (value) {
-                      if (value == null || value.isEmpty) {
-                        return LocaleKeys.enterEmail.tr();
-                      }
-                      return null;
-                    },
+                    validate:
+                        (value) =>
+                            value == null || value.isEmpty
+                                ? LocaleKeys.enterEmail.tr()
+                                : null,
                   ),
                   const SizedBox(height: 12),
 
@@ -112,12 +120,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     controller: passwordController,
                     hint: LocaleKeys.password.tr(),
                     obscureText: true,
-                    validate: (value) {
-                      if (value == null || value.isEmpty) {
-                        return LocaleKeys.enterPassword.tr();
-                      }
-                      return null;
-                    },
+                    validate:
+                        (value) =>
+                            value == null || value.isEmpty
+                                ? LocaleKeys.enterPassword.tr()
+                                : null,
                   ),
                   const SizedBox(height: 24),
 
@@ -127,7 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         context.read<ProfileBloc>().add(
                           SignInWithEmailAndPassword(
                             emailController.text.trim(),
-                            passwordController.text,
+                            passwordController.text.trim(),
                           ),
                         );
                       }
