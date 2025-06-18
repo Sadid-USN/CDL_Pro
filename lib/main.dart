@@ -58,36 +58,29 @@ class MyApp extends StatelessWidget {
         BlocProvider<RoadSignBloc>(
           create: (context) => GetIt.I<RoadSignBloc>(),
         ),
-        BlocProvider<ProfileBloc>(
-          create: (context) => GetIt.I<ProfileBloc>(),
-        ),
+        BlocProvider<ProfileBloc>(create: (context) => GetIt.I<ProfileBloc>()),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return ScreenUtilInit(
             minTextAdapt: true,
             builder: (context, child) {
-              return ScreenUtilInit(
-                builder: (context, child) {
-                  return MaterialApp.router(
-                    
-                    theme: lightThemeData(),
-                    darkTheme: darkThemeData(),
-                    themeMode:
-                        state.isDarkMode
-                            ? ThemeMode.dark
-                            : ThemeMode.light, // Используем state
-                    localizationsDelegates: context.localizationDelegates,
-                    supportedLocales: context.supportedLocales,
-                    locale: context.locale,
-                    debugShowCheckedModeBanner: false,
-                    title: 'CDL_pro',
-                    routerConfig: _autorouter.config(
-                      navigatorObservers:
-                          () => [TalkerRouteObserver(GetIt.I<Talker>())],
-                    ),
-                  );
-                },
+              return MaterialApp.router(
+                theme: lightThemeData(),
+                darkTheme: darkThemeData(),
+                themeMode:
+                    state.isDarkMode
+                        ? ThemeMode.dark
+                        : ThemeMode.light, // Используем state
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+                debugShowCheckedModeBanner: false,
+                title: 'CDL_pro',
+                routerConfig: _autorouter.config(
+                  navigatorObservers:
+                      () => [TalkerRouteObserver(GetIt.I<Talker>())],
+                ),
               );
             },
           );

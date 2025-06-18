@@ -1,20 +1,28 @@
 import 'dart:io';
 import 'package:cdl_pro/core/errors/error.dart';
-import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore firebaseStore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth;
+  final FirebaseFirestore firebaseStore;
+  final SecureStorageService _storage;
   late SharedPreferences prefs;
 
-  ProfileBloc() : super(const ProfileState()) {
+  ProfileBloc({
+    FirebaseAuth? auth,
+    FirebaseFirestore? firestore,
+    SecureStorageService? storage,
+    bool initializeOnCreate = false,
+  }) : _auth = auth ?? FirebaseAuth.instance,
+       firebaseStore = firestore ?? FirebaseFirestore.instance,
+       _storage = storage ?? SecureStorageService(),
+       super(const ProfileState()) {
     on<SignInWithEmailAndPassword>(_signInWithEmailAndPassword);
     on<InitializeProfile>(_initializeProfile);
     on<UpdateProfile>(_updateProfile);
@@ -22,7 +30,50 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     on<SignInWithGoogle>(_signInWithGoogle);
     on<SignInWithApple>(_signInWithApple);
     on<SignOut>(_signOut);
+
+    if (initializeOnCreate) {
+      add(InitializeProfile()); // 👈 вызывается автоматически
+    }
   }
+
+  /* -------------------------------------------------------------------------- */
+  /*                              INITIALIZATION                                */
+  /* -------------------------------------------------------------------------- */
+
+  Future<void> _initializeProfile(
+    InitializeProfile event,
+    Emitter<ProfileState> emit,
+  ) async {
+    prefs = await SharedPreferences.getInstance();
+
+    // 1. Пытаемся восстановить пользователя из Firebase SDK
+    User? current = _auth.currentUser;
+
+    // 2. Если пользователя нет, читаем сохранённый токен и пробуем залогиниться
+    if (current == null) {
+      final savedToken = await _storage.readToken();
+      if (savedToken != null) {
+        try {
+          // Custom-token flow: ID-токен сюда не подойдёт, но демонстрация логики:
+          await _auth.signInWithCustomToken(savedToken);
+          current = _auth.currentUser; // после успешного входа
+        } catch (_) {
+          await _storage.deleteToken(); // токен битый → чистим
+        }
+      }
+    }
+
+    // 3. Подписываемся на любые изменения профиля
+    _auth.authStateChanges().listen((User? user) {
+      add(UpdateProfile(user));
+    });
+
+    emit(state.copyWith(user: current));
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                           EMAIL / PASSWORD LOGIN                           */
+  /* -------------------------------------------------------------------------- */
 
   Future<void> _signInWithEmailAndPassword(
     SignInWithEmailAndPassword event,
@@ -31,15 +82,18 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     emit(state.copyWith(isLoading: true, errorMessage: null));
 
     try {
-      final UserCredential userCredential = await _auth
-          .signInWithEmailAndPassword(
-            email: event.email,
-            password: event.password,
-          );
+      final UserCredential cred = await _auth.signInWithEmailAndPassword(
+        email: event.email,
+        password: event.password,
+      );
+
+      // Сохраняем токен — он понадобится при следующем запуске
+      final token = await cred.user?.getIdToken();
+      if (token != null) await _storage.writeToken(token); // NEW
 
       emit(
         state.copyWith(
-          user: userCredential.user,
+          user: cred.user,
           isLoading: false,
           isNewUser: false,
           errorMessage: null,
@@ -47,11 +101,10 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         ),
       );
     } on FirebaseAuthException catch (e) {
-      final errorType = FirebaseErrorHandler.fromCode(e.code);
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: errorType,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
           isNewUser: false,
           lastEvent: event,
         ),
@@ -68,25 +121,9 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
-  Future<void> _initializeProfile(
-    InitializeProfile event,
-    Emitter<ProfileState> emit,
-  ) async {
-    prefs = await SharedPreferences.getInstance();
-
-    _auth.authStateChanges().listen((User? user) {
-      add(UpdateProfile(user));
-    });
-
-    emit(state.copyWith(user: _auth.currentUser));
-  }
-
-  Future<void> _updateProfile(
-    UpdateProfile event,
-    Emitter<ProfileState> emit,
-  ) async {
-    emit(state.copyWith(user: event.user, isLoading: false));
-  }
+  /* -------------------------------------------------------------------------- */
+  /*                               REGISTRATION                                 */
+  /* -------------------------------------------------------------------------- */
 
   Future<void> _signUpWithEmailAndPassword(
     SignUpWithEmailAndPassword event,
@@ -95,19 +132,22 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     emit(state.copyWith(isLoading: true, errorMessage: null, isNewUser: true));
 
     try {
-      final UserCredential userCredential = await _auth
-          .createUserWithEmailAndPassword(
-            email: event.email,
-            password: event.password,
-          );
-
-      await firebaseStore.collection('users').doc(userCredential.user?.uid).set(
-        {'email': event.email, 'createdAt': FieldValue.serverTimestamp()},
+      final UserCredential cred = await _auth.createUserWithEmailAndPassword(
+        email: event.email,
+        password: event.password,
       );
+
+      await firebaseStore.collection('users').doc(cred.user?.uid).set({
+        'email': event.email,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+
+      final token = await cred.user?.getIdToken();
+      if (token != null) await _storage.writeToken(token); // NEW
 
       emit(
         state.copyWith(
-          user: userCredential.user,
+          user: cred.user,
           isLoading: false,
           errorMessage: null,
           isNewUser: true,
@@ -115,12 +155,11 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         ),
       );
     } on FirebaseAuthException catch (e) {
-      final errorType = FirebaseErrorHandler.fromCode(e.code);
       emit(
         state.copyWith(
           isLoading: false,
-          errorMessage: errorType,
-          isNewUser: errorType != FirebaseAuthErrorType.emailAlreadyInUse,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+          isNewUser: e.code != 'email-already-in-use',
           lastEvent: event,
         ),
       );
@@ -135,6 +174,10 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
       );
     }
   }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 GOOGLE                                     */
+  /* -------------------------------------------------------------------------- */
 
   Future<void> _signInWithGoogle(
     SignInWithGoogle event,
@@ -148,31 +191,32 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         return;
       }
 
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-      final OAuthCredential credential = GoogleAuthProvider.credential(
+      final googleAuth = await googleUser.authentication;
+      final cred = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      final UserCredential userCredential = await _auth.signInWithCredential(
-        credential,
-      );
+      final UserCredential userCred = await _auth.signInWithCredential(cred);
 
-      if (userCredential.additionalUserInfo?.isNewUser ?? false) {
-        await firebaseStore
-            .collection('users')
-            .doc(userCredential.user?.uid)
-            .set({
-              'email': userCredential.user?.email,
-              'createdAt': FieldValue.serverTimestamp(),
-            });
+      if (userCred.additionalUserInfo?.isNewUser ?? false) {
+        await firebaseStore.collection('users').doc(userCred.user?.uid).set({
+          'email': userCred.user?.email,
+          'createdAt': FieldValue.serverTimestamp(),
+        });
       }
 
-      emit(state.copyWith(user: userCredential.user, isLoading: false));
+      final token = await userCred.user?.getIdToken();
+      if (token != null) await _storage.writeToken(token); // NEW
+
+      emit(state.copyWith(user: userCred.user, isLoading: false));
     } on FirebaseAuthException catch (e) {
-      final errorType = FirebaseErrorHandler.fromCode(e.code);
-      emit(state.copyWith(isLoading: false, errorMessage: errorType));
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+        ),
+      );
     } catch (_) {
       emit(
         state.copyWith(
@@ -182,6 +226,10 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
       );
     }
   }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   APPLE                                    */
+  /* -------------------------------------------------------------------------- */
 
   Future<void> _signInWithApple(
     SignInWithApple event,
@@ -189,36 +237,38 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
-      final appleProvider = AppleAuthProvider();
-      if (Platform.isIOS) {
-        final UserCredential userCredential = await _auth.signInWithProvider(
-          appleProvider,
-        );
-
-        if (userCredential.additionalUserInfo?.isNewUser ?? false) {
-          await firebaseStore
-              .collection('users')
-              .doc(userCredential.user?.uid)
-              .set({
-                'email': userCredential.user?.email,
-                'createdAt': FieldValue.serverTimestamp(),
-              });
-        }
-
-        emit(state.copyWith(user: userCredential.user, isLoading: false));
-      } else {
+      if (!Platform.isIOS) {
         emit(
           state.copyWith(
             isLoading: false,
-            errorMessage:
-                FirebaseAuthErrorType
-                    .unknown, // можно сделать свой enum AppleNotAvailable
+            errorMessage: FirebaseAuthErrorType.unknown,
           ),
         );
+        return;
       }
+
+      final UserCredential userCred = await _auth.signInWithProvider(
+        AppleAuthProvider(),
+      );
+
+      if (userCred.additionalUserInfo?.isNewUser ?? false) {
+        await firebaseStore.collection('users').doc(userCred.user?.uid).set({
+          'email': userCred.user?.email,
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+      }
+
+      final token = await userCred.user?.getIdToken();
+      if (token != null) await _storage.writeToken(token); // NEW
+
+      emit(state.copyWith(user: userCred.user, isLoading: false));
     } on FirebaseAuthException catch (e) {
-      final errorType = FirebaseErrorHandler.fromCode(e.code);
-      emit(state.copyWith(isLoading: false, errorMessage: errorType));
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+        ),
+      );
     } catch (_) {
       emit(
         state.copyWith(
@@ -229,10 +279,26 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
+  /* -------------------------------------------------------------------------- */
+  /*                                   UPDATE                                   */
+  /* -------------------------------------------------------------------------- */
+
+  Future<void> _updateProfile(
+    UpdateProfile event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(user: event.user, isLoading: false));
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   LOGOUT                                   */
+  /* -------------------------------------------------------------------------- */
+
   Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
       await _auth.signOut();
+      await _storage.deleteToken(); // NEW
       emit(state.copyWith(user: null, isLoading: false, errorMessage: null));
     } catch (_) {
       emit(

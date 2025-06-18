@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:cdl_pro/core/constants/constants.dart';
-import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
-import 'package:cdl_pro/presentation/blocs/profile_bloc/profile_bloc.dart';
+import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:dio/dio.dart';
@@ -14,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get_it/get_it.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
@@ -34,7 +31,7 @@ Future<void> initDependencies() async {
   );
   GetIt.I.registerSingleton(talker);
   await EasyLocalization.ensureInitialized();
-  await Hive.initFlutter();
+
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   if (Platform.isAndroid) {
@@ -94,5 +91,7 @@ Future<void> initDependencies() async {
   GetIt.I.registerLazySingleton(() => RoadSignBloc([]));
 
   GetIt.I.registerLazySingleton(() => CDLTestsBloc(prefs));
-  GetIt.I.registerLazySingleton(() => ProfileBloc());
+  GetIt.I.registerLazySingleton<ProfileBloc>(
+    () => ProfileBloc(initializeOnCreate: true),
+  );
 }

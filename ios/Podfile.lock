@@ -1292,6 +1292,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_native_splash (2.4.3):
     - Flutter
+  - flutter_secure_storage (6.0.0):
+    - Flutter
   - geolocator_apple (1.2.0):
     - Flutter
     - FlutterMacOS
@@ -1502,6 +1504,7 @@ DEPENDENCIES:
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/darwin`)
   - google_mlkit_commons (from `.symlinks/plugins/google_mlkit_commons/ios`)
   - google_mlkit_translation (from `.symlinks/plugins/google_mlkit_translation/ios`)
@@ -1565,6 +1568,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_native_splash:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   geolocator_apple:
     :path: ".symlinks/plugins/geolocator_apple/darwin"
   google_mlkit_commons:
@@ -1605,6 +1610,7 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: bdd5c8674c4712a98e70287c936bc5cca5d640f6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_native_splash: c32d145d68aeda5502d5f543ee38c192065986cf
+  flutter_secure_storage: 1ed9476fba7e7a782b22888f956cce43e2c62f13
   geolocator_apple: ab36aa0e8b7d7a2d7639b3b4e48308394e8cef5e
   google_mlkit_commons: 2abe6a70e1824e431d16a51085cb475b672c8aab
   google_mlkit_translation: 0af4cf99ea8459b5864e4c89e36a7c45a1300ef6
