@@ -61,5 +61,7 @@ abstract class  LocaleKeys {
   static const emailAlreadyInUse = 'emailAlreadyInUse';
   static const incorrectEmailOrPassword = 'incorrectEmailOrPassword';
   static const loginError = 'loginError';
+  static const logOut = 'logOut';
+  static const deleteAccount = 'deleteAccount';
 
 }

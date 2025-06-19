@@ -40,6 +40,6 @@ class UpdateProfile extends AbstractProfileEvent {
 class SignOut extends AbstractProfileEvent {}
 class SignInWithGoogle extends AbstractProfileEvent {}
 
-class SignInWithApple extends AbstractProfileEvent {}
+class SignInWithAppleEvent extends AbstractProfileEvent {}
 
 class InitializeProfile extends AbstractProfileEvent {}

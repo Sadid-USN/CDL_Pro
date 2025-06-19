@@ -56,5 +56,8 @@
   "notification": "Уведомление",
   "emailAlreadyInUse": "Email {email} уже используется другим пользователем.",
   "incorrectEmailOrPassword": "Неверный email или пароль",
-  "loginError": "Ошибка входа"
+  "loginError": "Ошибка входа",
+  "logOut": "Выйти",
+  "deleteAccount": "Удалить аккаунт"
+  
 }

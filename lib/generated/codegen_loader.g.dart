@@ -72,7 +72,9 @@ class CodegenLoader extends AssetLoader{
   "notification": "Уведомление",
   "emailAlreadyInUse": "Email {email} уже используется другим пользователем.",
   "incorrectEmailOrPassword": "Неверный email или пароль",
-  "loginError": "Ошибка входа"
+  "loginError": "Ошибка входа",
+  "logOut": "Выйти",
+  "deleteAccount": "Удалить аккаунт"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -131,7 +133,9 @@ static const Map<String,dynamic> _uk = {
   "notification": "Сповіщення",
   "emailAlreadyInUse": "Цей e-mail {email} вже використовується іншим користувачем.",
   "incorrectEmailOrPassword": "Невірний email або пароль",
-  "loginError": "Помилка входу"
+  "loginError": "Помилка входу",
+  "logOut": "Вийти",
+  "deleteAccount": "Видалити акаунт"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -191,7 +195,9 @@ static const Map<String,dynamic> _en = {
   "notification": "Notification",
   "ok": "Ok",
   "incorrectEmailOrPassword": "Incorrect Email or Password",
-  "loginError": "Login Error"
+  "loginError": "Login Error",
+  "logOut": "Log Out",
+  "deleteAccount": "Delete Account"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -251,7 +257,9 @@ static const Map<String,dynamic> _es = {
   "notification": "Notificación",
   "emailAlreadyInUse": "Este correo electrónico {email} ya está siendo utilizado por otro usuario.",
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
-  "loginError": "Error de inicio de sesión"
+  "loginError": "Error de inicio de sesión",
+  "logOut": "Cerrar sesión",
+  "deleteAccount": "Eliminar cuenta"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

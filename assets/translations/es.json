@@ -56,5 +56,7 @@
   "notification": "Notificación",
   "emailAlreadyInUse": "Este correo electrónico {email} ya está siendo utilizado por otro usuario.",
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
-  "loginError": "Error de inicio de sesión"
+  "loginError": "Error de inicio de sesión",
+  "logOut": "Cerrar sesión",
+  "deleteAccount": "Eliminar cuenta"
 }

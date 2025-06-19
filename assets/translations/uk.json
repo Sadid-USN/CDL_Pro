@@ -55,5 +55,7 @@
     "notification": "Сповіщення",
     "emailAlreadyInUse": "Цей e-mail {email} вже використовується іншим користувачем.",
     "incorrectEmailOrPassword": "Невірний email або пароль",
-    "loginError": "Помилка входу"
+    "loginError": "Помилка входу",
+    "logOut": "Вийти",
+    "deleteAccount": "Видалити акаунт"
 }

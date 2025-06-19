@@ -161,7 +161,7 @@ class LoginView extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            context.read<ProfileBloc>().add(SignInWithApple());
+                            context.read<ProfileBloc>().add(SignInWithAppleEvent());
                           },
                           icon: SvgPicture.asset(
                             AppLogos.appleIcon,
