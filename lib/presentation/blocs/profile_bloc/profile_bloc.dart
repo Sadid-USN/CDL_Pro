@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   final FirebaseAuth _auth;
@@ -28,7 +29,7 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     on<UpdateProfile>(_updateProfile);
     on<SignUpWithEmailAndPassword>(_signUpWithEmailAndPassword);
     on<SignInWithGoogle>(_signInWithGoogle);
-    on<SignInWithApple>(_signInWithApple);
+    on<SignInWithAppleEvent>(_signInWithApple);
     on<SignOut>(_signOut);
 
     if (initializeOnCreate) {
@@ -185,7 +186,12 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAccount? googleUser =
+          await GoogleSignIn(
+            scopes: ['email'],
+            clientId:
+                '899513564439-m718et85g2avme8nhkbmih5isgllc6tv.apps.googleusercontent.com',
+          ).signIn();
       if (googleUser == null) {
         emit(state.copyWith(isLoading: false));
         return;
@@ -231,53 +237,86 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   /*                                   APPLE                                    */
   /* -------------------------------------------------------------------------- */
 
-  Future<void> _signInWithApple(
-    SignInWithApple event,
-    Emitter<ProfileState> emit,
-  ) async {
-    emit(state.copyWith(isLoading: true, errorMessage: null));
-    try {
-      if (!Platform.isIOS) {
-        emit(
-          state.copyWith(
-            isLoading: false,
-            errorMessage: FirebaseAuthErrorType.unknown,
-          ),
-        );
-        return;
-      }
+ Future<void> _signInWithApple(
+  SignInWithAppleEvent event,
+  Emitter<ProfileState> emit,
+) async {
+  print('[Apple Sign-In] Событие получено в методе');
 
-      final UserCredential userCred = await _auth.signInWithProvider(
-        AppleAuthProvider(),
-      );
+  emit(state.copyWith(isLoading: true, errorMessage: null));
 
-      if (userCred.additionalUserInfo?.isNewUser ?? false) {
-        await firebaseStore.collection('users').doc(userCred.user?.uid).set({
-          'email': userCred.user?.email,
-          'createdAt': FieldValue.serverTimestamp(),
-        });
-      }
-
-      final token = await userCred.user?.getIdToken();
-      if (token != null) await _storage.writeToken(token); // NEW
-
-      emit(state.copyWith(user: userCred.user, isLoading: false));
-    } on FirebaseAuthException catch (e) {
-      emit(
-        state.copyWith(
-          isLoading: false,
-          errorMessage: FirebaseErrorHandler.fromCode(e.code),
-        ),
-      );
-    } catch (_) {
-      emit(
-        state.copyWith(
-          isLoading: false,
-          errorMessage: FirebaseAuthErrorType.unknown,
-        ),
-      );
+  try {
+    if (!Platform.isIOS) {
+      print('[Apple Sign-In] Не iOS — выход');
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: FirebaseAuthErrorType.unknown,
+      ));
+      return;
     }
+
+    print('[Apple Sign-In] Запрашиваем getAppleIDCredential...');
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+    );
+
+    print('[Apple Sign-In] ✅ Credential получен:');
+    print(' - identityToken: ${appleCredential.identityToken}');
+    print(' - authorizationCode: ${appleCredential.authorizationCode}');
+
+    // ❗ Проверка на null — если токены не получены, выходим
+  if (appleCredential.identityToken == null || appleCredential.authorizationCode == null)
+
+        {
+      print('[Apple Sign-In] ❌ Токены не получены, выход');
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: FirebaseAuthErrorType.unknown,
+      ));
+      return;
+    }
+
+    final oauthCredential = OAuthProvider("apple.com").credential(
+      idToken: appleCredential.identityToken,
+      accessToken: appleCredential.authorizationCode,
+    );
+
+    final userCred = await _auth.signInWithCredential(oauthCredential);
+    print('[Apple Sign-In] ✅ Firebase логин прошёл');
+
+    if (userCred.additionalUserInfo?.isNewUser ?? false) {
+      await firebaseStore.collection('users').doc(userCred.user?.uid).set({
+        'email': userCred.user?.email,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    }
+
+    final token = await userCred.user?.getIdToken();
+    if (token != null) await _storage.writeToken(token);
+
+    emit(state.copyWith(user: userCred.user, isLoading: false));
+    print('[Apple Sign-In] ✅ Вход завершён успешно');
+  } on SignInWithAppleAuthorizationException catch (e) {
+    print('[Apple Sign-In] AppleAuthException: ${e.code}');
+    if (e.code == AuthorizationErrorCode.canceled) {
+      emit(state.copyWith(isLoading: false));
+    } else {
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: FirebaseAuthErrorType.unknown,
+      ));
+    }
+  } catch (e, s) {
+    print('[Apple Sign-In] ❌ НЕИЗВЕСТНАЯ ОШИБКА: $e\n$s');
+    emit(state.copyWith(
+      isLoading: false,
+      errorMessage: FirebaseAuthErrorType.unknown,
+    ));
   }
+}
 
   /* -------------------------------------------------------------------------- */
   /*                                   UPDATE                                   */
