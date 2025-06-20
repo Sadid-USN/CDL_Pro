@@ -16547,7 +16547,10 @@
                             "C": "Взрывчатое содержимое"
                         },
                         "correct_option": "C",
-                        "description": "Оранжевая табличка предупреждает, что грузовик перевозит взрывчатые вещества — знак предостережения соблюдать осторожность."
+                        "description": "Оранжевая табличка предупреждает, что грузовик перевозит взрывчатые вещества — знак предостережения соблюдать осторожность.",
+                        "images": [
+                            "https://firebasestorage.googleapis.com/v0/b/cdl-pro-cb12c.firebasestorage.app/o/CDL%20PRO%20Images%2Fexplosive.jpeg?alt=media&token=d67c3394-6d0e-48b4-b059-d20e6bff5ea0"
+                        ]
                     }
                 },
                 "21": {
