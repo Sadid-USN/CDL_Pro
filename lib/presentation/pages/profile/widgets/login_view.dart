@@ -135,7 +135,9 @@ class LoginView extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            context.read<ProfileBloc>().add(SignInWithGoogle());
+                             context.read<ProfileBloc>().add(
+                              SignInWithGoogle(),
+                            );
                           },
                           icon: SvgPicture.asset(
                             AppLogos.googleIcon,
@@ -161,7 +163,9 @@ class LoginView extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            context.read<ProfileBloc>().add(SignInWithAppleEvent());
+                            context.read<ProfileBloc>().add(
+                              SignInWithAppleEvent(),
+                            );
                           },
                           icon: SvgPicture.asset(
                             AppLogos.appleIcon,

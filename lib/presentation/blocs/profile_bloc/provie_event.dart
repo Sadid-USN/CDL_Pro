@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -9,6 +8,7 @@ abstract class AbstractProfileEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class DeleteAccount extends AbstractProfileEvent {}
 
 class SignInWithEmailAndPassword extends AbstractProfileEvent {
   final String email;
@@ -19,6 +19,7 @@ class SignInWithEmailAndPassword extends AbstractProfileEvent {
   @override
   List<Object?> get props => [email, password];
 }
+
 class SignUpWithEmailAndPassword extends AbstractProfileEvent {
   final String email;
   final String password;
@@ -28,6 +29,7 @@ class SignUpWithEmailAndPassword extends AbstractProfileEvent {
   @override
   List<Object?> get props => [email, password];
 }
+
 class UpdateProfile extends AbstractProfileEvent {
   final User? user;
 
@@ -38,6 +40,7 @@ class UpdateProfile extends AbstractProfileEvent {
 }
 
 class SignOut extends AbstractProfileEvent {}
+
 class SignInWithGoogle extends AbstractProfileEvent {}
 
 class SignInWithAppleEvent extends AbstractProfileEvent {}

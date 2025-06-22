@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
@@ -122,18 +120,8 @@ class ProfileView extends StatelessWidget {
                           ),
                     );
 
-                    if (confirmed == true) {
-                      try {
-                        await user.delete();
-                        if (context.mounted) {
-                          context.read<ProfileBloc>().add(SignOut());
-                        }
-                      } catch (e) {
-                        if (!context.mounted) return;
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('deleteAccountError')),
-                        );
-                      }
+                    if (confirmed == true && context.mounted) {
+                      context.read<ProfileBloc>().add(DeleteAccount());
                     }
                   },
                 ),
