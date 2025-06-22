@@ -1,11 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:cdl_pro/domain/domain.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
+  final SharedPreferences _prefs;
+  final AbstractUserRepo _userRepo;
+  final FirebaseFirestore _firestore;
+
   bool _isPremium = false;
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
@@ -13,7 +21,6 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   int _currentQuestionIndex = 0;
   bool _quizCompleted = false;
   String _selectedLanguage = 'en';
-  final SharedPreferences _prefs;
   String? _currentQuizId;
   Timer? _timer;
   Duration _elapsedTime = Duration.zero;
@@ -21,7 +28,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
       StreamController<Duration>.broadcast();
   Stream<Duration> get timerStream => _timerController.stream;
 
-  CDLTestsBloc(this._prefs) : super(PremiumInitial()) {
+  CDLTestsBloc(this._prefs, this._userRepo, this._firestore)
+    : super(PremiumInitial()) {
     on<CheckPremiumStatus>(_onCheckPremiumStatus);
     on<PurchasePremium>(_onPurchasePremium);
     on<LoadQuizEvent>(_onLoadQuiz);
@@ -140,31 +148,80 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     );
   }
 
-  // Update loadProgress to load timer state for specific quiz
   Future<void> loadProgress(String quizId) async {
-    _currentQuizId = quizId;
+    final uid = _userRepo.currentUid;
+    if (uid == null) return;
 
-    final page = _prefs.getInt('${quizId}_currentPage') ?? 0;
-    final answersJson = _prefs.getString('${quizId}_userAnswers');
-    final language = _prefs.getString('${quizId}_language') ?? 'en';
-    final elapsedSeconds = _prefs.getInt('${quizId}_elapsedTime') ?? 0;
+    final settingsBloc = GetIt.I<SettingsBloc>();
+    final langCode = settingsBloc.currentLangCode;
+    final collectionName = _getCollectionNameByLanguage(langCode);
 
-    _currentQuestionIndex = page;
-    _selectedLanguage = language;
-    _userAnswers =
-        answersJson != null
-            ? Map<String, String>.from(jsonDecode(answersJson))
-            : {};
-    _elapsedTime = Duration(seconds: elapsedSeconds);
-    _timerController.add(_elapsedTime);
+    try {
+      final snapshot =
+          await _firestore
+              .collection(collectionName)
+              .doc(uid)
+              .collection(collectionName)
+              .doc(quizId)
+              .get();
+
+      if (!snapshot.exists) return;
+
+      final data = snapshot.data()!;
+      _currentQuestionIndex = data['currentPage'] ?? 0;
+      _userAnswers = Map<String, String>.from(data['answers'] ?? {});
+      _selectedLanguage = data['language'] ?? 'en';
+      _elapsedTime = Duration(seconds: data['elapsedTime'] ?? 0);
+      _timerController.add(_elapsedTime);
+    } catch (e) {
+      print('Ошибка при загрузке прогресса: $e');
+    }
   }
 
-  void _onSaveQuizProgress(
-    SaveQuizProgressEvent event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) async {
-    await saveProgress();
+  String _getCollectionNameByLanguage(String code) {
+    switch (code) {
+      case 'ru':
+        return 'CDLTestsRu';
+      case 'es':
+        return 'CDLTestsEs';
+      case 'uk':
+        return 'CDLTestsUk';
+      case 'en':
+      default:
+        return 'CDLTests';
+    }
   }
+void _onSaveQuizProgress(
+  SaveQuizProgressEvent event,
+  Emitter<AbstractCDLTestsState> emit,
+) async {
+  final uid = _userRepo.currentUid;
+  if (uid == null || _currentQuizId == null) return;
+
+  final settingsBloc = GetIt.I<SettingsBloc>();
+  final langCode = settingsBloc.currentLangCode;
+  final collectionName = _getCollectionNameByLanguage(langCode);
+
+  final data = {
+    'quizId': _currentQuizId,
+    'answers': _userAnswers,
+    'currentPage': _currentQuestionIndex,
+    'language': _selectedLanguage,
+    'elapsedTime': _elapsedTime.inSeconds,
+    'updatedAt': FieldValue.serverTimestamp(),
+  };
+
+  try {
+    await _firestore
+        .collection(collectionName)
+        .doc(uid)
+        .collection(collectionName)
+        .doc(_currentQuizId)
+        .set(data, SetOptions(merge: true));
+  } catch (e) {
+    print('Ошибка при сохранении прогресса: $e');
+  }
+}
 
   void _onLoadQuizProgress(
     LoadQuizProgressEvent event,

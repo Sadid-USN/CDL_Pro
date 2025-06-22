@@ -28,15 +28,16 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
-        if (state.user != null) {
-          // Очистим поля только при успешной авторизации
+        if (state.user == null) {
           emailController.clear();
           passwordController.clear();
         }
       },
       builder: (context, state) {
+        debugPrint('ProfilePage builder: user=${state.user}');
+        
         if (state.isLoading) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (state.user == null) {
@@ -44,10 +45,10 @@ class _ProfilePageState extends State<ProfilePage> {
             formKey: _formKey,
             emailController: emailController,
             passwordController: passwordController,
-            error: state.errorMessage,
-            state: state,
+            error: state.errorMessage, state: state,
           );
         }
+
         return ProfileView(user: state.user!);
       },
     );

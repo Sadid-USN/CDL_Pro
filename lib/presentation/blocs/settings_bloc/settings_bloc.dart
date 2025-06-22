@@ -29,7 +29,7 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
   }
 
   Stream<QuerySnapshot>? get collection => state.collectionStream;
-
+  String get currentLangCode => getLanguageCode(state.selectedLang);
   Future<void> saveCollectionToCache(
     String key,
     List<Map<String, dynamic>> data,
