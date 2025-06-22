@@ -165,7 +165,20 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     SizedBox(height: 10.h),
 
-                    _buildLoginTextButton(context),
+                    TextButton(
+                      onPressed: () {
+                     
+                        navigateToPage(
+                          context,
+                          route: ProfileRoute(),
+                          clearStack: true,
+                        );
+                      },
+                      child: Text(
+                        LocaleKeys.login.tr(),
+                        style: AppTextStyles.manropeBold12,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -237,12 +250,13 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  Widget _buildLoginTextButton(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        navigateToPage(context, route: ProfileRoute(), clearStack: true);
-      },
-      child: Text(LocaleKeys.login.tr(), style: AppTextStyles.manropeBold12),
-    );
-  }
+  // Widget _buildLoginTextButton(BuildContext context) {
+  //   return TextButton(
+  //     onPressed: () {
+  //       context.read<ProfileBloc>().add(UpdateProfile(null));
+  //       navigateToPage(context, route: ProfileRoute(), clearStack: true);
+  //     },
+  //     child: Text(LocaleKeys.login.tr(), style: AppTextStyles.manropeBold12),
+  //   );
+  // }
 }

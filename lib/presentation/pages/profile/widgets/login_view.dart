@@ -28,10 +28,13 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final errorText =
-        error != null && state.lastEvent is SignInWithEmailAndPassword
-            ? FirebaseErrorHandler.getErrorKey(error!)
-            : null;
+    final errorText = switch (error) {
+      FirebaseAuthErrorType.wrongPassword ||
+      FirebaseAuthErrorType.userNotFound ||
+      FirebaseAuthErrorType
+          .invalidEmail => FirebaseErrorHandler.getErrorKey(error!),
+      _ => null,
+    };
 
     return Center(
       child: SingleChildScrollView(
@@ -135,9 +138,7 @@ class LoginView extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                             context.read<ProfileBloc>().add(
-                              SignInWithGoogle(),
-                            );
+                            context.read<ProfileBloc>().add(SignInWithGoogle());
                           },
                           icon: SvgPicture.asset(
                             AppLogos.googleIcon,

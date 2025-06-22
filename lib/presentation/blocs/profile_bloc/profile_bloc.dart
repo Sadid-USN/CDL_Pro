@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-
 class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   final FirebaseAuth _auth;
   final FirebaseFirestore firebaseStore;
@@ -138,107 +137,34 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
- Future<void> _signInWithGoogle(
-  SignInWithGoogle event,
-  Emitter<ProfileState> emit,
-) async {
-  emit(state.copyWith(isLoading: true, errorMessage: null));
-
-  try {
-    final googleSignIn = GoogleSignIn(
-      scopes: ['email'],
-      // Remove the clientId parameter if you're using the default configuration
-      // Only specify clientId if you have a specific iOS client ID to use
-    );
-
-    final googleUser = await googleSignIn.signIn();
-    if (googleUser == null) {
-      emit(state.copyWith(isLoading: false));
-      return;
-    }
-
-    final googleAuth = await googleUser.authentication;
-    final cred = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    final userCred = await _auth.signInWithCredential(cred);
-
-    // Handle new user creation
-    if (userCred.additionalUserInfo?.isNewUser ?? false) {
-      await firebaseStore.collection('users').doc(userCred.user?.uid).set({
-        'email': userCred.user?.email,
-        'createdAt': FieldValue.serverTimestamp(),
-      });
-    }
-
-    final token = await userCred.user?.getIdToken();
-    if (token != null) await _storage.writeToken(token);
-
-    // Explicitly update the user state
-    emit(state.copyWith(
-      user: userCred.user, 
-      isLoading: false,
-      errorMessage: null,
-    ));
-    
-    // Add explicit UpdateProfile event
-    add(UpdateProfile(userCred.user));
-  } on FirebaseAuthException catch (e) {
-    emit(
-      state.copyWith(
-        isLoading: false,
-        errorMessage: FirebaseErrorHandler.fromCode(e.code),
-      ),
-    );
-  } catch (e) {
-    debugPrint('Google Sign-In Error: $e');
-    emit(
-      state.copyWith(
-        isLoading: false,
-        errorMessage: FirebaseAuthErrorType.unknown,
-      ),
-    );
-  }
-}
-  Future<void> _signInWithApple(
-    SignInWithAppleEvent event,
+  Future<void> _signInWithGoogle(
+    SignInWithGoogle event,
     Emitter<ProfileState> emit,
   ) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
 
     try {
-      if (!Platform.isIOS) {
-        emit(
-          state.copyWith(
-            isLoading: false,
-            errorMessage: FirebaseAuthErrorType.unknown,
-          ),
-        );
-        return;
-      }
-
-      final appleCredential = await SignInWithApple.getAppleIDCredential(
-        scopes: [AppleIDAuthorizationScopes.email],
+      final googleSignIn = GoogleSignIn(
+        scopes: ['email'],
+        // Remove the clientId parameter if you're using the default configuration
+        // Only specify clientId if you have a specific iOS client ID to use
       );
 
-      if (appleCredential.identityToken == null) {
-        emit(
-          state.copyWith(
-            isLoading: false,
-            errorMessage: FirebaseAuthErrorType.unknown,
-          ),
-        );
+      final googleUser = await googleSignIn.signIn();
+      if (googleUser == null) {
+        emit(state.copyWith(isLoading: false));
         return;
       }
 
-      final oauthCredential = OAuthProvider(
-        "apple.com",
-      ).credential(idToken: appleCredential.identityToken);
+      final googleAuth = await googleUser.authentication;
+      final cred = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
 
-      final userCred = await _auth.signInWithCredential(oauthCredential);
+      final userCred = await _auth.signInWithCredential(cred);
 
+      // Handle new user creation
       if (userCred.additionalUserInfo?.isNewUser ?? false) {
         await firebaseStore.collection('users').doc(userCred.user?.uid).set({
           'email': userCred.user?.email,
@@ -249,8 +175,141 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
       final token = await userCred.user?.getIdToken();
       if (token != null) await _storage.writeToken(token);
 
-      emit(state.copyWith(user: userCred.user, isLoading: false));
+      // Explicitly update the user state
+      emit(
+        state.copyWith(
+          user: userCred.user,
+          isLoading: false,
+          errorMessage: null,
+        ),
+      );
+
+      // Add explicit UpdateProfile event
+      add(UpdateProfile(userCred.user));
+    } on FirebaseAuthException catch (e) {
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+        ),
+      );
+    } catch (e) {
+      debugPrint('Google Sign-In Error: $e');
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseAuthErrorType.unknown,
+        ),
+      );
+    }
+  }
+
+  Future<void> _signInWithApple(
+    SignInWithAppleEvent event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(isLoading: true, errorMessage: null, lastEvent: event));
+
+    try {
+      // Проверка платформы
+      if (!Platform.isIOS && !Platform.isMacOS) {
+        emit(
+          state.copyWith(
+            isLoading: false,
+            errorMessage: FirebaseAuthErrorType.unknown,
+          ),
+        );
+        return;
+      }
+
+      // Получение учетных данных Apple
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+      );
+
+      // Проверка токена
+      if (appleCredential.identityToken == null) {
+        emit(
+          state.copyWith(
+            isLoading: false,
+            errorMessage: FirebaseAuthErrorType.userNotFound,
+          ),
+        );
+        return;
+      }
+
+      // Создание учетных данных Firebase
+      final oauthCredential = OAuthProvider("apple.com").credential(
+        idToken: appleCredential.identityToken,
+        accessToken: appleCredential.authorizationCode,
+      );
+
+      // Аутентификация в Firebase
+      final userCred = await _auth.signInWithCredential(oauthCredential);
+      final user = userCred.user;
+
+      if (user == null) {
+        emit(
+          state.copyWith(
+            isLoading: false,
+            errorMessage: FirebaseAuthErrorType.userNotFound,
+          ),
+        );
+        return;
+      }
+
+      // Обработка нового пользователя
+      if (userCred.additionalUserInfo?.isNewUser ?? false) {
+        final email = appleCredential.email ?? user.email;
+        final displayName =
+            appleCredential.givenName != null
+                ? '${appleCredential.givenName} ${appleCredential.familyName ?? ''}'
+                    .trim()
+                : null;
+
+        // Сохранение данных пользователя
+        final userData = {
+          'email': email,
+          'emailVerified': true,
+          'isEmailHidden': appleCredential.email == null,
+          'authProvider': 'apple.com',
+          'createdAt': FieldValue.serverTimestamp(),
+          'updatedAt': FieldValue.serverTimestamp(),
+        };
+
+        if (displayName != null) {
+          userData['displayName'] = displayName;
+          await user.updateDisplayName(displayName);
+        }
+
+        await firebaseStore
+            .collection('users')
+            .doc(user.uid)
+            .set(userData, SetOptions(merge: true));
+      }
+
+      // Сохранение токена
+      final token = await user.getIdToken();
+      if (token != null) {
+        await _storage.writeToken(token);
+      }
+
+      // Успешное завершение
+      emit(
+        state.copyWith(
+          user: user,
+          isLoading: false,
+          errorMessage: null,
+          lastEvent: event,
+        ),
+      );
+
+      add(UpdateProfile(user));
     } on SignInWithAppleAuthorizationException catch (e) {
+      // Ошибка авторизации Apple
       emit(
         state.copyWith(
           isLoading: false,
@@ -258,8 +317,59 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
               e.code == AuthorizationErrorCode.canceled
                   ? null
                   : FirebaseAuthErrorType.unknown,
+          lastEvent: event,
         ),
       );
+    } on FirebaseAuthException catch (e) {
+      // Ошибка Firebase Auth
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+          lastEvent: event,
+        ),
+      );
+    } catch (e, stackTrace) {
+      // Неизвестная ошибка
+      debugPrint('Apple Sign-In Error: $e\n$stackTrace');
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseAuthErrorType.unknown,
+          lastEvent: event,
+        ),
+      );
+    }
+  }
+
+  Future<void> _updateProfile(
+    UpdateProfile event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(
+      state.copyWith(user: event.user, isLoading: false, errorMessage: null),
+    );
+  }
+
+  Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
+    try {
+      await _auth.signOut();
+      await _storage.deleteToken();
+
+      // Явно устанавливаем user в null
+      emit(
+        ProfileState(
+          user: null,
+          isLoading: false,
+          errorMessage: null,
+          isNewUser: false,
+        ),
+      );
+
+      // Добавляем явный вызов UpdateProfile(null)
+      add(UpdateProfile(null));
     } catch (e) {
       emit(
         state.copyWith(
@@ -270,56 +380,39 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
-Future<void> _updateProfile(
-  UpdateProfile event,
-  Emitter<ProfileState> emit,
-) async {
-  emit(state.copyWith(
-    user: event.user,
-    isLoading: false,
-  ));
-}
- Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
-  emit(state.copyWith(isLoading: true));
-  
-  try {
-    await _auth.signOut();
-    await _storage.deleteToken();
-    
-    // Явно устанавливаем user в null
-    emit(ProfileState(
-      user: null,
-      isLoading: false,
-      errorMessage: null,
-      isNewUser: false,
-    ));
-    
-    // Добавляем явный вызов UpdateProfile(null)
-    add(UpdateProfile(null));
-  } catch (e) {
-    emit(state.copyWith(
-      isLoading: false,
-      errorMessage: FirebaseAuthErrorType.unknown,
-    ));
-  }
-}
   Future<void> _deleteAccount(
     DeleteAccount event,
     Emitter<ProfileState> emit,
   ) async {
     emit(state.copyWith(isLoading: true));
+
     try {
       final user = _auth.currentUser;
       if (user != null) {
+        // 1. Удаляем данные пользователя
         await firebaseStore.collection('users').doc(user.uid).delete();
+
+        // 2. Удаляем аккаунт в Firebase
         await user.delete();
+
+        // 3. Удаляем токен
         await _storage.deleteToken();
-        emit(state.copyWith(
-          lastEvent: event,
-          user: null, 
-          isLoading: false));
+
+        // 4. Явный выход из системы
+        await _auth.signOut();
+
+        // 5. Полный сброс состояния БЕЗ lastEvent
+        emit(
+          const ProfileState(
+            user: null,
+            isLoading: false,
+            errorMessage: null,
+            isNewUser: false,
+          ),
+        );
       }
-    } catch (_) {
+    } catch (e, stackTrace) {
+      debugPrint('Delete account error: $e\n$stackTrace');
       emit(
         state.copyWith(
           isLoading: false,

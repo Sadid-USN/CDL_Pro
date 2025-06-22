@@ -26,31 +26,46 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProfileBloc, ProfileState>(
+    return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) {
         if (state.user == null) {
           emailController.clear();
           passwordController.clear();
+          // // Автоматический переход при logout/delete
+          // WidgetsBinding.instance.addPostFrameCallback((_) {
+          //   if (state.user == null && mounted) {
+          //     context.router.replaceAll([const LoginRoute()]);
+          //   }
+          // });
         }
       },
-      builder: (context, state) {
-        debugPrint('ProfilePage builder: user=${state.user}');
-        
-        if (state.isLoading) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        if (state.user == null) {
-          return LoginView(
-            formKey: _formKey,
-            emailController: emailController,
-            passwordController: passwordController,
-            error: state.errorMessage, state: state,
+      child: BlocBuilder<ProfileBloc, ProfileState>(
+        buildWhen: (previous, current) {
+          // Перестраиваем только при изменении ключевых параметров
+          return previous.user != current.user ||
+              previous.isLoading != current.isLoading;
+        },
+        builder: (context, state) {
+          debugPrint(
+            'ProfilePage builder: user=${state.user?.uid}, isLoading=${state.isLoading}',
           );
-        }
 
-        return ProfileView(user: state.user!);
-      },
+          if (state.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          return state.user == null
+              ? LoginView(
+                key: const ValueKey('LoginView'),
+                formKey: _formKey,
+                emailController: emailController,
+                passwordController: passwordController,
+                error: state.errorMessage,
+                state: state,
+              )
+              : ProfileView(user: state.user!);
+        },
+      ),
     );
   }
 }
