@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
           return state.user == null
               ? LoginView(
-                key: const ValueKey('LoginView'),
+                // key: const ValueKey('LoginView'),
                 formKey: _formKey,
                 emailController: emailController,
                 passwordController: passwordController,

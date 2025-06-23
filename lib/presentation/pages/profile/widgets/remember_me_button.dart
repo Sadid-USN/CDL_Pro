@@ -6,7 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RememberMeButton extends StatelessWidget {
-  const RememberMeButton({super.key});
+  final TextEditingController emailController; // 🆕 Принимаем контроллеры
+  final TextEditingController passwordController;
+
+  const RememberMeButton({
+    super.key,
+    required this.emailController,
+    required this.passwordController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,11 @@ class RememberMeButton extends StatelessWidget {
               value: state.rememberMe,
               onChanged: (bool? value) {
                 context.read<ProfileBloc>().add(
-                  RememberMeChanged(value ?? false),
+                  RememberMeChanged(
+                    rememberMe: value ?? false,
+                    email: emailController.text, // 🆕 Передаем текущий email
+                    password: passwordController.text, // 🆕 Передаем текущий password
+                  ),
                 );
               },
               fillColor: WidgetStateProperty.resolveWith<Color>((

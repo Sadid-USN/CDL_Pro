@@ -73,7 +73,7 @@ class LoginView extends StatelessWidget {
 
                   AppTextFormField(
                     textStyle: AppTextStyles.merriweather14,
-                    
+
                     controller: emailController,
                     hint: LocaleKeys.enterEmail.tr(),
                     textInputType: TextInputType.emailAddress,
@@ -86,7 +86,7 @@ class LoginView extends StatelessWidget {
                   const SizedBox(height: 12),
 
                   AppTextFormField(
-                     textStyle: AppTextStyles.merriweather14,
+                    textStyle: AppTextStyles.merriweather14,
                     controller: passwordController,
                     hint: LocaleKeys.password.tr(),
                     obscureText: true,
@@ -99,7 +99,10 @@ class LoginView extends StatelessWidget {
 
                   //?------------ RememberMeButton -----------//
                   SizedBox(height: 5.h),
-                  RememberMeButton(),
+                  RememberMeButton(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                  ),
                   SizedBox(height: 12.h),
 
                   ElevatedButton(
