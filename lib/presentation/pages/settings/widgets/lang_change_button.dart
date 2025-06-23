@@ -1,4 +1,5 @@
 import 'package:cdl_pro/core/constants/constants.dart';
+import 'package:cdl_pro/core/themes/app_colors.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
@@ -39,7 +40,7 @@ class LangChangeButton extends StatelessWidget {
             AppLogos.language,
             height: 15.h,
             colorFilter: ColorFilter.mode(
-              Theme.of(context).iconTheme.color!,
+              AppColors.whiteColor,
               BlendMode.srcIn,
             ),
           ),

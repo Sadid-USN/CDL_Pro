@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
             minTextAdapt: true,
             builder: (context, child) {
               return MaterialApp.router(
+                
                 theme: lightThemeData(),
                 darkTheme: darkThemeData(),
                 themeMode:
