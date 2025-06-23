@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/enums.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
@@ -29,6 +30,7 @@ class SettingsPage extends StatelessWidget {
                           : LocaleKeys.light.tr(),
                   trailingIcon: Icon(
                     state.isDarkMode ? Icons.nightlight : Icons.wb_sunny,
+                    color: AppColors.whiteColor,
                   ),
                   onTap: () {
                     settingsBloc.add(

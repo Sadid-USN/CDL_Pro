@@ -55,7 +55,8 @@ class AppBottomNavigationBar extends StatelessWidget {
                               : AppColors
                                   .lightPrimary) // Яркий цвет для текущего индекса
                           : (isDark
-                              ? AppColors.greyshade400.withValues(alpha: 0.4)
+                              ?  AppColors
+                                  .darkPrimary
                               : AppColors
                                   .greyshade400), // Тусклый цвет для остальных индексов
                       BlendMode.srcIn,

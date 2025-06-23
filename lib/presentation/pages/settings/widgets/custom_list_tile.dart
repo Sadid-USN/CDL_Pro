@@ -1,5 +1,4 @@
-
-import 'package:cdl_pro/core/themes/themes.dart';
+import 'package:cdl_pro/core/core.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -17,12 +16,14 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).cardColor,
       elevation: 0.5,
       // color: AppColors.lightPrimary,
       child: ListTile(
+        
         title: Text(
           title,
-         // style: AppTextStyles.merriweather12,
+         style: TextTheme.of(context).bodyMedium,
         ),
         trailing: trailingIcon,
         onTap: onTap,
