@@ -50,10 +50,10 @@ ThemeData lightThemeData() {
         color: AppColors.whiteColor,
       ),
       bodySmall: AppTextStyles.merriweather10.copyWith(
-        color: AppColors.whiteColor,
+        color: AppColors.lightPrimary,
       ),
       titleLarge: AppTextStyles.merriweatherBold20.copyWith(
-        color: AppColors.whiteColor,
+        color: AppColors.lightPrimary,
       ),
     ),
     colorScheme: const ColorScheme.light().copyWith(
