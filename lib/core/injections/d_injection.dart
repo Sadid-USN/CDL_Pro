@@ -111,7 +111,7 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton<RoadSignBloc>(() => RoadSignBloc([]));
 
   getIt.registerLazySingleton<ProfileBloc>(
-    () => ProfileBloc(initializeOnCreate: true),
+    () => ProfileBloc(initializeOnCreate: true, prefs: prefs),
   );
   // 4. CDLTestsBloc — регистрируем ПОСЛЕ всех его зависимостей
   getIt.registerLazySingleton<CDLTestsBloc>(

@@ -28,17 +28,17 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) {
-        if (state.user == null) {
+        final bloc = context.read<ProfileBloc>();
+
+        if (state.rememberMe) {
+          emailController.text = bloc.getSavedEmail() ?? '';
+          passwordController.text = bloc.getSavedPassword() ?? '';
+        } else {
           emailController.clear();
           passwordController.clear();
-          // // Автоматический переход при logout/delete
-          // WidgetsBinding.instance.addPostFrameCallback((_) {
-          //   if (state.user == null && mounted) {
-          //     context.router.replaceAll([const LoginRoute()]);
-          //   }
-          // });
         }
       },
+
       child: BlocBuilder<ProfileBloc, ProfileState>(
         buildWhen: (previous, current) {
           // Перестраиваем только при изменении ключевых параметров

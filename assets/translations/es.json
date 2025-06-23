@@ -58,5 +58,6 @@
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
-  "deleteAccount": "Eliminar cuenta"
+  "deleteAccount": "Eliminar cuenta",
+   "rememberMe": "Acuérdate de mí" 
 }
