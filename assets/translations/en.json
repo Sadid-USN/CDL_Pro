@@ -58,5 +58,6 @@
   "incorrectEmailOrPassword": "Incorrect Email or Password",
   "loginError": "Login Error",
   "logOut": "Log Out",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "rememberMe": "Remember me"
 }

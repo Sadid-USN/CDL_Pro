@@ -7,19 +7,32 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
+  // firebase / secure storage (у вас уже были)
   final FirebaseAuth _auth;
   final FirebaseFirestore firebaseStore;
   final SecureStorageService _storage;
 
+  // ➡️ новая зависимость
+  final SharedPreferences _prefs;
+
+  // 🔑 ключи, чтобы не писать строку руками
+  static const _kRememberMeKey = 'remember_me';
+  static const _kEmailKey = 'saved_email';
+  static const _kPasswordKey = 'saved_password';
+
+  // ----------   КОНСТРУКТОР   ----------
   ProfileBloc({
+    required SharedPreferences prefs, // <--- передаём извне
     FirebaseAuth? auth,
     FirebaseFirestore? firestore,
     SecureStorageService? storage,
     bool initializeOnCreate = false,
-  }) : _auth = auth ?? FirebaseAuth.instance,
+  }) : _prefs = prefs,
+       _auth = auth ?? FirebaseAuth.instance,
        firebaseStore = firestore ?? FirebaseFirestore.instance,
        _storage = storage ?? SecureStorageService(),
        super(const ProfileState()) {
@@ -31,16 +44,40 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     on<SignInWithAppleEvent>(_signInWithApple);
     on<SignOut>(_signOut);
     on<DeleteAccount>(_deleteAccount);
+    on<RememberMeChanged>(_onRememberMeChanged);
 
     if (initializeOnCreate) {
       add(InitializeProfile());
     }
   }
 
+  // ───────── геттеры ─────────
+  bool get isRemembered => _prefs.getBool(_kRememberMeKey) ?? false;
+  String? getSavedEmail() => _prefs.getString(_kEmailKey);
+  String? getSavedPassword() => _prefs.getString(_kPasswordKey);
+
+  Future<void> _onRememberMeChanged(
+    RememberMeChanged event,
+    Emitter<ProfileState> emit,
+  ) async {
+    await _prefs.setBool(_kRememberMeKey, event.rememberMe);
+
+    if (!event.rememberMe) {
+      await _prefs.remove(_kEmailKey);
+      await _prefs.remove(_kPasswordKey);
+    }
+
+    emit(state.copyWith(rememberMe: event.rememberMe));
+  }
+
   Future<void> _initializeProfile(
     InitializeProfile event,
     Emitter<ProfileState> emit,
   ) async {
+    final rememberMe = _prefs.getBool(_kRememberMeKey) ?? false;
+
+    emit(state.copyWith(rememberMe: rememberMe));
+
     User? current = _auth.currentUser;
 
     if (current == null) {
@@ -55,11 +92,12 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
       }
     }
 
+    // подписка на изменения
     _auth.authStateChanges().listen((User? user) {
       add(UpdateProfile(user));
     });
 
-    emit(state.copyWith(user: current));
+    emit(state.copyWith(user: current, rememberMe: rememberMe));
   }
 
   Future<void> _signInWithEmailAndPassword(
@@ -77,6 +115,11 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
       final token = await cred.user?.getIdToken();
       if (token != null) await _storage.writeToken(token);
 
+      if (state.rememberMe) {
+        await _prefs.setString(_kEmailKey, event.email);
+        await _prefs.setString(_kPasswordKey, event.password);
+      }
+
       emit(
         state.copyWith(user: cred.user, isLoading: false, errorMessage: null),
       );
@@ -85,6 +128,7 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
         state.copyWith(
           isLoading: false,
           errorMessage: FirebaseErrorHandler.fromCode(e.code),
+          shouldClearLoginFields: !state.rememberMe,
         ),
       );
     } catch (_) {
@@ -365,6 +409,7 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
           isLoading: false,
           errorMessage: null,
           isNewUser: false,
+          rememberMe: state.rememberMe,
         ),
       );
 

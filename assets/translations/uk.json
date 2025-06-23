@@ -57,5 +57,7 @@
     "incorrectEmailOrPassword": "Невірний email або пароль",
     "loginError": "Помилка входу",
     "logOut": "Вийти",
-    "deleteAccount": "Видалити акаунт"
+    "deleteAccount": "Видалити акаунт",
+     "rememberMe": "Пам'ятай мене"
+    
 }

@@ -63,5 +63,6 @@ abstract class  LocaleKeys {
   static const loginError = 'loginError';
   static const logOut = 'logOut';
   static const deleteAccount = 'deleteAccount';
+  static const rememberMe = 'rememberMe';
 
 }

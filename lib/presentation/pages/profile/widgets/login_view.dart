@@ -10,13 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class LoginView extends StatelessWidget {
-  final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
-  final FirebaseAuthErrorType? error;
-  final ProfileState state;
-
+class LoginView extends StatefulWidget {
   const LoginView({
     super.key,
     required this.formKey,
@@ -26,13 +20,37 @@ class LoginView extends StatelessWidget {
     required this.state,
   });
 
+  final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final FirebaseAuthErrorType? error;
+  final ProfileState state;
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  late final ProfileBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = context.read<ProfileBloc>();
+
+    // если rememberMe=true - подставляем сохранённые данные
+    if (_bloc.isRemembered) {
+      widget.emailController.text = _bloc.getSavedEmail() ?? '';
+      widget.passwordController.text = _bloc.getSavedPassword() ?? '';
+    }
+  }
   @override
   Widget build(BuildContext context) {
-    final errorText = switch (error) {
+    final errorText = switch (widget.error) {
       FirebaseAuthErrorType.wrongPassword ||
       FirebaseAuthErrorType.userNotFound ||
       FirebaseAuthErrorType
-          .invalidEmail => FirebaseErrorHandler.getErrorKey(error!),
+          .invalidEmail => FirebaseErrorHandler.getErrorKey(widget.error!),
       _ => null,
     };
 
@@ -46,7 +64,7 @@ class LoginView extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Form(
-              key: formKey,
+              key: widget.formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -70,7 +88,7 @@ class LoginView extends StatelessWidget {
                     ),
 
                   AppTextFormField(
-                    controller: emailController,
+                    controller: widget.emailController,
                     hint: LocaleKeys.enterEmail.tr(),
                     textInputType: TextInputType.emailAddress,
                     validate:
@@ -82,7 +100,7 @@ class LoginView extends StatelessWidget {
                   const SizedBox(height: 12),
 
                   AppTextFormField(
-                    controller: passwordController,
+                    controller: widget.passwordController,
                     hint: LocaleKeys.password.tr(),
                     obscureText: true,
                     validate:
@@ -93,13 +111,48 @@ class LoginView extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
+                  Row(
+                    children: [
+                      BlocBuilder<ProfileBloc, ProfileState>(
+                        builder: (context, state) {
+                          return Checkbox(
+                            value: state.rememberMe,
+                            onChanged: (bool? value) {
+                              context.read<ProfileBloc>().add(
+                                RememberMeChanged(value ?? false),
+                              );
+                            },
+                            fillColor: WidgetStateProperty.resolveWith<Color>((
+                              Set<WidgetState> states,
+                            ) {
+                              return AppColors.lightPrimary.withValues(
+                                alpha: 0.6,
+                              );
+                            }),
+                            checkColor: AppColors.whiteColor,
+                            // side: const BorderSide(
+                            //   color: AppColors.darkBackground,
+                            //   width: 1.5,
+                            // ),
+                          );
+                        },
+                      ),
+                      Text(
+                        LocaleKeys.rememberMe.tr(),
+                        style: AppTextStyles.merriweather8,
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 12),
+
                   ElevatedButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
+                      if (widget.formKey.currentState!.validate()) {
                         context.read<ProfileBloc>().add(
                           SignInWithEmailAndPassword(
-                            emailController.text.trim(),
-                            passwordController.text.trim(),
+                            widget.emailController.text,
+                            widget.passwordController.text,
                           ),
                         );
                       }

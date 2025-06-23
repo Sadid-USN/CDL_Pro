@@ -74,7 +74,8 @@ class CodegenLoader extends AssetLoader{
   "incorrectEmailOrPassword": "Неверный email или пароль",
   "loginError": "Ошибка входа",
   "logOut": "Выйти",
-  "deleteAccount": "Удалить аккаунт"
+  "deleteAccount": "Удалить аккаунт",
+  "rememberMe": "Запомнить меня"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -135,7 +136,8 @@ static const Map<String,dynamic> _uk = {
   "incorrectEmailOrPassword": "Невірний email або пароль",
   "loginError": "Помилка входу",
   "logOut": "Вийти",
-  "deleteAccount": "Видалити акаунт"
+  "deleteAccount": "Видалити акаунт",
+  "rememberMe": "Пам'ятай мене"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -197,7 +199,8 @@ static const Map<String,dynamic> _en = {
   "incorrectEmailOrPassword": "Incorrect Email or Password",
   "loginError": "Login Error",
   "logOut": "Log Out",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "rememberMe": "Remember me"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -259,7 +262,8 @@ static const Map<String,dynamic> _es = {
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
-  "deleteAccount": "Eliminar cuenta"
+  "deleteAccount": "Eliminar cuenta",
+  "rememberMe": "Acuérdate de mí"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
