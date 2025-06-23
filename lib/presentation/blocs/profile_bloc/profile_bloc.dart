@@ -56,20 +56,27 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   String? getSavedEmail() => _prefs.getString(_kEmailKey);
   String? getSavedPassword() => _prefs.getString(_kPasswordKey);
 
-  Future<void> _onRememberMeChanged(
-    RememberMeChanged event,
-    Emitter<ProfileState> emit,
-  ) async {
-    await _prefs.setBool(_kRememberMeKey, event.rememberMe);
+Future<void> _onRememberMeChanged(
+  RememberMeChanged event,
+  Emitter<ProfileState> emit,
+) async {
+  await _prefs.setBool(_kRememberMeKey, event.rememberMe);
 
-    if (!event.rememberMe) {
-      await _prefs.remove(_kEmailKey);
-      await _prefs.remove(_kPasswordKey);
+  if (event.rememberMe) {
+    // 🔄 Сохраняем текущие email и password, если они переданы
+    if (event.email != null && event.email!.isNotEmpty) {
+      await _prefs.setString(_kEmailKey, event.email!);
     }
-
-    emit(state.copyWith(rememberMe: event.rememberMe));
+    if (event.password != null && event.password!.isNotEmpty) {
+      await _prefs.setString(_kPasswordKey, event.password!);
+    }
+  } else {
+    await _prefs.remove(_kEmailKey);
+    await _prefs.remove(_kPasswordKey);
   }
 
+  emit(state.copyWith(rememberMe: event.rememberMe));
+}
   Future<void> _initializeProfile(
     InitializeProfile event,
     Emitter<ProfileState> emit,

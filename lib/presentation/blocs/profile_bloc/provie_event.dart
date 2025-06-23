@@ -10,8 +10,17 @@ abstract class AbstractProfileEvent extends Equatable {
 
 class RememberMeChanged extends AbstractProfileEvent {
   final bool rememberMe;
+  final String? email; 
+  final String? password; 
 
-  const RememberMeChanged(this.rememberMe);
+  const RememberMeChanged({
+    required this.rememberMe,
+    this.email,
+    this.password,
+  });
+
+  @override
+  List<Object?> get props => [rememberMe, email, password];
 }
 
 class DeleteAccount extends AbstractProfileEvent {}
