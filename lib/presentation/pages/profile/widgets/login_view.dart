@@ -72,7 +72,7 @@ class LoginView extends StatelessWidget {
                     ),
 
                   AppTextFormField(
-                    textStyle: AppTextStyles.merriweather14,
+                    // textStyle: AppTextStyles.merriweather14,
 
                     controller: emailController,
                     hint: LocaleKeys.enterEmail.tr(),
@@ -86,7 +86,7 @@ class LoginView extends StatelessWidget {
                   const SizedBox(height: 12),
 
                   AppTextFormField(
-                    textStyle: AppTextStyles.merriweather14,
+                    // textStyle: AppTextStyles.merriweather14,
                     controller: passwordController,
                     hint: LocaleKeys.password.tr(),
                     obscureText: true,
