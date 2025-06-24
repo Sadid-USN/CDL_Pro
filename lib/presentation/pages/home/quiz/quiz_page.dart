@@ -344,7 +344,12 @@ class QuestionCard extends StatelessWidget {
                     ),
 
                     SizedBox(height: 8.h),
-                    Text(question.question, style: AppTextStyles.regular16),
+                    Text(
+                      question.question,
+                      style: AppTextStyles.merriweather16.copyWith(
+                        color: AppColors.softBlack,
+                      ),
+                    ),
                     SizedBox(height: 16.h),
                     ...QuestionOptions.buildOptions(
                       context,
@@ -367,22 +372,22 @@ class QuestionCard extends StatelessWidget {
                                 padding: EdgeInsets.only(right: 8.w),
                                 child: SvgPicture.asset(
                                   AppLogos.explanation,
-                                  height: 24.h,
-                                  width: 24.h,
+                                  height: 22.h,
                                   colorFilter: ColorFilter.mode(
-                                    Theme.of(context).iconTheme.color!,
+                                    AppColors.goldenSoft,
                                     BlendMode.srcIn,
                                   ),
                                 ),
                               ),
                               Text(
                                 LocaleKeys.explanation.tr(),
-                                style: AppTextStyles.manropeBold14.copyWith(
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.titleMedium?.color,
-                                ),
+                                style: AppTextStyles.merriweatherBold14
+                                    .copyWith(
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.titleMedium?.color,
+                                    ),
                               ),
                             ],
                           ),
@@ -394,14 +399,7 @@ class QuestionCard extends StatelessWidget {
                               children: [
                                 Text(
                                   question.description,
-                                  style: AppTextStyles.merriweatherBold14
-                                      .copyWith(
-                                        color:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.bodyMedium?.color,
-                                        height: 1.4,
-                                      ),
+                                  style: AppTextStyles.merriweatherBold14,
                                 ),
                                 SizedBox(height: 12.h),
                                 if (question.images?.isNotEmpty ?? false)

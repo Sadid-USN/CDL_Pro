@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // **Светлая тема**
 ThemeData lightThemeData() {
-  return ThemeData.light().copyWith(
+  return ThemeData.light(useMaterial3: true).copyWith(
+    // Рекомендуется для современных приложений
     cardColor: AppColors.lightPrimary,
     scaffoldBackgroundColor: AppColors.lightBackground,
     primaryColor: AppColors.lightPrimary,
@@ -38,17 +39,11 @@ ThemeData lightThemeData() {
     iconTheme: IconThemeData(color: AppColors.whiteColor),
     textTheme: TextTheme(
       displaySmall: AppTextStyles.robotoMono10.copyWith(
-        color: AppColors.whiteColor,
+        color: Colors.black87, // Более читаемый на светлом фоне
       ),
-      labelSmall: AppTextStyles.merriweather8.copyWith(
-        color: AppColors.whiteColor,
-      ),
-      bodyLarge: AppTextStyles.merriweather14.copyWith(
-        color: AppColors.whiteColor,
-      ),
-      bodyMedium: AppTextStyles.merriweather12.copyWith(
-        color: AppColors.whiteColor,
-      ),
+      labelSmall: AppTextStyles.merriweather8.copyWith(color: Colors.black87),
+      bodyLarge: AppTextStyles.merriweather14.copyWith(color: Colors.black87),
+      bodyMedium: AppTextStyles.merriweather12.copyWith(color: Colors.black87),
       bodySmall: AppTextStyles.merriweather10.copyWith(
         color: AppColors.lightPrimary,
       ),
@@ -56,15 +51,17 @@ ThemeData lightThemeData() {
         color: AppColors.lightPrimary,
       ),
     ),
-    colorScheme: const ColorScheme.light().copyWith(
+    colorScheme: ColorScheme.light(
       primary: AppColors.lightPrimary,
       secondary: AppColors.lightPrimary,
+      surface: AppColors.lightBackground,
+
       error: AppColors.errorColor,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.lightBackground,
       selectedItemColor: AppColors.lightPrimary,
-      unselectedItemColor: AppColors.lightPrimary.withValues(alpha: 0.6),
+      unselectedItemColor: Colors.grey[600],
     ),
     popupMenuTheme: PopupMenuThemeData(
       color: AppColors.lightBackground,
@@ -76,7 +73,7 @@ ThemeData lightThemeData() {
 }
 
 ThemeData darkThemeData() {
-  return ThemeData.dark().copyWith(
+  return ThemeData.dark(useMaterial3: true).copyWith(
     cardColor: AppColors.darkPrimary,
     scaffoldBackgroundColor: AppColors.darkBackground,
     primaryColor: AppColors.darkPrimary,
@@ -90,11 +87,11 @@ ThemeData darkThemeData() {
       titleTextStyle: AppTextStyles.merriweatherBold18.copyWith(
         color: Colors.white,
       ),
-      iconTheme: const IconThemeData(color: AppColors.whiteColor),
+      iconTheme: IconThemeData(color: AppColors.darkPrimary),
       elevation: 0,
     ),
     cardTheme: CardThemeData(
-      color: AppColors.darkPrimary.withValues(alpha: 0.1),
+      color: Color(0xFF1E1E1E), // Чуть светлее фона
       elevation: 2,
       margin: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
@@ -102,39 +99,41 @@ ThemeData darkThemeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.darkPrimary,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black, // Для лучшей читаемости на фиолетовом
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         elevation: 1.2,
       ),
     ),
-    iconTheme: const IconThemeData(color: AppColors.lightPrimary),
+    iconTheme: IconThemeData(color: AppColors.darkPrimary),
     textTheme: TextTheme(
       displaySmall: AppTextStyles.robotoMono10.copyWith(color: Colors.white),
-      labelSmall: AppTextStyles.merriweather8.copyWith(color: Colors.white),
+      labelSmall: AppTextStyles.merriweather8.copyWith(color: Colors.white70),
       bodyLarge: AppTextStyles.merriweather14.copyWith(color: Colors.white),
       bodyMedium: AppTextStyles.merriweather12.copyWith(color: Colors.white),
-      bodySmall: AppTextStyles.merriweather10.copyWith(color: Colors.white),
+      bodySmall: AppTextStyles.merriweather10.copyWith(color: Colors.white70),
       titleLarge: AppTextStyles.merriweatherBold20.copyWith(
         color: Colors.white,
       ),
     ),
-    colorScheme: const ColorScheme.dark().copyWith(
+    colorScheme: ColorScheme.dark(
       primary: AppColors.darkPrimary,
       secondary: AppColors.darkPrimary,
+      surface: Color(0xFF1E1E1E),
+
       error: AppColors.errorColor,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.darkBackground,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white.withValues(alpha: 0.6),
+      selectedItemColor: AppColors.darkPrimary,
+      unselectedItemColor: Colors.grey[400],
     ),
     popupMenuTheme: PopupMenuThemeData(
-      color: AppColors.darkPrimary,
+      color: Color(0xFF1E1E1E),
       textStyle: AppTextStyles.merriweather12.copyWith(color: Colors.white),
     ),
     menuTheme: MenuThemeData(
       style: MenuStyle(
-        backgroundColor: WidgetStateProperty.all(AppColors.darkPrimary),
+        backgroundColor: WidgetStateProperty.all(Color(0xFF1E1E1E)),
         surfaceTintColor: WidgetStateProperty.all(Colors.transparent),
         elevation: WidgetStateProperty.all(8),
         shadowColor: WidgetStateProperty.all(Colors.black45),

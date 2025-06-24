@@ -31,11 +31,14 @@ class ProfileView extends StatelessWidget {
           clipper: _HeaderClipper(),
           child: Container(
             height: 180.h,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [AppColors.greenSoft, AppColors.lightPrimary],
+                colors: [
+                  Color(0xFF80D0C7), // Светлый бирюзовый
+                  Color(0xFF0093E9), // Чистый голубой
+                ],
               ),
             ),
           ),

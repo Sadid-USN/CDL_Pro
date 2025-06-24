@@ -1,5 +1,4 @@
-import 'package:cdl_pro/core/constants/constants.dart';
-import 'package:cdl_pro/core/themes/app_colors.dart';
+import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
@@ -52,7 +51,7 @@ class LangChangeButton extends StatelessWidget {
                   languages.map((lang) {
                     return PopupMenuItem<AppLanguage>(
                       value: lang["language"],
-                      child: Text(lang["lang"]),
+                      child: Text(lang["lang"], ),
                     );
                   }).toList(),
             ).then((language) {
