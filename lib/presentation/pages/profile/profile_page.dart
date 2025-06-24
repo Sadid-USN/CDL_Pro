@@ -3,6 +3,8 @@ import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/pages/profile/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -51,7 +53,13 @@ class _ProfilePageState extends State<ProfilePage> {
           );
 
           if (state.isLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(
+              child: Lottie.asset(
+                "assets/lottie/moving_truck.json",
+                height: 70.h,
+                repeat: false,
+              ),
+            );
           }
 
           return state.user == null
