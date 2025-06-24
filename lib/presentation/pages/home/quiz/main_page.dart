@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
@@ -11,7 +11,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
 @RoutePage()
 class MainPage extends StatelessWidget {
@@ -21,6 +20,12 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
+        const colorizeColors = [
+          AppColors.lightPrimary,
+          AppColors.darkPrimary,
+          AppColors.goldenSoft,
+          AppColors.greenSoft,
+        ];
         return AutoTabsRouter(
           routes: [HomeRoute(), ProfileRoute(), SettingsRoute()],
           builder: (context, child) {
@@ -39,15 +44,22 @@ class MainPage extends StatelessWidget {
             ];
 
             return AppScaffold(
-           
               canPop: true,
               appBar: AppBar(
-                title: FadeInRight(
-                  duration: const Duration(milliseconds: 600),
-                  child: Lottie.asset(
-                    "assets/lottie/moving_truck.json",
-                    height: 70.h,
-                    repeat: false,
+                centerTitle: true,
+                title: Padding(
+                  padding: EdgeInsets.only(top: 10.h),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      ColorizeAnimatedText(
+                        'CDL Pro',
+                        textStyle: AppTextStyles.merriweatherBold20,
+
+                        colors: colorizeColors,
+                      ),
+                    ],
+                    isRepeatingAnimation: true,
+                    totalRepeatCount: 3,
                   ),
                 ),
               ),
