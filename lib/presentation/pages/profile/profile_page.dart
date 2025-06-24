@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return Center(
               child: Lottie.asset(
                 "assets/lottie/moving_truck.json",
-                height: 70.h,
+                 height: 150.h,
                 repeat: false,
               ),
             );
