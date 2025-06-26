@@ -6,22 +6,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 class ProfileState extends Equatable {
   final User? user;
   final bool isLoading;
+  final String? savedEmail;
+  final String? savedPassword;
   final FirebaseAuthErrorType? errorMessage;
   final bool isNewUser;
   final bool rememberMe;
 
-
   const ProfileState({
     this.user,
+    this.savedEmail,
+    this.savedPassword,
     this.isLoading = false,
     this.errorMessage,
     this.isNewUser = true,
     this.rememberMe = false,
-
   });
 
   ProfileState copyWith({
     User? user,
+    String? savedEmail,
+    String? savedPassword,
     bool? isLoading,
     FirebaseAuthErrorType? errorMessage,
     bool? isNewUser,
@@ -30,7 +34,8 @@ class ProfileState extends Equatable {
     bool? shouldClearLoginFields,
   }) {
     return ProfileState(
-
+      savedEmail: savedEmail ?? this.savedEmail,
+      savedPassword: savedPassword ?? this.savedPassword,
       rememberMe: rememberMe ?? this.rememberMe,
       user: user ?? this.user,
       isLoading: isLoading ?? this.isLoading,
@@ -47,6 +52,7 @@ class ProfileState extends Equatable {
     errorMessage,
     isNewUser,
     rememberMe,
-  
+    savedEmail,
+    savedPassword,
   ];
 }
