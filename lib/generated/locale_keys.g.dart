@@ -66,5 +66,6 @@ abstract class  LocaleKeys {
   static const rememberMe = 'rememberMe';
   static const logInToSaveProgress = 'logInToSaveProgress';
   static const dontLoseProgress = 'dontLoseProgress';
+  static const clickToLogin = 'clickToLogin';
 
 }

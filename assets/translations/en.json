@@ -61,5 +61,6 @@
   "deleteAccount": "Delete Account",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
-  "dontLoseProgress": "Don't lose your achievements! Log in to save test progress."
+  "dontLoseProgress": "Don't lose your achievements! Log in to save test progress.",
+   "clickToLogin": "Login now"
 }

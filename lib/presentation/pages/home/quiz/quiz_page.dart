@@ -129,7 +129,7 @@ class _QuizPageContent extends StatelessWidget {
     navigateToPage(
       context,
       route: const ProfileRoute(), // ← свой auto_route к профилю
-      clearStack: true
+      clearStack: true,
     );
   }
 
@@ -297,18 +297,18 @@ class QuestionCard extends StatelessWidget {
                       incorrectCount: incorrectCount,
                       correctCount: correctCount,
                     ),
+                    AuthReminderBanner(),
 
-                    if (context.read<CDLTestsBloc>().uid == null)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
-                        child: Text(
-                          LocaleKeys.logInToSaveProgress.tr(),
-                          style: AppTextStyles.merriweather10.copyWith(
-                            color: AppColors.errorColor,
-                          ),
-                        ),
-                      ),
-
+                    // if (context.read<CDLTestsBloc>().uid == null)
+                    //   Padding(
+                    //     padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
+                    //     child: Text(
+                    //       LocaleKeys.logInToSaveProgress.tr(),
+                    //       style: AppTextStyles.merriweather10.copyWith(
+                    //         color: AppColors.errorColor,
+                    //       ),
+                    //     ),
+                    //   ),
                     SizedBox(height: 8.h),
                     Text(
                       question.question,
