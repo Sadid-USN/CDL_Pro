@@ -20,6 +20,20 @@ class _ProfilePageState extends State<ProfilePage> {
   final passwordController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+
+    final bloc = context.read<ProfileBloc>();
+    final state = bloc.state;
+
+    // Сразу устанавливаем текст при инициализации, если включен rememberMe
+    if (state.rememberMe) {
+      emailController.text = bloc.getSavedEmail() ?? '';
+      passwordController.text = bloc.getSavedPassword() ?? '';
+    }
+  }
+
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -30,33 +44,27 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) {
-        final bloc = context.read<ProfileBloc>();
-
         if (state.rememberMe) {
+          final bloc = context.read<ProfileBloc>();
           emailController.text = bloc.getSavedEmail() ?? '';
           passwordController.text = bloc.getSavedPassword() ?? '';
         } else {
+          // Очищаем только если пользователь точно отключил "Запомнить меня"
           emailController.clear();
           passwordController.clear();
         }
       },
-
       child: BlocBuilder<ProfileBloc, ProfileState>(
-        buildWhen: (previous, current) {
-          // Перестраиваем только при изменении ключевых параметров
-          return previous.user != current.user ||
-              previous.isLoading != current.isLoading;
-        },
+        buildWhen:
+            (previous, current) =>
+                previous.user != current.user ||
+                previous.isLoading != current.isLoading,
         builder: (context, state) {
-          debugPrint(
-            'ProfilePage builder: user=${state.user?.uid}, isLoading=${state.isLoading}',
-          );
-
           if (state.isLoading) {
             return Center(
               child: Lottie.asset(
                 "assets/lottie/moving_truck.json",
-                 height: 150.h,
+                height: 150.h,
                 repeat: false,
               ),
             );
@@ -64,7 +72,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
           return state.user == null
               ? LoginView(
-                // key: const ValueKey('LoginView'),
                 formKey: _formKey,
                 emailController: emailController,
                 passwordController: passwordController,

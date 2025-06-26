@@ -56,34 +56,53 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
   String? getSavedEmail() => _prefs.getString(_kEmailKey);
   String? getSavedPassword() => _prefs.getString(_kPasswordKey);
 
-Future<void> _onRememberMeChanged(
-  RememberMeChanged event,
-  Emitter<ProfileState> emit,
-) async {
-  await _prefs.setBool(_kRememberMeKey, event.rememberMe);
+  Future<void> _onRememberMeChanged(
+    RememberMeChanged event,
+    Emitter<ProfileState> emit,
+  ) async {
+    await _prefs.setBool(_kRememberMeKey, event.rememberMe);
 
-  if (event.rememberMe) {
-    // 🔄 Сохраняем текущие email и password, если они переданы
-    if (event.email != null && event.email!.isNotEmpty) {
-      await _prefs.setString(_kEmailKey, event.email!);
+    if (event.rememberMe) {
+      // сохраняем – либо из event, либо то, что уже есть в prefs
+      final email =
+          event.email?.isNotEmpty == true
+              ? event.email!
+              : _prefs.getString(_kEmailKey);
+      final pass =
+          event.password?.isNotEmpty == true
+              ? event.password!
+              : _prefs.getString(_kPasswordKey);
+
+      if (email != null) await _prefs.setString(_kEmailKey, email);
+      if (pass != null) await _prefs.setString(_kPasswordKey, pass);
+    } else {
+      await _prefs.remove(_kEmailKey);
+      await _prefs.remove(_kPasswordKey);
     }
-    if (event.password != null && event.password!.isNotEmpty) {
-      await _prefs.setString(_kPasswordKey, event.password!);
-    }
-  } else {
-    await _prefs.remove(_kEmailKey);
-    await _prefs.remove(_kPasswordKey);
+
+    emit(
+      state.copyWith(
+        rememberMe: event.rememberMe,
+        savedEmail: event.rememberMe ? _prefs.getString(_kEmailKey) : null,
+        savedPassword:
+            event.rememberMe ? _prefs.getString(_kPasswordKey) : null,
+      ),
+    );
   }
 
-  emit(state.copyWith(rememberMe: event.rememberMe));
-}
   Future<void> _initializeProfile(
     InitializeProfile event,
     Emitter<ProfileState> emit,
   ) async {
     final rememberMe = _prefs.getBool(_kRememberMeKey) ?? false;
 
-    emit(state.copyWith(rememberMe: rememberMe));
+    emit(
+      state.copyWith(
+        rememberMe: rememberMe,
+        savedEmail: rememberMe ? _prefs.getString(_kEmailKey) : null,
+        savedPassword: rememberMe ? _prefs.getString(_kPasswordKey) : null,
+      ),
+    );
 
     User? current = _auth.currentUser;
 
@@ -403,7 +422,16 @@ Future<void> _onRememberMeChanged(
   }
 
   Future<void> _signOut(SignOut event, Emitter<ProfileState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(
+      ProfileState(
+        user: null,
+        isLoading: false,
+        errorMessage: null,
+        isNewUser: false,
+        rememberMe: state.rememberMe,
+        // ❗️ сохраняем поля
+      ),
+    );
 
     try {
       await _auth.signOut();
