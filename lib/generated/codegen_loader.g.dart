@@ -77,7 +77,8 @@ class CodegenLoader extends AssetLoader{
   "deleteAccount": "Удалить аккаунт",
   "rememberMe": "Запомнить меня",
   "logInToSaveProgress": "Войдите в аккаунт, чтобы сохранить прогресс.",
-  "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста."
+  "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста.",
+  "clickToLogin": "Войти сейчас"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -141,7 +142,8 @@ static const Map<String,dynamic> _uk = {
   "deleteAccount": "Видалити акаунт",
   "rememberMe": "Пам'ятай мене",
   "logInToSaveProgress": "Увійдіть до облікового запису, щоб зберегти прогрес.",
-  "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту."
+  "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту.",
+  "clickToLogin": "Увійти зараз"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -206,7 +208,8 @@ static const Map<String,dynamic> _en = {
   "deleteAccount": "Delete Account",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
-  "dontLoseProgress": "Don't lose your achievements! Log in to save test progress."
+  "dontLoseProgress": "Don't lose your achievements! Log in to save test progress.",
+  "clickToLogin": "Login now"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -271,7 +274,8 @@ static const Map<String,dynamic> _es = {
   "deleteAccount": "Eliminar cuenta",
   "rememberMe": "Acuérdate de mí",
   "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
-  "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test."
+  "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test.",
+  "clickToLogin": "Iniciar sesión ahora"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
