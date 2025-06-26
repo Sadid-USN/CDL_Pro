@@ -125,59 +125,70 @@ class _QuizPageContent extends StatelessWidget {
     return const Center(child: CircularProgressIndicator());
   }
 
-  void _goToProfilePage(BuildContext context) {
-    navigateToPage(
-      context,
-      route: const ProfileRoute(), // ← свой auto_route к профилю
-      clearStack: true,
-    );
-  }
+  // void _goToProfilePage(BuildContext context) {
+  //   navigateToPage(
+  //     context,
+  //     route: const ProfileRoute(), // ← свой auto_route к профилю
+  //     clearStack: true,
+  //   );
+  // }
 
-  Future<bool> _showExitConfirmation(BuildContext context) async {
-    final uid = context.read<CDLTestsBloc>().uid;
+Future<bool> _showExitConfirmation(BuildContext context) async {
+  final uid = context.read<CDLTestsBloc>().uid;
+  final bool isLoggedIn = uid != null;
 
-    // ---------- 1) пользователь НЕ залогинен ----------
-    if (uid == null) {
-      bool goToProfile = false;
+  // Тексты для диалога в зависимости от статуса авторизации
+  final exitText = isLoggedIn ? LocaleKeys.exit.tr() : LocaleKeys.dontLoseProgress.tr();
+  final confirmText = isLoggedIn ? LocaleKeys.yes.tr() : LocaleKeys.login.tr();
+  final cancelText = isLoggedIn ? LocaleKeys.no.tr() : LocaleKeys.exit.tr(); // Заменяем "cancel" на "exit"
 
-      await showConfirmationDialog(
-        context: context,
-        title: LocaleKeys.dontLoseProgress.tr(),
-        description: '',
-        cancelText: LocaleKeys.cancel.tr(),
-        confirmText: LocaleKeys.login.tr(),
-        onConfirm: () => goToProfile = true,
-      );
+  bool userChoice = false;
 
-      if (goToProfile && context.mounted) {
-        _goToProfilePage(context);
-      }
-      // Вернём false, чтобы остаться на QuizPage
-      return false;
-    }
+  await showConfirmationDialog(
+    context: context,
+    title: exitText,
+    description: 
+    isLoggedIn 
+        ? LocaleKeys.areYouSureYouWantToExit.tr()
+        : '', // Добавьте этот ключ в локализацию
+    cancelText: cancelText,
+    confirmText: confirmText,
+    onConfirm: () => userChoice = true,
+  );
 
-    // ---------- 2) пользователь ЗАЛОГИНЕН ----------
-    bool confirmedExit = false;
+  if (!context.mounted) return false;
 
-    await showConfirmationDialog(
-      context: context,
-      title: LocaleKeys.exit.tr(),
-      description: LocaleKeys.areYouSureYouWantToExit.tr(),
-      cancelText: LocaleKeys.no.tr(),
-      confirmText: LocaleKeys.yes.tr(),
-      onConfirm: () => confirmedExit = true,
-    );
-
-    if (confirmedExit && context.mounted) {
+  if (userChoice) {
+    // Пользователь выбрал "Login" или "Yes"
+    if (isLoggedIn) {
       navigateToPage(
         context,
         route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
         replace: true,
       );
+    } else {
+      navigateToPage(
+        context,
+        route: const ProfileRoute(),
+        clearStack: true,
+      );
     }
-
-    return confirmedExit;
+    return true;
+  } else {
+    // Пользователь выбрал "Exit" или "No"
+    if (!isLoggedIn) {
+      // Для незалогиненного пользователя "Exit" ведёт к спискам
+      navigateToPage(
+        context,
+        route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
+        replace: true,
+      );
+      return true;
+    }
+    return false; // Для залогиненного "No" оставляет на странице
   }
+}
+
 }
 
 class SingleQuestionView extends StatelessWidget {
