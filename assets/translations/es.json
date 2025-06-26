@@ -59,5 +59,7 @@
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
   "deleteAccount": "Eliminar cuenta",
-   "rememberMe": "Acuérdate de mí" 
+  "rememberMe": "Acuérdate de mí",
+  "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
+  "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test."
 }

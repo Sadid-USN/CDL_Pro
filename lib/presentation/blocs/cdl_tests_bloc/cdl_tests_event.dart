@@ -11,6 +11,10 @@ abstract class AbstractCDLTestsEvent extends Equatable {
 class PreviousQuestionsEvent extends AbstractCDLTestsEvent {}
 class StartTimerEvent extends AbstractCDLTestsEvent {}
 class StopTimerEvent extends AbstractCDLTestsEvent {}
+class SetUserUidEvent extends AbstractCDLTestsEvent {
+  final String? uid;               // null → пользователь вышел
+  const SetUserUidEvent(this.uid);
+}
 
 
 class ResetQuizEvent extends AbstractCDLTestsEvent {

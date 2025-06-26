@@ -115,11 +115,7 @@ Future<void> initDependencies() async {
   );
   // 4. CDLTestsBloc — регистрируем ПОСЛЕ всех его зависимостей
   getIt.registerLazySingleton<CDLTestsBloc>(
-    () => CDLTestsBloc(
-      getIt<SharedPreferences>(),
-      getIt<AbstractUserRepo>(),
-      getIt<FirebaseFirestore>(),
-    ),
+    () => CDLTestsBloc(getIt<SharedPreferences>(), getIt<FirebaseFirestore>()),
   );
 
   /* ───────────────  (другие сервисы/репозитории, если нужны)  ─────────────── */

@@ -75,7 +75,9 @@ class CodegenLoader extends AssetLoader{
   "loginError": "Ошибка входа",
   "logOut": "Выйти",
   "deleteAccount": "Удалить аккаунт",
-  "rememberMe": "Запомнить меня"
+  "rememberMe": "Запомнить меня",
+  "logInToSaveProgress": "Войдите в аккаунт, чтобы сохранить прогресс.",
+  "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста."
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -137,7 +139,9 @@ static const Map<String,dynamic> _uk = {
   "loginError": "Помилка входу",
   "logOut": "Вийти",
   "deleteAccount": "Видалити акаунт",
-  "rememberMe": "Пам'ятай мене"
+  "rememberMe": "Пам'ятай мене",
+  "logInToSaveProgress": "Увійдіть до облікового запису, щоб зберегти прогрес.",
+  "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту."
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -200,7 +204,9 @@ static const Map<String,dynamic> _en = {
   "loginError": "Login Error",
   "logOut": "Log Out",
   "deleteAccount": "Delete Account",
-  "rememberMe": "Remember me"
+  "rememberMe": "Remember me",
+  "logInToSaveProgress": "Login to save your progress.",
+  "dontLoseProgress": "Don't lose your achievements! Log in to save test progress."
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -263,7 +269,9 @@ static const Map<String,dynamic> _es = {
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
   "deleteAccount": "Eliminar cuenta",
-  "rememberMe": "Acuérdate de mí"
+  "rememberMe": "Acuérdate de mí",
+  "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
+  "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
