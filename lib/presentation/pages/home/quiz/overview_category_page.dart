@@ -91,7 +91,7 @@ class OverviewCategoryPage extends StatelessWidget {
                                   AppLogos.lockClosed,
                                   height: 25.h,
                                   colorFilter: ColorFilter.mode(
-                                    Theme.of(context).iconTheme.color!,
+                                    AppColors.softBlack,
                                     BlendMode.srcIn,
                                   ),
                                 )
@@ -141,8 +141,8 @@ class OverviewCategoryPage extends StatelessWidget {
                                 AppLogos.lockClosed,
                                 height: 25.h,
                                 colorFilter: ColorFilter.mode(
-                                  Theme.of(context).iconTheme.color!,
-                                  BlendMode.srcIn,
+                                   AppColors.lightPrimary,
+                                    BlendMode.srcIn,
                                 ),
                               )
                               : const Icon(Icons.arrow_forward_ios),

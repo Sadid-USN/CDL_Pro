@@ -74,7 +74,7 @@ class _QuizPageContent extends StatelessWidget {
               canPop: false,
               onPopInvokedWithResult: (didPop, result) async {
                 if (!didPop) {
-                  await context.read<CDLTestsBloc>().saveProgress();
+                  // await context.read<CDLTestsBloc>().saveProgress();
                 }
               },
               child: Scaffold(
@@ -125,8 +125,39 @@ class _QuizPageContent extends StatelessWidget {
     return const Center(child: CircularProgressIndicator());
   }
 
+  void _goToProfilePage(BuildContext context) {
+    navigateToPage(
+      context,
+      route: const ProfileRoute(), // ← свой auto_route к профилю
+      clearStack: true
+    );
+  }
+
   Future<bool> _showExitConfirmation(BuildContext context) async {
-    bool confirmed = false;
+    final uid = context.read<CDLTestsBloc>().uid;
+
+    // ---------- 1) пользователь НЕ залогинен ----------
+    if (uid == null) {
+      bool goToProfile = false;
+
+      await showConfirmationDialog(
+        context: context,
+        title: LocaleKeys.dontLoseProgress.tr(),
+        description: '',
+        cancelText: LocaleKeys.cancel.tr(),
+        confirmText: LocaleKeys.login.tr(),
+        onConfirm: () => goToProfile = true,
+      );
+
+      if (goToProfile && context.mounted) {
+        _goToProfilePage(context);
+      }
+      // Вернём false, чтобы остаться на QuizPage
+      return false;
+    }
+
+    // ---------- 2) пользователь ЗАЛОГИНЕН ----------
+    bool confirmedExit = false;
 
     await showConfirmationDialog(
       context: context,
@@ -134,12 +165,10 @@ class _QuizPageContent extends StatelessWidget {
       description: LocaleKeys.areYouSureYouWantToExit.tr(),
       cancelText: LocaleKeys.no.tr(),
       confirmText: LocaleKeys.yes.tr(),
-      onConfirm: () {
-        confirmed = true;
-      },
+      onConfirm: () => confirmedExit = true,
     );
 
-    if (confirmed && context.mounted) {
+    if (confirmedExit && context.mounted) {
       navigateToPage(
         context,
         route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
@@ -147,82 +176,8 @@ class _QuizPageContent extends StatelessWidget {
       );
     }
 
-    return confirmed;
+    return confirmedExit;
   }
-
-  // Future<bool> _showExitConfirmation(BuildContext context) async {
-  //   bool? result;
-
-  //   await
-
-  //   Alert(
-  //     context: context,
-  //     // title: LocaleKeys.exit.tr(),
-  //     // desc: LocaleKeys.areYouSureYouWantToExit.tr(),
-  //     style: AlertStyle(
-  //       titleStyle: AppTextStyles.merriweatherBold14,
-  //       descStyle: AppTextStyles.merriweather12,
-  //     ),
-  //     content: Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       mainAxisSize: MainAxisSize.min,
-  //       children: [
-  //         Text(
-  //           LocaleKeys.exit.tr(),
-  //           style:
-  //               AppTextStyles
-  //                   .merriweatherBold14,
-  //         ),
-  //         const SizedBox(height: 12),
-  //         Text(
-  //           LocaleKeys.areYouSureYouWantToExit.tr(),
-  //           style: AppTextStyles.merriweather12,
-  //           textAlign: TextAlign.left,
-  //         ),
-  //       ],
-  //     ),
-
-  //     buttons: [
-  //       DialogButton(
-  //         onPressed: () {
-  //           result = false;
-  //           Navigator.pop(context);
-  //         },
-  //         color: AppColors.lightPrimary,
-  //         child: Text(
-  //           LocaleKeys.no.tr(),
-  //           style: AppTextStyles.merriweather12.copyWith(
-  //             color: AppColors.lightBackground,
-  //           ),
-  //         ),
-  //       ),
-  //       DialogButton(
-  //         color: AppColors.lightPrimary,
-  //         child: Text(
-  //           LocaleKeys.yes.tr(),
-  //           style: AppTextStyles.merriweather12.copyWith(
-  //             color: AppColors.lightBackground,
-  //           ),
-  //         ),
-
-  //         onPressed: () {
-  //           result = true;
-  //           Navigator.pop(context);
-  //         },
-  //       ),
-  //     ],
-  //   ).show();
-
-  //   if (result == true && context.mounted) {
-  //     navigateToPage(
-  //       context,
-  //       route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-  //       replace: true,
-  //     );
-  //     return true;
-  //   }
-  //   return false;
-  // }
 }
 
 class SingleQuestionView extends StatelessWidget {
@@ -342,6 +297,17 @@ class QuestionCard extends StatelessWidget {
                       incorrectCount: incorrectCount,
                       correctCount: correctCount,
                     ),
+
+                    if (context.read<CDLTestsBloc>().uid == null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
+                        child: Text(
+                          LocaleKeys.logInToSaveProgress.tr(),
+                          style: AppTextStyles.merriweather10.copyWith(
+                            color: AppColors.errorColor,
+                          ),
+                        ),
+                      ),
 
                     SizedBox(height: 8.h),
                     Text(

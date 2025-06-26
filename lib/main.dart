@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'core/config/app_wrapper/localization_wrapper.dart';
-import 'presentation/blocs/cdl_tests_bloc/cdl_tests_bloc.dart';
+import 'presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'presentation/blocs/settings_bloc/settings.dart';
 
 void main() async {
@@ -62,28 +62,33 @@ class MyApp extends StatelessWidget {
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
-          return ScreenUtilInit(
-            minTextAdapt: true,
-            builder: (context, child) {
-              return MaterialApp.router(
-                
-                theme: lightThemeData(),
-                darkTheme: darkThemeData(),
-                themeMode:
-                    state.isDarkMode
-                        ? ThemeMode.dark
-                        : ThemeMode.light, // Используем state
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-                debugShowCheckedModeBanner: false,
-                title: 'CDL_pro',
-                routerConfig: _autorouter.config(
-                  navigatorObservers:
-                      () => [TalkerRouteObserver(GetIt.I<Talker>())],
-                ),
+          return BlocListener<ProfileBloc, ProfileState>(
+            listenWhen: (prev, curr) => prev.user?.uid != curr.user?.uid,
+            listener: (context, state) {
+              context.read<CDLTestsBloc>().add(
+                SetUserUidEvent(state.user?.uid),
               );
             },
+            child: ScreenUtilInit(
+              minTextAdapt: true,
+              builder: (context, child) {
+                return MaterialApp.router(
+                  theme: lightThemeData(),
+                  darkTheme: darkThemeData(),
+                  themeMode:
+                      state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  debugShowCheckedModeBanner: false,
+                  title: 'CDL_pro',
+                  routerConfig: _autorouter.config(
+                    navigatorObservers:
+                        () => [TalkerRouteObserver(GetIt.I<Talker>())],
+                  ),
+                );
+              },
+            ),
           );
         },
       ),
