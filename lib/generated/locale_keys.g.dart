@@ -67,5 +67,10 @@ abstract class  LocaleKeys {
   static const logInToSaveProgress = 'logInToSaveProgress';
   static const dontLoseProgress = 'dontLoseProgress';
   static const clickToLogin = 'clickToLogin';
+  static const welcome = 'welcome';
+  static const deleteAccountAlert = 'deleteAccountAlert';
+  static const attention = 'attention';
+  static const delete = 'delete';
+  static const loggedOutText = 'loggedOutText';
 
 }

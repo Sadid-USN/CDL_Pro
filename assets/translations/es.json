@@ -62,5 +62,10 @@
   "rememberMe": "Acuérdate de mí",
   "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
   "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test.",
-  "clickToLogin": "Iniciar sesión ahora"
+  "clickToLogin": "Iniciar sesión ahora",
+  "welcome": "{email}\n¡Bienvenido a CDL Pro!",
+  "deleteAccountAlert": "¿Estás seguro de que quieres eliminar tu cuenta? Todo tu progreso guardado en los tests se perderá permanentemente.",
+  "attention": "¡Atención!",
+  "delete": "Borrar",
+  "loggedOutText": "Has cerrado sesión correctamente."
 }

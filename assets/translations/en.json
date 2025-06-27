@@ -59,8 +59,13 @@
   "loginError": "Login Error",
   "logOut": "Log Out",
   "deleteAccount": "Delete Account",
+  "delete": "Delete",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
   "dontLoseProgress": "Don't lose your achievements! Log in to save test progress.",
-   "clickToLogin": "Login now"
+  "clickToLogin": "Login now",
+  "welcome": "{email}\nWelcome to CDL Pro!",
+  "deleteAccountAlert": "Are you sure you want to delete your account? All your saved test progress will be permanently lost.",
+  "attention": "Attention!",
+   "loggedOutText": "You've been logged out successfully."
 }

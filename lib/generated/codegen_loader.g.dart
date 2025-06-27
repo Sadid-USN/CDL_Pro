@@ -78,7 +78,12 @@ class CodegenLoader extends AssetLoader{
   "rememberMe": "Запомнить меня",
   "logInToSaveProgress": "Войдите в аккаунт, чтобы сохранить прогресс.",
   "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста.",
-  "clickToLogin": "Войти сейчас"
+  "clickToLogin": "Войти сейчас",
+  "welcome": "{email}\nДобро пожаловать в CDL Pro!",
+  "deleteAccountAlert": "Вы уверены, что хотите удалить аккаунт? Весь сохранённый прогресс тестов будет безвозвратно утерян.",
+  "attention": "Внимание!",
+  "delete": "Удалить",
+  "loggedOutText": "Вы успешно вышли из системы."
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -143,7 +148,12 @@ static const Map<String,dynamic> _uk = {
   "rememberMe": "Пам'ятай мене",
   "logInToSaveProgress": "Увійдіть до облікового запису, щоб зберегти прогрес.",
   "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту.",
-  "clickToLogin": "Увійти зараз"
+  "clickToLogin": "Увійти зараз",
+  "welcome": "{email}\nЛаскаво просимо до CDL Pro!",
+  "deleteAccountAlert": "Ви впевнені, що хочете видалити акаунт? Усі збережені результати тестів будуть назавжди втрачені.",
+  "attention": "Увага!",
+  "delete": "Видалити",
+  "loggedOutText": "Ви успішно вийшли з системи."
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -206,10 +216,15 @@ static const Map<String,dynamic> _en = {
   "loginError": "Login Error",
   "logOut": "Log Out",
   "deleteAccount": "Delete Account",
+  "delete": "Delete",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
   "dontLoseProgress": "Don't lose your achievements! Log in to save test progress.",
-  "clickToLogin": "Login now"
+  "clickToLogin": "Login now",
+  "welcome": "{email}\nWelcome to CDL Pro!",
+  "deleteAccountAlert": "Are you sure you want to delete your account? All your saved test progress will be permanently lost.",
+  "attention": "Attention!",
+  "loggedOutText": "You've been logged out successfully."
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -275,7 +290,12 @@ static const Map<String,dynamic> _es = {
   "rememberMe": "Acuérdate de mí",
   "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
   "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test.",
-  "clickToLogin": "Iniciar sesión ahora"
+  "clickToLogin": "Iniciar sesión ahora",
+  "welcome": "{email}\n¡Bienvenido a CDL Pro!",
+  "deleteAccountAlert": "¿Estás seguro de que quieres eliminar tu cuenta? Todo tu progreso guardado en los tests se perderá permanentemente.",
+  "attention": "¡Atención!",
+  "delete": "Borrar",
+  "loggedOutText": "Has cerrado sesión correctamente."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
