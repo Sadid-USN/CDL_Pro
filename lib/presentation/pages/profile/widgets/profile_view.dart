@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
@@ -6,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class ProfileView extends StatelessWidget {
   final User user;
@@ -59,7 +63,7 @@ class ProfileView extends StatelessWidget {
                     radius: 96,
                     backgroundImage:
                         photoUrl != null ? NetworkImage(photoUrl) : null,
-                    backgroundColor: AppColors.darkPrimary,
+                    backgroundColor: AppColors.lightPrimary,
                     child:
                         photoUrl == null
                             ? Text(
@@ -72,21 +76,28 @@ class ProfileView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-
-                /// Name & tagline
                 Text(
-                  isGoogleUser ? displayName : email,
-                  style: AppTextStyles.merriweatherBold16,
+                  LocaleKeys.welcome.tr(
+                    namedArgs: {"email": isGoogleUser ? displayName : email},
+                  ),
+                  style: AppTextStyles.merriweatherBold16.copyWith(
+                    height:
+                        1.7, // Умножает высоту строки на 1.5 (рекомендуется 1.2-1.5)
+                  ),
                   textAlign: TextAlign.center,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                 ),
 
                 SizedBox(height: 16.h),
 
                 CustomActionButton(
+                  backgroundColor: AppColors.lightPrimary,
                   text: LocaleKeys.logOut.tr(),
                   icon: Icons.logout,
                   onPressed: () {
                     context.read<ProfileBloc>().add(SignOut());
+                    _showPlatformSnackBar(context);
                   },
                 ),
 
@@ -103,21 +114,27 @@ class ProfileView extends StatelessWidget {
                       context: context,
                       builder:
                           (context) => AlertDialog(
-                            title: Text(LocaleKeys.confirm.tr()),
-                            content: const Text(
-                              'Are you sure you want to delete your account?',
+                            title: Text(
+                              LocaleKeys.attention.tr(),
+                              style: AppTextStyles.regular14.copyWith(
+                                color: AppColors.errorColor,
+                              ),
+                            ),
+                            content: Text(
+                              LocaleKeys.deleteAccountAlert.tr(),
+                              style: AppTextStyles.regular12,
                             ),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.pop(context, false),
-                                child: const Text('Cancel'),
+                                child: Text(LocaleKeys.cancel.tr()),
                               ),
                               TextButton(
                                 onPressed: () => Navigator.pop(context, true),
                                 style: TextButton.styleFrom(
                                   foregroundColor: Colors.red,
                                 ),
-                                child: const Text('Delete'),
+                                child: Text(LocaleKeys.delete.tr()),
                               ),
                             ],
                           ),
@@ -134,6 +151,31 @@ class ProfileView extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _showPlatformSnackBar(BuildContext context) {
+    if (Platform.isIOS) {
+      // iOS-style Toast (вверху экрана)
+      showTopSnackBar(
+        Overlay.of(context),
+        CustomSnackBar.success(
+          message: LocaleKeys.loggedOutText.tr(),
+          backgroundColor: AppColors.lightPrimary,
+          textStyle: TextStyle(color: Colors.white),
+        ),
+      );
+    } else {
+      // Android-style SnackBar (внизу)
+      showTopSnackBar(
+        snackBarPosition: SnackBarPosition.bottom,
+        Overlay.of(context),
+        CustomSnackBar.success(
+          message: LocaleKeys.loggedOutText.tr(),
+          backgroundColor: AppColors.lightPrimary,
+          textStyle: TextStyle(color: Colors.white),
+        ),
+      );
+    }
   }
 }
 
