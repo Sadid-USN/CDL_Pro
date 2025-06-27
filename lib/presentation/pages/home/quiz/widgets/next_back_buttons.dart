@@ -64,7 +64,9 @@ class NextBackButtons extends StatelessWidget {
                     vertical: 12,
                   ),
                 ),
-                onPressed: () => _handleNextPressed(context, bloc),
+                onPressed: () {
+                  _handleNextPressed(context, bloc);
+                },
                 child: Text(
                   isLastQuestion
                       ? LocaleKeys.completeTheTest.tr()
@@ -106,10 +108,7 @@ class NextBackButtons extends StatelessWidget {
                 ),
         descStyle: AppTextStyles.regular12,
       ),
-      desc:
-          results['passed']
-              ? ''
-              : LocaleKeys.youNeedMorePractice.tr(),
+      desc: results['passed'] ? '' : LocaleKeys.youNeedMorePractice.tr(),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -138,7 +137,7 @@ class NextBackButtons extends StatelessWidget {
             bloc.add(const ResetQuizEvent());
             Navigator.of(context).pop();
           },
-          color: AppColors.darkPrimary,
+          color: AppColors.lightPrimary,
           child: Text(
             LocaleKeys.startAgain.tr(),
             style: AppTextStyles.merriweather10.copyWith(
@@ -150,8 +149,9 @@ class NextBackButtons extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
             Navigator.of(context).pop();
+            context.read<CDLTestsBloc>().add(ResetQuizEvent());
           },
-          color: AppColors.darkPrimary,
+          color: AppColors.lightPrimary,
           child: Text(
             LocaleKeys.returnToHome.tr(),
             style: AppTextStyles.merriweather10.copyWith(

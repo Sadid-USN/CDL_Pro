@@ -40,7 +40,7 @@ class RoadSignView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            icon: const Icon(Icons.list),
+            icon: const Icon(Icons.list, color: AppColors.lightPrimary,),
             onPressed: () {
               context.read<RoadSignBloc>().add(
                 ToggleViewModeEvent(isGridView: false),
@@ -49,7 +49,7 @@ class RoadSignView extends StatelessWidget {
             tooltip: 'List view',
           ),
           IconButton(
-            icon: const Icon(Icons.grid_view),
+            icon: const Icon(Icons.grid_view, color: AppColors.lightPrimary,),
             onPressed: () {
               context.read<RoadSignBloc>().add(
                 ToggleViewModeEvent(isGridView: true),

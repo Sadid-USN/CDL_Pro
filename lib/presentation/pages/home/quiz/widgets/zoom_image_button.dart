@@ -1,3 +1,4 @@
+import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -19,13 +20,13 @@ class ZoomImageButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                icon: const Icon(Icons.zoom_out),
+                icon: const Icon(Icons.zoom_out, color: AppColors.lightPrimary,),
                 onPressed: () => bloc.add(ZoomOutEvent()),
                 tooltip: '',
               ),
               Text('${LocaleKeys.size.tr()}: ${(state.imageHeightFactor * 100).toInt()}%'),
               IconButton(
-                icon: const Icon(Icons.zoom_in),
+                icon: const Icon(Icons.zoom_in, color: AppColors.lightPrimary,),
                 onPressed: () => bloc.add(ZoomInEvent()),
                 tooltip: '',
               ),

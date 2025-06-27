@@ -32,13 +32,13 @@ class CDLTestsView extends StatelessWidget {
       child: ListView.builder(
         itemCount: chapters.length,
         padding: EdgeInsets.only(right: 8.w, left: 8.w, top: 8.w, bottom: 25.h),
-      
+
         itemBuilder: (context, index) {
           final chapter = chapters[index];
-      
+
           return AnimationConfiguration.staggeredList(
-             position: index,
-                duration: const Duration(milliseconds: 600),
+            position: index,
+            duration: const Duration(milliseconds: 600),
             child: FlipAnimation(
               child: Padding(
                 padding: EdgeInsets.only(bottom: 4.h),
@@ -78,7 +78,7 @@ extension ChaptersExtension on Chapters {
       if (currentLocale == 'en') {
         return localizedKey;
       } else {
-        return '$localizedKey\n$englishTitle';
+        return '$localizedKey $englishTitle';
       }
     }
 
@@ -187,7 +187,7 @@ class _CategoryCard extends StatelessWidget {
           image: AssetImage(image),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withValues(alpha: 0.5),
+            Colors.black.withValues(alpha: 0.2),
             BlendMode.darken, // или multiply, overlay и др.
           ),
         ),
@@ -203,10 +203,24 @@ class _CategoryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              Text(
-                title,
-                style: AppTextStyles.regular16.copyWith(
-                  color: AppColors.lightBackground,
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: AppColors.softBlack.withValues(alpha: 0.5),
+                  borderRadius: BorderRadius.circular(
+                    8,
+                  ), // Закругление 8 градусов
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 5,
+                  ), // Отступы для текста
+                  child: Text(
+                    title,
+                    style: AppTextStyles.regular16.copyWith(
+                      color: AppColors.lightBackground,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 20.h),
@@ -227,7 +241,7 @@ class _CategoryCard extends StatelessWidget {
                     LocaleKeys.free.tr(
                       namedArgs: {"freeQuestions": "$freeQuestions"},
                     ),
-                    AppColors.darkPrimary,
+                    AppColors.lightPrimary,
 
                     // 'Free: $freeQuestions',
                   ),

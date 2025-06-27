@@ -47,7 +47,7 @@ class OverviewCategoryPage extends StatelessWidget {
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          child: Text(title, style: AppTextStyles.merriweatherBold14,),
+          child: Text(title, style: AppTextStyles.merriweatherBold12,),
         ),
         centerTitle: true,
       ),
@@ -124,11 +124,12 @@ class OverviewCategoryPage extends StatelessWidget {
                   // Обычные карточки с вопросами
                   final card = cards[index];
                   return Card(
+                    
                     margin: const EdgeInsets.only(bottom: 12),
                     child: ListTile(
                       leading: Text(
                         '#${index + 1}',
-                        style: AppTextStyles.robotoMonoBold12,
+                        style: AppTextStyles.robotoMono12,
                       ),
                       title: Text(card.title),
                       subtitle: Text(
