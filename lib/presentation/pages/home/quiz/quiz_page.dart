@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
@@ -74,7 +76,11 @@ class _QuizPageContent extends StatelessWidget {
               canPop: false,
               onPopInvokedWithResult: (didPop, result) async {
                 if (!didPop) {
-                  // await context.read<CDLTestsBloc>().saveProgress();
+                  // только Для Android показываем диалог при нажатии системной кнопки
+                  if (Platform.isAndroid) {
+                    _showExitConfirmation(context);
+                  }
+                
                 }
               },
               child: Scaffold(
@@ -163,7 +169,6 @@ class _QuizPageContent extends StatelessWidget {
     if (userChoice) {
       // Пользователь выбрал "Login" или "Yes"
       if (isLoggedIn) {
-      
         navigateToPage(
           context,
           route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
