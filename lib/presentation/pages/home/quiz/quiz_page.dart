@@ -133,62 +133,60 @@ class _QuizPageContent extends StatelessWidget {
   //   );
   // }
 
-Future<bool> _showExitConfirmation(BuildContext context) async {
-  final uid = context.read<CDLTestsBloc>().uid;
-  final bool isLoggedIn = uid != null;
+  Future<bool> _showExitConfirmation(BuildContext context) async {
+    final uid = context.read<CDLTestsBloc>().uid;
+    final bool isLoggedIn = uid != null;
 
-  // Тексты для диалога в зависимости от статуса авторизации
-  final exitText = isLoggedIn ? LocaleKeys.exit.tr() : LocaleKeys.dontLoseProgress.tr();
-  final confirmText = isLoggedIn ? LocaleKeys.yes.tr() : LocaleKeys.login.tr();
-  final cancelText = isLoggedIn ? LocaleKeys.no.tr() : LocaleKeys.exit.tr(); // Заменяем "cancel" на "exit"
+    // Тексты для диалога в зависимости от статуса авторизации
+    final exitText =
+        isLoggedIn ? LocaleKeys.exit.tr() : LocaleKeys.dontLoseProgress.tr();
+    final confirmText =
+        isLoggedIn ? LocaleKeys.yes.tr() : LocaleKeys.login.tr();
+    final cancelText =
+        isLoggedIn
+            ? LocaleKeys.no.tr()
+            : LocaleKeys.exit.tr(); // Заменяем "cancel" на "exit"
 
-  bool userChoice = false;
+    bool userChoice = false;
 
-  await showConfirmationDialog(
-    context: context,
-    title: exitText,
-    description: 
-    isLoggedIn 
-        ? LocaleKeys.areYouSureYouWantToExit.tr()
-        : '', // Добавьте этот ключ в локализацию
-    cancelText: cancelText,
-    confirmText: confirmText,
-    onConfirm: () => userChoice = true,
-  );
+    await showConfirmationDialog(
+      context: context,
+      title: exitText,
+      description: isLoggedIn ? LocaleKeys.areYouSureYouWantToExit.tr() : '',
+      cancelText: cancelText,
+      confirmText: confirmText,
+      onConfirm: () => userChoice = true,
+    );
 
-  if (!context.mounted) return false;
+    if (!context.mounted) return false;
 
-  if (userChoice) {
-    // Пользователь выбрал "Login" или "Yes"
-    if (isLoggedIn) {
-      navigateToPage(
-        context,
-        route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-        replace: true,
-      );
-    } else {
-      navigateToPage(
-        context,
-        route: const ProfileRoute(),
-        clearStack: true,
-      );
-    }
-    return true;
-  } else {
-    // Пользователь выбрал "Exit" или "No"
-    if (!isLoggedIn) {
-      // Для незалогиненного пользователя "Exit" ведёт к спискам
-      navigateToPage(
-        context,
-        route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-        replace: true,
-      );
+    if (userChoice) {
+      // Пользователь выбрал "Login" или "Yes"
+      if (isLoggedIn) {
+      
+        navigateToPage(
+          context,
+          route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
+          replace: true,
+        );
+      } else {
+        navigateToPage(context, route: const ProfileRoute(), clearStack: true);
+      }
       return true;
+    } else {
+      // Пользователь выбрал "Exit" или "No"
+      if (!isLoggedIn) {
+        // Для незалогиненного пользователя "Exit" ведёт к спискам
+        navigateToPage(
+          context,
+          route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
+          replace: true,
+        );
+        return true;
+      }
+      return false; // Для залогиненного "No" оставляет на странице
     }
-    return false; // Для залогиненного "No" оставляет на странице
   }
-}
-
 }
 
 class SingleQuestionView extends StatelessWidget {
