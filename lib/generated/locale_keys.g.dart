@@ -72,5 +72,14 @@ abstract class  LocaleKeys {
   static const attention = 'attention';
   static const delete = 'delete';
   static const loggedOutText = 'loggedOutText';
+  static const premiumAccessTitle = 'premiumAccessTitle';
+  static const oneWeekSubscription = 'oneWeekSubscription';
+  static const oneMonthSubscription = 'oneMonthSubscription';
+  static const threeMonthsSubscription = 'threeMonthsSubscription';
+  static const sixMonthsSubscription = 'sixMonthsSubscription';
+  static const annualSubscription = 'annualSubscription';
+  static const mostPopularBadge = 'mostPopularBadge';
+  static const bestValueBadge = 'bestValueBadge';
+  static const saveDiscount = 'saveDiscount';
 
 }

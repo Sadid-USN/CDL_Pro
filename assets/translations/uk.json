@@ -66,5 +66,14 @@
     "deleteAccountAlert": "Ви впевнені, що хочете видалити акаунт? Усі збережені результати тестів будуть назавжди втрачені.",
     "attention": "Увага!",
     "delete": "Видалити",
-    "loggedOutText": "Ви успішно вийшли з системи."
+    "loggedOutText": "Ви успішно вийшли з системи.",
+    "premiumAccessTitle": "Преміум доступ до всіх тестів",
+    "oneWeekSubscription": "1 - Тиждень підписки",
+    "oneMonthSubscription": "1 - Місяць підписки",
+    "threeMonthsSubscription": "3 - Місяці підписки",
+    "sixMonthsSubscription": "6 - Місяців підписки",
+    "annualSubscription": "Річна підписка",
+    "mostPopularBadge": "НАЙПОПУЛЯРНІШИЙ",
+    "bestValueBadge": "НАЙКРАЩА ЦІНА",
+    "saveDiscount": "Знижка 20%"
 }

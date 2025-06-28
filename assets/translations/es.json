@@ -67,5 +67,14 @@
   "deleteAccountAlert": "¿Estás seguro de que quieres eliminar tu cuenta? Todo tu progreso guardado en los tests se perderá permanentemente.",
   "attention": "¡Atención!",
   "delete": "Borrar",
-  "loggedOutText": "Has cerrado sesión correctamente."
+  "loggedOutText": "Has cerrado sesión correctamente.",
+  "premiumAccessTitle": "Acceso Premium a Todas las Pruebas",
+  "oneWeekSubscription": "1 - Semana de Suscripción",
+  "oneMonthSubscription": "1 - Mes de Suscripción",
+  "threeMonthsSubscription": "3 - Meses de Suscripción",
+  "sixMonthsSubscription": "6 - Meses de Suscripción",
+  "annualSubscription": "Suscripción Anual",
+  "mostPopularBadge": "MÁS POPULAR",
+  "bestValueBadge": "MEJOR VALOR",
+  "saveDiscount": "Ahorra 20%"
 }

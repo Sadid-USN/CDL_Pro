@@ -83,7 +83,16 @@ class CodegenLoader extends AssetLoader{
   "deleteAccountAlert": "Вы уверены, что хотите удалить аккаунт? Весь сохранённый прогресс тестов будет безвозвратно утерян.",
   "attention": "Внимание!",
   "delete": "Удалить",
-  "loggedOutText": "Вы успешно вышли из системы."
+  "loggedOutText": "Вы успешно вышли из системы.",
+  "premiumAccessTitle": "Премиум доступ ко всем тестам",
+  "oneWeekSubscription": "1 - Неделя подписки",
+  "oneMonthSubscription": "1 - Месяц подписки",
+  "threeMonthsSubscription": "3 - Месяца подписки",
+  "sixMonthsSubscription": "6 - Месяцев подписки",
+  "annualSubscription": "Годовая подписка",
+  "mostPopularBadge": "САМЫЙ ПОПУЛЯРНЫЙ",
+  "bestValueBadge": "ЛУЧШАЯ ЦЕНА",
+  "saveDiscount": "Скидка 20%"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -153,7 +162,16 @@ static const Map<String,dynamic> _uk = {
   "deleteAccountAlert": "Ви впевнені, що хочете видалити акаунт? Усі збережені результати тестів будуть назавжди втрачені.",
   "attention": "Увага!",
   "delete": "Видалити",
-  "loggedOutText": "Ви успішно вийшли з системи."
+  "loggedOutText": "Ви успішно вийшли з системи.",
+  "premiumAccessTitle": "Преміум доступ до всіх тестів",
+  "oneWeekSubscription": "1 - Тиждень підписки",
+  "oneMonthSubscription": "1 - Місяць підписки",
+  "threeMonthsSubscription": "3 - Місяці підписки",
+  "sixMonthsSubscription": "6 - Місяців підписки",
+  "annualSubscription": "Річна підписка",
+  "mostPopularBadge": "НАЙПОПУЛЯРНІШИЙ",
+  "bestValueBadge": "НАЙКРАЩА ЦІНА",
+  "saveDiscount": "Знижка 20%"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -224,7 +242,16 @@ static const Map<String,dynamic> _en = {
   "welcome": "{email}\nWelcome to CDL Pro!",
   "deleteAccountAlert": "Are you sure you want to delete your account? All your saved test progress will be permanently lost.",
   "attention": "Attention!",
-  "loggedOutText": "You've been logged out successfully."
+  "loggedOutText": "You've been logged out successfully.",
+  "premiumAccessTitle": "Premium Access to All Tests",
+  "oneWeekSubscription": "1 - Week Subscription",
+  "oneMonthSubscription": "1 - Month Subscription",
+  "threeMonthsSubscription": "3 - Months Subscription",
+  "sixMonthsSubscription": "6 - Months Subscription",
+  "annualSubscription": "Annual Subscription",
+  "mostPopularBadge": "MOST POPULAR",
+  "bestValueBadge": "BEST VALUE",
+  "saveDiscount": "Save 20%"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -295,7 +322,16 @@ static const Map<String,dynamic> _es = {
   "deleteAccountAlert": "¿Estás seguro de que quieres eliminar tu cuenta? Todo tu progreso guardado en los tests se perderá permanentemente.",
   "attention": "¡Atención!",
   "delete": "Borrar",
-  "loggedOutText": "Has cerrado sesión correctamente."
+  "loggedOutText": "Has cerrado sesión correctamente.",
+  "premiumAccessTitle": "Acceso Premium a Todas las Pruebas",
+  "oneWeekSubscription": "1 - Semana de Suscripción",
+  "oneMonthSubscription": "1 - Mes de Suscripción",
+  "threeMonthsSubscription": "3 - Meses de Suscripción",
+  "sixMonthsSubscription": "6 - Meses de Suscripción",
+  "annualSubscription": "Suscripción Anual",
+  "mostPopularBadge": "MÁS POPULAR",
+  "bestValueBadge": "MEJOR VALOR",
+  "saveDiscount": "Ahorra 20%"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
