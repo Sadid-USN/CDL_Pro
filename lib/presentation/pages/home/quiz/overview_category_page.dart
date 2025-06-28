@@ -3,6 +3,7 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class OverviewCategoryPage extends StatelessWidget {
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          child: Text(title, style: AppTextStyles.merriweatherBold12,),
+          child: Text(title, style: AppTextStyles.merriweatherBold12),
         ),
         centerTitle: true,
       ),
@@ -114,7 +115,7 @@ class OverviewCategoryPage extends StatelessWidget {
                               replace: true,
                             );
                           } else {
-                            _showPremiumDialog(context);
+                            _showPremiumSheet(context);
                           }
                         },
                       ),
@@ -124,7 +125,6 @@ class OverviewCategoryPage extends StatelessWidget {
                   // Обычные карточки с вопросами
                   final card = cards[index];
                   return Card(
-                    
                     margin: const EdgeInsets.only(bottom: 12),
                     child: ListTile(
                       leading: Text(
@@ -142,8 +142,8 @@ class OverviewCategoryPage extends StatelessWidget {
                                 AppLogos.lockClosed,
                                 height: 25.h,
                                 colorFilter: ColorFilter.mode(
-                                   AppColors.lightPrimary,
-                                    BlendMode.srcIn,
+                                  AppColors.lightPrimary,
+                                  BlendMode.srcIn,
                                 ),
                               )
                               : const Icon(Icons.arrow_forward_ios),
@@ -165,7 +165,7 @@ class OverviewCategoryPage extends StatelessWidget {
                             replace: true,
                           );
                         } else {
-                          _showPremiumDialog(context);
+                          _showPremiumSheet(context);
                         }
                       },
                     ),
@@ -234,26 +234,17 @@ class OverviewCategoryPage extends StatelessWidget {
     }
   }
 
-  void _showPremiumDialog(BuildContext context) {
-    showDialog(
+  void _showPremiumSheet(BuildContext context) {
+    showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
       builder:
-          (context) => AlertDialog(
-            title: Text('premiumAccess'),
-            content: Text('premiumRequired'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('cancel'),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  context.read<CDLTestsBloc>().add(PurchasePremium());
-                },
-                child: Text('buy'),
-              ),
-            ],
+          (context) => PremiumBottomSheet(
+            onPurchasePressed: () {
+              Navigator.pop(context); // Закрываем bottom sheet
+              context.read<CDLTestsBloc>().add(PurchasePremium());
+            },
           ),
     );
   }
