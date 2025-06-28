@@ -1,6 +1,9 @@
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 class PremiumBottomSheet extends StatelessWidget {
   final VoidCallback onPurchasePressed;
@@ -19,63 +22,49 @@ class PremiumBottomSheet extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.w),
+          padding: EdgeInsets.all(12.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Заголовок с иконкой
-              Row(
-                children: [
-                  Icon(Icons.star, color: AppColors.goldenSoft, size: 28.w),
-                  SizedBox(width: 8.w),
-                  Text(
-                    'Premium Access to All Tests',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).textTheme.titleLarge?.color,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16.h),
+              Lottie.asset(AppLogos.premiumCrown, height: 60.h),
+              SizedBox(width: 8.w),
               Text(
-                'Unlock all CDL test questions, detailed explanations, and advanced features',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: Theme.of(context).textTheme.bodyMedium?.color,
-                ),
+                LocaleKeys.premiumAccessTitle.tr(),
+                style: AppTextStyles.merriweatherBold14,
               ),
+
               SizedBox(height: 24.h),
 
               // Карточки подписок
               _buildSubscriptionCard(
                 context,
-                title: '1 Week Subscription',
+                title: LocaleKeys.oneWeekSubscription.tr(),
                 price: '\$5.99',
                 isPopular: false,
               ),
               _buildSubscriptionCard(
                 context,
-                title: '1 Month Subscription',
+                title: LocaleKeys.oneMonthSubscription.tr(),
                 price: '\$19.99',
                 isPopular: true,
               ),
               _buildSubscriptionCard(
                 context,
-                title: '3 Months Subscription',
+                title: LocaleKeys.threeMonthsSubscription.tr(),
                 price: '\$49.99',
                 isPopular: false,
               ),
               _buildSubscriptionCard(
                 context,
-                title: '6 Months Subscription',
+                title: LocaleKeys.sixMonthsSubscription.tr(),
                 price: '\$79.99',
                 isPopular: false,
               ),
               _buildSubscriptionCard(
                 context,
-                title: 'Annual Subscription',
+                title: LocaleKeys.annualSubscription.tr(),
                 price: '\$99.99',
                 isPopular: false,
                 isBestValue: true,
@@ -83,28 +72,28 @@ class PremiumBottomSheet extends StatelessWidget {
 
               SizedBox(height: 16.h),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed:
-                        () => _showPlaceholder(context, 'Privacy Policy'),
-                    child: Text(
-                      'Privacy Policy',
-                      style: TextStyle(fontSize: 12.sp),
-                    ),
-                  ),
-                  Text('•', style: TextStyle(fontSize: 12.sp)),
-                  TextButton(
-                    onPressed:
-                        () => _showPlaceholder(context, 'Terms of Service'),
-                    child: Text(
-                      'Terms of Service',
-                      style: TextStyle(fontSize: 12.sp),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     TextButton(
+              //       onPressed:
+              //           () => _showPlaceholder(context, 'Privacy Policy'),
+              //       child: Text(
+              //         'Privacy Policy',
+              //         style: TextStyle(fontSize: 12.sp),
+              //       ),
+              //     ),
+              //     Text('•', style: TextStyle(fontSize: 12.sp)),
+              //     TextButton(
+              //       onPressed:
+              //           () => _showPlaceholder(context, 'Terms of Service'),
+              //       child: Text(
+              //         'Terms of Service',
+              //         style: TextStyle(fontSize: 12.sp),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
@@ -135,65 +124,68 @@ class PremiumBottomSheet extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (isPopular)
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-                decoration: BoxDecoration(
-                  color: AppColors.goldenSoft.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(4.r),
-                ),
-                child: Text(
-                  'MOST POPULAR',
-                  style: AppTextStyles.merriweather10.copyWith(
-                    color: AppColors.goldenSoft,
-                  ),
-                ),
+            if (isPopular || isBestValue)
+              _buildBadge(
+                context,
+                isPopular: isPopular,
+                isBestValue: isBestValue,
               ),
-            if (isBestValue)
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-                decoration: BoxDecoration(
-                  color: AppColors.greenSoft.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(4.r),
-                ),
-                child: Text(
-                  'BEST VALUE',
-                  style: TextStyle(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.bold,
+            SizedBox(height: (isPopular || isBestValue) ? 8.h : 0),
+            Text(title, style: AppTextStyles.manropeBold14),
+          ],
+        ),
+        subtitle:
+            isBestValue
+                ? Text(
+                  LocaleKeys.saveDiscount.tr(),
+                  style: AppTextStyles.manrope8.copyWith(
                     color: AppColors.simpleGreen,
                   ),
-                ),
-              ),
-            SizedBox(height: isPopular || isBestValue ? 8.h : 0),
-            Text(
-              title,
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-              price,
-              style: TextStyle(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-                color: AppColors.lightPrimary,
-              ),
-            ),
-            if (isBestValue)
-              Text(
-                'Save 20%',
-                style: TextStyle(fontSize: 12.sp, color: AppColors.simpleGreen),
-              ),
-          ],
-        ),
+                )
+                : null,
+        trailing: Text(price, style: AppTextStyles.robotoMonoBold14),
         onTap: () => _handlePurchase(context, title),
       ),
     );
+  }
+
+  Widget _buildBadge(
+    BuildContext context, {
+    bool isPopular = false,
+    bool isBestValue = false,
+  }) {
+    if (isPopular) {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+        decoration: BoxDecoration(
+          color: AppColors.goldenSoft.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(4.r),
+        ),
+        child: Text(
+          LocaleKeys.mostPopularBadge.tr(),
+          style: AppTextStyles.merriweather10.copyWith(
+            color: AppColors.goldenSoft,
+          ),
+        ),
+      );
+    } else if (isBestValue) {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+        decoration: BoxDecoration(
+          color: AppColors.greenSoft.withValues(alpha: 0.3),
+          borderRadius: BorderRadius.circular(4.r),
+        ),
+        child: Text(
+          LocaleKeys.bestValueBadge.tr(),
+          style: TextStyle(
+            fontSize: 10.sp,
+            fontWeight: FontWeight.bold,
+            color: AppColors.simpleGreen,
+          ),
+        ),
+      );
+    }
+    return const SizedBox.shrink();
   }
 
   void _handlePurchase(BuildContext context, String plan) {

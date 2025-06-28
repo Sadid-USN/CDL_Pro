@@ -67,5 +67,15 @@
   "welcome": "{email}\nWelcome to CDL Pro!",
   "deleteAccountAlert": "Are you sure you want to delete your account? All your saved test progress will be permanently lost.",
   "attention": "Attention!",
-   "loggedOutText": "You've been logged out successfully."
+  "loggedOutText": "You've been logged out successfully.",
+  "premiumAccessTitle": "Premium Access to All Tests",
+  "oneWeekSubscription": "1 - Week Subscription",
+  "oneMonthSubscription": "1 - Month Subscription",
+  "threeMonthsSubscription": "3 - Months Subscription",
+  "sixMonthsSubscription": "6 - Months Subscription",
+  "annualSubscription": "Annual Subscription",
+  "mostPopularBadge": "MOST POPULAR",
+  "bestValueBadge": "BEST VALUE",
+  "saveDiscount": "Save 20%"
+  
 }
