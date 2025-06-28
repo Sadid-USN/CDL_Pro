@@ -18,8 +18,9 @@ class AppLogos {
 
 
   //JSON PATH
-  static const String truckLoader = 'assets/svgs/truck_loader.json';
-  static const String movingTruck = 'assets/svgs/moving_truck.json';
+  static const String truckLoader = 'assets/lottie/truck_loader.json';
+  static const String movingTruck = 'assets/lottie/moving_truck.json';
+  static const String premiumCrown = 'assets/lottie/premium_crown.json';
 
   //Images PNG PATH
 

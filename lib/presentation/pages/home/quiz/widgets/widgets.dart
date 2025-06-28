@@ -5,3 +5,4 @@ export 'reset_buttn.dart';
 export 'gallery_button.dart';
 export 'zoom_image_button.dart';
 export 'auth_reminder_banner.dart';
+export 'premium_bottom_sheet.dart';
