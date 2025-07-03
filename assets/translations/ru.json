@@ -76,5 +76,14 @@
   "annualSubscription": "Годовая подписка",
   "mostPopularBadge": "САМЫЙ ПОПУЛЯРНЫЙ",
   "bestValueBadge": "ЛУЧШАЯ ЦЕНА",
-  "saveDiscount": "Скидка 20%"
+  "saveDiscount": "Скидка 20%",
+  "helpAndSupport": "Помощь и поддержка",
+  "rateUs": "Оцените нас",
+  "contactUs": "Свяжитесь с нами",
+  "termsOfUse": "Условия использования",
+  "privacyPolicy": "Политика конфиденциальности",
+  "version": "Версия",
+  "language": "Язык",
+  "selectLanguage": "Выберите язык",
+  "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока."
 }

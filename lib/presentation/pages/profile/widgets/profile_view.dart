@@ -177,6 +177,8 @@ class ProfileView extends StatelessWidget {
       );
     }
   }
+
+
 }
 
 /// Custom clipper for the curved bottom edge of the header

@@ -9,13 +9,15 @@ abstract class AbstractCDLTestsEvent extends Equatable {
 }
 
 class PreviousQuestionsEvent extends AbstractCDLTestsEvent {}
+
 class StartTimerEvent extends AbstractCDLTestsEvent {}
+
 class StopTimerEvent extends AbstractCDLTestsEvent {}
+
 class SetUserUidEvent extends AbstractCDLTestsEvent {
-  final String? uid;               // null → пользователь вышел
+  final String? uid; // null → пользователь вышел
   const SetUserUidEvent(this.uid);
 }
-
 
 class ResetQuizEvent extends AbstractCDLTestsEvent {
   const ResetQuizEvent();
@@ -58,22 +60,6 @@ class AnswerQuestionEvent extends AbstractCDLTestsEvent {
 
 class NextQuestionsEvent extends AbstractCDLTestsEvent {
   const NextQuestionsEvent();
-
-  @override
-  List<Object?> get props => [];
-}
-
-class CheckPremiumStatus extends AbstractCDLTestsEvent {
-  final bool? isPremium; // Временное упрощение
-
-  const CheckPremiumStatus({this.isPremium});
-
-  @override
-  List<Object?> get props => [isPremium];
-}
-
-class PurchasePremium extends AbstractCDLTestsEvent {
-  const PurchasePremium();
 
   @override
   List<Object?> get props => [];

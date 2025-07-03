@@ -10906,7 +10906,7 @@
             "description": "You don’t need to drive the vehicle to confirm the coupling; visual and manual inspections are sufficient."
           }
         },
-        "81": {
+        "71": {
           "en": {
             "question": "What does the service line, control line, or signal line do?",
             "options": {
@@ -10918,7 +10918,7 @@
             "description": "The service line sends air to a relay valve so the trailer's brakes engage quickly when needed."
           }
         },
-        "82": {
+        "72": {
           "en": {
             "question": "What might go wrong if you try to couple a trailer that's set too high?",
             "options": {
@@ -10931,7 +10931,7 @@
             "description": "If the trailer is too high, it may not properly couple to the fifth wheel, causing an unsafe connection."
           }
         },
-        "83": {
+        "73": {
           "en": {
             "question": "A truck that is full has a __ bigger chance of rolling over during a crash than an empty truck.",
             "options": {
@@ -10944,7 +10944,7 @@
             "description": "A fully loaded truck is 10 times more likely to roll over in a crash than an empty one."
           }
         },
-        "84": {
+        "74": {
           "en": {
             "question": "When you park a trailer that doesn't have spring brakes, it's a good idea to use chocks because _",
             "options": {
@@ -10957,7 +10957,7 @@
             "description": "If the trailer has no spring brakes and air leaks, chocks prevent it from moving unintentionally."
           }
         },
-        "85": {
+        "75": {
           "en": {
             "question": "Which trailer is more likely to roll over when you quickly turn while pulling two trailers?",
             "options": {
@@ -10969,7 +10969,7 @@
             "description": "The rear trailer is the most likely to roll over due to the whip effect in sudden turns."
           }
         },
-        "86": {
+        "76": {
           "en": {
             "question": "What can you use to control the air in the service line?",
             "options": {
@@ -10982,7 +10982,7 @@
             "description": "Both the hand brake and the foot brake can control air sent to the service line."
           }
         },
-        "87": {
+        "77": {
           "en": {
             "question": "Should you use the trailer's hand brake to straighten out a jackknifing trailer?",
             "options": {
@@ -10995,7 +10995,7 @@
             "description": "You should not use the trailer hand brake during jackknifing since it's often caused by brake overuse."
           }
         },
-        "88": {
+        "78": {
           "en": {
             "question": "What can you do to stop a combination vehicle from rolling over?",
             "options": {
@@ -11008,7 +11008,7 @@
             "description": "Keeping a low center of gravity and taking turns slowly helps prevent rollovers in combination vehicles."
           }
         },
-        "89": {
+        "79": {
           "en": {
             "question": "To check if the truck protection valve works, fill up the trailer air brake system with air, turn off the engine, and then__",
             "options": {
@@ -11021,7 +11021,7 @@
             "description": "Pump the brake pedal after filling the system and shutting off the engine to test the protection valve."
           }
         },
-        "90": {
+        "80": {
           "en": {
             "question": "What should you do to back up into a curve to the driver's side?",
             "options": {
@@ -11034,7 +11034,7 @@
             "description": "Backing into a curve on the driver’s side requires full awareness: use mirrors, go slow, and assess the path."
           }
         },
-        "91": {
+        "81": {
           "en": {
             "question": "If a vehicle's load sticks out four feet or more beyond the rear trailer at night, the load must have __ at the end.",
             "options": {
@@ -11047,7 +11047,7 @@
             "description": "If a load extends 4 feet or more from the rear of the trailer at night, two red lights must be mounted at the end for visibility and safety."
           }
         },
-        "92": {
+        "82": {
           "en": {
             "question": "Compared with a regular five-axle truck-trailer, the final trailer of a triple is__ more likely to roll over.",
             "options": {
@@ -11060,7 +11060,7 @@
             "description": "The last trailer in a triple trailer setup is 3.5 times more likely to roll over compared to a standard five-axle truck-trailer."
           }
         },
-        "93": {
+        "83": {
           "en": {
             "question": "How should you reverse a trailer?",
             "options": {
@@ -11073,7 +11073,7 @@
             "description": "To reverse a trailer safely, use mirrors, go slowly, and check your entire path before backing."
           }
         },
-        "94": {
+        "84": {
           "en": {
             "question": "When doing the walk-around inspection, which of these things is NOT something you check when looking at the sliding fifth wheel?",
             "options": {
@@ -11086,7 +11086,7 @@
             "description": "The crank handle fastening is not part of the sliding fifth wheel check. It's more important to check wheel position and locking mechanisms."
           }
         },
-        "95": {
+        "85": {
           "en": {
             "question": "What is NOT the right way to determine if the trailer has ABS?",
             "options": {
@@ -11099,7 +11099,7 @@
             "description": "A cartoon sticker is not a valid or reliable way to confirm the presence of ABS on a trailer."
           }
         },
-        "96": {
+        "86": {
           "en": {
             "question": "Among the functions of an emergency air line is__",
             "options": {
@@ -11111,7 +11111,7 @@
             "description": "The emergency air line activates the trailer brakes if there’s a drop in air pressure, helping stop the vehicle safely."
           }
         },
-        "97": {
+        "87": {
           "en": {
             "question": "The following distance for a 70-foot combination vehicle driving at 50 mph is ___",
             "options": {
@@ -11124,7 +11124,7 @@
             "description": "For a 70-foot truck at 50 mph, maintain at least 8 seconds of following distance to allow enough time to react."
           }
         },
-        "98": {
+        "88": {
           "en": {
             "question": "Which of these is more likely to off-track?",
             "options": {
@@ -11137,7 +11137,7 @@
             "description": "In a double trailer, the last trailer is more likely to swing wide or off-track, especially when turning."
           }
         },
-        "99": {
+        "89": {
           "en": {
             "question": "Why do we connect the glad hands to a vehicle that has \"dead-end\" couplers?",
             "options": {
@@ -11150,7 +11150,7 @@
             "description": "Connecting glad hands on a vehicle with dead-end couplers helps seal the system and keeps contaminants out."
           }
         },
-        "100": {
+        "90": {
           "en": {
             "question": "How can you avoid your truck's landing gear getting stuck on railroad tracks or other stuff on the road?",
             "options": {
@@ -11163,7 +11163,7 @@
             "description": "To prevent the landing gear from catching on obstacles like train tracks, make sure it’s fully raised before moving."
           }
         },
-        "101": {
+        "91": {
           "en": {
             "question": "If your vehicle breaks down on a railway crossing, what should you do?",
             "options": {
@@ -11176,7 +11176,7 @@
             "description": "If your vehicle is stuck on train tracks, get out quickly and move to safety. Then call 911 to report the emergency."
           }
         },
-        "102": {
+        "92": {
           "en": {
             "question": "To stop the cargo from tipping over, the driver should keep the load very low to the ground and__",
             "options": {
@@ -11189,7 +11189,7 @@
             "description": "Keeping the load low and taking turns slowly helps prevent the cargo from tipping over."
           }
         },
-        "103": {
+        "93": {
           "en": {
             "question": "Trying to fix a jackknifing trailer by using the trailer hand brake won't help. Why is this method not effective?",
             "options": {
@@ -11202,7 +11202,7 @@
             "description": "Using the trailer hand brake can lock the wheels, worsening the skid. That’s why it won’t stop a jackknife."
           }
         },
-        "104": {
+        "94": {
           "en": {
             "question": "What is the least likely to roll over?",
             "options": {
@@ -11215,7 +11215,7 @@
             "description": "Straight highways are the least risky for rollovers compared to curved or uneven roads."
           }
         },
-        "105": {
+        "95": {
           "en": {
             "question": "Which one of these statements is correct?",
             "options": {
@@ -11227,7 +11227,7 @@
             "description": "Both the foot brake controls all brakes and the hand valve is used to test trailer brakes only."
           }
         },
-        "106": {
+        "96": {
           "en": {
             "question": "Truck protection valve closes automatically if air pressure drops to a certain level. What is that level?",
             "options": {
@@ -11240,7 +11240,7 @@
             "description": "If the air pressure drops between 20 to 45 psi, the truck protection valve shuts to help keep the system safe."
           }
         },
-        "107": {
+        "97": {
           "en": {
             "question": "Which of the following does NOT help stop a trailer from skidding?",
             "options": {
@@ -11253,7 +11253,7 @@
             "description": "Using the hand brake during a skid can worsen it and should be avoided."
           }
         },
-        "108": {
+        "98": {
           "en": {
             "question": "After you have unlocked the fifth wheel, what should you do next?",
             "options": {
@@ -11266,7 +11266,7 @@
             "description": "After unlocking the fifth wheel, move forward slightly to partially disengage from the trailer."
           }
         },
-        "109": {
+        "99": {
           "en": {
             "question": "What does the term \"off-tracking\" mean?",
             "options": {
@@ -11282,7 +11282,7 @@
             ]
           }
         },
-        "110": {
+        "100": {
           "en": {
             "question": "__of a double or triple vehicle have a higher tendency to go off-track.",
             "options": {
@@ -11295,7 +11295,7 @@
             "description": "The rear wheels of the last trailer in multi-trailer setups are most prone to going off-track."
           }
         },
-        "111": {
+        "101": {
           "en": {
             "question": "If the fifth wheel locking lever isn't locked after the jaws close around the kingpin, it means:",
             "options": {
@@ -11307,7 +11307,7 @@
             "description": "If the locking lever doesn’t lock, the connection isn’t safe. You need to fix the coupling before driving."
           }
         },
-        "112": {
+        "102": {
           "en": {
             "question": "Semi-trailers with air brakes built before 1975:",
             "options": {
@@ -11319,7 +11319,7 @@
             "description": "Older semi-trailers built before 1975 often don’t have spring brakes, unlike modern ones."
           }
         },
-        "113": {
+        "103": {
           "en": {
             "question": "After uncoupling the trailer, you should inspect the trailer supports. What gear should the truck engine be in during this inspection?",
             "options": {
@@ -11331,7 +11331,7 @@
             "description": "When inspecting trailer supports after uncoupling, the truck should be in neutral to prevent movement and ensure safety."
           }
         },
-        "114": {
+        "104": {
           "en": {
             "question": "When is it appropriate to park a combination vehicle with the hand valve?",
             "options": {
@@ -11343,7 +11343,7 @@
             "description": "You should never use the hand valve to park a combination vehicle. It's not safe because it can cause the trailer brakes to wear out unevenly. Always use the parking brakes when you need to park."
           }
         },
-        "115": {
+        "105": {
           "en": {
             "question": "You supply air to the trailer tanks by:",
             "options": {
@@ -11355,7 +11355,7 @@
             "description": "To provide air to trailer tanks, you press the trailer air supply valve. This valve, often found on the dashboard, sends air from the truck to the trailer to make sure the brakes work properly."
           }
         },
-        "116": {
+        "106": {
           "en": {
             "question": "Before you back under a trailer, make sure that:",
             "options": {
@@ -11367,7 +11367,7 @@
             "description": "Before you reverse under a trailer, you need to make sure that the trailer brakes are locked. This prevents the trailer from moving while backing up."
           }
         },
-        "117": {
+        "107": {
           "en": {
             "question": "What components should you connect before reversing under the semitrailer while coupling a truck to it?",
             "options": {
@@ -11379,7 +11379,7 @@
             "description": "Before backing the truck under the semitrailer, you should connect the emergency and service air lines."
           }
         },
-        "118": {
+        "108": {
           "en": {
             "question": "Once you've secured the kingpin into the fifth wheel, what is the proper method for verifying the connection?",
             "options": {
@@ -11391,7 +11391,7 @@
             "description": "The correct way to check the kingpin connection is to gently pull forward with the trailer brakes locked, ensuring a secure connection."
           }
         },
-        "119": {
+        "109": {
           "en": {
             "question": "After you press the trailer air supply valve, you shouldn't back the truck under a trailer until the entire air system is:",
             "options": {
@@ -11403,7 +11403,7 @@
             "description": "Before hooking a truck to a trailer, make sure the air pressure in the system is normal so brakes and other air systems function properly."
           }
         },
-        "120": {
+        "110": {
           "en": {
             "question": "The locking jaws should close around____ the kingpin.",
             "options": {
@@ -11415,7 +11415,7 @@
             "description": "The locking jaw should close around the shank of the kingpin to ensure a secure connection between the trailer and the tractor."
           }
         },
-        "121": {
+        "111": {
           "en": {
             "question": "If you realize that you can't make your turn without moving into a different lane on the road, you should:",
             "options": {
@@ -11427,7 +11427,7 @@
             "description": "If you can't stay in your lane while turning, make a wide turn as you complete the maneuver. Don’t stop or rush."
           }
         },
-        "122": {
+        "112": {
           "en": {
             "question": "When driving, some drivers pull the hand brake before stepping on the foot brake to avoid the jack-knife. Which of these statements is correct?",
             "options": {
@@ -11439,7 +11439,7 @@
             "description": "Using the hand brake first can cause trailer wheels to lock and lead to a skid or jackknife. It should not be done except in emergencies."
           }
         },
-        "123": {
+        "113": {
           "en": {
             "question": "Combination vehicles require __ things to check than regular trucks or buses.",
             "options": {
@@ -11451,7 +11451,7 @@
             "description": "Combination vehicles like tractor-trailers have more parts and systems, so they require more checks than a regular truck or bus."
           }
         },
-        "124": {
+        "114": {
           "en": {
             "question": "Once the trailer is coupled, you should elevate the landing gear by engaging -",
             "options": {
@@ -11463,7 +11463,7 @@
             "description": "After hooking up the trailer, lift the landing gear using the low gear. It's slower but gives you more control to avoid damage."
           }
         },
-        "125": {
+        "115": {
           "en": {
             "question": "A truck with a/an ______ trailer needs the least distance to come to a stop.",
             "options": {
@@ -11475,7 +11475,7 @@
             "description": "A fully loaded trailer is heavier and provides better traction, which can help the truck stop more effectively compared to an empty one."
           }
         },
-        "126": {
+        "116": {
           "en": {
             "question": "If pushing the trailer air supply valve doesn't release the spring brakes, you should:",
             "options": {
@@ -11487,7 +11487,7 @@
             "description": "If the spring brakes don’t release, check the air line connections to ensure proper airflow between the tractor and trailer."
           }
         },
-        "127": {
+        "117": {
           "en": {
             "question": "The risk of a truck-trailer combination rolling over during a turn is highest when the combination involves -",
             "options": {
@@ -11499,7 +11499,7 @@
             "description": "A truck with three 27-foot trailers is the most likely to roll over during a turn due to its increased instability."
           }
         },
-        "128": {
+        "118": {
           "en": {
             "question": "If only your trailer has antilock brakes, it __",
             "options": {
@@ -11511,7 +11511,7 @@
             "description": "Having ABS only on the trailer improves control during braking, even though it doesn't shorten braking distance."
           }
         },
-        "129": {
+        "119": {
           "en": {
             "question": "When a trailer is ___, it is at the highest risk of jackknifing.",
             "options": {
@@ -11523,7 +11523,7 @@
             "description": "An empty trailer has less weight to provide traction, making it more prone to jackknifing in slippery or sudden braking conditions."
           }
         },
-        "130": {
+        "120": {
           "en": {
             "question": "When parking a trailer, when is it necessary to use chocks?",
             "options": {
@@ -11535,7 +11535,7 @@
             "description": "You should always use chocks when parking a trailer to prevent it from rolling away."
           }
         },
-        "131": {
+        "121": {
           "en": {
             "question": "When are you allowed to get out of your vehicle while backing?",
             "options": {
@@ -11547,7 +11547,7 @@
             "description": "If you’re unsure of your path while backing, get out and check to avoid hitting obstacles."
           }
         },
-        "132": {
+        "122": {
           "en": {
             "question": "What should you do if the antilock braking system on your trailer is not functioning?",
             "options": {
@@ -11559,7 +11559,7 @@
             "description": "If your trailer's ABS isn’t working, you can drive normally but need to get it repaired as soon as possible."
           }
         },
-        "133": {
+        "123": {
           "en": {
             "question": "The indication that the trailer ABS brakes are malfunctioning is when __.",
             "options": {
@@ -11571,7 +11571,7 @@
             "description": "If the ABS system isn't working properly, the yellow ABS warning light on the left side of the trailer will remain lit."
           }
         },
-        "134": {
+        "124": {
           "en": {
             "question": "To make a turn safely without entering another traffic lane _",
             "options": {
@@ -11583,7 +11583,7 @@
             "description": "To turn safely without crossing into another lane, you need to turn wide as you complete the turn. This helps you stay in control and avoid accidents."
           }
         },
-        "135": {
+        "125": {
           "en": {
             "question": "What is the first thing you need to do after colliding with another vehicle?",
             "options": {
@@ -11595,7 +11595,7 @@
             "description": "After a crash, the first step is to turn on your hazard lights (four-way flashers) to alert other drivers and prevent further accidents."
           }
         },
-        "136": {
+        "126": {
           "en": {
             "question": "The trailer air supply control valve is designed to close automatically when the air pressure drops to a range of _ psi.",
             "options": {
@@ -11607,7 +11607,7 @@
             "description": "The trailer air supply control valve shuts off automatically if the air pressure drops between 20 and 45 psi, helping to prevent brake failure."
           }
         },
-        "137": {
+        "127": {
           "en": {
             "question": "You can determine if the trailer you are driving is equipped with antilock brakes by checking for __",
             "options": {
@@ -11619,7 +11619,7 @@
             "description": "To identify if a trailer has ABS, look for yellow ABS lights located on the trailer’s left side."
           }
         },
-        "138": {
+        "128": {
           "en": {
             "question": "What is the quickest and most effective method to identify that the trailer has begun to skid?",
             "options": {
@@ -11631,7 +11631,7 @@
             "description": "The fastest and most reliable way to notice a trailer skid is by watching your mirrors carefully."
           }
         },
-        "139": {
+        "129": {
           "en": {
             "question": "Loss of air pressure in the emergency line causes:",
             "options": {
@@ -11643,7 +11643,7 @@
             "description": "When emergency line air pressure drops, the trailer’s emergency brakes automatically activate to prevent uncontrolled movement."
           }
         },
-        "140": {
+        "130": {
           "en": {
             "question": "Do not reverse a truck under a trailer until the entire air system is __",
             "options": {
@@ -11655,7 +11655,7 @@
             "description": "Ensure that the air system is at normal operating pressure before backing a truck under a trailer. This guarantees safe and proper brake function."
           }
         },
-        "141": {
+        "131": {
           "en": {
             "question": "To unlock the fifth wheel, move the release handle to the _ position.",
             "options": {
@@ -11667,7 +11667,7 @@
             "description": "To disconnect the trailer from the tractor, move the fifth wheel release handle to the 'open' position."
           }
         },
-        "142": {
+        "132": {
           "en": {
             "question": "What combination of a truck and trailer has the highest chance of rolling over in a turn?",
             "options": {
@@ -11679,7 +11679,7 @@
             "description": "Truck-trailer setups with triple 27 ft. trailers have the greatest risk of rollover during turns due to instability."
           }
         },
-        "143": {
+        "133": {
           "en": {
             "question": "To check if the trailer air brake system is working, first fill it up with air. Then, push the red knob that supplies air to the trailer, or set the truck protection valve control in the _ position.",
             "options": {
@@ -11691,7 +11691,7 @@
             "description": "To test the trailer air brake system, fill the system with air and set the trailer air supply control to the 'normal' position."
           }
         },
-        "144": {
+        "134": {
           "en": {
             "question": "Emergency air line is__",
             "options": {
@@ -11704,7 +11704,7 @@
             "description": "The emergency air line controls the trailer's emergency brake system. It activates the brakes if there's a serious problem, like a break in the line."
           }
         },
-        "145": {
+        "135": {
           "en": {
             "question": "What is the first step in coupling a tractor-semitrailer?",
             "options": {
@@ -11717,7 +11717,7 @@
             "description": "Before coupling, the first thing to do is inspect the fifth wheel for damage or misalignment."
           }
         },
-        "146": {
+        "136": {
           "en": {
             "question": "When is ABS useful?",
             "options": {
@@ -11729,7 +11729,7 @@
             "description": "ABS helps prevent wheel lockup whether it’s on the tractor, trailer, or both — it's useful in all weather and lighting conditions."
           }
         },
-        "147": {
+        "137": {
           "en": {
             "question": "What happens if the service line has a big leak and you try to stop the truck by pressing the brakes?",
             "options": {
@@ -11742,7 +11742,7 @@
             "description": "A major service line leak causes the trailer's emergency brakes to activate to help bring it to a stop safely."
           }
         },
-        "148": {
+        "138": {
           "en": {
             "question": "Which of the following is NOT part of the trailer's airline system?",
             "options": {
@@ -11755,7 +11755,7 @@
             "description": "The locking jaw is part of the hitching mechanism, not the trailer’s air brake system."
           }
         },
-        "149": {
+        "139": {
           "en": {
             "question": "Which of the following truck-trailer combinations is most likely to experience a \"crack-the-whip\" effect?",
             "options": {
@@ -11768,7 +11768,7 @@
             "description": "A tractor pulling three trailers is most at risk of a 'crack-the-whip' rollover, which happens when the last trailer swings violently."
           }
         },
-        "150": {
+        "140": {
           "en": {
             "question": "Emergency air lines are used for all of the following, EXCEPT___",
             "options": {
@@ -11781,7 +11781,7 @@
             "description": "Emergency air lines don’t supply air to the relay valves for faster foot brake response — that’s handled by the service line."
           }
         },
-        "151": {
+        "141": {
           "en": {
             "question": "You should leave 1 second of distance to the vehicle in front of you for every___ feet of your vehicle's length.",
             "options": {
@@ -11794,7 +11794,7 @@
             "description": "For every 10 feet of vehicle length, you should allow 1 second of following distance for safe stopping."
           }
         },
-        "152": {
+        "142": {
           "en": {
             "question": "What are other names for the service air line?",
             "options": {
@@ -11807,7 +11807,7 @@
             "description": "The service air line is also known as the control line or signal line because it carries air to apply the brakes based on the driver’s brake pedal use."
           }
         },
-        "153": {
+        "143": {
           "en": {
             "question": "What should you avoid doing when you're backing up a trailer?",
             "options": {
@@ -11820,7 +11820,7 @@
             "description": "You should never back up a trailer quickly. Always go slow to maintain control and watch for hazards."
           }
         },
-        "154": {
+        "144": {
           "en": {
             "question": "After coupling the fifth wheels, how much gap should there be between the top and bottom fifth wheels?",
             "options": {
@@ -11832,7 +11832,7 @@
             "description": "Leaving about 2 inches of gap ensures the kingpin is fully seated and allows for safe articulation without metal-on-metal contact."
           }
         },
-        "155": {
+        "145": {
           "en": {
             "question": "When disconnecting the electrical cable during uncoupling, you should also__",
             "options": {
@@ -11845,7 +11845,7 @@
             "description": "Hanging the plug downward prevents water from entering the connector, reducing corrosion and electrical faults."
           }
         },
-        "156": {
+        "146": {
           "en": {
             "question": "Before you start checking the trailer supports or landing gears, first ensure the truck is safely parked by setting the parking brake and putting the transmission in _",
             "options": {
@@ -11857,7 +11857,7 @@
             "description": "Putting the transmission in Neutral and setting the parking brake prevents unintended movement during inspection."
           }
         },
-        "157": {
+        "147": {
           "en": {
             "question": "At railroad crossings, low-slung vehicles are more vulnerable than other vehicles because",
             "options": {
@@ -11870,7 +11870,7 @@
             "description": "Low-slung frames can catch on the raised rails or approach plates, causing the vehicle to stall or become grounded."
           }
         },
-        "158": {
+        "148": {
           "en": {
             "question": "Which one of these is a description of the \"crack-the-whip\" effect?",
             "options": {
@@ -11885,7 +11885,7 @@
             ]
           }
         },
-        "159": {
+        "149": {
           "en": {
             "question": "What is NOT a step in testing the truck protection valve?",
             "options": {
@@ -11898,7 +11898,7 @@
             "description": "Testing the protection valve involves pressurizing and bleeding air, not vehicle movements; slowly moving forward and applying brakes tests coupling, not the valve."
           }
         },
-        "160": {
+        "150": {
           "en": {
             "question": "What might be the result of the crack-the-whip effect?",
             "options": {
@@ -11911,7 +11911,7 @@
             "description": "The amplified swing of the last trailer can cause it to tip or roll over."
           }
         },
-        "161": {
+        "151": {
           "en": {
             "question": "When backing a truck under a trailer, you need to ensure that the air pressure is ___ so you can brake safely.",
             "options": {
@@ -11923,7 +11923,7 @@
             "description": "Normal system pressure ensures both tractor and trailer brakes will engage properly during coupling."
           }
         },
-        "162": {
+        "152": {
           "en": {
             "question": "Which type of vehicle is most likely to get stuck at a raised railroad crossing?",
             "options": {
@@ -11936,7 +11936,7 @@
             "description": "Any vehicle with low ground clearance—vans, car carriers, or mis-geared semis—can snag on raised rails."
           }
         },
-        "163": {
+        "153": {
           "en": {
             "question": "What license do you need to legally drive a triple trailer combination?",
             "options": {
@@ -11949,7 +11949,7 @@
             "description": "Operating triples requires a Class A commercial license plus the ’T’ endorsement for doubles/triples."
           }
         },
-        "164": {
+        "154": {
           "en": {
             "question": "Which of these is most likely to get stuck at a train crossing?",
             "options": {
@@ -11962,7 +11962,7 @@
             "description": "All of these vehicles have low ground clearance, which increases the risk of getting hung up on raised railroad crossings."
           }
         },
-        "165": {
+        "155": {
           "en": {
             "question": "What purpose does the trailer air supply control serve, and how do you use it?",
             "options": {
@@ -11975,7 +11975,7 @@
             "description": "Pushing in the trailer air supply control sends air to the trailer's brake system, enabling proper brake function."
           }
         },
-        "166": {
+        "156": {
           "en": {
             "question": "Which of the following will stop the cargo from rolling over?",
             "options": {
@@ -11988,7 +11988,7 @@
             "description": "Proper cargo distribution with heavy items at the bottom maintains a low center of gravity and reduces rollover risk."
           }
         },
-        "167": {
+        "157": {
           "en": {
             "question": "Where can you find the shut-off valve?",
             "options": {
@@ -12001,7 +12001,7 @@
             "description": "The shut-off valve is typically located at the back of the trailer and controls air flow between units."
           }
         },
-        "168": {
+        "158": {
           "en": {
             "question": "When the trailer has anti-lock brakes, but the truck pulling it doesn't, the trailer has _",
             "options": {
@@ -12014,7 +12014,7 @@
             "description": "ABS on the trailer helps prevent it from locking up, reducing the chance of swinging out even if the tractor doesn't have ABS."
           }
         },
-        "169": {
+        "159": {
           "en": {
             "question": "Which of the following is NOT true about the anti-lock braking system?",
             "options": {
@@ -12027,7 +12027,7 @@
             "description": "ABS is designed to help maintain control and can reduce stopping distance, not increase it."
           }
         },
-        "170": {
+        "160": {
           "en": {
             "question": "When you are making sure air gets to all the trailers, you do NOT have to _",
             "options": {
@@ -12040,7 +12040,7 @@
             "description": "Lowering air pressure by pumping the brake pedal is not required to check if air reaches all trailers."
           }
         },
-        "171": {
+        "161": {
           "en": {
             "question": "When you need to back up your vehicle in a curve, it's best to reverse toward the driver's side because _.",
             "options": {
@@ -12053,7 +12053,7 @@
             "description": "Reversing toward the driver’s side improves visibility through the window, allowing for safer maneuvering."
           }
         },
-        "172": {
+        "162": {
           "en": {
             "question": "If your trailer doesn't have spring brakes, should you use chocks to park it?",
             "options": {
@@ -12066,7 +12066,7 @@
             "description": "Always use wheel chocks to prevent unintended movement if the trailer is not equipped with spring brakes."
           }
         },
-        "173": {
+        "163": {
           "en": {
             "question": "If you are driving with two trailers and must use the emergency brakes to avoid crashing, you should _",
             "options": {
@@ -12079,7 +12079,7 @@
             "description": "Controlled or stab braking helps maintain control during emergency stops, especially with multiple trailers."
           }
         },
-        "174": {
+        "164": {
           "en": {
             "question": "Where can you find the yellow ABS malfunction lamp on a trailer?",
             "options": {
@@ -12092,7 +12092,7 @@
             "description": "The yellow ABS warning light on a trailer is typically located on the left front or left rear corner to alert the driver of ABS issues."
           }
         },
-        "175": {
+        "165": {
           "en": {
             "question": "When there is a big leak in the brake line, the truck protection valve will shut off and the trailer's__ will turn on.",
             "options": {
@@ -12105,7 +12105,7 @@
             "description": "A major leak in the brake line activates the trailer’s emergency brakes to safely stop it."
           }
         },
-        "176": {
+        "166": {
           "en": {
             "question": "When inspecting the lower fifth wheel, you do NOT have to check if _.",
             "options": {
@@ -12118,7 +12118,7 @@
             "description": "Puddles on the ground are not part of the fifth wheel inspection during a commercial vehicle check."
           }
         },
-        "177": {
+        "167": {
           "en": {
             "question": "Checking the service brakes on a trailer does not include which of the following?",
             "options": {
@@ -12131,7 +12131,7 @@
             "description": "You don’t place the trailer air supply control in the emergency position when checking service brakes."
           }
         },
-        "178": {
+        "168": {
           "en": {
             "question": "What happens if the air does not flow to the back of a trailer?",
             "options": {
@@ -12143,7 +12143,7 @@
             "description": "If air doesn't reach the rear trailer, its brakes may fail to operate correctly, risking safety."
           }
         },
-        "179": {
+        "169": {
           "en": {
             "question": "Which of these is true about going off track?",
             "options": {
@@ -12156,7 +12156,7 @@
             "description": "In turns, the rear wheels of the last trailer follow a tighter path than the front, causing significant off-tracking."
           }
         },
-        "180": {
+        "170": {
           "en": {
             "question": "Approximately what percentage of truck drivers die in rollover crashes?",
             "options": {
@@ -12169,7 +12169,7 @@
             "description": "Over half of truck driver fatalities result from rollover crashes, highlighting their danger."
           }
         },
-        "181": {
+        "171": {
           "en": {
             "question": "Why shouldn't you use the trailer hand valve when driving?",
             "options": {
@@ -12181,7 +12181,7 @@
             "description": "Using the trailer hand valve while moving can cause the trailer to skid, risking a loss of control."
           }
         },
-        "182": {
+        "172": {
           "en": {
             "question": "Why should you use wheel chocks when parking a vehicle without spring brakes?",
             "options": {
@@ -12194,7 +12194,7 @@
             "description": "Wheel chocks prevent unintended trailer movement when spring brakes are not present."
           }
         },
-        "183": {
+        "173": {
           "en": {
             "question": "Your vehicle got stuck on the railroad tracks. What should you do in this situation?",
             "options": {
@@ -12206,7 +12206,7 @@
             "description": "Leave the vehicle immediately and call emergency services for assistance if stuck on train tracks."
           }
         },
-        "184": {
+        "174": {
           "en": {
             "question": "Why does a combination vehicle with no load take more time to stop than when it's fully loaded?",
             "options": {
@@ -12219,7 +12219,7 @@
             "description": "Empty combination vehicles have less traction because they don't press as firmly against the road, making it harder to stop."
           }
         },
-        "185": {
+        "175": {
           "en": {
             "question": "If you have to back up on a curved path, where should you turn so that there is a rear view?",
             "options": {
@@ -12232,7 +12232,7 @@
             "description": "Backing toward the driver’s side gives better visibility and control, making it the safest option."
           }
         },
-        "186": {
+        "176": {
           "en": {
             "question": "How far (in seconds) should a 40-foot vehicle going 30 mph be from the vehicle in front of it?",
             "options": {
@@ -12245,7 +12245,7 @@
             "description": "A 40-foot vehicle at 30 mph should maintain at least a 4-second following distance to allow safe stopping."
           }
         },
-        "187": {
+        "177": {
           "en": {
             "question": "When the air pressure gets to a __ level, the knob that controls the air supply on a trailer will pop out.",
             "options": {
@@ -12258,7 +12258,7 @@
             "description": "The trailer air supply control will pop out when pressure falls between 20 and 45 psi, activating the emergency brakes."
           }
         },
-        "188": {
+        "178": {
           "en": {
             "question": "Which of the following vehicles is more likely to roll over?",
             "options": {
@@ -12270,7 +12270,7 @@
             "description": "The last trailer in a triple combination is most likely to roll over due to increased sway and reduced stability."
           }
         },
-        "189": {
+        "179": {
           "en": {
             "question": "Since what year are new trucks required to have anti-lock brake systems (ABS)?",
             "options": {
@@ -12283,7 +12283,7 @@
             "description": "As of March 1, 1998, all new air-braked trucks are required to be equipped with ABS for improved braking safety."
           }
         },
-        "190": {
+        "180": {
           "en": {
             "question": "To check if the truck protection valve functions properly, in what position should the red air supply control knob be?",
             "options": {

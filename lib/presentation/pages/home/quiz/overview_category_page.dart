@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
-import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -13,9 +13,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
 @RoutePage()
-class OverviewCategoryPage extends StatelessWidget {
+class OverviewCategoryPage extends StatefulWidget {
   final String? categoryKey;
   final TestsDataModel? model;
+
   const OverviewCategoryPage({
     super.key,
     required this.categoryKey,
@@ -23,8 +24,22 @@ class OverviewCategoryPage extends StatelessWidget {
   });
 
   @override
+  State<OverviewCategoryPage> createState() => _OverviewCategoryPageState();
+}
+
+class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
+  @override
+  void initState() {
+    context.read<PurchaseBloc>().add(CheckPastPurchases());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final category = _getCategoryByKey(model!.chapters, categoryKey!);
+    final category = _getCategoryByKey(
+      widget.model!.chapters,
+      widget.categoryKey!,
+    );
     if (category == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Error'), centerTitle: true),
@@ -32,7 +47,7 @@ class OverviewCategoryPage extends StatelessWidget {
       );
     }
 
-    final title = _getLocalizedTitle(categoryKey!);
+    final title = _getLocalizedTitle(widget.categoryKey!);
     final questionsMap = category.questions as Map<String, dynamic>;
     final totalQuestions = questionsMap.length;
     final freeLimit = category.freeLimit;
@@ -40,10 +55,8 @@ class OverviewCategoryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            context.router.pop();
-          },
-          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () => context.router.pop(),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -52,9 +65,10 @@ class OverviewCategoryPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
-        builder: (context, state) {
-          final isPremium = state is PremiumLoaded ? state.isPremium : false;
+      body: BlocBuilder<PurchaseBloc, PurchaseState>(
+        builder: (context, purchaseState) {
+          final isPremium = purchaseState is PurchaseSuccess;
+
           final cards = _generateCardItems(
             title,
             totalQuestions,
@@ -62,7 +76,7 @@ class OverviewCategoryPage extends StatelessWidget {
             isPremium,
           );
 
-          return state is PremiumLoading
+          return (purchaseState is PremiumLoading)
               ? Center(
                 child: Lottie.asset(
                   "assets/lottie/truck_loader.json",
@@ -71,9 +85,8 @@ class OverviewCategoryPage extends StatelessWidget {
               )
               : ListView.builder(
                 padding: EdgeInsets.only(bottom: 50.h),
-                itemCount: cards.length + 1, // +1 для "All Questions" карточки
+                itemCount: cards.length + 1,
                 itemBuilder: (context, index) {
-                  // Если это последний элемент (All Questions)
                   if (index == cards.length) {
                     return Card(
                       child: ListTile(
@@ -91,7 +104,7 @@ class OverviewCategoryPage extends StatelessWidget {
                                 ? SvgPicture.asset(
                                   AppLogos.lockClosed,
                                   height: 25.h,
-                                  colorFilter: ColorFilter.mode(
+                                  colorFilter: const ColorFilter.mode(
                                     AppColors.softBlack,
                                     BlendMode.srcIn,
                                   ),
@@ -109,8 +122,8 @@ class OverviewCategoryPage extends StatelessWidget {
                                   1,
                                   totalQuestions,
                                 ),
-                                categoryKey: categoryKey!,
-                                model: model!,
+                                categoryKey: widget.categoryKey!,
+                                model: widget.model!,
                               ),
                               replace: true,
                             );
@@ -122,7 +135,6 @@ class OverviewCategoryPage extends StatelessWidget {
                     );
                   }
 
-                  // Обычные карточки с вопросами
                   final card = cards[index];
                   return Card(
                     margin: const EdgeInsets.only(bottom: 12),
@@ -141,7 +153,7 @@ class OverviewCategoryPage extends StatelessWidget {
                               ? SvgPicture.asset(
                                 AppLogos.lockClosed,
                                 height: 25.h,
-                                colorFilter: ColorFilter.mode(
+                                colorFilter: const ColorFilter.mode(
                                   AppColors.lightPrimary,
                                   BlendMode.srcIn,
                                 ),
@@ -159,8 +171,8 @@ class OverviewCategoryPage extends StatelessWidget {
                                 card.startIndex,
                                 card.endIndex,
                               ),
-                              categoryKey: categoryKey!,
-                              model: model!,
+                              categoryKey: widget.categoryKey!,
+                              model: widget.model!,
                             ),
                             replace: true,
                           );
@@ -238,14 +250,7 @@ class OverviewCategoryPage extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder:
-          (context) => PremiumBottomSheet(
-            onPurchasePressed: () {
-              Navigator.pop(context); // Закрываем bottom sheet
-              context.read<CDLTestsBloc>().add(PurchasePremium());
-            },
-          ),
+      builder: (context) => PremiumBottomSheet(),
     );
   }
 

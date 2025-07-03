@@ -75,5 +75,14 @@
     "annualSubscription": "Річна підписка",
     "mostPopularBadge": "НАЙПОПУЛЯРНІШИЙ",
     "bestValueBadge": "НАЙКРАЩА ЦІНА",
-    "saveDiscount": "Знижка 20%"
+    "saveDiscount": "Знижка 20%",
+    "helpAndSupport": "Довідка та підтримка",
+    "rateUs": "Оцініть нас",
+    "contactUs": "Зв'яжіться з нами",
+    "termsOfUse": "Умови використання",
+    "privacyPolicy": "Політика конфіденційності",
+    "version": "Версія",
+    "language": "Мова",
+    "selectLanguage": "Оберіть мову",
+    "subscriptionAutoRenew": "Підписка автоматично поновлюється в кінці терміну"
 }

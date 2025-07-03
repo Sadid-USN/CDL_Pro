@@ -16,9 +16,9 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   final FirebaseFirestore _firestore;
 
   // ───────────────────────────────── INTERNAL STATE ──────────────────────────
-  bool _isPremium = false;
+
   String? _uid; // <—— Получаем из SetUserUidEvent
-   String? get uid => _uid;
+  String? get uid => _uid;
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
   int _currentQuestionIndex = 0;
@@ -36,12 +36,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   Stream<Duration> get timerStream => _timerController.stream;
 
   // ───────────────────────────────── CONSTRUCTOR ─────────────────────────────
-  CDLTestsBloc(this._prefs, this._firestore)
-    : super(PremiumInitial()) {
-    // Premium
-    on<CheckPremiumStatus>(_onCheckPremiumStatus);
-    on<PurchasePremium>(_onPurchasePremium);
-
+  CDLTestsBloc(this._prefs, this._firestore) : super(CDLTestsInitial()) {
     // Quiz navigation
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
@@ -285,24 +280,6 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // ───────────────────────────────── PREMIUM ────────────────────────────────
-  Future<void> _onCheckPremiumStatus(
-    CheckPremiumStatus event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) async {
-    emit(PremiumLoading());
-    await Future.delayed(const Duration(milliseconds: 300));
-    emit(PremiumLoaded(event.isPremium ?? _isPremium));
-  }
-
-  Future<void> _onPurchasePremium(
-    PurchasePremium event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) async {
-    emit(PremiumLoading());
-    await Future.delayed(const Duration(seconds: 1));
-    _isPremium = true;
-    emit(PremiumLoaded(true));
-  }
 
   // ───────────────────────────────── HELPERS ────────────────────────────────
   String _generateQuizId(List<Question> questions) =>

@@ -76,5 +76,14 @@
   "annualSubscription": "Suscripción Anual",
   "mostPopularBadge": "MÁS POPULAR",
   "bestValueBadge": "MEJOR VALOR",
-  "saveDiscount": "Ahorra 20%"
+  "saveDiscount": "Ahorra 20%",
+  "helpAndSupport": "Ayuda y soporte",
+  "rateUs": "Califícanos",
+  "contactUs": "Contáctanos",
+  "termsOfUse": "Términos de uso",
+  "privacyPolicy": "Política de privacidad",
+  "version": "Versión",
+  "language": "Idioma",
+  "selectLanguage": "Seleccionar idioma",
+  "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo."
 }
