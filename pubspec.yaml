@@ -2,7 +2,7 @@ name: cdl_pro
 description: "CDL Pro is a quiz-based app to help you prepare for the CDL exam with interactive tests and explanations."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.4+14
 
 environment:
   sdk: ^3.7.0
@@ -44,7 +44,6 @@ dependencies:
   firebase_database: ^11.3.7
   google_fonts: ^6.2.1
   cloud_firestore: ^5.6.9
-
   simple_animations: ^5.1.0
   shared_preferences: ^2.5.3
   animate_do: ^4.1.1
@@ -52,7 +51,6 @@ dependencies:
   flutter_hooks: ^0.21.2
   fpdart: ^1.1.1
   lottie: ^3.3.1
-  google_mlkit_translation: ^0.13.0
   dropdown_button2: ^2.3.9
   firebase_ai: ^2.0.0
   flutter_gemini: ^3.0.0
@@ -66,6 +64,9 @@ dependencies:
   sign_in_with_apple: ^7.0.1
   animated_text_kit: ^4.2.3
   top_snackbar_flutter: ^3.3.0
+  in_app_purchase: ^3.2.3
+  in_app_purchase_android: ^0.4.0+2
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:

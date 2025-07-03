@@ -5,10 +5,10 @@ class PopupMenuPositionHelper {
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final offset = renderBox.localToGlobal(Offset.zero);
     return RelativeRect.fromLTRB(
-      offset.dx,
-      offset.dy + renderBox.size.height,
       offset.dx + renderBox.size.width,
       offset.dy,
+      offset.dx,
+      offset.dy + renderBox.size.height,
     );
   }
 }

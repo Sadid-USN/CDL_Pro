@@ -7,6 +7,7 @@ abstract class AbstractCDLTestsState extends Equatable {
   @override
   List<Object?> get props => [];
 }
+class CDLTestsInitial extends AbstractCDLTestsState {}
 
 class QuizInitialState extends AbstractCDLTestsState {
   const QuizInitialState();
@@ -58,28 +59,10 @@ class QuizLoadedState extends AbstractCDLTestsState {
 
 class QuizProgressLoading extends AbstractCDLTestsState {}
 
-class PremiumInitial extends AbstractCDLTestsState {
-  const PremiumInitial();
-}
 
-class PremiumLoading extends AbstractCDLTestsState {
-  const PremiumLoading();
-}
 
-class PremiumLoaded extends AbstractCDLTestsState {
-  final bool isPremium;
 
-  const PremiumLoaded(this.isPremium);
 
-  @override
-  List<Object?> get props => [isPremium];
-}
 
-class PremiumError extends AbstractCDLTestsState {
-  final String message;
 
-  const PremiumError(this.message);
 
-  @override
-  List<Object?> get props => [message];
-}

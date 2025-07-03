@@ -92,7 +92,16 @@ class CodegenLoader extends AssetLoader{
   "annualSubscription": "Годовая подписка",
   "mostPopularBadge": "САМЫЙ ПОПУЛЯРНЫЙ",
   "bestValueBadge": "ЛУЧШАЯ ЦЕНА",
-  "saveDiscount": "Скидка 20%"
+  "saveDiscount": "Скидка 20%",
+  "helpAndSupport": "Помощь и поддержка",
+  "rateUs": "Оцените нас",
+  "contactUs": "Свяжитесь с нами",
+  "termsOfUse": "Условия использования",
+  "privacyPolicy": "Политика конфиденциальности",
+  "version": "Версия",
+  "language": "Язык",
+  "selectLanguage": "Выберите язык",
+  "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока."
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -171,7 +180,16 @@ static const Map<String,dynamic> _uk = {
   "annualSubscription": "Річна підписка",
   "mostPopularBadge": "НАЙПОПУЛЯРНІШИЙ",
   "bestValueBadge": "НАЙКРАЩА ЦІНА",
-  "saveDiscount": "Знижка 20%"
+  "saveDiscount": "Знижка 20%",
+  "helpAndSupport": "Довідка та підтримка",
+  "rateUs": "Оцініть нас",
+  "contactUs": "Зв'яжіться з нами",
+  "termsOfUse": "Умови використання",
+  "privacyPolicy": "Політика конфіденційності",
+  "version": "Версія",
+  "language": "Мова",
+  "selectLanguage": "Оберіть мову",
+  "subscriptionAutoRenew": "Підписка автоматично поновлюється в кінці терміну"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -251,7 +269,16 @@ static const Map<String,dynamic> _en = {
   "annualSubscription": "Annual Subscription",
   "mostPopularBadge": "MOST POPULAR",
   "bestValueBadge": "BEST VALUE",
-  "saveDiscount": "Save 20%"
+  "saveDiscount": "Save 20%",
+  "helpAndSupport": "Help and Support",
+  "rateUs": "Rate Us",
+  "contactUs": "Contact Us",
+  "termsOfUse": "Terms of Use",
+  "privacyPolicy": "Privacy Policy",
+  "version": "Version",
+  "selectLanguage": "Select Language",
+  "language": "Language",
+  "subscriptionAutoRenew": "Subscription automatically renews at the end of the term"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -331,7 +358,16 @@ static const Map<String,dynamic> _es = {
   "annualSubscription": "Suscripción Anual",
   "mostPopularBadge": "MÁS POPULAR",
   "bestValueBadge": "MEJOR VALOR",
-  "saveDiscount": "Ahorra 20%"
+  "saveDiscount": "Ahorra 20%",
+  "helpAndSupport": "Ayuda y soporte",
+  "rateUs": "Califícanos",
+  "contactUs": "Contáctanos",
+  "termsOfUse": "Términos de uso",
+  "privacyPolicy": "Política de privacidad",
+  "version": "Versión",
+  "language": "Idioma",
+  "selectLanguage": "Seleccionar idioma",
+  "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

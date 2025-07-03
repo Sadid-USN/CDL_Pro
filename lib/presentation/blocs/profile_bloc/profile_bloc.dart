@@ -207,72 +207,72 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
-  Future<void> _signInWithGoogle(
-    SignInWithGoogle event,
-    Emitter<ProfileState> emit,
-  ) async {
-    emit(state.copyWith(isLoading: true, errorMessage: null));
+Future<void> _signInWithGoogle(
+  SignInWithGoogle event,
+  Emitter<ProfileState> emit,
+) async {
+  emit(state.copyWith(isLoading: true, errorMessage: null));
 
-    try {
-      final googleSignIn = GoogleSignIn(
-        scopes: ['email'],
-        // Remove the clientId parameter if you're using the default configuration
-        // Only specify clientId if you have a specific iOS client ID to use
-      );
+  try {
+    // ⚠️ Никакого clientId здесь быть не должно!
+    final googleSignIn = GoogleSignIn(
+      scopes: ['email'],
+    );
 
-      final googleUser = await googleSignIn.signIn();
-      if (googleUser == null) {
-        emit(state.copyWith(isLoading: false));
-        return;
-      }
-
-      final googleAuth = await googleUser.authentication;
-      final cred = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final userCred = await _auth.signInWithCredential(cred);
-
-      // Handle new user creation
-      if (userCred.additionalUserInfo?.isNewUser ?? false) {
-        await firebaseStore.collection('users').doc(userCred.user?.uid).set({
-          'email': userCred.user?.email,
-          'createdAt': FieldValue.serverTimestamp(),
-        });
-      }
-
-      final token = await userCred.user?.getIdToken();
-      if (token != null) await _storage.writeToken(token);
-
-      // Explicitly update the user state
-      emit(
-        state.copyWith(
-          user: userCred.user,
-          isLoading: false,
-          errorMessage: null,
-        ),
-      );
-
-      // Add explicit UpdateProfile event
-      add(UpdateProfile(userCred.user));
-    } on FirebaseAuthException catch (e) {
-      emit(
-        state.copyWith(
-          isLoading: false,
-          errorMessage: FirebaseErrorHandler.fromCode(e.code),
-        ),
-      );
-    } catch (e) {
-      debugPrint('Google Sign-In Error: $e');
-      emit(
-        state.copyWith(
-          isLoading: false,
-          errorMessage: FirebaseAuthErrorType.unknown,
-        ),
-      );
+    final googleUser = await googleSignIn.signIn();
+    if (googleUser == null) {
+      emit(state.copyWith(isLoading: false));
+      return;
     }
+
+    final googleAuth = await googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    final userCredential = await _auth.signInWithCredential(credential);
+
+    // При первом входе создаём документ
+    if (userCredential.additionalUserInfo?.isNewUser ?? false) {
+      await firebaseStore
+          .collection('users')
+          .doc(userCredential.user?.uid)
+          .set({
+        'email': userCredential.user?.email,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    }
+
+    final token = await userCredential.user?.getIdToken();
+    if (token != null) await _storage.writeToken(token);
+
+    emit(
+      state.copyWith(
+        user: userCredential.user,
+        isLoading: false,
+        errorMessage: null,
+      ),
+    );
+
+    add(UpdateProfile(userCredential.user));
+  } on FirebaseAuthException catch (e) {
+    emit(
+      state.copyWith(
+        isLoading: false,
+        errorMessage: FirebaseErrorHandler.fromCode(e.code),
+      ),
+    );
+  } catch (e) {
+    debugPrint('Google Sign-In Error: $e');
+    emit(
+      state.copyWith(
+        isLoading: false,
+        errorMessage: FirebaseAuthErrorType.unknown,
+      ),
+    );
   }
+}
 
   Future<void> _signInWithApple(
     SignInWithAppleEvent event,

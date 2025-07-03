@@ -1,18 +1,39 @@
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 class PremiumBottomSheet extends StatelessWidget {
-  final VoidCallback onPurchasePressed;
+  PremiumBottomSheet({super.key});
 
-  const PremiumBottomSheet({super.key, required this.onPurchasePressed});
+  // Основной источник данных: productId → LocaleKey
+  final Map<String, String> productIdToLocaleKey = {
+    'one_week_subscription': LocaleKeys.oneWeekSubscription,
+    'one_month_subscription': LocaleKeys.oneMonthSubscription,
+    'three_months_subscription': LocaleKeys.threeMonthsSubscription,
+    'six_months_subscription': LocaleKeys.sixMonthsSubscription,
+    'annual_subscription': LocaleKeys.annualSubscription,
+  };
+
+  // Для UI — отображаемые цены (можно динамически загружать в будущем)
+  final Map<String, String> productIdToPrice = {
+    'one_week_subscription': '\$5.99',
+    'one_month_subscription': '\$19.99',
+    'three_months_subscription': '\$49.99',
+    'six_months_subscription': '\$79.99',
+    'annual_subscription': '\$99.99',
+  };
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
+      height: screenHeight * 0.7,
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: BorderRadius.only(
@@ -20,83 +41,45 @@ class PremiumBottomSheet extends StatelessWidget {
           topRight: Radius.circular(12.r),
         ),
       ),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(12.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Заголовок с иконкой
-              Lottie.asset(AppLogos.premiumCrown, height: 60.h),
-              SizedBox(width: 8.w),
-              Text(
-                LocaleKeys.premiumAccessTitle.tr(),
-                style: AppTextStyles.merriweatherBold14,
-              ),
-
-              SizedBox(height: 24.h),
-
-              // Карточки подписок
-              _buildSubscriptionCard(
-                context,
-                title: LocaleKeys.oneWeekSubscription.tr(),
-                price: '\$5.99',
-                isPopular: false,
-              ),
-              _buildSubscriptionCard(
-                context,
-                title: LocaleKeys.oneMonthSubscription.tr(),
-                price: '\$19.99',
-                isPopular: true,
-              ),
-              _buildSubscriptionCard(
-                context,
-                title: LocaleKeys.threeMonthsSubscription.tr(),
-                price: '\$49.99',
-                isPopular: false,
-              ),
-              _buildSubscriptionCard(
-                context,
-                title: LocaleKeys.sixMonthsSubscription.tr(),
-                price: '\$79.99',
-                isPopular: false,
-              ),
-              _buildSubscriptionCard(
-                context,
-                title: LocaleKeys.annualSubscription.tr(),
-                price: '\$99.99',
-                isPopular: false,
-                isBestValue: true,
-              ),
-
-              SizedBox(height: 16.h),
-
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     TextButton(
-              //       onPressed:
-              //           () => _showPlaceholder(context, 'Privacy Policy'),
-              //       child: Text(
-              //         'Privacy Policy',
-              //         style: TextStyle(fontSize: 12.sp),
-              //       ),
-              //     ),
-              //     Text('•', style: TextStyle(fontSize: 12.sp)),
-              //     TextButton(
-              //       onPressed:
-              //           () => _showPlaceholder(context, 'Terms of Service'),
-              //       child: Text(
-              //         'Terms of Service',
-              //         style: TextStyle(fontSize: 12.sp),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-            ],
+      child: Column(
+        children: [
+          Lottie.asset(
+            AppLogos.premiumCrown,
+            height: 70.h,
+            fit: BoxFit.contain,
           ),
-        ),
+          Text(
+            LocaleKeys.premiumAccessTitle.tr(),
+            style: AppTextStyles.merriweatherBold16.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 8.h),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                children: productIdToLocaleKey.entries.map((entry) {
+                  final productId = entry.key;
+                  final titleKey = entry.value;
+                  final price = productIdToPrice[productId] ?? '';
+                  final isPopular = productId == 'one_month_subscription';
+                  final isBestValue = productId == 'annual_subscription';
+
+                  return _buildSubscriptionCard(
+                    context,
+                    title: titleKey.tr(),
+                    price: price,
+                    productId: productId,
+                    isPopular: isPopular,
+                    isBestValue: isBestValue,
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          SizedBox(height: 16.h),
+        ],
       ),
     );
   }
@@ -105,6 +88,7 @@ class PremiumBottomSheet extends StatelessWidget {
     BuildContext context, {
     required String title,
     required String price,
+    required String productId,
     bool isPopular = false,
     bool isBestValue = false,
   }) {
@@ -113,8 +97,7 @@ class PremiumBottomSheet extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.r),
         side: BorderSide(
-          color:
-              isPopular ? AppColors.goldenSoft : Theme.of(context).dividerColor,
+          color: isPopular ? AppColors.goldenSoft : Theme.of(context).dividerColor,
           width: isPopular ? 1.5 : 0.5,
         ),
       ),
@@ -134,17 +117,24 @@ class PremiumBottomSheet extends StatelessWidget {
             Text(title, style: AppTextStyles.manropeBold14),
           ],
         ),
-        subtitle:
-            isBestValue
-                ? Text(
-                  LocaleKeys.saveDiscount.tr(),
-                  style: AppTextStyles.manrope8.copyWith(
-                    color: AppColors.simpleGreen,
-                  ),
-                )
-                : null,
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (isBestValue)
+              Text(
+                LocaleKeys.saveDiscount.tr(),
+                style: AppTextStyles.manrope8.copyWith(
+                  color: AppColors.simpleGreen,
+                ),
+              ),
+            Text(
+              LocaleKeys.subscriptionAutoRenew.tr(),
+              style: AppTextStyles.manrope8,
+            ),
+          ],
+        ),
         trailing: Text(price, style: AppTextStyles.robotoMonoBold14),
-        onTap: () => _handlePurchase(context, title),
+        onTap: () => _handlePurchase(context, productId, title),
       ),
     );
   }
@@ -188,16 +178,12 @@ class PremiumBottomSheet extends StatelessWidget {
     return const SizedBox.shrink();
   }
 
-  void _handlePurchase(BuildContext context, String plan) {
-    // TODO: Реализовать логику покупки через in_app_purchase
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Purchasing $plan (will be implemented)')),
-    );
-  }
+  void _handlePurchase(BuildContext context, String productId, String planName) {
+    Navigator.pop(context);
+    context.read<PurchaseBloc>().add(BuyNonConsumableProduct(productId));
 
-  void _showPlaceholder(BuildContext context, String title) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text('$title (will be implemented)')));
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text('Purchasing $planName...')),
+    // );
   }
 }

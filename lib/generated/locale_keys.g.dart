@@ -81,5 +81,14 @@ abstract class  LocaleKeys {
   static const mostPopularBadge = 'mostPopularBadge';
   static const bestValueBadge = 'bestValueBadge';
   static const saveDiscount = 'saveDiscount';
+  static const helpAndSupport = 'helpAndSupport';
+  static const rateUs = 'rateUs';
+  static const contactUs = 'contactUs';
+  static const termsOfUse = 'termsOfUse';
+  static const privacyPolicy = 'privacyPolicy';
+  static const version = 'version';
+  static const language = 'language';
+  static const selectLanguage = 'selectLanguage';
+  static const subscriptionAutoRenew = 'subscriptionAutoRenew';
 
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
+import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           create: (context) => GetIt.I<RoadSignBloc>(),
         ),
         BlocProvider<ProfileBloc>(create: (context) => GetIt.I<ProfileBloc>()),
+        BlocProvider<PurchaseBloc>(create: (_) => GetIt.I<PurchaseBloc>()),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
