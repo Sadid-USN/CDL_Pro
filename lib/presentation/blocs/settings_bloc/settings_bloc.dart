@@ -117,6 +117,10 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
         return firebaseStore.collection('RoadSign');
       case AppDataType.tripInseption:
         return firebaseStore.collection('PreTripInseption');
+      case AppDataType.termsOfUse:
+        return firebaseStore.collection('termsOfUse');
+      case AppDataType.privacyPolicy:
+        return firebaseStore.collection('PrivacyPolicy');
     }
   }
 
@@ -200,6 +204,14 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
             );
             batch.set(docRef, inspectionModel.toJson());
             break;
+          case AppDataType.termsOfUse:
+            final terms = TermsOfUseModel.fromJson(jsonData);
+            batch.set(docRef, terms.toJson());
+            break;
+          case AppDataType.privacyPolicy:
+            final terms = PrivacyPolicyModel.fromJson(jsonData);
+            batch.set(docRef, terms.toJson());
+            break;
         }
       }
 
@@ -225,6 +237,10 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
         return 'assets/DB/road_signs';
       case AppDataType.tripInseption:
         return 'assets/DB/trip_inspection';
+      case AppDataType.termsOfUse:
+        return 'assets/DB/terms_of_use';
+      case AppDataType.privacyPolicy:
+        return 'assets/DB/privacy_policy';
     }
   }
 

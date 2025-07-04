@@ -1,9 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   final InAppPurchase _iap = InAppPurchase.instance;
@@ -30,51 +31,128 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     emit(PurchaseInitial());
   }
 
-  Future<void> _onCheckPastPurchases(
-    CheckPastPurchases event,
-    Emitter<PurchaseState> emit,
-  ) async {
-    final available = await _iap.isAvailable();
-    if (!available) return;
+Future<void> _onCheckPastPurchases(
+  CheckPastPurchases event,
+  Emitter<PurchaseState> emit,
+) async {
+  final available = await _iap.isAvailable();
+  if (!available) return;
 
-    emit(PremiumLoading());
+  emit(PremiumLoading());
 
-    // 🔽 Используем Android-specific API
-    final InAppPurchaseAndroidPlatformAddition androidAddition =
-        _iap.getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
+  try {
+    if (Platform.isAndroid) {
+      // Android implementation
+      final androidAddition = _iap.getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
+      final purchasesResponse = await androidAddition.queryPastPurchases();
+      
+      for (final purchase in purchasesResponse.pastPurchases) {
+        if (productIds.contains(purchase.productID) &&
+            (purchase.status == PurchaseStatus.purchased ||
+                purchase.status == PurchaseStatus.restored)) {
+          emit(PurchaseSuccess());
+          return;
+        }
+      }
+    } else if (Platform.isIOS) {
+      // iOS implementation - используем подписку на purchaseStream
+      // Вместо restorePurchases, который возвращает void
+      final completer = Completer<bool>();
+      final subscription = _iap.purchaseStream.listen((purchases) {
+        for (final purchase in purchases) {
+          if (productIds.contains(purchase.productID) &&
+              (purchase.status == PurchaseStatus.purchased ||
+                  purchase.status == PurchaseStatus.restored)) {
+            completer.complete(true);
+            return;
+          }
+        }
+        completer.complete(false);
+      });
 
-    final purchasesResponse = await androidAddition.queryPastPurchases();
+      // Запускаем восстановление покупок
+      await _iap.restorePurchases();
+      
+      // Ждем результат с таймаутом
+      final hasPurchases = await completer.future.timeout(
+        const Duration(seconds: 5),
+        onTimeout: () => false,
+      );
 
-    for (final purchase in purchasesResponse.pastPurchases) {
-      if (productIds.contains(purchase.productID) &&
-          (purchase.status == PurchaseStatus.purchased ||
-              purchase.status == PurchaseStatus.restored)) {
+      await subscription.cancel();
+
+      if (hasPurchases) {
         emit(PurchaseSuccess());
         return;
       }
     }
-
-    emit(PurchaseInitial());
+  } catch (e) {
+    debugPrint('Error checking past purchases: $e');
   }
 
+  emit(PurchaseInitial());
+}
   Future<void> _onInit(
-    InitializePurchase event,
-    Emitter<PurchaseState> emit,
-  ) async {
-    final available = await _iap.isAvailable();
-    if (!available) return;
-
-    await _iap.restorePurchases();
-
-    _subscription = _iap.purchaseStream.listen(
-      (purchases) {
-        add(HandlePurchaseUpdate(purchases));
-      },
-      onError: (error) {
-        emit(PurchaseFailure('Stream error: $error'));
-      },
-    );
+  InitializePurchase event,
+  Emitter<PurchaseState> emit,
+) async {
+  final available = await _iap.isAvailable();
+  if (!available) {
+    emit(PurchaseFailure('In-app purchases not available'));
+    return;
   }
+
+  // Инициализируем подписку на поток покупок
+  _subscription = _iap.purchaseStream.listen(
+    (purchases) {
+      add(HandlePurchaseUpdate(purchases));
+    },
+    onError: (error) {
+      emit(PurchaseFailure('Stream error: $error'));
+    },
+  );
+
+  // Для iOS сразу проверяем прошлые покупки при инициализации
+  if (Platform.isIOS) {
+    try {
+      emit(PremiumLoading());
+      
+      // Создаем Completer для ожидания результата восстановления
+      final completer = Completer<bool>();
+      final tempSubscription = _iap.purchaseStream.listen((purchases) {
+        for (final purchase in purchases) {
+          if (productIds.contains(purchase.productID) &&
+              (purchase.status == PurchaseStatus.purchased ||
+                  purchase.status == PurchaseStatus.restored)) {
+            completer.complete(true);
+            return;
+          }
+        }
+        completer.complete(false);
+      });
+
+      // Инициируем восстановление покупок
+      await _iap.restorePurchases();
+      
+      // Ждем результат с таймаутом
+      final hasPurchases = await completer.future.timeout(
+        const Duration(seconds: 5),
+        onTimeout: () => false,
+      );
+
+      await tempSubscription.cancel();
+
+      if (hasPurchases) {
+        emit(PurchaseSuccess());
+      } else {
+        emit(PurchaseInitial());
+      }
+    } catch (e) {
+      debugPrint('Error during iOS purchase initialization: $e');
+      emit(PurchaseInitial());
+    }
+  }
+}
 
   Future<void> _onRestore(
     RestorePurchase event,

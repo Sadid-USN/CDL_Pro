@@ -85,5 +85,6 @@
   "version": "Версия",
   "language": "Язык",
   "selectLanguage": "Выберите язык",
-  "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока."
+  "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока.",
+   "effectiveDate": "Дата вступления в силу: {effectiveDate}"
 }

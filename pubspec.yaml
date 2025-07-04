@@ -106,6 +106,8 @@ flutter:
     - assets/DB/tests_es/
     - assets/DB/road_signs/
     - assets/DB/trip_inspection/
+    - assets/DB/terms_of_use/
+    - assets/DB/privacy_policy/
 
 flutter_launcher_icons:
   android: true

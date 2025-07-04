@@ -61,6 +61,17 @@ class ImagesRouteArgs {
   String toString() {
     return 'ImagesRouteArgs{key: $key, imageUrls: $imageUrls}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ImagesRouteArgs) return false;
+    return key == other.key &&
+        const ListEquality().equals(imageUrls, other.imageUrls);
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ const ListEquality().hash(imageUrls);
 }
 
 /// generated route for
@@ -145,6 +156,65 @@ class OverviewCategoryRouteArgs {
   String toString() {
     return 'OverviewCategoryRouteArgs{key: $key, categoryKey: $categoryKey, model: $model}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! OverviewCategoryRouteArgs) return false;
+    return key == other.key &&
+        categoryKey == other.categoryKey &&
+        model == other.model;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ categoryKey.hashCode ^ model.hashCode;
+}
+
+/// generated route for
+/// [PolicyPage]
+class PolicyRoute extends PageRouteInfo<PolicyRouteArgs> {
+  PolicyRoute({
+    Key? key,
+    required PolicyType type,
+    List<PageRouteInfo>? children,
+  }) : super(
+         PolicyRoute.name,
+         args: PolicyRouteArgs(key: key, type: type),
+         initialChildren: children,
+       );
+
+  static const String name = 'PolicyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PolicyRouteArgs>();
+      return PolicyPage(key: args.key, type: args.type);
+    },
+  );
+}
+
+class PolicyRouteArgs {
+  const PolicyRouteArgs({this.key, required this.type});
+
+  final Key? key;
+
+  final PolicyType type;
+
+  @override
+  String toString() {
+    return 'PolicyRouteArgs{key: $key, type: $type}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PolicyRouteArgs) return false;
+    return key == other.key && type == other.type;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ type.hashCode;
 }
 
 /// generated route for
@@ -231,6 +301,27 @@ class QuizRouteArgs {
   String toString() {
     return 'QuizRouteArgs{key: $key, chapterTitle: $chapterTitle, questions: $questions, startIndex: $startIndex, categoryKey: $categoryKey, model: $model}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! QuizRouteArgs) return false;
+    return key == other.key &&
+        chapterTitle == other.chapterTitle &&
+        const ListEquality().equals(questions, other.questions) &&
+        startIndex == other.startIndex &&
+        categoryKey == other.categoryKey &&
+        model == other.model;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^
+      chapterTitle.hashCode ^
+      const ListEquality().hash(questions) ^
+      startIndex.hashCode ^
+      categoryKey.hashCode ^
+      model.hashCode;
 }
 
 /// generated route for

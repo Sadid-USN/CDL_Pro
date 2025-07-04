@@ -85,6 +85,7 @@
   "version": "Version",
   "selectLanguage": "Select Language",
   "language": "Language",
-  "subscriptionAutoRenew": "Subscription automatically renews at the end of the term"
+  "subscriptionAutoRenew": "Subscription automatically renews at the end of the term",
+  "effectiveDate:": "Effective Date: {effectiveDate}"
 
 }
