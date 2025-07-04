@@ -85,5 +85,6 @@
   "version": "Versión",
   "language": "Idioma",
   "selectLanguage": "Seleccionar idioma",
-  "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo."
+  "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
+  "effectiveDate": "Fecha de vigencia: {effectiveDate}"
 }

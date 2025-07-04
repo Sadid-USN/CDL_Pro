@@ -26,6 +26,10 @@ class MainCategoryPage extends StatelessWidget {
         return 'RoadSign';
       case AppDataType.tripInseption:
         return 'PreTripInseption';
+      case AppDataType.termsOfUse:
+        return 'termsOfUse';
+      case AppDataType.privacyPolicy:
+        return 'privacyPolicy';
     }
   }
 
@@ -87,6 +91,10 @@ class MainCategoryPage extends StatelessWidget {
                 case AppDataType.roadSign:
                   return RoadSignView(docs: docs);
                 case AppDataType.tripInseption:
+                  return PreTripInspectionView(docs: docs);
+                case AppDataType.termsOfUse:
+                  return PreTripInspectionView(docs: docs);
+                case AppDataType.privacyPolicy:
                   return PreTripInspectionView(docs: docs);
               }
             },

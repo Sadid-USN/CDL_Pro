@@ -4,6 +4,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,10 +61,9 @@ class SettingsPage extends StatelessWidget {
                     children: [
                       CustomListTile(
                         title: _getHelpTitle(index),
-                        trailingIcon: Icon(
-                          _getHelpIcon(index),
-                          color: AppColors.whiteColor,
-                          size: 20,
+                        trailingIcon: _getHelpIcon(
+                          index,
+                          AppColors.lightBackground,
                         ),
                         onTap: () {
                           _handleHelpTap(index, context);
@@ -92,6 +92,66 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ],
               ),
+
+              GestureDetector(
+                onTap: () {
+                  settingsBloc.add(IncrementTapCount());
+                },
+                child: SizedBox(
+                  height: 55,
+                  //   width: double.infinity / 2,
+                  child: Center(
+                    child: Text(
+                      "${state.tapCount}/7",
+                      style: const TextStyle(
+                        color: Colors.transparent,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // if (state.tapCount >= 7) ...[
+              //   DropdownButton<AppDataType>(
+              //     value: state.selectedType,
+              //     onChanged: (newType) {
+              //       if (newType != null) {
+              //         settingsBloc.add(ChangeType(newType));
+              //       }
+              //     },
+              //     items:
+              //         AppDataType.values.map((language) {
+              //           return DropdownMenuItem<AppDataType>(
+              //             value: language,
+              //             child: Text(
+              //               language.name.toUpperCase(),
+              //               style: const TextStyle(color: Colors.black54),
+              //             ),
+              //           );
+              //         }).toList(),
+              //   ),
+              //   const SizedBox(height: 20),
+              //   ElevatedButton(
+              //     onPressed: () {
+              //       settingsBloc.add(UploadData());
+              //     },
+              //     child: const Text("Загрузить данные"),
+              //   ),
+              //   if (state.loadingStatus == LoadingStatus.loading)
+              //     const CircularProgressIndicator(),
+              //   if (state.loadingStatus == LoadingStatus.completed)
+              //     const Text(
+              //       "Данные успешно загружены!",
+              //       style: TextStyle(color: Colors.green, fontSize: 16),
+              //     ),
+              //   if (state.loadingStatus == LoadingStatus.error)
+              //     const SelectableText(
+              //       "Ошибка загрузки данных",
+              //       style: TextStyle(color: Colors.red, fontSize: 16),
+              //     ),
+              // ],
+              // SizedBox(height: 50,)
             ],
           ),
         );
@@ -132,18 +192,23 @@ class SettingsPage extends StatelessWidget {
     }
   }
 
-  IconData _getHelpIcon(int index) {
+  Widget _getHelpIcon(int index, Color color) {
     switch (index) {
       case 0:
-        return Icons.star_border_outlined;
+        return Icon(Icons.star_border_outlined, color: color);
       case 1:
-        return Icons.email_outlined;
+        return Icon(Icons.email_outlined, color: color);
       case 2:
-        return Icons.description_outlined;
+        return Icon(Icons.description_outlined, color: color);
+
+      // SvgPicture.asset(AppLogos.privacyIcon, height: 20, colorFilter: const ColorFilter.mode(
+      //                             AppColors.whiteColor,
+      //                             BlendMode.srcIn,
+      //                           ),);
       case 3:
-        return Icons.privacy_tip_outlined;
+        return Icon(Icons.privacy_tip_outlined, color: color);
       default:
-        return Icons.help_outline;
+        return Icon(Icons.help_outline, color: color);
     }
   }
 
@@ -154,13 +219,19 @@ class SettingsPage extends StatelessWidget {
         AppLauncher.launchStore();
         break;
       case 1:
-        // Открыть контакты
+        AppLauncher.contactUs();
         break;
       case 2:
-        // Открыть условия использования
+        navigateToPage(
+          context,
+          route: PolicyRoute(type: PolicyType.termsOfUse),
+        );
         break;
       case 3:
-        // Открыть политику конфиденциальности
+        navigateToPage(
+          context,
+          route: PolicyRoute(type: PolicyType.privacyPolicy),
+        );
         break;
     }
   }

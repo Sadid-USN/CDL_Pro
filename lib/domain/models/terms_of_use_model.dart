@@ -1,16 +1,17 @@
 import 'package:equatable/equatable.dart';
 
+
 class TermsOfUseModel extends Equatable {
   final Map<String, LocalizedTerms> terms;
 
   const TermsOfUseModel({required this.terms});
 
   factory TermsOfUseModel.fromJson(Map<String, dynamic> json) {
-    final termsMap = <String, LocalizedTerms>{};
     final data = json['terms_of_use'] as Map<String, dynamic>;
-    data.forEach((lang, content) {
-      termsMap[lang] = LocalizedTerms.fromJson(content);
-    });
+    final termsMap = data.map((lang, content) => MapEntry(
+          lang,
+          LocalizedTerms.fromJson(content as Map<String, dynamic>),
+        ));
     return TermsOfUseModel(terms: termsMap);
   }
 
@@ -35,7 +36,7 @@ class TermsOfUseModel extends Equatable {
 class LocalizedTerms extends Equatable {
   final String title;
   final String effectiveDate;
-  final TermsSections sections;
+  final List<TermsSection> sections;
 
   const LocalizedTerms({
     required this.title,
@@ -44,10 +45,15 @@ class LocalizedTerms extends Equatable {
   });
 
   factory LocalizedTerms.fromJson(Map<String, dynamic> json) {
+    final sectionsJson = json['sections'] as List<dynamic>;
+    final sectionsList = sectionsJson
+        .map((section) => TermsSection.fromJson(section as Map<String, dynamic>))
+        .toList();
+
     return LocalizedTerms(
-      title: json['title'],
-      effectiveDate: json['effective_date'],
-      sections: TermsSections.fromJson(json['sections']),
+      title: json['title'] as String,
+      effectiveDate: json['effective_date'] as String,
+      sections: sectionsList,
     );
   }
 
@@ -55,14 +61,14 @@ class LocalizedTerms extends Equatable {
     return {
       'title': title,
       'effective_date': effectiveDate,
-      'sections': sections.toJson(),
+      'sections': sections.map((s) => s.toJson()).toList(),
     };
   }
 
   LocalizedTerms copyWith({
     String? title,
     String? effectiveDate,
-    TermsSections? sections,
+    List<TermsSection>? sections,
   }) {
     return LocalizedTerms(
       title: title ?? this.title,
@@ -75,77 +81,39 @@ class LocalizedTerms extends Equatable {
   List<Object?> get props => [title, effectiveDate, sections];
 }
 
-class TermsSections extends Equatable {
-  final String general;
-  final String payments;
+class TermsSection extends Equatable {
+  final String title;
   final String content;
-  final String disclaimer;
-  final String privacy;
-  final String modifications;
-  final String contact;
 
-  const TermsSections({
-    required this.general,
-    required this.payments,
+  const TermsSection({
+    required this.title,
     required this.content,
-    required this.disclaimer,
-    required this.privacy,
-    required this.modifications,
-    required this.contact,
   });
 
-  factory TermsSections.fromJson(Map<String, dynamic> json) {
-    return TermsSections(
-      general: json['general'],
-      payments: json['payments'],
-      content: json['content'],
-      disclaimer: json['disclaimer'],
-      privacy: json['privacy'],
-      modifications: json['modifications'],
-      contact: json['contact'],
+  factory TermsSection.fromJson(Map<String, dynamic> json) {
+    return TermsSection(
+      title: json['title'] as String,
+      content: json['content'] as String,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'general': general,
-      'payments': payments,
+      'title': title,
       'content': content,
-      'disclaimer': disclaimer,
-      'privacy': privacy,
-      'modifications': modifications,
-      'contact': contact,
     };
   }
 
-  TermsSections copyWith({
-    String? general,
-    String? payments,
+  TermsSection copyWith({
+    String? title,
     String? content,
-    String? disclaimer,
-    String? privacy,
-    String? modifications,
-    String? contact,
   }) {
-    return TermsSections(
-      general: general ?? this.general,
-      payments: payments ?? this.payments,
+    return TermsSection(
+      title: title ?? this.title,
       content: content ?? this.content,
-      disclaimer: disclaimer ?? this.disclaimer,
-      privacy: privacy ?? this.privacy,
-      modifications: modifications ?? this.modifications,
-      contact: contact ?? this.contact,
     );
   }
 
   @override
-  List<Object?> get props => [
-        general,
-        payments,
-        content,
-        disclaimer,
-        privacy,
-        modifications,
-        contact,
-      ];
+  List<Object?> get props => [title, content];
 }
