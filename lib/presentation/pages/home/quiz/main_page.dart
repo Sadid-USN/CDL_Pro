@@ -27,12 +27,15 @@ class MainPage extends StatelessWidget {
           AppColors.greenSoft,
         ];
         return AutoTabsRouter(
-          routes: [HomeRoute(), ProfileRoute(), SettingsRoute()],
+          routes: [
+            HomeRoute(), ProfileRoute(),
+             SettingsRoute()],
           builder: (context, child) {
             final List<String> svgPictures = [
+                AppLogos.home,
               AppLogos.profile,
               AppLogos.settings,
-              AppLogos.home,
+            
             ];
             final tabsRouter = AutoTabsRouter.of(context);
             final titles = [

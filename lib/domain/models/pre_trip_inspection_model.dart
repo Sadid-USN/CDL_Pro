@@ -2,15 +2,16 @@ import 'package:equatable/equatable.dart';
 
 
 class PreTripInspectionListModel extends Equatable {
-  final List<PreTripSection> preTripInspection;
+  final List<PreTripChapter> preTripInspection;
 
   const PreTripInspectionListModel({required this.preTripInspection});
 
   factory PreTripInspectionListModel.fromJson(Map<String, dynamic> json) {
     final list = json['pre_trip_inspection'] as List<dynamic>?;
+
     return PreTripInspectionListModel(
       preTripInspection: list != null
-          ? list.map((x) => PreTripSection.fromJson(x)).toList()
+          ? list.map((x) => PreTripChapter.fromJson(x)).toList()
           : [],
     );
   }
@@ -24,93 +25,108 @@ class PreTripInspectionListModel extends Equatable {
   List<Object?> get props => [preTripInspection];
 }
 
-class PreTripSection extends Equatable {
-  final int id;
-  final List<PreTripContent> content;
+class PreTripChapter extends Equatable {
+  final int chapterId;
+  final TitleBlock chapterTitle;
+  final List<PreTripStep> steps;
 
-  const PreTripSection({required this.id, required this.content});
+  const PreTripChapter({
+    required this.chapterId,
+    required this.chapterTitle,
+    required this.steps,
+  });
 
-  factory PreTripSection.fromJson(Map<String, dynamic> json) {
-    return PreTripSection(
-      id: json['id'],
-      content: List<PreTripContent>.from(
-        json['content'].map((x) => PreTripContent.fromJson(x)),
+  factory PreTripChapter.fromJson(Map<String, dynamic> json) {
+    return PreTripChapter(
+      chapterId: json['chapter_id'] as int,
+      chapterTitle: TitleBlock.fromJson(json['chapter_title']),
+      steps: List<PreTripStep>.from(
+        (json['steps'] as List).map((x) => PreTripStep.fromJson(x)),
       ),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'content': content.map((x) => x.toJson()).toList(),
+        'chapter_id': chapterId,
+        'chapter_title': chapterTitle.toJson(),
+        'steps': steps.map((x) => x.toJson()).toList(),
       };
 
   @override
-  List<Object?> get props => [id, content];
+  List<Object?> get props => [chapterId, chapterTitle, steps];
 }
 
+class TitleBlock extends Equatable {
+  final String ru;
+  final String en;
+  final String uk;
+  final String es;
+  final String pronunciation;
 
-class PreTripContent extends Equatable {
-  // заголовки (присутствуют только в первом элементе content)
-  final String? ruTitle;
-  final String? enTitle;
-  final String? ukTitle;
-  final String? esTitle;
-
-  // текстовые пункты
-  final String? ruText;
-  final String? enText;
-  final String? ukText;
-  final String? esText;
-  final String? pronunciation;
-
-  const PreTripContent({
-    this.ruTitle,
-    this.enTitle,
-    this.ukTitle,
-    this.esTitle,
-    this.ruText,
-    this.enText,
-    this.ukText,
-    this.esText,
-    this.pronunciation,
+  const TitleBlock({
+    required this.ru,
+    required this.en,
+    required this.uk,
+    required this.es,
+    required this.pronunciation,
   });
 
-  factory PreTripContent.fromJson(Map<String, dynamic> json) {
-    return PreTripContent(
-      ruTitle: json['ruTitle'],
-      enTitle: json['enTitle'],
-      ukTitle: json['ukTitle'],
-      esTitle: json['esTitle'],
-      ruText: json['ruText'],
-      enText: json['enText'],
-      ukText: json['ukText'],
-      esText: json['esText'],
-      pronunciation: json['pronunciation'],
+  factory TitleBlock.fromJson(Map<String, dynamic> json) {
+    return TitleBlock(
+      ru: json['ru'] ?? '',
+      en: json['en'] ?? '',
+      uk: json['uk'] ?? '',
+      es: json['es'] ?? '',
+      pronunciation: json['pronunciation'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() => {
-        if (ruTitle != null) 'ruTitle': ruTitle,
-        if (enTitle != null) 'enTitle': enTitle,
-        if (ukTitle != null) 'ukTitle': ukTitle,
-        if (esTitle != null) 'esTitle': esTitle,
-        if (ruText != null) 'ruText': ruText,
-        if (enText != null) 'enText': enText,
-        if (ukText != null) 'ukText': ukText,
-        if (esText != null) 'esText': esText,
-        if (pronunciation != null) 'pronunciation': pronunciation,
+        'ru': ru,
+        'en': en,
+        'uk': uk,
+        'es': es,
+        'pronunciation': pronunciation,
       };
 
   @override
-  List<Object?> get props => [
-        ruTitle,
-        enTitle,
-        ukTitle,
-        esTitle,
-        ruText,
-        enText,
-        ukText,
-        esText,
-        pronunciation,
-      ];
+  List<Object?> get props => [ru, en, uk, es, pronunciation];
 }
+
+class PreTripStep extends Equatable {
+  final String ru;
+  final String en;
+  final String uk;
+  final String es;
+  final String pronunciation;
+
+  const PreTripStep({
+    required this.ru,
+    required this.en,
+    required this.uk,
+    required this.es,
+    required this.pronunciation,
+  });
+
+  factory PreTripStep.fromJson(Map<String, dynamic> json) {
+    return PreTripStep(
+      ru: json['ru'] ?? '',
+      en: json['en'] ?? '',
+      uk: json['uk'] ?? '',
+      es: json['es'] ?? '',
+      pronunciation: json['pronunciation'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'ru': ru,
+        'en': en,
+        'uk': uk,
+        'es': es,
+        'pronunciation': pronunciation,
+      };
+
+  @override
+  List<Object?> get props => [ru, en, uk, es, pronunciation];
+}
+
