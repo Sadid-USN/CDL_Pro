@@ -18,7 +18,6 @@ class SettingsPage extends StatelessWidget {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         final settingsBloc = context.watch<SettingsBloc>();
-        final theme = Theme.of(context);
 
         return SingleChildScrollView(
           padding: const EdgeInsets.all(0.0),
@@ -80,40 +79,43 @@ class SettingsPage extends StatelessWidget {
               const SizedBox(height: 24),
               _buildSettingsCard(
                 children: [
-                  CustomListTile(
-                    isDarkMode: state.isDarkMode,
-                    title: LocaleKeys.version.tr(),
-                    trailingIcon: Text(
-                      '1.0.0',
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(
-                          alpha: 0.6,
+                  FutureBuilder<String>(
+                    future: AppVersionUtil.getAppVersion(),
+                    builder: (context, snapshot) {
+                      return CustomListTile(
+                        isDarkMode: state.isDarkMode,
+                        title: LocaleKeys.version.tr(),
+                        trailingIcon: Text(
+                          snapshot.data ?? '1.0.0',
+                          style: AppTextStyles.robotoMono12.copyWith(
+                            color: AppColors.lightBackground,
+                          ),
                         ),
-                      ),
-                    ),
-                    onTap: null,
+                        onTap: null,
+                      );
+                    },
                   ),
                 ],
               ),
 
-              GestureDetector(
-                onTap: () {
-                  settingsBloc.add(IncrementTapCount());
-                },
-                child: SizedBox(
-                  height: 55,
-                  //   width: double.infinity / 2,
-                  child: Center(
-                    child: Text(
-                      "${state.tapCount}/7",
-                      style: const TextStyle(
-                        color: Colors.transparent,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     settingsBloc.add(IncrementTapCount());
+              //   },
+              //   child: SizedBox(
+              //     height: 55,
+              //     //   width: double.infinity / 2,
+              //     child: Center(
+              //       child: Text(
+              //         "${state.tapCount}/7",
+              //         style: const TextStyle(
+              //           color: Colors.transparent,
+              //           fontSize: 15,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               // if (state.tapCount >= 7) ...[
               //   DropdownButton<AppDataType>(
