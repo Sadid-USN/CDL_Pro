@@ -34,7 +34,8 @@ class AppLogos {
    static const String airbrake = 'assets/images/airbrake.png';
    static const String doubleAndTriple = 'assets/images/doubleAndTriple.png';
    static const String hazMat = 'assets/images/hazmat.png';
-   static const String privacyPolicy = 'assets/icons/privacyPolicy.png';
+   static const String termOfUse = 'assets/icons/privacyPolicy.png';
+   static const String privacyPolicyIcon = 'assets/icons/privacyPolicyIcon.png';
 
 
 

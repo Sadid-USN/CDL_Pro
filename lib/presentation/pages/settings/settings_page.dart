@@ -20,7 +20,6 @@ class SettingsPage extends StatelessWidget {
         final settingsBloc = context.watch<SettingsBloc>();
 
         return SingleChildScrollView(
-          padding: const EdgeInsets.all(0.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -76,7 +75,7 @@ class SettingsPage extends StatelessWidget {
               ),
 
               // App Info Section
-              const SizedBox(height: 24),
+              // const SizedBox(height: 24),
               _buildSettingsCard(
                 children: [
                   FutureBuilder<String>(
