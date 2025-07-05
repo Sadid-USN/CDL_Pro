@@ -5,7 +5,6 @@ import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PreTripInspectionView extends StatefulWidget {
   final List<QueryDocumentSnapshot> docs;
@@ -28,27 +27,19 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
     final data = widget.docs.first.data() as Map<String, dynamic>;
     final model = PreTripInspectionListModel.fromJson(data);
 
-    // Собираем все правила с сохранением индексов секций и элементов
+    // Собираем все шаги с привязкой к главам
     final allItems = <Map<String, dynamic>>[];
     for (
-      int sectionIndex = 0;
-      sectionIndex < model.preTripInspection.length;
-      sectionIndex++
+      int chapterIndex = 0;
+      chapterIndex < model.preTripInspection.length;
+      chapterIndex++
     ) {
-      final section = model.preTripInspection[sectionIndex];
-      final title = section.content.first;
-
-      for (int i = 1; i < section.content.length; i++) {
+      final chapter = model.preTripInspection[chapterIndex];
+      for (int stepIndex = 0; stepIndex < chapter.steps.length; stepIndex++) {
         allItems.add({
-          'sectionIndex': sectionIndex,
-          'itemIndex': i,
-          'titleEn': title.enTitle,
-          'titleTranslated': switch (selectedLang) {
-            AppLanguage.russian => title.ruTitle,
-            AppLanguage.ukrainian => title.ukTitle,
-            AppLanguage.spanish => title.esTitle,
-            _ => null,
-          },
+          'chapterIndex': chapterIndex,
+          'stepIndex': stepIndex,
+          'chapterTitle': chapter.chapterTitle,
         });
       }
     }
@@ -65,71 +56,65 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
             itemBuilder: (context, pageIndex) {
               final pageItems = allItems.skip(pageIndex * 4).take(4).toList();
               return Padding(
-                padding: EdgeInsets.symmetric(vertical: 12.h),
+                padding: const EdgeInsets.symmetric(vertical: 12),
                 child: ListView.builder(
                   itemCount: pageItems.length,
                   itemBuilder: (context, index) {
                     final itemData = pageItems[index];
-                    final section =
-                        model.preTripInspection[itemData['sectionIndex']];
-                    final item = section.content[itemData['itemIndex']];
+                    final chapter =
+                        model.preTripInspection[itemData['chapterIndex']];
+                    final step = chapter.steps[itemData['stepIndex']];
+                    final title = itemData['chapterTitle'] as TitleBlock;
 
-                    String? translatedText;
-                    switch (selectedLang) {
-                      case AppLanguage.russian:
-                        translatedText = item.ruText;
-                        break;
-                      case AppLanguage.ukrainian:
-                        translatedText = item.ukText;
-                        break;
-                      case AppLanguage.spanish:
-                        translatedText = item.esText;
-                        break;
-                      default:
-                        translatedText = null;
-                    }
+                    final titleTranslated = switch (selectedLang) {
+                      AppLanguage.russian => title.ru,
+                      AppLanguage.ukrainian => title.uk,
+                      AppLanguage.spanish => title.es,
+                      _ => title.en,
+                    };
+
+                    final mainText = switch (selectedLang) {
+                      AppLanguage.russian => step.ru,
+                      AppLanguage.ukrainian => step.uk,
+                      AppLanguage.spanish => step.es,
+                      _ => step.en,
+                    };
+
+                    final showEnglish = selectedLang != AppLanguage.english;
 
                     return Card(
                       child: Padding(
-                        padding: EdgeInsets.all(16.r),
+                        padding: const EdgeInsets.all(16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              itemData['titleEn'] ?? '',
+                              titleTranslated,
                               style: AppTextStyles.merriweatherBold12,
                             ),
-
-                            if (itemData['titleTranslated'] != null)
-                              Text(
-                                itemData['titleTranslated'],
-                                style: AppTextStyles.merriweatherBold12,
-                              ),
-
-                            SizedBox(height: 8.h),
-                            Text(
-                              item.enText ?? '',
-                              style: AppTextStyles.merriweather12,
-                            ),
-                            SizedBox(height: 8.h),
-                            if (selectedLang == AppLanguage.russian &&
-                                (item.pronunciation?.trim().isNotEmpty ??
-                                    false))
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4),
-                                child: Text(
-                                  item.pronunciation!,
-                                  style: AppTextStyles.merriweather12.copyWith(
-                                    color: Colors.grey.shade900,
-                                    fontStyle: FontStyle.italic,
+                            const SizedBox(height: 8),
+                            Text(mainText, style: AppTextStyles.merriweather12),
+                            const SizedBox(height: 8),
+                            if (showEnglish)
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    step.en,
+                                    style: AppTextStyles.merriweatherBold12
+                                        .copyWith(color: AppColors.softBlack),
                                   ),
-                                ),
+                                  const SizedBox(height: 8),
+                                ],
                               ),
-                            SizedBox(height: 8.h),
-                            if (translatedText != null)
+                            if (showEnglish &&
+                                step.pronunciation.trim().isNotEmpty)
                               Text(
-                                translatedText,
-                                style: AppTextStyles.merriweather12,
+                                step.pronunciation,
+                                style: AppTextStyles.merriweather12.copyWith(
+                                  color: Colors.grey.shade700,
+                                  fontStyle: FontStyle.italic,
+                                ),
                               ),
                           ],
                         ),
@@ -141,21 +126,35 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
             },
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            totalPages,
-            (index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-              child: CircleAvatar(
-                radius: currentIndex == index ? 10 : 6,
-                backgroundColor:
-                    currentIndex == index ? AppColors.darkPrimary : Colors.grey,
+        // Индикаторы страниц
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              totalPages,
+              (index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                child: Text(
+                  '${index + 1}',
+                  style: TextStyle(
+                    fontSize: currentIndex == index ? 18 : 14,
+                    fontWeight:
+                        currentIndex == index
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                    color:
+                        currentIndex == index
+                            ? AppColors.lightPrimary
+                            : Colors.grey,
+                  ),
+                ),
               ),
             ),
           ),
         ),
-        SizedBox(height: 50.h),
+
+        SizedBox(height: 50),
       ],
     );
   }

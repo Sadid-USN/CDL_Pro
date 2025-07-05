@@ -1,356 +1,462 @@
 {
   "pre_trip_inspection": [
     {
-      "id": 1,
-      "content": [
+      "chapter_id": 1,
+      "chapter_title": {
+        "ru": "ТЕСТ ВОЗДУШНОГО ТОРМОЗА",
+        "en": "AIR BRAKE TEST",
+        "uk": "ВИПРОБУВАННЯ ПНЕВМАТИЧНИХ ГАЛЬМ",
+        "es": "PRUEBA DE FRENOS DE AIRE",
+        "pronunciation": "EIR BREYK TEST"
+      },
+      "steps": [
         {
-          "ruTitle": "Передняя часть трака",
-          "enTitle": "Front of the Tractor",
-          "ukTitle": "Передня частина тягача",
-          "esTitle": "Parte delantera del camión"
+          "ru": "Сэр я ставлю упор под колесо\nПроверил упор из бок.зеркала\nРемень безопасности\nЗапустить двигатель\nНакачать воздух 120–140 (показываем пальцем на панель приборов)",
+          "en": "Sir, wheel chock please\nCheck wheels\nSeat belt\nStart engine\nBuild air pressure 120–140 PSI (point to the dashboard)",
+          "uk": "Вішак, будь ласка\nПеревірив вішак через бічне дзеркало\nРемінь безпеки\nЗапустити двигун\nНакачати повітря 120–140 (показуємо пальцем на панель приладів)",
+          "es": "Señor, calzo para ruedas por favor\nVerificar ruedas\nCinturón de seguridad\nArrancar motor\nGenerar presión de aire 120–140 PSI (señalar el tablero)",
+          "pronunciation": "SER, VILCHOK PLIZ\nCHEK, VILS\nSID BELT\nSTART ENJIN\nBILD EIR PRESHER 120-140 P.S.I"
         },
         {
-          "ruText": "Фары, поворотники, габаритные огни — чистые, не повреждены, работают.",
-          "enText": "Headlights, turn signals, clearance lights — clean, undamaged, working.",
-          "ukText": "Фари, поворотники, габаритні вогні — чисті, неушкоджені, працюють.",
-          "esText": "Faros, luces direccionales, luces de gálibo — limpias, sin daños, funcionando.",
-          "pronunciation": "Хедлайтс, тёрн сигналз, клиранс лайтс — клин, андемиджд, вёркинг."
+          "ru": "Полный\nВыключить двигатель\nЗажигание\nЖёлтый и красный\nНажать и держать тормоз",
+          "en": "The actual 130 PSI\nTurn off engine\nTurn key on position\nPush brake buttons\nPush brake pedal, hold 1 minute",
+          "uk": "Повний\nВимкнути двигун\nЗапалювання\nЖовта і червона\nНатиснути і тримати гальмо",
+          "es": "Presión actual 130 PSI\nApagar motor\nEncendido en posición\nPresionar botones de freno (amarillo и rojo)\nPresionar pedal de freno, mantener 1 minuto",
+          "pronunciation": "ZE EKSHL 130 p.s.i\nTURN OFF ENJIN\nTURN KIY ON POZISHEN\nPUSH BREYK BATTONS\nPUSH BREYK PEDAL, HOLD 1 minut"
         },
         {
-          "ruText": "Лобовое стекло — без трещин, дворники и омыватель работают.",
-          "enText": "Windshield — no cracks, wipers and washer work properly.",
-          "ukText": "Лобове скло — без тріщин, двірники та омивач працюють.",
-          "esText": "Parabrisas — sin grietas, limpiaparabrisas y lavaparabrisas funcionan correctamente.",
-          "pronunciation": "Виндшилд — ноу крэкс, вайперз энд вошер ворк проперли."
+          "ru": "Потеря ≤ 4 PSI (произносим не убирая ногу с педали и не забываем указать пальцем на панель)\nНажимать тормоз (один раз)\nСигнал до 55 PSI (это нужно сказать до того как загорят зуммера и не забываем указать пальцем на прибор)\nВыбивает тормоза\nЗапустить двигатель",
+          "en": "Air drops no more than 4 PSI (say without removing foot from pedal and point to dashboard)\nStart pumping brake pedal (once)\nBefore 55 PSI buzzer on (say before buzzer activates and point to gauge)\nBetween 45–20 PSI parking brake pops out\nStart engine",
+          "uk": "Втрата ≤ 4 PSI (говоримо, не знімаючи ноги з педалі та показуємо на панель)\nНатискати гальмо (один раз)\nСигнал до 55 PSI (це потрібно сказати до того як загоряться зумери і показати на прилад)\nВибиває гальма\nЗапустити двигун",
+          "es": "Pérdida de aire no más de 4 PSI (decir sin quitar el pie del pedal y señalar el tablero)\nBombear pedal de freno (una vez)\nAntes de 55 PSI suena alarma (decir antes de que active y señalar el indicador)\nEntre 45-20 PSI se activa freno de estacionamiento\nArrancar motor",
+          "pronunciation": "EIR DROPS NO MORZEN 4 p.s.i\nSTART PAMPING BREYK PEDAL\nBIFOR 55 p.s.i BAZER ON\nBITVIN 45-20 p.s.i PARKING BREYK PAP AUT\nSTART ENJIN"
         },
         {
-          "ruText": "Бампер и решётка радиатора — надёжно закреплены.",
-          "enText": "Bumper and grille — securely mounted.",
-          "ukText": "Бампер і решітка радіатора — надійно закріплені.",
-          "esText": "Parachoques y rejilla — montados de forma segura.",
-          "pronunciation": "Бампер энд грил — сикьюрли маунтед."
+          "ru": "Накачать воздух 120–140 (показываем пальцем на панель приборов)\nСигнал отключается\nПолный\nУбрать упор\nЗастегнуть обратно",
+          "en": "Build air pressure 120–140 PSI (point to the dashboard)\n55 PSI buzzer off\nThe actual 130 PSI\nSir, I remove wheel chock\nSeat belt",
+          "uk": "Накачати повітря 120–140 (показуємо пальцем на панель приладів)\nСигнал вимикається\nПовний\nПрибрати вішак\nЗастебнути назад",
+          "es": "Generar presión de aire 120–140 PSI (señalar el tablero)\nAlarma se apaga a 55 PSI\nPresión actual 130 PSI\nSeñor, retiro el calzo de rueda\nAbrochar cinturón de nuevo",
+          "pronunciation": "BILD EIR PRESHER 120-140 p.s.i\n55 p.s.i BAZER OF\nZE EKSHEL 130 p.s.i\nSER, AY REMUV VILCHOK\nSID BELT"
+        },
+        {
+          "ru": "Скорость в D\nЖёлтый брейк паркинг\nДвигаться медленно\nПрицеп не движется\nПотянуть жёлтую кнопку",
+          "en": "Truck in gear (D)\nPush yellow button\nMove slow\nTrailer not move\nPull yellow button",
+          "uk": "Швидкість у D\nЖовта кнопка паркінгу\nРухатися повільно\nПричіп не рухається\nПотягнути жовту кнопку",
+          "es": "Camión en marcha (D)\nPresionar botón amarillo\nMoverse lentamente\nRemolque no se mueve\nJalar botón amarillo",
+          "pronunciation": "TRAK IN GIR(D)\nPUSH YELLOW BATON\nMUV SLOV\nTRELER NOT MUV\nPULL YELLOW BATON"
+        },
+        {
+          "ru": "Скорость в нейтралке\nСкорость в D\nНажать красную кнопку\nДвигаться медленно\nГрузовик не движется",
+          "en": "Truck neutral position\nTruck in gear (D)\nPush red button\nMove slow\nTruck not move",
+          "uk": "Швидкість у нейтральній\nШвидкість у D\nНатиснути червону кнопку\nРухатися повільно\nВантажівка не рухається",
+          "es": "Camión en neutral\nCamión en marcha (D)\nPresionar botón rojo\nMoverse lentamente\nCamión no se mueve",
+          "pronunciation": "TRAK NEYTRAL POZISHEN\nTRAK IN GIR(D)\nPUSH RED BATON\nMUV SLOV\nTRAK NOT MUV"
+        },
+        {
+          "ru": "Потянуть красную кнопку\nСкорость в нейтралке\nСкорость в D\nНажать тормозные кнопки\nДвигаться медленно",
+          "en": "Pull red button\nTruck neutral position\nTruck in gear (D)\nPush brake buttons\nMove slow",
+          "uk": "Потягнути червону кнопку\nШвидкість у нейтральній\nШвидкість у D\nНатиснути гальмівні кнопки\nРухатися повільно",
+          "es": "Jalar botón rojo\nCamión en neutral\nCamión en marcha (D)\nPresionar botones de freno\nMoverse lentamente",
+          "pronunciation": "PUL RED BATON\nTRAK NEYTRAL POZISHEN\nTRAK IN GIR(D)\nPUSH BREYK BATONS\nMUV SLOV"
+        },
+        {
+          "ru": "Нажать тормоз мягко\nНе тянет влево/вправо\nПотянуть кнопки тормоза\nСкорость в нейтралке",
+          "en": "Push brake pedal gently\nTruck not move left & right\nPull brake buttons\nTruck neutral position",
+          "uk": "Натиснути гальмо м'яко\nНе тягне вліво/вправо\nПотягнути кнопки гальма\nШвидкість у нейтральній",
+          "es": "Presionar pedal de freno suavemente\nCamión no se mueve izquierda/derecha\nJalar botones de freno\nCamión en neutral",
+          "pronunciation": "PUSH BREYK PEDAL JENTLI\nTRAK NOT MUV LEFT & RAYT\nPUL BREK BATONS\nTRAK NEYTRAL POZISHEN"
         }
       ]
     },
     {
-      "id": 2,
-      "content": [
+      "chapter_id": 2,
+      "chapter_title": {
+        "ru": "ВНУТРЕННИЙ ОСМОТР",
+        "en": "IN-CAB INSPECTION",
+        "uk": "ВНУТРІШНІЙ ОГЛЯД",
+        "es": "INSPECCIÓN EN CABINA",
+        "pronunciation": "IN-KAB INSPEKSHEYN"
+      },
+      "steps": [
         {
-          "ruTitle": "Двигатель со стороны водителя",
-          "enTitle": "Engine Driver Side",
-          "ukTitle": "Двигун з боку водія",
-          "esTitle": "Motor - lado del conductor"
+          "ru": "Табло показывает\nВкл фары и моргать\nПоворотники лев-прав\nАварийку вкл и показывает табло\nПоказываем бардачок",
+          "en": "Dashboard - all indicators\nHeadlight - high, low beams\nTurn signal - left and right working\nEmergency signal - ABS, DEF lights working\nEmergency equipment - fuse box, extra fuses present",
+          "uk": "Панель приладів показує\nУвімкнути фари і блимати\nПоворотники лівий-правий\nАварійку ввімкнено і показує табло\nПоказуємо бардачок",
+          "es": "Tablero - todos los indicadores\nLuces - altas y bajas\nDireccionales - izquierda y derecha funcionando\nSeñal de emergencia - luces ABS, DEF funcionando\nEquipo de emergencia - caja de fusibles, fusibles extra presentes",
+          "pronunciation": "DASHBORD - OL INDIKEYTORS\nHED LAYT - HAY, LOV BIMS\nTURN SIGNAL - LEFT & TURN SIGNAL RAYT VORKING\nEMERJENCI SIGNAL - ABS-DEF LAYTS WORKING\nEMERJENCI EKYUPMENT - FYUZ BOKS, EKSTRA FYUYZES PREZENT"
         },
         {
-          "ruText": "Уровень масла, охлаждающей жидкости, жидкости ГУР — в норме, утечек нет.",
-          "enText": "Oil, coolant, and power steering fluid levels are normal, no leaks.",
-          "ukText": "Рівень масла, охолоджувальної рідини, рідини гідропідсилювача — в нормі, витоків немає.",
-          "esText": "Nivel de aceite, refrigerante y líquido de dirección asistida — normales, sin fugas.",
-          "pronunciation": "Ойл, кулант энд пауэр стиринг флюид лэвелз ар нормал, ноу ликс."
+          "ru": "Треугольный знак\nОгнетушитель полный\nЛобовое в норме\nДворники и резинки в норме\nБрызгалки работают",
+          "en": "Triangles - good & secure, no crack, no break\nFire extinguisher - good & secure, full charge, not expired\nWindshield - good & secure, no crack, no illegal stickers, clean\nWipers - good & secure, no broken or missing rubber blade, good connection\nWiper washer - working",
+          "uk": "Трикутний знак\nВогнегасник заправлений\nЛобове скло в нормі\nДвірники та гуми в нормі\nОмивачі працюють",
+          "es": "Triángulos - en buen estado, sin grietas, sin roturas\nExtintor - en buen estado, carga completa, no vencido\nParabrisas - en buen estado, sin grietas, sin pegatinas ilegales, limpio\nLimpiaparabrisas - en buen estado, gomas sin roturas, buena conexión\nLavaparabrisas - funcionando",
+          "pronunciation": "TRIENGELS - GUD & SEKYUR, NO KRAK, NO BROK\nFAYER EXTENGUSHER - GUD & SEKYUR, FUL CHARJ, NO EKSPAYERD\nWINDSHELD - GUD & SEKYUR, NO KRAK, NO ILIGAL STIKERS & KLIN\nWAYPERS - GUD & SEKYUR, NO BROK OR MISSING REBL BLEYD, GUD KONEKSHEN\nWAYPER WASHER - WORKING"
         },
         {
-          "ruText": "Ремни и шланги — без трещин и износа.",
-          "enText": "Belts and hoses — no cracks or wear.",
-          "ukText": "Ремені та шланги — без тріщин і зносу.",
-          "esText": "Correas y mangueras — sin grietas ni desgaste.",
-          "pronunciation": "Белтс энд хоузиз — ноу крэкс ор вэар."
-        },
-        {
-          "ruText": "Аккумулятор — закреплён, клеммы чистые.",
-          "enText": "Battery — securely mounted, terminals are clean.",
-          "ukText": "Акумулятор — надійно закріплений, клеми чисті.",
-          "esText": "Batería — montada de forma segura, terminales limpios.",
-          "pronunciation": "Батэри — сикьюрли маунтед, терминалз ар клин."
+          "ru": "Боковые зеркала уст. в сторону водителя\nПечка работает\nСигнал обычн. и трейлерный (тросовой)\nПожалуйста, проверьте огни снаружи\nТЕСТ ВОЗДУШНОГО ТОРМОЗА ЗАВЕРШЕНО",
+          "en": "Mirrors - good & secure, no crack, clean, adjusted to driver\nHeater/Defroster - front, driver side working\nCity horn & highway horn - working\nPlease sir, outside check lights\nAIR BRAKE TEST FINISHED",
+          "uk": "Бічні дзеркала встановлені на водія\nПічка працює\nСигнал звичайний і причіпний (тросовий)\nБудь ласка, перевірте вогні ззовні\nТЕСТ ПОВІТРЯНОГО ГАЛЬМА ЗАВЕРШЕНО",
+          "es": "Espejos - en buen estado, sin grietas, limpios, ajustados al conductor\nCalefactor/Descongelador - frontal, lado del conductor funcionando\nBocina ciudad y carretera - funcionando\nPor favor señor, verifique luces exterior\nPRUEBA DE FRENOS DE AIRE COMPLETA",
+          "pronunciation": "MIROORS - GUD & SEKYUR, NO KRAK NO BROK, KLIN & EDJASTED TU DRAYVER\nHITER ~DEFROSTER - FRONT, DRAYVER SAYD WORKING\nSITY HORN & HAYWEY HORN - WORKING\nPLIZ SER, AUTSAYD CHEK LAYTS\nPLIZ SER, AUTSAYD CHEK LAYTS"
         }
       ]
     },
     {
-      "id": 3,
-      "content": [
+      "chapter_id": 3,
+      "chapter_title": {
+        "ru": "ПРЕДРЕЙСОВЫЙ ОСМОТР",
+        "en": "PRE-TRIP INSPECTION",
+        "uk": "ПЕРЕДРЕЙСОВИЙ ОГЛЯД",
+        "es": "INSPECCIÓN PRE-VIAJE",
+        "pronunciation": "PRI TRIP INSPECTION"
+      },
+      "steps": [
         {
-          "ruTitle": "Двигатель со стороны пассажира",
-          "enTitle": "Engine Passenger Side",
-          "ukTitle": "Двигун з боку пасажира",
-          "esTitle": "Motor - lado del pasajero"
+          "ru": "ПРЕДРЕЙСОВЫЙ ОСМОТР\nНачинается с осмотра внешних элементов\nВажно всё называть чётко и по пунктам\nКаждый шаг должен быть последовательным\nНичего не пропускаем",
+          "en": "PRE-TRIP INSPECTION\nBegins with checking exterior components\nIt's important to name each item clearly\nFollow every step in order\nDo not skip anything",
+          "uk": "ПЕРЕДРЕЙСОВИЙ ОГЛЯД\nПочинається з огляду зовнішніх елементів\nВажливо чітко називати кожен пункт\nДотримуйтесь послідовності\nНічого не пропускайте",
+          "es": "INSPECCIÓN PRE-VIAJE\nComienza con la inspección de elementos externos\nEs importante nombrar cada punto claramente\nSeguir cada paso en orden\nNo omita nada",
+          "pronunciation": "PRI TRIP INSPECTION\nBIGINS VIZ CHEKING EKSTERIOR\nNEYМ IТЕМZ KLIERLI\nSTEP BY STEP\nNO SKIP"
         },
         {
-          "ruText": "Альтернатор и водяной насос — надёжно закреплены, ремни натянуты.",
-          "enText": "Alternator and water pump — securely mounted, belts tight.",
-          "ukText": "Генератор та водяний насос — надійно закріплені, ремені натягнуті.",
-          "esText": "Alternador y bomba de agua — montados de forma segura, correas tensas.",
-          "pronunciation": "Олтернэйтор энд уотер памп — сикьюрли маунтед, белтс тайт."
+          "ru": "Все фары, габариты и линзы исправны\nЧистые и без трещин\nНужного цвета\nХорошо закреплены\nНаходятся на своих местах",
+          "en": "All lights, clearance lights and lenses are working\nThey are clean and without cracks\nProper color\nWell secured\nEverything is in its place",
+          "uk": "Всі фари, габарити та лінзи працюють\nЧисті та без тріщин\nПравильного кольору\nДобре закріплені\nУсе на своїх місцях",
+          "es": "Todas las luces y lentes funcionan bien\nEstán limpias y sin grietas\nColor correcto\nBien aseguradas\nTodo está en su lugar",
+          "pronunciation": "OL LAYTS & LINZES VORKING\nKLIN, NO KRAK\nPROPER COLOR\nGUD & SEKYUR\nON ZER PLEYS"
         },
         {
-          "ruText": "Воздушный компрессор — без утечек, надёжно закреплён.",
-          "enText": "Air compressor — no leaks, securely mounted.",
-          "ukText": "Повітряний компресор — без витоків, надійно закріплений.",
-          "esText": "Compresor de aire — sin fugas, montado de forma segura.",
-          "pronunciation": "Эйр компрессор — ноу ликс, сикьюрли маунтед."
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "content": [
-        {
-          "ruTitle": "Передняя подвеска",
-          "enTitle": "Front Suspension",
-          "ukTitle": "Передня підвіска",
-          "esTitle": "Suspensión delantera"
+          "ru": "Под грузовиком утечек нет\nНикаких капель или следов\nЗемля под ним сухая\nВизуально всё проверено\nГотов к следующему пункту",
+          "en": "Under the truck there are no leaks\nNo drops or stains visible\nGround is dry\nVisual check is complete\nReady for next step",
+          "uk": "Під вантажівкою немає витоків\nНемає крапель чи плям\nЗемля суха\nПеревірка завершена\nГотово до наступного пункту",
+          "es": "Debajo del camión no hay fugas\nNo se ven gotas ni manchas\nEl suelo está seco\nInspección visual completa\nListo para el siguiente paso",
+          "pronunciation": "ANDER TRUK - NO LIK\nNO DROPS OR STAYNS\nGRAUND IS DRY\nVISUAL CHECK DONE\nGO NEKST STEP"
         },
         {
-          "ruText": "Рессоры, амортизаторы, U-образные болты — без повреждений.",
-          "enText": "Leaf springs, shocks, and U-bolts — no damage.",
-          "ukText": "Ресори, амортизатори, U-подібні болти — без пошкоджень.",
-          "esText": "Resortes de lámina, amortiguadores y pernos en U — sin daños.",
-          "pronunciation": "Лиф спрингс, шокс энд ю-болтс — ноу дэмэдж."
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "content": [
-        {
-          "ruTitle": "Передние тормоза",
-          "enTitle": "Front Brakes",
-          "ukTitle": "Передні гальма",
-          "esTitle": "Frenos delanteros"
+          "ru": "Зеркала на капоте чистые\nНадёжно закреплены\nБез трещин и сколов\nОбеспечивают хороший обзор\nПроверены на устойчивость",
+          "en": "Hood mirrors are clean\nThey are securely mounted\nNo cracks or chips\nProvide clear visibility\nChecked for stability",
+          "uk": "Дзеркала на капоті чисті\nНадійно закріплені\nБез тріщин чи сколів\nЗабезпечують хороший огляд\nПеревірені на стійкість",
+          "es": "Los espejos del capó están limpios\nEstán bien sujetos\nSin grietas ni astillas\nProporcionan buena visibilidad\nVerificados por estabilidad",
+          "pronunciation": "HUD MIRRORS KLIN\nMOUNTED SEKYURLI\nNO KRAK, NO CHIP\nCLEAR VIZIBILITY\nCHEKT FOR STABILITY"
         },
         {
-          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
-          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
-          "ukText": "Гальмівні шланги та камери — без витоків, надійно закріплені.",
-          "esText": "Mangueras y cámaras de freno — sin fugas, montadas de forma segura.",
-          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+          "ru": "Бачок охлаждающей жидкости в норме\nНет трещин и утечек\nУровень между минимумом и максимумом\nКрышка плотно закрыта\nЗакреплён надёжно",
+          "en": "Coolant reservoir is normal\nNo cracks or leaks\nLevel between min and max\nCap tightly closed\nMounted securely",
+          "uk": "Бачок охолоджуючої рідини в нормі\nБез тріщин і витоків\nРівень між мінімумом і максимумом\nКришка щільно закрита\nНадійно закріплений",
+          "es": "El depósito de refrigerante está bien\nSin grietas ni fugas\nNivel entre mínimo y máximo\nTapa bien cerrada\nMontado de forma segura",
+          "pronunciation": "KULENT TANK IS OK\nNO KRAK NO LEAK\nLEVEL BITWIN MIN/MAX\nKEP KLOZD\nSEKYURLI MOUNTED"
         },
         {
-          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
-          "enText": "Brake drums and linings — no cracks, proper thickness.",
-          "ukText": "Гальмівні барабани та накладки — без тріщин, товщина накладок в межах норми.",
-          "esText": "Tambores y zapatas de freno — sin grietas, espesor adecuado.",
-          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "content": [
-        {
-          "ruTitle": "Муфта трака",
-          "enTitle": "Tractor Coupling",
-          "ukTitle": "Зчеплення тягача",
-          "esTitle": "Acoplamiento del camión"
+          "ru": "Бачок гидроусилителя исправен\nНет утечек и повреждений\nУровень в норме\nКрышка закрыта плотно\nНадёжно закреплён",
+          "en": "Power steering reservoir is working\nNo damage or leaks\nProper fluid level\nCap is tight\nMounted properly",
+          "uk": "Бачок гідропідсилювача справний\nБез пошкоджень і витоків\nРівень у нормі\nКришка щільно закрита\nДобре закріплений",
+          "es": "El depósito de dirección está bien\nSin daños ni fugas\nNivel correcto\nTapa ajustada\nBien montado",
+          "pronunciation": "POWER STEERING REZERVOR OK\nNO DAMAGE NO LEAK\nFLUID LEVEL OK\nCAP TIGHT\nPROPERLY MOUNTED"
         },
         {
-          "ruText": "Сцепное устройство (kingpin, fifth wheel) — смазано, без люфта.",
-          "enText": "Coupling devices (kingpin, fifth wheel) — greased, no play.",
-          "ukText": "Зчіпні пристрої (кінгпін, п’яте колесо) — змащені, без люфту.",
-          "esText": "Dispositivos de acoplamiento (kingpin, quinta rueda) — engrasados, sin juego.",
-          "pronunciation": "Каплинг дивайсис (кингпин, фифс уил) — грисд, ноу плэй."
+          "steps": [
+            {
+              "ru": "Щуп масла — достать и протереть\nВставить обратно и снова достать\nПроверить уровень — в норме\nНет утечек вокруг щупа\nЩуп чистый и исправный",
+              "en": "Oil dipstick – pull and wipe\nInsert it back, then pull again\nCheck that level is within range\nNo oil leaks around the stick\nDipstick is clean and functional",
+              "uk": "Щуп оливи – витягнути і протерти\nВставити назад, знову витягнути\nРівень у межах норми\nНавколо щупа немає витоків\nЩуп чистий і справний",
+              "es": "Varilla de aceite – sacar y limpiar\nInsertar de nuevo y sacar otra vez\nVerificar que el nivel esté correcto\nNo hay fugas alrededor de la varilla\nLa varilla está limpia y funcional",
+              "pronunciation": "OIL DIPSTIK – PUL & KLIN\nPUSH, THEN PUL AGAIN\nPROPER LEVEL BITVIN MIN/MAX\nNO LIK ARAUND DIPSTIK\nDIPSTIK IZ KLIN END WERKING"
+            },
+            {
+              "ru": "Все шланги — без повреждений\nНикаких порезов или трещин\nНет следов утечек жидкости\nХорошо закреплены по всей длине\nНадёжные и не трутся о детали",
+              "en": "All hoses are free of damage\nNo cuts, cracks or bulges\nNo signs of leaks\nSecurely attached along their length\nNot rubbing against other parts",
+              "uk": "Всі шланги без пошкоджень\nНемає порізів, тріщин або здуттів\nВитоків не виявлено\nНадійно закріплені по всій довжині\nНе труться об інші частини",
+              "es": "Todos los manguitos sin daños\nSin cortes, grietas o abultamientos\nNo hay signos de fugas\nBien sujetos en toda su longitud\nNo rozan con otras partes",
+              "pronunciation": "OL HOSES – NO DAMAGE\nNO KAT, NO KRAK, NO BABL\nNO LIK VISIBLE\nSEKYURLI ATACHED OL LONG\nNOT RUB AGAINST ENITHING"
+            },
+            {
+              "ru": "Воздушные линии в хорошем состоянии\nБез трещин, порезов или вздутий\nНет утечек воздуха\nЗакреплены надёжно по маршруту\nНе касаются движущихся частей",
+              "en": "Air lines are in good condition\nNo cuts, cracks or bulges\nNo air leaks at any point\nSecurely mounted along the route\nNot touching moving parts",
+              "uk": "Повітряні лінії в хорошому стані\nБез порізів, тріщин або здуттів\nПовітря не витікає\nНадійно закріплені по всій довжині\nНе торкаються рухомих частин",
+              "es": "Líneas de aire en buen estado\nSin cortes, grietas o abultamientos\nNo hay fugas de aire visibles\nSujetadas firmemente en su recorrido\nNo tocan partes móviles",
+              "pronunciation": "EIR LINES – GUD KONDISION\nNO KAT, NO KRAK, NO BABL\nNO EIR LEAK\nSEKYUR MOUNTED OL LONG\nNO TUCH MOVING PARTS"
+            },
+            {
+              "ru": "Рычаг рулевого управления целый\nБез трещин, сварок или повреждений\nНадёжно закреплён к шасси\nРаботает без люфта\nНе ослаблен и не болтается",
+              "en": "Steering arm is intact and strong\nNo cracks, welds or breaks\nProperly mounted to chassis\nMoves without excessive play\nNot loose or unstable",
+              "uk": "Важіль рульового цілий та міцний\nБез тріщин, зварок або пошкоджень\nЗакріплений до рами надійно\nНе має люфту\nНе розхитаний і не бовтається",
+              "es": "Brazo de dirección entero y firme\nSin grietas, soldaduras o daños\nFijado correctamente al chasis\nNo tiene juego excesivo\nNo está flojo ni inestable",
+              "pronunciation": "STIRING ARM – INTÄKT & STRONG\nNO KRAK, NO VOLDED, NO BROK\nMOUNTED TU SHASSI\nNO LOOZ MUVEMENT\nNOT WOBBLI OR SHAKEY"
+            },
+            {
+              "ru": "Коробка рулевого управления надёжна\nБез трещин и сварок\nУтечек масла нет\nПрочно установлена на раме\nВсё функционирует корректно",
+              "en": "Steering box is secure\nNo cracks or weld marks\nNo sign of fluid leaks\nFirmly attached to the frame\nEverything functions correctly",
+              "uk": "Коробка рульового міцно закріплена\nБез тріщин або зварювання\nОлії не витікає\nДобре встановлена на рамі\nУсе працює правильно",
+              "es": "Caja de dirección bien montada\nSin grietas ni soldaduras\nSin fugas de aceite\nFijada firmemente al chasis\nTodo funciona correctamente",
+              "pronunciation": "STIRING BOX – SEKYUR & STEDI\nNO KRAK, NO ILIGAL VOLDED\nNO LIK VISIBLE\nMOUNTED TU FREYM TAYTLI\nEVERISINK IS WORKIN FINE"
+            }
+          ]
         },
         {
-          "ruText": "Электрические и пневматические соединения — надёжно подключены.",
-          "enText": "Electrical and air lines — properly connected.",
-          "ukText": "Електричні та пневматичні з'єднання — надійно підключені.",
-          "esText": "Conexiones eléctricas y neumáticas — conectadas correctamente.",
-          "pronunciation": "Электрикал энд эйр лайнз — проперли коннектед."
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "content": [
-        {
-          "ruTitle": "Боковые части трака",
-          "enTitle": "Tractor Side",
-          "ukTitle": "Бокові частини тягача",
-          "esTitle": "Lado del camión"
+          "ru": "Связь рулевого управления — целая\nВсе три части без трещин и сварок\nГайка и шплинт установлены правильно\nНет люфта или ослаблений\nНадёжно закреплена к системе",
+          "en": "Steering linkage – fully intact\nAll 3 parts have no cracks or welds\nCastle nut and cotter pin are secure\nNo looseness or free play\nFirmly mounted to the system",
+          "uk": "Зв'язок рульового управління цілий\nУсі 3 частини без тріщин або зварювання\nШплінт і гайка правильно встановлені\nНемає люфту чи ослаблення\nНадійно закріплено до системи",
+          "es": "Barras de dirección están completas\nLas 3 partes sin grietas ni soldaduras\nTuerca y pasador bien colocados\nSin juego ni aflojamiento\nFirmemente unidas al sistema",
+          "pronunciation": "STIRING LINKIJD – TRI PISES\nNO KRAK, NO BROK, NO VOLDED\nKASSL NUT & KATER PIN SECYUR\nNO LOOSE OR WOBBLI\nMOUNTED TU ZE SISTEM"
         },
         {
-          "ruText": "Топливный бак и крышка — без утечек, крышка плотно закрыта.",
-          "enText": "Fuel tank and cap — no leaks, cap is tight.",
-          "ukText": "Паливний бак і кришка — без витоків, кришка щільно закрита.",
-          "esText": "Tanque de combustible y tapa — sin fugas, tapa bien cerrada.",
-          "pronunciation": "Фьюэл тэнк энд кэп — ноу ликс, кэп из тайт."
+          "ru": "Амортизаторы — без трещин и утечек\nИсправно работают при сжатии\nКрепко установлены на раме\nНет повреждений и сварок\nЧистые и сухие снаружи",
+          "en": "Shock absorbers – no cracks or leaks\nFunction properly under compression\nFirmly mounted to the frame\nNo visible damage or welds\nClean and dry from the outside",
+          "uk": "Амортизатори – без тріщин і витоків\nПрацюють справно при стисканні\nМіцно закріплені на рамі\nБез пошкоджень чи зварювання\nЧисті і сухі зовні",
+          "es": "Amortiguadores sin grietas ni fugas\nFuncionan correctamente al comprimir\nBien montados en el chasis\nSin daños ni soldaduras\nLimpios y secos por fuera",
+          "pronunciation": "SHAKS – NO KRAK NO LIK\nWURK GUD WEN PRESHD\nMOUNTED TU FREYM\nNO BROK, NO VOLDED\nDRY & KLIN OUTSIDE"
         },
         {
-          "ruText": "Ступеньки и поручни — надёжно закреплены, не повреждены.",
-          "enText": "Steps and handrails — securely mounted, not damaged.",
-          "ukText": "Сходинки і поручні — надійно закріплені, не пошкоджені.",
-          "esText": "Escalones y pasamanos — montados de forma segura, sin daños.",
-          "pronunciation": "Степс энд хэндрейлз — сикьюрли маунтед, нот дэмэджд."
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "content": [
-        {
-          "ruTitle": "Передняя часть трейлера",
-          "enTitle": "Front of Trailer",
-          "ukTitle": "Передня частина трейлера",
-          "esTitle": "Parte delantera del remolque"
+          "ru": "Левая рессора — не треснута\nНет сварок или изгибов\nНадёжно закреплена в правильном положении\nНе сдвинута и не ослаблена\nНе имеет следов ржавчины",
+          "en": "Left leaf spring – no cracks or welds\nNot bent or deformed\nSecurely mounted in place\nNot shifted or misaligned\nNo rust or corrosion signs",
+          "uk": "Ліва ресора – без тріщин чи зварок\nНе деформована\nНадійно встановлена на місці\nНе зсунута або ослаблена\nБез слідів корозії",
+          "es": "Resorte izquierdo – sin grietas o soldaduras\nNo está doblado ni deformado\nBien sujeto en su lugar\nNo está desplazado\nSin señales de óxido",
+          "pronunciation": "LEFT SPRING – NO KRAK, NO VOLDED\nNO BENT, NO DEFORM\nMOUNTED PROPERLI\nNO SLAYZ, NO SHIFTED\nNO RUST OR KOROZION"
         },
         {
-          "ruText": "Световые сигналы и отражатели — работают, чистые.",
-          "enText": "Lights and reflectors — working, clean.",
-          "ukText": "Світлові сигнали та відбивачі — працюють, чисті.",
-          "esText": "Luces y reflectores — funcionando, limpios.",
-          "pronunciation": "Лайтс энд рифлекторз — уёркинг, клин."
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "content": [
-        {
-          "ruTitle": "Задние колёса",
-          "enTitle": "Rear Wheels",
-          "ukTitle": "Задні колеса",
-          "esTitle": "Ruedas traseras"
+          "ru": "Крепления рессор передние и задние\nБез повреждений, трещин и сварок\nНадёжно закреплены к раме\nНет признаков ослабления\nРаботают в штатном режиме",
+          "en": "Spring mounts (front/back) – no damage\nNo cracks, breaks, or welds\nFirmly secured to the frame\nNo looseness or misalignment\nOperating properly and safely",
+          "uk": "Кріплення ресор (перед/зад) – цілі\nБез тріщин, пошкоджень чи зварок\nНадійно прикріплені до рами\nНе розхитані або зміщені\nПрацюють справно",
+          "es": "Soportes de resorte (delantero/trasero)\nSin daños ni grietas o soldaduras\nBien fijados al chasis\nNo hay aflojamiento o desalineación\nFuncionan correctamente",
+          "pronunciation": "SPRING MAUNTS – FRONT & BEK\nNO DAMAGE, NO KRAK, NO BROK\nTAYTLI MOUNTED TU FREYM\nNO LOOS OR SHIFT\nWERKING NORMALI"
         },
         {
-          "ruText": "Шины — глубина протектора минимум 2/32\", давление в норме, без повреждений.",
-          "enText": "Tires — minimum tread depth 2/32\", pressure is normal, no damage.",
-          "ukText": "Шини — глибина протектора мінімум 2/32\", тиск у нормі, без пошкоджень.",
-          "esText": "Neumáticos — profundidad mínima de la banda de rodadura 2/32\", presión normal, sin daños.",
-          "pronunciation": "Тайерз — минимам трэд депс 2/32\", прессур из нормал, ноу дэмэдж."
+          "ru": "Тормозные шланги — без порезов\nНе изношены и без вздутий\nНет утечек воздуха или жидкости\nНадёжно закреплены по всей длине\nНе касаются острых краёв",
+          "en": "Brake hoses – no cuts or swelling\nNot worn or cracked\nNo air or fluid leaks\nSecurely fastened along the route\nNot touching sharp or moving parts",
+          "uk": "Гальмівні шланги – не порізані\nБез зносу або здуття\nНемає витоків повітря чи рідини\nДобре закріплені по всій довжині\nНе торкаються гострих країв",
+          "es": "Mangueras de freno sin cortes ni abultamientos\nNo están desgastadas ni agrietadas\nSin fugas de aire o líquido\nSujetadas firmemente\nNo tocan bordes afilados o partes móviles",
+          "pronunciation": "BREYK HOSES – NO KAT, NO SWEL\nNO WORN, NO KRAK\nNO LIK (EIR OR FLUID)\nSEKYURLI FASTEND OL LONG\nNOT TUCH SHARP OR MOVING PARTS"
         },
         {
-          "ruText": "Колёсные гайки — затянуты, нет трещин на ободах.",
-          "enText": "Wheel nuts — tight, no cracks on rims.",
-          "ukText": "Гайки коліс — затягнуті, ободи без тріщин.",
-          "esText": "Tuercas de las ruedas — apretadas, sin grietas en las llantas.",
-          "pronunciation": "Уил натс — тайт, ноу крэкс он римз."
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "content": [
-        {
-          "ruTitle": "Подвеска ведущей оси",
-          "enTitle": "Drive Axle Suspension",
-          "ukTitle": "Підвіска ведучої осі",
-          "esTitle": "Suspensión del eje motriz"
+          "ru": "Тормоза без масла и грязи\nНикаких посторонних веществ\nПоверхности тормозов чистые\nБез следов утечек\nГотовы к использованию",
+          "en": "Brakes are free from oil\nNo dirt or foreign material\nSurfaces are clean and dry\nNo leaks visible\nSafe for operation",
+          "uk": "Гальма без оливи та бруду\nСторонніх речовин немає\nПоверхні чисті і сухі\nБез витоків\nГотові до використання",
+          "es": "Frenos sin aceite ni suciedad\nSin contaminantes visibles\nSuperficies limpias y secas\nNo hay fugas\nListos para uso seguro",
+          "pronunciation": "BREYK KANTAMINANTES – NO OIL\nNO DORI OR DERT\nKLIN & DRY BRAKE PARTS\nNO LIK OR SPIL\nWERK SAFE"
         },
         {
-          "ruText": "Рессоры и амортизаторы — без повреждений, надёжно закреплены.",
-          "enText": "Leaf springs and shocks — no damage, securely mounted.",
-          "ukText": "Ресори та амортизатори — без пошкоджень, надійно закріплені.",
-          "esText": "Resortes de lámina y amortiguadores — sin daños, montados de forma segura.",
-          "pronunciation": "Лиф спрингс энд шокс — ноу дэмэдж, сикьюрли маунтед."
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "content": [
-        {
-          "ruTitle": "Приводные тормоза",
-          "enTitle": "Drive Brakes",
-          "ukTitle": "Привідні гальма",
-          "esTitle": "Frenos motrices"
+          "ru": "Шина без порезов и вздутий\nПротектор не менее 4/32 дюйма\nИсправно закреплена\nПроверка давления манометром\nНе прикасается к кузову",
+          "en": "Tire has no cuts or bulges\nTread depth at least 4/32 inch\nProperly mounted and secure\nChecked with a pressure gauge\nNot touching vehicle parts",
+          "uk": "Шина без порізів і випирань\nГлибина протектора 4/32 дюйма\nНадійно закріплена\nПеревірена манометром\nНе торкається кузова",
+          "es": "Neumático sin cortes ni abultos\nDibujo mínimo 4/32 pulgadas\nBien sujeto y seguro\nPresión verificada con medidor\nNo roza partes del vehículo",
+          "pronunciation": "TAYR – NO KAT, NO BABL\nTRED 4-32 INCH MINIMUM\nGUD & SEKYUR MOUNTED\nCHEKT VIZ GEYJ\nNO TUCH BADI"
         },
         {
-          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
-          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
-          "ukText": "Гальмівні шланги та камери — без витоків, надійно закріплені.",
-          "esText": "Mangueras y cámaras de freno — sin fugas, montadas de forma segura.",
-          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+          "ru": "Клапан воздуха не пропускает\nКолпачок установлен\nДавление ровно 105 PSI\nПроверено манометром\nШип не повреждён",
+          "en": "Air valve has no leak\nCap is tightly on\nPressure at 105 PSI\nTested with gauge\nValve stem undamaged",
+          "uk": "Клапан не пропускає повітря\nКришка щільно закрита\nТиск 105 PSI\nПеревірено манометром\nСтержень клапана цілий",
+          "es": "Válvula sin fugas\nTapón bien colocado\nPresión 105 PSI\nVerificado con medidor\nTallo en buen estado",
+          "pronunciation": "EIR VILF – NO EIRLIK\nKAP ON, TAYT\nPRESHER 105 PSI\nCHEK VIZ GEYJ\nVALV STEM OK"
         },
         {
-          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
-          "enText": "Brake drums and linings — no cracks, proper thickness.",
-          "ukText": "Гальмівні барабани та накладки — без тріщин, товщина накладок в межах норми.",
-          "esText": "Tambores y zapatas de freno — sin grietas, espesor adecuado.",
-          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "content": [
-        {
-          "ruTitle": "Система соединения",
-          "enTitle": "Coupling System",
-          "ukTitle": "Система зчеплення",
-          "esTitle": "Sistema de acoplamiento"
+          "ru": "Диск без трещин и сварок\nРовная форма без деформаций\nВокруг гаек не овальная форма\nНадёжно установлен\nНет следов ржавчины",
+          "en": "Rim has no cracks or welds\nPerfectly round shape\nNo egg-shaped damage near nuts\nProperly secured\nFree from rust or corrosion",
+          "uk": "Диск без тріщин або зварювання\nФорма рівна, не овальна\nНавколо гайок все ціле\nДобре прикріплений\nБез корозії",
+          "es": "Llanta sin grietas o soldaduras\nForma correcta, no deformada\nAlrededor de tuercas sin daño\nBien fijada\nLibre de óxido",
+          "pronunciation": "RIM – NO KRAK, NO VOLDED\nNO EG SHEYP\nMOUNTED SEKUR\nNO BROK ARAUND LUGS\nNO RUST"
         },
         {
-          "ruText": "Сцепное устройство — надёжно закреплено, без износа.",
-          "enText": "Coupling device — securely mounted, no wear.",
-          "ukText": "Зчіпний пристрій — надійно закріплений, без зносу.",
-          "esText": "Dispositivo de acoplamiento — montado de forma segura, sin desgaste.",
-          "pronunciation": "Каплинг дивайс — сикьюрли маунтед, ноу уэр."
+          "ru": "Гайки и шпильки не повреждены\nНет блеска, значит не ослабли\nВсе на месте, не потеряны\nБез трещин или сварки\nНадёжно затянуты",
+          "en": "Lug nuts and studs not damaged\nNo shiny metal means tight\nNone are missing or broken\nNo illegal welds or cracks\nFirmly tightened",
+          "uk": "Гайки та шпильки цілі\nНемає блиску – не ослаблені\nУсі присутні на місці\nБез зварок і тріщин\nДобре затягнуті",
+          "es": "Tuercas y espárragos en buen estado\nSin brillo metálico – bien ajustados\nNinguno faltante ni roto\nSin grietas ni soldaduras\nApretados correctamente",
+          "pronunciation": "LAGNATS – NO BROK\nNO SHEYNI METAL\nNO MISSING OR LOST\nNO KRAK, NO VOLDED\nTAYTLI TORKED"
         },
         {
-          "ruText": "Электрические и пневматические соединения — надёжно подключены.",
-          "enText": "Electrical and air lines — properly connected.",
-          "ukText": "Електричні та пневматичні з'єднання — надійно підключені.",
-          "esText": "Conexiones eléctricas y neumáticas — conectadas correctamente.",
-          "pronunciation": "Электрикал энд эйр лайнз — проперли коннектед."
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "content": [
-        {
-          "ruTitle": "Боковые части трейлера",
-          "enTitle": "Side of Trailer",
-          "ukTitle": "Бокові частини трейлера",
-          "esTitle": "Lado del remolque"
+          "ru": "Линзы и отражатели целые\nБез трещин и повреждений\nОчищены от пыли и грязи\nНужного цвета по стандарту\nЗакреплены надёжно",
+          "en": "Lenses and reflectors are intact\nNo cracks or damage\nProperly cleaned\nCorrect DOT color\nFirmly mounted",
+          "uk": "Лінзи та відбивачі неушкоджені\nБез тріщин чи дефектів\nЧисті та прозорі\nПравильного кольору\nНадійно закріплені",
+          "es": "Lentes y reflectores están completos\nSin grietas ni daños\nLimpios correctamente\nColor conforme al estándar\nMontados de forma segura",
+          "pronunciation": "LINSES & REFLECTORS – GUD & SEKYUR\nNO KRAK NO BROK\nKLIN FROM DUST\nPROPER KOLOR\nFIRM MAUNTED"
         },
         {
-          "ruText": "Борта и двери — без повреждений, надёжно закреплены.",
-          "enText": "Sides and doors — no damage, securely mounted.",
-          "ukText": "Борти та двері — без пошкоджень, надійно закріплені.",
-          "esText": "Laterales y puertas — sin daños, montados de forma segura.",
-          "pronunciation": "Сайдс энд доорз — ноу дэмэдж, сикьюрли маунтед."
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "content": [
-        {
-          "ruTitle": "Подвеска трейлера",
-          "enTitle": "Trailer Suspension",
-          "ukTitle": "Підвіска трейлера",
-          "esTitle": "Suspensión del remolque"
+          "ru": "Зеркала не треснуты\nЧистые, без загрязнений\nОтрегулированы под водителя\nНадёжно установлены\nБез повреждений",
+          "en": "Mirrors are undamaged\nClean and free of dirt\nAdjusted to the driver\nProperly mounted\nNo cracks or breaks",
+          "uk": "Дзеркала цілі\nЧисті без пилу\nНалаштовані під водія\nДобре закріплені\nБез тріщин чи поломок",
+          "es": "Espejos en buen estado\nLimpios y sin suciedad\nAjustados para el conductor\nBien sujetos\nSin grietas ni roturas",
+          "pronunciation": "MIRRORS – NO BROK\nNO DIRT, KLIN\nEDJUSTED TU DRAYVER\nMAUNTED SEKUR\nNO KRAK"
         },
         {
-          "ruText": "Рессоры и амортизаторы — без повреждений, надёжно закреплены.",
-          "enText": "Leaf springs and shocks — no damage, securely mounted.",
-          "ukText": "Ресори та амортизатори — без пошкоджень, надійно закріплені.",
-          "esText": "Resortes de lámina y amortiguadores — sin daños, montados de forma segura.",
-          "pronunciation": "Лиф спрингс энд шокс — ноу дэмэдж, сикьюрли маунтед."
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "content": [
-        {
-          "ruTitle": "Тормоза трейлера",
-          "enTitle": "Trailer Brakes",
-          "ukTitle": "Гальма трейлера",
-          "esTitle": "Frenos del remolque"
+          "ru": "Коробка аккумулятора без трещин\nНет следов ржавчины\nНадёжно закреплена\nБез сварок или повреждений\nПроверена визуально",
+          "en": "Battery box has no cracks\nNo signs of corrosion\nSecurely attached\nNo illegal welds or breaks\nInspected visually",
+          "uk": "Коробка акумулятора ціла\nБез іржі чи тріщин\nЗакріплена надійно\nБез пошкоджень\nОглянута візуально",
+          "es": "Caja de batería sin grietas\nLibre de corrosión\nBien fijada al chasis\nSin soldaduras ilegales\nInspeccionada visualmente",
+          "pronunciation": "BETERIS BOKS – NO KRAK\nNO KOREJEN\nGUD & SEKYUR\nNO VOLDED, NO BROK\nVIZUALI INSPEKTED"
         },
         {
-          "ruText": "Тормозные шланги и камеры — без утечек, надёжно закреплены.",
-          "enText": "Brake hoses and chambers — no leaks, securely mounted.",
-          "ukText": "Гальмівні шланги та камери — без витоків, надійно закріплені.",
-          "esText": "Mangueras y cámaras de freno — sin fugas, montadas de forma segura.",
-          "pronunciation": "Брейк хоузиз энд чеймберз — ноу ликс, сикьюрли маунтед."
+          "ru": "Провода аккумулятора не порезаны\nНет изоляции с повреждениями\nКонтакты прочные и чистые\nЗакреплены правильно\nНет следов горения",
+          "en": "Battery wires not cut\nNo damaged insulation\nStrong and clean contacts\nProperly mounted\nNo signs of burning",
+          "uk": "Проводи не перерізані\nІзоляція ціла\nКонтакти чисті й надійні\nДобре прикріплені\nБез слідів опіків",
+          "es": "Cables sin cortes ni desgaste\nAislación en buen estado\nConexiones limpias y seguras\nMontados correctamente\nSin señales de quemado",
+          "pronunciation": "BETERIS LAYN – NO KAT\nNO FREYD WIRES\nKONNEKTORS KLIN & STRONG\nMAUNTED WELL\nNO BURN MARKS"
         },
         {
-          "ruText": "Тормозные барабаны и накладки — без трещин, толщина накладок в пределах нормы.",
-          "enText": "Brake drums and linings — no cracks, proper thickness.",
-          "ukText": "Гальмівні барабани та накладки — без тріщин, товщина накладок в межах норми.",
-          "esText": "Tambores y zapatas de freno — sin grietas, espesor adecuado.",
-          "pronunciation": "Брейк драмс энд лайнингз — ноу крэкс, пропер сикнесс."
+          "ru": "DEF-бак не течёт\nБез трещин и повреждений\nЗакреплён правильно\nКрышка закрыта и надёжна\nУровень в норме",
+          "en": "DEF tank has no leaks\nNo cracks or damage\nMounted correctly\nCap locked and secure\nFluid level is normal",
+          "uk": "DEF-бак не протікає\nЦілий та неушкоджений\nДобре закріплений\nКришка щільно закрита\nРівень у нормі",
+          "es": "Tanque DEF sin fugas\nEn buen estado\nFijado correctamente\nTapón bien cerrado\nNivel adecuado",
+          "pronunciation": "DEF TANK – NO LIK\nNO KRAK, NO BROK\nMAUNTED PROPERLI\nKEP LOK POZISHEN\nLEVEL OK"
+        },
+        {
+          "ru": "Шланг DEF – без утечек\nБез порезов и трещин\nНадёжно закреплён\nПроверен визуально\nНе соприкасается с острыми краями",
+          "en": "DEF line – no leaks\nNo cuts or cracks\nSecurely attached\nVisually inspected\nNot rubbing against anything",
+          "uk": "Шланг DEF – без витоків\nБез порізів або тріщин\nНадійно закріплений\nПеревірено візуально\nНе торкається металу",
+          "es": "Manguera DEF – sin fugas\nSin cortes ni grietas\nBien sujeta\nInspeccionada visualmente\nNo rozando piezas",
+          "pronunciation": "DEF LAYN – GUD & SEKYUR\nNO KAT, NO LIK\nMAUNTED SEKURLI\nVIZUALI INSPEKTED\nNO KONTAKT SHARP PARTS"
+        },
+        {
+          "ru": "Топливный бак – без трещин\nНе течёт, нет повреждений\nКрышка плотно закрыта\nНадёжно закреплён\nБез незаконных сварок",
+          "en": "Fuel tank – no cracks or breaks\nNo leaks or damage\nCap securely closed\nProperly mounted\nNo illegal welds",
+          "uk": "Паливний бак – неушкоджений\nНе протікає\nКришка щільно закрита\nДобре закріплений\nБез зварювань",
+          "es": "Tanque de combustible – sin grietas\nSin fugas ni daños\nTapa cerrada con firmeza\nMontado correctamente\nSin soldaduras ilegales",
+          "pronunciation": "FUEL TANK – GUD & SEKYUR\nNO KRAK, NO BROK\nKEP LOK POZISHEN\nMAUNTED WELL\nNO ILIGAL VOLDED"
+        },
+        {
+          "ru": "Топливный шланг – без утечек\nБез трещин и порезов\nНадёжно закреплён\nПроверен визуально\nНе ослаблен",
+          "en": "Fuel line – no cuts or leaks\nNo damage\nSecurely attached\nVisually checked\nNo signs of wear",
+          "uk": "Паливний шланг – без витоків\nЦілий, не пошкоджений\nНадійно прикріплений\nОглянутий\nНе ослаблений",
+          "es": "Manguera de combustible – sin fugas\nSin cortes ni grietas\nBien sujeta\nRevisada visualmente\nSin desgaste",
+          "pronunciation": "FUEL LAYN – NO LIK\nNO KAT, NO BROK\nSEKYUR & MAUNTED\nVIZUALI INSPEKTED\nNO LUZ KONEKSHEN"
+        },
+        {
+          "ru": "Рама тягача и прицепа – целая\nБез трещин и сварок\nБез лишних отверстий\nВсе болты на месте\nКроссбимы закреплены",
+          "en": "Truck and trailer frame – intact\nNo cracks or illegal welds\nNo extra holes\nAll bolts/nuts present\nCrossmembers secured",
+          "uk": "Рама вантажівки і причепа ціла\nБез тріщин і зварювань\nБез зайвих отворів\nУсі болти на місці\nПеремички закріплені",
+          "es": "Estructura del camión y remolque intacta\nSin grietas ni soldaduras\nSin agujeros adicionales\nTornillos presentes\nTravesaños asegurados",
+          "pronunciation": "FREYM – GUD & SEKYUR\nNO KRAK, NO BROK\nNO EKSTRA HOL\nOL BOLTS PREZENT\nKROS MEMBERS MAUNTED"
+        },
+        {
+          "ru": "Пневматика и электрика соединены правильно\nНадёжно подключены\nМежду тягачом и прицепом\nБез повреждений\nИзбегают натяжения",
+          "en": "Air line and electric cable connected\nProperly attached\nBetween truck and trailer\nNo damage or wear\nNo tension or drag",
+          "uk": "Пневмолінія і кабель підключені\nНадійно закріплені\nМіж тягачем і причепом\nБез пошкоджень\nБез натягу",
+          "es": "Líneas de aire y cable eléctrico conectados\nBien montados\nEntre camión y remolque\nSin daños ni desgaste\nSin tensión",
+          "pronunciation": "EIR & ELEKTRIK LAYN – PROPERLI MAUNTED\nNO KAT, NO BROK\nBETVIN TRAK & TREYLER\nNO DAMIJ\nNO STRAING"
+        },
+        {
+          "ru": "Пневмошланг – без порезов\nНет утечек воздуха\nНадёжно закреплён\nПроверен визуально\nНе касается острых частей",
+          "en": "Air line – no cuts or leaks\nGood condition\nSecurely attached\nChecked visually\nNot rubbing metal",
+          "uk": "Пневмошланг – без витоків\nНеушкоджений\nДобре закріплений\nОглянутий\nНе торкається металу",
+          "es": "Manguera de aire – sin fugas\nEn buen estado\nSujeta correctamente\nInspeccionada visualmente\nNo rozando metal",
+          "pronunciation": "EIR LAYN – GUD & SEKYUR\nNO KAT, NO LIK\nMAUNTED WELL\nVIZUALI INSPEKTED\nNO KONTAKT METAL"
+        },
+        {
+          "ru": "Электрокабель – без порезов\nКонтакты прочные\nИзоляция не повреждена\nНадёжно закреплён\nПроверен визуально",
+          "en": "Electric cable – no cuts\nStrong connection\nNo damaged insulation\nFirmly attached\nVisually inspected",
+          "uk": "Електрокабель – без пошкоджень\nЗ'єднання надійне\nІзоляція неушкоджена\nДобре прикріплений\nПеревірено візуально",
+          "es": "Cable eléctrico – sin cortes\nConexión segura\nAislación intacta\nMontado firmemente\nInspeccionado visualmente",
+          "pronunciation": "ELEKTRA KEYBL – NO KAT\nGUD KONEKSHEN\nNO FREYD\nMAUNTED SEKURLI\nVIZUALI CHEKED"
+        },
+        {
+          "ru": "Разъёмы воздухопровода – не повреждены\nПлотно соединены\nНет утечек воздуха\nНадёжная фиксация\nПроверены вручную",
+          "en": "Glad hands – not damaged\nTightly connected\nNo air leaks\nLocked in place\nChecked by hand",
+          "uk": "Роз'єми повітропроводу – не пошкоджені\nЩільно з'єднані\nБез витоків повітря\nФіксовані на місці\nПеревірено вручну",
+          "es": "Conectores de aire – sin daños\nConectados firmemente\nSin fugas\nPosición bloqueada\nRevisado manualmente",
+          "pronunciation": "GLEND HENDAL – GUD & SEKYUR\nNO KRAK, NO BROK\nNO EIR LIK\nLOK POZISHEN\nCHEKT BAI HEND"
+        },
+        {
+          "ru": "Кабели и шланги не касаются рамы\nПроверены визуально\nНадёжно закреплены\nБез трения\nИзбегают натяжения",
+          "en": "Cables and hoses not touching frame\nVisually checked\nProperly secured\nNo rubbing or dragging\nInstalled correctly",
+          "uk": "Кабелі і шланги не торкаються рами\nОглянуті візуально\nНадійно закріплені\nНе труться\nПравильно встановлені",
+          "es": "Cables y mangueras no tocan estructura\nInspeccionados visualmente\nBien sujetos\nSin fricción\nInstalados correctamente",
+          "pronunciation": "EIR LAYN & ELEKTRA KEYBL\nIS NAT TACHING FREYM\nVIZUALI INSPEKTED\nNO KONTAKT METAL\nMAUNTED PROPERLI"
+        },
+        {
+          "ru": "Плита прицепа – без трещин\nБез сварки и повреждений\nБез лишних отверстий\nНадёжно закреплена\nЧистая и сухая",
+          "en": "Trailer apron – no cracks\nNo welds or damage\nNo extra holes\nProperly mounted\nClean and dry",
+          "uk": "Плита причепа – без тріщин\nБез зварювань\nБез пошкоджень або отворів\nЗакріплена\nЧиста",
+          "es": "Placa del remolque – sin grietas\nSin soldaduras ni daños\nSin agujeros extra\nMontada correctamente\nLimpia y seca",
+          "pronunciation": "TREYLER APRON – GUD & SEKYUR\nNO KRAK, NO BROK\nNO ILIGAL VOLDED\nNO EKSTRA HOL\nKLIN & DRAI"
+        },
+        {
+          "ru": "Плита седельно-сцепного устройства – смазана\nРовная поверхность\nБез трещин и сварок\nНет ржавчины\nГотова к соединению",
+          "en": "Fifth wheel skid plate – greased\nEven surface\nNo cracks or welds\nNo corrosion\nReady to couple",
+          "uk": "Плита зчіпного пристрою – змащена\nРівна поверхня\nБез тріщин і зварювань\nБез іржі\nГотова до з'єднання",
+          "es": "Placa de quinta rueda – lubricada\nSuperficie plana\nSin grietas ni soldaduras\nSin corrosión\nLista para acoplar",
+          "pronunciation": "FIFT VIL SKID PLEYT – GRIYZED\nNO KRAK, NO BROK\nNO VOLDED\nEVEN SURFES\nREDI TU KAPL"
+        },
+        {
+          "ru": "Шкворень – не согнут\nНе изношен\nСвободно вращается\nЧистый и сухой\nГотов к сцепке",
+          "en": "King pin – not bent\nNot worn\nRotates freely\nClean and dry\nReady to couple",
+          "uk": "Шворень – не зігнутий\nНе зношений\nВільно обертається\nЧистий і сухий\nГотовий до зчеплення",
+          "es": "Perno rey – no doblado\nNo desgastado\nGira libremente\nLimpio y seco\nListo para acoplar",
+          "pronunciation": "KING PIN – GUD & SEKYUR\nNO BENT, NO WORN\nROTATE FREE\nKLIN & DRAI\nREDI TU KAPL"
+        },
+        {
+          "ru": "Платформа сцепки – закреплена\nНет трещин и сварок\nВсе болты на месте\nБез ржавчины\nПлотно соединена с рамой",
+          "en": "Fifth wheel platform – secured\nNo cracks or welds\nAll bolts present\nNo rust or damage\nMounted to frame",
+          "uk": "Платформа зчіпки – закріплена\nБез тріщин і зварювань\nУсі болти на місці\nБез іржі\nДобре з'єднана з рамою",
+          "es": "Plataforma de quinta rueda – segura\nSin grietas ni soldaduras\nTodos los tornillos presentes\nSin óxido\nUnida al bastidor",
+          "pronunciation": "FIFT VIL PLATFORM – SEKYUR\nNO KRAK, NO VOLDED\nOL BOLTS PREZENT\nNO RAST\nMAUNTED TU FREYM"
+        },
+        {
+          "ru": "Замок – закрыт\nОбхватывает шкворень\nПлотно зафиксирован\nБез трещин и дефектов\nНадёжное соединение",
+          "en": "Locking jaw – closed\nWrapped around king pin\nSecured tightly\nNo cracks or damage\nProper connection",
+          "uk": "Замок – закритий\nОхоплює шворень\nНадійно зафіксований\nБез тріщин та дефектів\nНадійне з'єднання",
+          "es": "Gancho de bloqueo – cerrado\nRodea el perno rey\nFijado firmemente\nSin grietas ni daños\nConexión adecuada",
+          "pronunciation": "LOKING JOV – LOKED\nAROUND KING PIN\nTAYTLI SEKYUR\nNO BROK, NO DEFECT\nPROPER KONNEKSHEN"
+        },
+        {
+          "ru": "Ручка отсоединения – зафиксирована\nНадёжно закреплена\nБез повреждений\nРовно установлена\nНе болтается",
+          "en": "Release handle – locked\nGood and secure\nNo damage or wear\nProperly aligned\nNot loose or bent",
+          "uk": "Ручка від'єднання – зафіксована\nНадійно закріплена\nБез пошкоджень\nПравильно встановлена\nНе хитається",
+          "es": "Palanca de liberación – bloqueada\nEn buen estado\nSin daños visibles\nCorrectamente colocada\nNo suelta ni doblada",
+          "pronunciation": "RELIZ HENDAL – GUD & SEKYUR\nLOK POZISHEN\nNO DAMIJ\nSTRAIT\nNOT LOOSE"
+        },
+        {
+          "ru": "Нет зазора между плитой и сцепкой\nПоверхности плотно прилегают\nБез люфта\nНадёжное соединение\nПроверено визуально",
+          "en": "No space between fifth wheel and apron\nTight connection\nNo gap or looseness\nLocked in place\nVisually inspected",
+          "uk": "Немає зазору між плитою і зчіпкою\nЩільне з'єднання\nБез люфту\nНадійне з'єднання\nПеревірено візуально",
+          "es": "Sin espacio entre quinta rueda y placa\nConexión firme\nSin juego\nBloqueado correctamente\nInspeccionado visualmente",
+          "pronunciation": "BITVIN FIFT VIL & APRON\nNO GAP\nTAYT KONNEKSHEN\nNO LOOSE\nCHEKT VIZUALI"
+        },
+        {
+          "ru": "Опоры прицепа – подняты\nЗакреплены крепко\nНоги полностью вверх\nВсе детали на месте\nНикаких повреждений",
+          "en": "Landing gear – legs fully up\nProperly mounted\nAll parts present\nGood and secure\nNo damage or defects",
+          "uk": "Опори причепа – підняті\nНадійно закріплені\nУсі частини на місці\nБез пошкоджень\nУ робочому стані",
+          "es": "Patas de apoyo – completamente levantadas\nMontadas correctamente\nTodas las partes presentes\nSin daños\nEn buen estado",
+          "pronunciation": "LENDINGIR\nLEG FUL AP\nOL PARTS PREZENT\nNO BROK\nMAUNTED PROPERLI"
+        },
+        {
+          "ru": "Ручка подъёма опор – зафиксирована\nНе болтается\nБез трещин\nЗакрыта плотно\nНаходится в держателе",
+          "en": "Landing gear handle – locked\nSecure and tight\nNo cracks or breaks\nProper position\nStored correctly",
+          "uk": "Ручка підйому опор – зафіксована\nНе хитається\nБез тріщин\nПлотно закрита\nУ фіксаторі",
+          "es": "Palanca de patas – bloqueada\nBien sujeta\nSin grietas\nEn su lugar correcto\nFijada adecuadamente",
+          "pronunciation": "LENDINGIR HENDAL – SEKYUR\nLOKT IN HOLDUR\nNO KRAK\nNO BROK\nIN PLEYZ"
+        },
+        {
+          "ru": "Достаточное расстояние между тягачом и опорами\nНет контакта\nБез помех\nНичего не мешает\nРасстояние безопасное",
+          "en": "Good space between truck and landing gear\nNo touching\nSafe clearance\nNothing obstructing\nVerified visually",
+          "uk": "Достатня відстань між тягачем і опорами\nНемає дотику\nБез перешкод\nВільний простір\nОглянуто візуально",
+          "es": "Espacio adecuado entre camión y apoyo\nSin contacto\nDespejado\nNada estorba\nInspeccionado visualmente",
+          "pronunciation": "BITVIN TRAK & LENDINGIR\nGUD SPEYS\nNO KONTAKT\nNO BLOK\nSAFE DISTENS"
+        },
+        {
+          "ru": "Поперечины и пол – целые\nБез трещин и сварки\nНикаких отверстий\nНадёжно закреплены\nНет повреждений",
+          "en": "Cross members and floor – no cracks\nNo illegal welds\nNo extra holes\nProperly mounted\nGood and secure",
+          "uk": "Поперечини і підлога – цілі\nБез тріщин\nБез зайвих отворів\nНадійно закріплені\nУ хорошому стані",
+          "es": "Travesaños y piso – sin grietas\nSin soldaduras\nSin agujeros adicionales\nMontados correctamente\nEn buen estado",
+          "pronunciation": "CROSS MEMBER & FLOR\nNO KRAK\nNO HOL\nGUD & SEKYUR\nMAUNTED PROPERLI"
+        },
+        {
+          "ru": "Светоотражающая лента – чистая\nПравильного цвета\nПо всему прицепу\nХорошо приклеена\nБез повреждений",
+          "en": "Reflective tape – clean\nCorrect color\nAll around trailer\nNo peeling or missing\nProperly attached",
+          "uk": "Світловідбивна стрічка – чиста\nНалежного кольору\nПо всьому причепу\nБез пошкоджень\nДобре закріплена",
+          "es": "Cinta reflectante – limpia\nColor correcto\nEn todo el remolque\nBien pegada\nSin daños",
+          "pronunciation": "REFLECTOR TEYP\nKLIN\nPROPER KOLOR\nERAUND TREYLER\nNO MISING"
+        },
+        {
+          "ru": "Задняя часть прицепа – в хорошем состоянии\nВсе фары работают\nЛинзы и отражатели не треснуты\nЦвета соответствуют требованиям\nВсё чисто и надёжно закреплено",
+          "en": "Back of trailer – good and secure\nAll lights functioning\nLenses and reflectors not cracked\nProper color used\nClean and properly mounted",
+          "uk": "Задня частина причепа – у хорошому стані\nУсі фари працюють\nЛінзи та відбивачі без тріщин\nПравильного кольору\nЧисті та добре закріплені",
+          "es": "Parte trasera del remolque – en buen estado\nTodas las luces funcionan\nLentes y reflectores sin grietas\nColor correcto\nLimpios y bien montados",
+          "pronunciation": "BACK OF TREYLER – GUD & SEKYUR\nOL LAYTS WERKING\nNO KRAK LINZES & REFLECTORS\nPROPER KOLOR\nKLIN & MAUNTED"
+        },
+        {
+          "ru": "Завершение предрейсового осмотра\nСпасибо, сэр\nВсе проверки завершены\nГотов к сдаче экзамена\nМашина полностью осмотрена",
+          "en": "Pre-trip inspection finished\nThank you, sir\nAll steps completed\nReady for the test\nVehicle fully inspected",
+          "uk": "Завершення передрейсового огляду\nДякую, сер\nУсі пункти перевірено\nГотовий до тесту\nМашину повністю оглянуто",
+          "es": "Inspección pre-viaje terminada\nGracias, señor\nTodos los pasos completados\nListo para el examen\nVehículo completamente inspeccionado",
+          "pronunciation": "FINISH PRI TRIP ISPECTION\nSENK YU SER\nOL STEPS DON\nREDI FOR TEST\nMASHEEN CHEKT"
         }
       ]
     }
