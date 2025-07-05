@@ -120,17 +120,22 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
                                       const SizedBox(height: 8),
                                     ],
                                   ),
+                                  Divider(thickness: 0.5,),
                                 if (showEnglish &&
                                     step.pronunciation.trim().isNotEmpty)
                                   Text(
                                     step.pronunciation,
                                     style: AppTextStyles.merriweather12
                                         .copyWith(
-                                          color: AppColors.lightBackground,
+                                          color:
+                                              state.isDarkMode
+                                                  ? AppColors.lightBackground
+                                                  : AppColors.darkBackground,
 
                                           fontStyle: FontStyle.italic,
                                         ),
                                   ),
+                                    Divider(thickness: 0.5,),
                               ],
                             ),
                           ),

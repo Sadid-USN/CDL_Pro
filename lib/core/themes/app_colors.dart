@@ -14,6 +14,7 @@ class AppColors {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color errorColor = Color(0xFFCF6679); // Обновленный цвет ошибки для темной темы
   static const Color greyshade400 = Color(0xFFBDBDBD);
+  static const Color greyshade600 = Color(0xFF757575);
   static const Color goldenSoft = Color(0xFFF6C36B);
   static const Color greenSoft = Color(0xFFB5E6B3);
   static const Color simpleGreen = Colors.green;
