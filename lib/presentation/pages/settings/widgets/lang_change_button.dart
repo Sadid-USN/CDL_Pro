@@ -32,6 +32,7 @@ class LangChangeButton extends StatelessWidget {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         return CustomListTile(
+          isDarkMode: state.isDarkMode,
           title: LocaleKeys.language.tr(),
           // subtitle: localBloc.getSelectedLangTitle(state.selectedLang),
           trailingIcon: Icon(
