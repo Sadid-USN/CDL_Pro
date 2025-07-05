@@ -32,6 +32,7 @@ class SettingsPage extends StatelessWidget {
                   LangChangeButton(localBloc: settingsBloc),
 
                   CustomListTile(
+                    isDarkMode: state.isDarkMode,
                     title:
                         state.isDarkMode
                             ? LocaleKeys.dark.tr()
@@ -60,6 +61,7 @@ class SettingsPage extends StatelessWidget {
                   (index) => Column(
                     children: [
                       CustomListTile(
+                        isDarkMode: state.isDarkMode,
                         title: _getHelpTitle(index),
                         trailingIcon: _getHelpIcon(
                           index,
@@ -79,6 +81,7 @@ class SettingsPage extends StatelessWidget {
               _buildSettingsCard(
                 children: [
                   CustomListTile(
+                    isDarkMode: state.isDarkMode,
                     title: LocaleKeys.version.tr(),
                     trailingIcon: Text(
                       '1.0.0',
@@ -112,48 +115,46 @@ class SettingsPage extends StatelessWidget {
                 ),
               ),
 
-              if (state.tapCount >= 7) ...[
-                DropdownButton<AppDataType>(
-                  value: state.selectedType,
-                  onChanged: (newType) {
-                    if (newType != null) {
-                      settingsBloc.add(ChangeType(newType));
-                    }
-                  },
-                  items:
-                      AppDataType.values.map((language) {
-                        return DropdownMenuItem<AppDataType>(
-                          value: language,
-                          child: Text(
-                            language.name.toUpperCase(),
-                            style: const TextStyle(color: Colors.black54),
-                          ),
-                        );
-                      }).toList(),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    settingsBloc.add(UploadData());
-                  },
-                  child: const Text("Загрузить данные"),
-                ),
-                if (state.loadingStatus == LoadingStatus.loading)
-                  const CircularProgressIndicator(),
-                if (state.loadingStatus == LoadingStatus.completed)
-                  const Text(
-                    "Данные успешно загружены!",
-                    style: TextStyle(color: Colors.green, fontSize: 16),
-                  ),
-                if (state.loadingStatus == LoadingStatus.error)
-                  const SelectableText(
-                    "Ошибка загрузки данных",
-                    style: TextStyle(color: Colors.red, fontSize: 16),
-                  ),
-              ],
-              SizedBox(height: 50,)
-            
-            
+              // if (state.tapCount >= 7) ...[
+              //   DropdownButton<AppDataType>(
+              //     value: state.selectedType,
+              //     onChanged: (newType) {
+              //       if (newType != null) {
+              //         settingsBloc.add(ChangeType(newType));
+              //       }
+              //     },
+              //     items:
+              //         AppDataType.values.map((language) {
+              //           return DropdownMenuItem<AppDataType>(
+              //             value: language,
+              //             child: Text(
+              //               language.name.toUpperCase(),
+              //               style: const TextStyle(color: Colors.black54),
+              //             ),
+              //           );
+              //         }).toList(),
+              //   ),
+              //   const SizedBox(height: 20),
+              //   ElevatedButton(
+              //     onPressed: () {
+              //       settingsBloc.add(UploadData());
+              //     },
+              //     child: const Text("Загрузить данные"),
+              //   ),
+              //   if (state.loadingStatus == LoadingStatus.loading)
+              //     const CircularProgressIndicator(),
+              //   if (state.loadingStatus == LoadingStatus.completed)
+              //     const Text(
+              //       "Данные успешно загружены!",
+              //       style: TextStyle(color: Colors.green, fontSize: 16),
+              //     ),
+              //   if (state.loadingStatus == LoadingStatus.error)
+              //     const SelectableText(
+              //       "Ошибка загрузки данных",
+              //       style: TextStyle(color: Colors.red, fontSize: 16),
+              //     ),
+              // ],
+              // SizedBox(height: 50,)
             ],
           ),
         );

@@ -82,43 +82,60 @@ class _PreTripInspectionViewState extends State<PreTripInspectionView> {
 
                     final showEnglish = selectedLang != AppLanguage.english;
 
-                    return Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              titleTranslated,
-                              style: AppTextStyles.merriweatherBold12,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(mainText, style: AppTextStyles.merriweather12),
-                            const SizedBox(height: 8),
-                            if (showEnglish)
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    step.en,
-                                    style: AppTextStyles.merriweatherBold12
-                                        .copyWith(color: AppColors.softBlack),
-                                  ),
-                                  const SizedBox(height: 8),
-                                ],
-                              ),
-                            if (showEnglish &&
-                                step.pronunciation.trim().isNotEmpty)
-                              Text(
-                                step.pronunciation,
-                                style: AppTextStyles.merriweather12.copyWith(
-                                  color: Colors.grey.shade700,
-                                  fontStyle: FontStyle.italic,
+                    return BlocBuilder<SettingsBloc, SettingsState>(
+                      builder: (context, state) {
+                        return Card(
+                          color: state.isDarkMode ? AppColors.softBlack : null,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  titleTranslated,
+                                  style: AppTextStyles.merriweatherBold12,
                                 ),
-                              ),
-                          ],
-                        ),
-                      ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  mainText,
+                                  style: AppTextStyles.merriweather12,
+                                ),
+                                const SizedBox(height: 8),
+                                if (showEnglish)
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        step.en,
+                                        style: AppTextStyles.merriweatherBold12
+                                            .copyWith(
+                                              color:
+                                                  state.isDarkMode
+                                                      ? AppColors
+                                                          .lightBackground
+                                                      : AppColors.softBlack,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                    ],
+                                  ),
+                                if (showEnglish &&
+                                    step.pronunciation.trim().isNotEmpty)
+                                  Text(
+                                    step.pronunciation,
+                                    style: AppTextStyles.merriweather12
+                                        .copyWith(
+                                          color: AppColors.lightBackground,
+
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     );
                   },
                 ),
