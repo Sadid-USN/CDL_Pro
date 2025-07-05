@@ -64,7 +64,8 @@ class PolicyPage extends StatelessWidget {
                     child: Opacity(
                       opacity: 0.2,
                       child: Image.asset(
-                        AppLogos.privacyPolicy,
+                        height: 200,
+                        AppLogos.termOfUse,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -130,9 +131,9 @@ class PolicyPage extends StatelessWidget {
                 IgnorePointer(
                   child: Center(
                     child: Opacity(
-                      opacity: 0.2,
+                      opacity: 0.3,
                       child: Image.asset(
-                        AppLogos.privacyPolicy,
+                        AppLogos.privacyPolicyIcon,
 
                         fit: BoxFit.contain,
                       ),
@@ -147,8 +148,12 @@ class PolicyPage extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 16),
                         child: Text(
-                          'Effective Date: ${localized.effectiveDate}',
-                          style: Theme.of(context).textTheme.bodyLarge,
+                          LocaleKeys.effectiveDate.tr(
+                            namedArgs: {
+                              "effectiveDate": localized.effectiveDate,
+                            },
+                          ),
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       );
                     }

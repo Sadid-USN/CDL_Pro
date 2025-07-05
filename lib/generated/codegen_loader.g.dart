@@ -281,7 +281,7 @@ static const Map<String,dynamic> _en = {
   "selectLanguage": "Select Language",
   "language": "Language",
   "subscriptionAutoRenew": "Subscription automatically renews at the end of the term",
-  "effectiveDate:": "Effective Date: {effectiveDate}"
+  "effectiveDate": "Effective Date: {effectiveDate}"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
