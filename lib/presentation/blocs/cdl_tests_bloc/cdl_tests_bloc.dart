@@ -25,6 +25,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   bool _quizCompleted = false;
   String _selectedLanguage = 'en';
   String? _currentQuizId;
+  String? _currentSubcategory;
+  
 
   Timer? _timer;
   Duration _elapsedTime = Duration.zero;
@@ -56,10 +58,22 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<SetUserUidEvent>(_onSetUid);
   }
 
+
+
+  
+
+
   // ──────────────────────────────── AUTH HANDLER ─────────────────────────────
-  void _onSetUid(SetUserUidEvent event, Emitter<AbstractCDLTestsState> emit) {
-    _uid = event.uid;
-  }
+ void _onSetUid(SetUserUidEvent event, Emitter<AbstractCDLTestsState> emit) {
+  _uid = event.uid;
+  // При смене пользователя сбрасываем состояние
+  _currentQuestionIndex = 0;
+  _userAnswers = {};
+  _quizCompleted = false;
+  _currentSubcategory = null;
+  _currentQuizId = null;
+  _emitLoaded(emit);
+}
 
   // ──────────────────────────────── TIMER CONTROL ────────────────────────────
   void _onStartTimer(
@@ -130,33 +144,44 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // ──────────────────────────────── QUIZ LOADING ─────────────────────────────
-  void _onLoadQuiz(
-    LoadQuizEvent event,
-    Emitter<AbstractCDLTestsState> emit,
-  ) async {
-    final quizId = _generateQuizId(event.questions);
-
-    // reset timer when switching quizzes
-    if (_currentQuizId != quizId) {
-      _resetTimer();
-    }
-
-    _currentQuizId = quizId;
-    await _loadProgress(quizId);
-
-    _quizQuestions = event.questions;
-    _quizCompleted = false;
-
-    _emitLoaded(emit);
+void _onLoadQuiz(
+  LoadQuizEvent event,
+  Emitter<AbstractCDLTestsState> emit,
+) async {
+  if (event.questions.isEmpty) {
+    // Если вопросы не загружены, остаемся в текущем состоянии
+    return;
   }
 
-  // ──────────────────────────────── RESET QUIZ ───────────────────────────────
+  final quizId = _generateQuizId(event.questions, event.subcategory);
+  _currentSubcategory = event.subcategory;
+
+  // reset timer when switching quizzes
+  if (_currentQuizId != quizId) {
+    _resetTimer();
+  }
+
+  _currentQuizId = quizId;
+  await _loadProgress(quizId);
+
+  _quizQuestions = event.questions;
+  _quizCompleted = false;
+
+  // Гарантируем, что currentPage в пределах допустимого
+  if (_currentQuestionIndex >= _quizQuestions.length) {
+    _currentQuestionIndex = 0;
+  }
+
+  _emitLoaded(emit);
+}// ──────────────────────────────── RESET QUIZ ───────────────────────────────
   void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
     _currentQuestionIndex = 0;
     _userAnswers = {};
     _quizCompleted = false;
     _elapsedTime = Duration.zero;
     _timerController.add(_elapsedTime);
+     _currentSubcategory = null; 
+    _currentQuizId = null;
 
     _resetTimer();
     _clearLocalProgress();
@@ -165,10 +190,11 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // ──────────────────────────────── SAVE/LOAD LOCAL ──────────────────────────
-  Future<void> _saveProgressToPrefs() async {
-    if (_uid == null || _currentQuizId == null) return;
+ Future<void> _saveProgressToPrefs() async {
+  if (_uid == null || _currentQuizId == null || _currentSubcategory == null) return;
 
-    final baseKey = '${_uid!}_${_currentQuizId!}';
+  final baseKey = '${_uid!}_${_currentSubcategory!}_${_currentQuizId!}';
+
     await _prefs.setInt('${baseKey}_currentPage', _currentQuestionIndex);
     await _prefs.setString('${baseKey}_userAnswers', jsonEncode(_userAnswers));
     await _prefs.setString('${baseKey}_language', _selectedLanguage);
@@ -177,7 +203,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
   Future<bool> _loadProgressFromPrefs(String quizId) async {
     if (_uid == null) return false;
-    final baseKey = '${_uid!}_$quizId';
+   final baseKey = '${_uid!}_${_currentSubcategory!}_$quizId';
     if (!_prefs.containsKey('${baseKey}_currentPage')) return false;
 
     _currentQuestionIndex = _prefs.getInt('${baseKey}_currentPage') ?? 0;
@@ -196,7 +222,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
   void _clearLocalProgress() {
     if (_uid == null || _currentQuizId == null) return;
-    final baseKey = '${_uid!}_${_currentQuizId!}';
+   final baseKey = '${_uid!}_${_currentSubcategory!}_${_currentQuizId!}';
     _prefs.remove('${baseKey}_currentPage');
     _prefs.remove('${baseKey}_userAnswers');
     _prefs.remove('${baseKey}_language');
@@ -282,12 +308,14 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   // ───────────────────────────────── PREMIUM ────────────────────────────────
 
   // ───────────────────────────────── HELPERS ────────────────────────────────
-  String _generateQuizId(List<Question> questions) =>
-      questions
-          .map((q) => q.question.hashCode.toString())
-          .join('_')
-          .hashCode
-          .toString();
+   String _generateQuizId(List<Question> questions, String subcategory) =>
+    '${subcategory}_${questions.map((q) => q.question.hashCode.toString()).join('_').hashCode}';
+  // String _generateQuizId(List<Question> questions) =>
+  //     questions
+  //         .map((q) => q.question.hashCode.toString())
+  //         .join('_')
+  //         .hashCode
+  //         .toString();
 
   void _resetTimer() {
     _elapsedTime = Duration.zero;
@@ -332,3 +360,4 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     return super.close();
   }
 }
+

@@ -172,7 +172,7 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                                 card.endIndex,
                               ),
                               categoryKey: widget.categoryKey!,
-                              model: widget.model!,
+                           model: widget.model!,
                             ),
                             replace: true,
                           );
