@@ -8,6 +8,8 @@ abstract class AbstractCDLTestsEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class WorkOnMistakesEvent extends AbstractCDLTestsEvent {}
+
 class PreviousQuestionsEvent extends AbstractCDLTestsEvent {}
 
 class StartTimerEvent extends AbstractCDLTestsEvent {}
@@ -45,8 +47,17 @@ class LoadQuizProgressEvent extends AbstractCDLTestsEvent {
 class LoadQuizEvent extends AbstractCDLTestsEvent {
   final List<Question> questions;
   final String initialLanguage;
+  final String subcategory;
 
-  const LoadQuizEvent(this.questions, {this.initialLanguage = 'en'});
+  const LoadQuizEvent(
+    this.questions, {
+
+    this.initialLanguage = 'en',
+    required this.subcategory,
+  });
+
+  @override
+  List<Object?> get props => [questions, initialLanguage, subcategory];
 }
 
 class AnswerQuestionEvent extends AbstractCDLTestsEvent {

@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 @RoutePage()
 class QuizPage extends StatelessWidget {
@@ -34,7 +35,11 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<CDLTestsBloc>();
-    bloc.add(LoadQuizEvent(questions, initialLanguage: 'en'));
+    bloc.add(ResetQuizEvent());
+
+    bloc.add(
+      LoadQuizEvent(questions, initialLanguage: 'en', subcategory: categoryKey),
+    );
 
     return _QuizPageContent(
       model: model,
@@ -80,7 +85,6 @@ class _QuizPageContent extends StatelessWidget {
                   if (Platform.isAndroid) {
                     _showExitConfirmation(context);
                   }
-                
                 }
               },
               child: Scaffold(
@@ -121,6 +125,7 @@ class _QuizPageContent extends StatelessWidget {
   Widget _buildBody(AbstractCDLTestsState state) {
     if (state is QuizLoadedState) {
       return SingleQuestionView(
+        model: model,
         key: ValueKey(state.currentPage),
         state: state,
         chapterTitle: chapterTitle,
@@ -143,15 +148,11 @@ class _QuizPageContent extends StatelessWidget {
     final uid = context.read<CDLTestsBloc>().uid;
     final bool isLoggedIn = uid != null;
 
-    // Тексты для диалога в зависимости от статуса авторизации
     final exitText =
         isLoggedIn ? LocaleKeys.exit.tr() : LocaleKeys.dontLoseProgress.tr();
     final confirmText =
         isLoggedIn ? LocaleKeys.yes.tr() : LocaleKeys.login.tr();
-    final cancelText =
-        isLoggedIn
-            ? LocaleKeys.no.tr()
-            : LocaleKeys.exit.tr(); // Заменяем "cancel" на "exit"
+    final cancelText = isLoggedIn ? LocaleKeys.no.tr() : LocaleKeys.exit.tr();
 
     bool userChoice = false;
 
@@ -167,7 +168,11 @@ class _QuizPageContent extends StatelessWidget {
     if (!context.mounted) return false;
 
     if (userChoice) {
-      // Пользователь выбрал "Login" или "Yes"
+      // Сохраняем прогресс перед выходом (если пользователь авторизован)
+      if (isLoggedIn) {
+        context.read<CDLTestsBloc>().add(SaveQuizProgressEvent());
+      }
+
       if (isLoggedIn) {
         navigateToPage(
           context,
@@ -179,9 +184,7 @@ class _QuizPageContent extends StatelessWidget {
       }
       return true;
     } else {
-      // Пользователь выбрал "Exit" или "No"
       if (!isLoggedIn) {
-        // Для незалогиненного пользователя "Exit" ведёт к спискам
         navigateToPage(
           context,
           route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
@@ -189,12 +192,13 @@ class _QuizPageContent extends StatelessWidget {
         );
         return true;
       }
-      return false; // Для залогиненного "No" оставляет на странице
+      return false;
     }
   }
 }
 
 class SingleQuestionView extends StatelessWidget {
+  final TestsDataModel model;
   final QuizLoadedState state;
   final String chapterTitle;
   final List<Question> questions;
@@ -202,6 +206,7 @@ class SingleQuestionView extends StatelessWidget {
 
   const SingleQuestionView({
     super.key,
+    required this.model,
     required this.state,
     required this.chapterTitle,
     required this.questions,
@@ -210,6 +215,16 @@ class SingleQuestionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (state.allQuestions.isEmpty ||
+        state.currentPage >= state.allQuestions.length) {
+      return Center(
+        child: Lottie.asset(
+          "assets/lottie/moving_truck.json",
+          height: 150.h,
+          repeat: false,
+        ),
+      );
+    }
     final currentQuestion = state.allQuestions[state.currentPage];
     final questionNumber = state.currentPage + 1;
     final userAnswer = state.userAnswers[currentQuestion.question];

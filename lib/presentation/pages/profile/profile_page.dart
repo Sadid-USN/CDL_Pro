@@ -78,7 +78,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 error: state.errorMessage,
                 state: state,
               )
-              : ProfileView(user: state.user!);
+              : ProfileView(
+             
+                user: state.user!);
         },
       ),
     );

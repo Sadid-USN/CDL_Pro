@@ -1,8 +1,10 @@
 import 'dart:io';
-
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -145,6 +147,116 @@ class ProfileView extends StatelessWidget {
                     }
                   },
                 ),
+                // BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
+                //   builder: (context, state) {
+                //     final mistakesCount =
+                //         context.read<CDLTestsBloc>().getMistakesCount();
+                //     if (mistakesCount == 0) return SizedBox.shrink();
+
+                //     return Container(
+                //       width: double.infinity,
+                //       margin: EdgeInsets.symmetric(vertical: 8),
+                //       child: ElevatedButton(
+                //         style: ElevatedButton.styleFrom(
+                //           backgroundColor: Colors.white,
+                //           foregroundColor: AppColors.lightPrimary,
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(20),
+                //             side: BorderSide(color: AppColors.errorColor),
+                //           ),
+                //           padding: EdgeInsets.symmetric(vertical: 12),
+                //         ),
+                //         onPressed: () {
+                //           final bloc = context.read<CDLTestsBloc>();
+                //           final mistakes = bloc.getMistakes();
+
+                //           // Создаем Map вопросов с ключами в формате "mistake_$index"
+                //           final mistakesMap = {
+                //             for (int i = 0; i < mistakes.length; i++)
+                //               'mistake_$i': mistakes[i],
+                //           };
+
+                //           // Создаем временную главу для ошибок
+                //           final mistakesChapter = TestChapter(
+                //             freeLimit: mistakes.length, // Все вопросы доступны
+                //             total: mistakes.length,
+                //             questions: mistakesMap,
+                //           );
+
+                //           // Создаем временную структуру глав с одной заполненной главой
+                //           final tempChapters = Chapters(
+                //             generalKnowledge: mistakesChapter,
+                //             combination: TestChapter(
+                //               freeLimit: 0,
+                //               total: 0,
+                //               questions: {},
+                //             ),
+                //             airBrakes: TestChapter(
+                //               freeLimit: 0,
+                //               total: 0,
+                //               questions: {},
+                //             ),
+                //             tanker: TestChapter(
+                //               freeLimit: 0,
+                //               total: 0,
+                //               questions: {},
+                //             ),
+                //             doubleAndTriple: TestChapter(
+                //               freeLimit: 0,
+                //               total: 0,
+                //               questions: {},
+                //             ),
+                //             hazMat: TestChapter(
+                //               freeLimit: 0,
+                //               total: 0,
+                //               questions: {},
+                //             ),
+                //           );
+
+                //           // Создаем временную модель данных
+                //           final tempModel = TestsDataModel(
+                //             chapters: tempChapters,
+                //           );
+
+                //           navigateToPage(
+                //             context,
+                //             route: QuizRoute(
+                //               chapterTitle: 'workOnMistakes',
+                //               questions: mistakes,
+                //               startIndex: 0,
+                //               categoryKey: 'mistakes',
+                //               model: tempModel,
+                //             ),
+                //           );
+                //         },
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //           children: [
+                //             Text(
+                //               'workOnMistakes',
+                //               style: AppTextStyles.merriweatherBold16.copyWith(
+                //                 color: AppColors.lightPrimary,
+                //               ),
+                //             ),
+                //             Container(
+                //               padding: EdgeInsets.all(8),
+                //               decoration: BoxDecoration(
+                //                 color: AppColors.errorColor,
+                //                 shape: BoxShape.circle,
+                //               ),
+                //               child: Text(
+                //                 mistakesCount.toString(),
+                //                 style: AppTextStyles.merriweatherBold16
+                //                     .copyWith(color: Colors.white),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     );
+                //   },
+                // ),
+              
               ],
             ),
           ),
@@ -177,8 +289,6 @@ class ProfileView extends StatelessWidget {
       );
     }
   }
-
-
 }
 
 /// Custom clipper for the curved bottom edge of the header

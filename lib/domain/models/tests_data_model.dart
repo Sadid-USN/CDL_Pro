@@ -149,7 +149,7 @@ class Question extends Equatable {
     required this.description,
     this.images,
   });
-
+  String get id => '$question-$correctOption';
   factory Question.fromJson(Map<String, dynamic> json) {
     // Обработка локализованного вопроса
     if (json.containsKey('uk') ||
@@ -187,9 +187,14 @@ class Question extends Equatable {
   }
 
   @override
-  List<Object?> get props => [question, options, correctOption, description, images];
+  List<Object?> get props => [
+    question,
+    options,
+    correctOption,
+    description,
+    images,
+  ];
 }
-
 
 class TestsDataModel extends Equatable {
   final Chapters chapters;
