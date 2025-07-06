@@ -124,7 +124,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
       _currentQuestionIndex++;
     } else {
       _quizCompleted = true;
-      _clearLocalProgress();
+      _clearLocalProgress(_currentSubcategory, _currentQuizId);
     }
     _emitLoaded(emit);
   }
@@ -179,27 +179,57 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   _emitLoaded(emit);
 }
 
-  void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
-    _currentQuestionIndex = 0;
-    _userAnswers = {};
-    _quizCompleted = true;
-    _elapsedTime = Duration.zero;
-    _timerController.add(_elapsedTime);
-    _currentSubcategory = null;
-    _currentQuizId = null;
+void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
+  _currentQuestionIndex = 0;
+  _userAnswers = {};
+  _quizCompleted = true;
+  _elapsedTime = Duration.zero;
+  _timerController.add(_elapsedTime);
 
-    _resetTimer();
-    _clearLocalProgress();
-    _ignoreProgressLoadOnce = true;
+  final subcategory = _currentSubcategory;
+  final quizId = _currentQuizId;
 
-    _emitLoaded(emit);
+  _currentSubcategory = null;
+  _currentQuizId = null;
+
+  _resetTimer();
+  _ignoreProgressLoadOnce = true;
+
+  // удаляем локальный прогресс
+  _clearLocalProgress(subcategory, quizId);
+
+  // удаляем прогресс из Firestore
+  _clearRemoteProgress(subcategory, quizId);
+
+  _emitLoaded(emit);
+}
+
+
+Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
+  if (_uid == null || quizId == null || subcategory == null) return;
+
+  final settingsBloc = GetIt.I<SettingsBloc>();
+  final langCode = settingsBloc.currentLangCode;
+  final collectionName = _getCollectionNameByLanguage(langCode);
+
+  try {
+    await _firestore
+        .collection(collectionName)
+        .doc(_uid)
+        .collection(collectionName)
+        .doc(quizId)
+        .delete();
+    debugPrint('✅ Remote progress deleted for quizId=$quizId');
+  } catch (e) {
+    debugPrint('❌ Ошибка при удалении remote-прогресса: $e');
   }
+}
 
   // ──────────────────────────────── SAVE/LOAD LOCAL ──────────────────────────
   Future<void> _saveProgressToPrefs() async {
-    if (_uid == null || _currentQuizId == null || _currentSubcategory == null)
-      return;
-
+      if (_uid == null || _currentQuizId == null || _currentSubcategory == null) {
+    return;
+  }
     final baseKey = '${_uid!}_${_currentSubcategory!}_${_currentQuizId!}';
 
     await _prefs.setInt('${baseKey}_currentPage', _currentQuestionIndex);
@@ -231,14 +261,16 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     return true;
   }
 
-  void _clearLocalProgress() {
-    if (_uid == null || _currentQuizId == null) return;
-    final baseKey = '${_uid!}_${_currentSubcategory!}_${_currentQuizId!}';
-    _prefs.remove('${baseKey}_currentPage');
-    _prefs.remove('${baseKey}_userAnswers');
-    _prefs.remove('${baseKey}_language');
-    _prefs.remove('${baseKey}_elapsedTime');
-  }
+  void _clearLocalProgress(String? subcategory, String? quizId) {
+  if (_uid == null || quizId == null || subcategory == null) return;
+  final baseKey = '${_uid!}_${subcategory}_$quizId';
+
+  _prefs.remove('${baseKey}_currentPage');
+  _prefs.remove('${baseKey}_userAnswers');
+  _prefs.remove('${baseKey}_language');
+  _prefs.remove('${baseKey}_elapsedTime');
+}
+
 
   // ───────────────────────────────── SAVE REMOTE ─────────────────────────────
   void _onSaveQuizProgress(
