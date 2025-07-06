@@ -36,9 +36,13 @@ class QuizPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<CDLTestsBloc>();
 
-    bloc.add(
-      LoadQuizEvent(questions, initialLanguage: 'en', subcategory: categoryKey),
-    );
+   bloc.add(
+  LoadQuizEvent(
+    questions,
+    initialLanguage: 'en',
+    subcategory: categoryKey,
+  ),
+);
 
     return _QuizPageContent(
       model: model,
@@ -71,6 +75,7 @@ class _QuizPageContent extends StatelessWidget {
       listener: (context, state) {
         if (state is QuizLoadedState) {
           context.read<CDLTestsBloc>().add(SaveQuizProgressEvent());
+          
         }
       },
       builder: (context, state) {

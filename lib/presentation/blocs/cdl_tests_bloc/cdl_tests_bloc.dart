@@ -139,35 +139,43 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // ──────────────────────────────── QUIZ LOADING ─────────────────────────────
-  void _onLoadQuiz(
+ void _onLoadQuiz(
   LoadQuizEvent event,
   Emitter<AbstractCDLTestsState> emit,
 ) async {
   if (event.questions.isEmpty) return;
 
-  final quizId = _generateQuizId(event.questions, event.subcategory);
+  // 1. Установить подкатегорию и сгенерировать quizId ДО загрузки
   _currentSubcategory = event.subcategory;
-
-  if (_currentQuizId != quizId) {
-    _resetTimer();
-  }
-
+  final quizId = _generateQuizId(event.questions, event.subcategory);
   _currentQuizId = quizId;
 
-  // 🔹 Пропускаем загрузку прогресса, если сброс был только что
+   // 2. Эмитим загрузочное состояние, чтобы скрыть старый UI
+  emit(QuizProgressLoading());
+  _currentQuestionIndex = 0;
+  _userAnswers = {};
+  _quizCompleted = false;
+  _selectedLanguage = 'en'; // если не загрузится, будет по умолчанию
+
+  // 3. Сброс таймера
+  _resetTimer();
+
+  // 4. Загрузка прогресса (если доступен)
   if (!_ignoreProgressLoadOnce) {
-    await _loadProgress(quizId);
+    await _loadProgress(quizId, event.subcategory);
   } else {
-    _ignoreProgressLoadOnce = false; // сбрасываем флаг
+    _ignoreProgressLoadOnce = false;
   }
 
+  // 5. Установка вопросов
   _quizQuestions = event.questions;
-  _quizCompleted = false;
 
+  // 6. Защита от выхода за пределы
   if (_currentQuestionIndex >= _quizQuestions.length) {
     _currentQuestionIndex = 0;
   }
 
+  // 7. Эмитим состояние
   _emitLoaded(emit);
 }
 
@@ -182,7 +190,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     _resetTimer();
     _clearLocalProgress();
-     _ignoreProgressLoadOnce = true;
+    _ignoreProgressLoadOnce = true;
 
     _emitLoaded(emit);
   }
@@ -200,9 +208,13 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     await _prefs.setInt('${baseKey}_elapsedTime', _elapsedTime.inSeconds);
   }
 
-  Future<bool> _loadProgressFromPrefs(String quizId) async {
+  Future<bool> _loadProgressFromPrefs(String quizId, String subcategory) async {
     if (_uid == null) return false;
-    final baseKey = '${_uid!}_${_currentSubcategory!}_$quizId';
+    debugPrint(
+      '📦 Loading progress for: subcategory=$subcategory, quizId=$quizId',
+    );
+
+    final baseKey = '${_uid!}_${subcategory}_$quizId';
     if (!_prefs.containsKey('${baseKey}_currentPage')) return false;
 
     _currentQuestionIndex = _prefs.getInt('${baseKey}_currentPage') ?? 0;
@@ -233,6 +245,10 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     SaveQuizProgressEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) async {
+    debugPrint(
+      'Saving progress for: subcategory=$_currentSubcategory, quizId=$_currentQuizId, currentPage=$_currentQuestionIndex',
+    );
+
     await _saveProgressToPrefs();
 
     if (_uid == null || _currentQuizId == null) return;
@@ -267,13 +283,13 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     LoadQuizProgressEvent event,
     Emitter<AbstractCDLTestsState> emit,
   ) async {
-    await _loadProgress(event.quizId);
+    await _loadProgress(event.quizId, event.subcategory);
     _emitLoaded(emit);
   }
 
-  Future<void> _loadProgress(String quizId) async {
-    // сначала пытаемся локально
-    if (await _loadProgressFromPrefs(quizId)) return;
+  Future<void> _loadProgress(String quizId, String subcategory) async {
+    // сначала SharedPreferences
+    if (await _loadProgressFromPrefs(quizId, subcategory)) return;
 
     // потом Firestore
     if (_uid == null) return;
@@ -304,17 +320,14 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     }
   }
 
-  // ───────────────────────────────── PREMIUM ────────────────────────────────
-
   // ───────────────────────────────── HELPERS ────────────────────────────────
-  String _generateQuizId(List<Question> questions, String subcategory) =>
-      '${subcategory}_${questions.map((q) => q.question.hashCode.toString()).join('_').hashCode}';
-  // String _generateQuizId(List<Question> questions) =>
-  //     questions
-  //         .map((q) => q.question.hashCode.toString())
-  //         .join('_')
-  //         .hashCode
-  //         .toString();
+  String _generateQuizId(List<Question> questions, String subcategory) {
+    final firstQuestionId =
+        questions.isNotEmpty ? questions.first.question.hashCode : 0;
+    final lastQuestionId =
+        questions.isNotEmpty ? questions.last.question.hashCode : 0;
+    return '${subcategory}_${firstQuestionId}_${lastQuestionId}_${questions.length}';
+  }
 
   void _resetTimer() {
     _elapsedTime = Duration.zero;
