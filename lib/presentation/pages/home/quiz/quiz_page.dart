@@ -35,7 +35,6 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<CDLTestsBloc>();
-    bloc.add(ResetQuizEvent());
 
     bloc.add(
       LoadQuizEvent(questions, initialLanguage: 'en', subcategory: categoryKey),

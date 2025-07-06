@@ -135,6 +135,7 @@ class NextBackButtons extends StatelessWidget {
         DialogButton(
           onPressed: () {
             bloc.add(const ResetQuizEvent());
+            // context.read<CDLTestsBloc>().add(StartTimerEvent());
             Navigator.of(context).pop();
           },
           color: AppColors.lightPrimary,
