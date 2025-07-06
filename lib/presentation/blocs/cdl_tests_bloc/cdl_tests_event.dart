@@ -37,11 +37,12 @@ class SaveQuizProgressEvent extends AbstractCDLTestsEvent {
 
 class LoadQuizProgressEvent extends AbstractCDLTestsEvent {
   final String quizId;
+  final String subcategory;
 
-  const LoadQuizProgressEvent(this.quizId);
+  const LoadQuizProgressEvent(this.quizId, this.subcategory);
 
   @override
-  List<Object?> get props => [quizId];
+  List<Object?> get props => [quizId, subcategory];
 }
 
 class LoadQuizEvent extends AbstractCDLTestsEvent {
