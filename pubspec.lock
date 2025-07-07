@@ -401,38 +401,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
-  firebase_ai:
-    dependency: "direct main"
-    description:
-      name: firebase_ai
-      sha256: "178bdce7248e9ad5a483c3623453d3219443d203b4a5d347b0400580fff2fd6d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
-  firebase_app_check:
-    dependency: transitive
-    description:
-      name: firebase_app_check
-      sha256: a1a5255b8d19e22f2d7e9ff1a1138268cd74d2c12b31dcb487612a371d7a21e9
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.2+6"
-  firebase_app_check_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_app_check_platform_interface
-      sha256: "26c0eca776d5d5ffb727435b71243a00e74000bd2760792921999b04564aaf59"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1+6"
-  firebase_app_check_web:
-    dependency: transitive
-    description:
-      name: firebase_app_check_web
-      sha256: "889838c053f024572ba8077cb5a380ff8b224827090a1e5878f004290303ae0e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0+10"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -526,14 +494,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.1.1"
-  flutter_gemini:
-    dependency: "direct main"
-    description:
-      name: flutter_gemini
-      sha256: b7264b1d19acc4b1a5628a0e26c0976aa1fb948f0d3243bc3510ff51e09476b7
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   flutter_hooks:
     dependency: "direct main"
     description:
@@ -973,6 +933,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+  local_hero_transform:
+    dependency: "direct main"
+    description:
+      name: local_hero_transform
+      sha256: ea771fbc36f3de4f4debc66baa0087205be8561022d9d24773221d8752193700
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.6"
   logging:
     dependency: transitive
     description:
