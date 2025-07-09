@@ -1221,11 +1221,6 @@ PODS:
   - Firebase/Firestore (11.13.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 11.13.0)
-  - firebase_app_check (0.3.2-6):
-    - Firebase/CoreOnly (~> 11.13.0)
-    - firebase_core
-    - FirebaseAppCheck (~> 11.13.0)
-    - Flutter
   - firebase_auth (5.5.4):
     - Firebase/Auth (= 11.13.0)
     - firebase_core
@@ -1237,12 +1232,6 @@ PODS:
     - Firebase/Database (= 11.13.0)
     - firebase_core
     - Flutter
-  - FirebaseAppCheck (11.13.0):
-    - AppCheckCore (~> 11.0)
-    - FirebaseAppCheckInterop (~> 11.0)
-    - FirebaseCore (~> 11.13.0)
-    - GoogleUtilities/Environment (~> 8.1)
-    - GoogleUtilities/UserDefaults (~> 8.1)
   - FirebaseAppCheckInterop (11.14.0)
   - FirebaseAuth (11.13.0):
     - FirebaseAppCheckInterop (~> 11.0)
@@ -1441,6 +1430,8 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
+  - package_info_plus (0.4.5):
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -1459,7 +1450,6 @@ PODS:
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
-  - firebase_app_check (from `.symlinks/plugins/firebase_app_check/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
@@ -1469,6 +1459,7 @@ DEPENDENCIES:
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/darwin`)
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/darwin`)
   - in_app_purchase_storekit (from `.symlinks/plugins/in_app_purchase_storekit/darwin`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -1482,7 +1473,6 @@ SPEC REPOS:
     - AppCheckCore
     - BoringSSL-GRPC
     - Firebase
-    - FirebaseAppCheck
     - FirebaseAppCheckInterop
     - FirebaseAuth
     - FirebaseAuthInterop
@@ -1509,8 +1499,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   connectivity_plus:
     :path: ".symlinks/plugins/connectivity_plus/ios"
-  firebase_app_check:
-    :path: ".symlinks/plugins/firebase_app_check/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -1529,6 +1517,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/google_sign_in_ios/darwin"
   in_app_purchase_storekit:
     :path: ".symlinks/plugins/in_app_purchase_storekit/darwin"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   share_plus:
@@ -1548,11 +1538,9 @@ SPEC CHECKSUMS:
   cloud_firestore: 2fdc3301bcc486957ff7fa705430a185468c1987
   connectivity_plus: cb623214f4e1f6ef8fe7403d580fdad517d2f7dd
   Firebase: 3435bc66b4d494c2f22c79fd3aae4c1db6662327
-  firebase_app_check: dc8886ffe6d677900f72e5db64fbe5d62578d4c5
   firebase_auth: 20e8d19009af204039cd2de28a4e2e642e7aba93
   firebase_core: 700bac7ed92bb754fd70fbf01d72b36ecdd6d450
   firebase_database: c808dcb003584f9925917e3b84c2a6547de31117
-  FirebaseAppCheck: 6097c3bdf50028493a86b28297d0f1f3309c0741
   FirebaseAppCheckInterop: a92ba81d0ee3c4cddb1a2e52c668ea51dc63c3ae
   FirebaseAuth: 175cb5503dfdb52191b8ff81cdd52c1d9dee9ac9
   FirebaseAuthInterop: e25b58ecb90f3285085fa2118861a3c9dfdc62ad
@@ -1577,6 +1565,7 @@ SPEC CHECKSUMS:
   in_app_purchase_storekit: d1a48cb0f8b29dbf5f85f782f5dd79b21b90a5e6
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
