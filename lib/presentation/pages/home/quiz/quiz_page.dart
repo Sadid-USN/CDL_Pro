@@ -367,15 +367,12 @@ class QuestionCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(right: 8.w),
-                                child: SvgPicture.asset(
-                                  AppLogos.explanation,
-                                  height: 22.h,
-                                  colorFilter: ColorFilter.mode(
-                                    AppColors.goldenSoft,
-                                    BlendMode.srcIn,
-                                  ),
+                              SvgPicture.asset(
+                                AppLogos.explanation,
+                                height: 30.h,
+                                colorFilter: ColorFilter.mode(
+                                  AppColors.lightPrimary,
+                                  BlendMode.srcIn,
                                 ),
                               ),
                               Text(
