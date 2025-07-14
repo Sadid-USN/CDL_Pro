@@ -1,4 +1,6 @@
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/core/extensions/extensions.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,23 +12,13 @@ import 'package:lottie/lottie.dart';
 class PremiumBottomSheet extends StatelessWidget {
   PremiumBottomSheet({super.key});
 
-  // Основной источник данных: productId → LocaleKey
-  final Map<String, String> productIdToLocaleKey = {
-    'one_week_subscription': LocaleKeys.oneWeekSubscription,
-    'one_month_subscription': LocaleKeys.oneMonthSubscription,
-    'three_months_subscription': LocaleKeys.threeMonthsSubscription,
-    'six_months_subscription': LocaleKeys.sixMonthsSubscription,
-    'annual_subscription': LocaleKeys.annualSubscription,
-  };
-
-  // Для UI — отображаемые цены (можно динамически загружать в будущем)
-  final Map<String, String> productIdToPrice = {
-    'one_week_subscription': '\$5.99',
-    'one_month_subscription': '\$19.99',
-    'three_months_subscription': '\$49.99',
-    'six_months_subscription': '\$79.99',
-    'annual_subscription': '\$99.99',
-  };
+  final List<MyProduct> products = [
+    MyProduct.weekly,
+    MyProduct.monthly,
+    MyProduct.threeMonths,
+    MyProduct.sixMonths,
+    MyProduct.yearly,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,33 +40,37 @@ class PremiumBottomSheet extends StatelessWidget {
             height: 70.h,
             fit: BoxFit.contain,
           ),
-          Text(
-            LocaleKeys.premiumAccessTitle.tr(),
-            style: AppTextStyles.merriweatherBold16.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Text(
+                  LocaleKeys.premiumAccessTitle.tr(),
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.merriweather16,
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 8.h),
           Expanded(
             child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
-                children: productIdToLocaleKey.entries.map((entry) {
-                  final productId = entry.key;
-                  final titleKey = entry.value;
-                  final price = productIdToPrice[productId] ?? '';
-                  final isPopular = productId == 'one_month_subscription';
-                  final isBestValue = productId == 'annual_subscription';
+                children:
+                    products.map((product) {
+                      final isPopular = product == MyProduct.monthly;
+                      final isBestValue = product == MyProduct.yearly;
 
-                  return _buildSubscriptionCard(
-                    context,
-                    title: titleKey.tr(),
-                    price: price,
-                    productId: productId,
-                    isPopular: isPopular,
-                    isBestValue: isBestValue,
-                  );
-                }).toList(),
+                      return _buildSubscriptionCard(
+                        context,
+                        title: product.titleKey.tr(),
+                        price: product.price,
+                        productId: product.productId,
+                        isPopular: isPopular,
+                        isBestValue: isBestValue,
+                      );
+                    }).toList(),
               ),
             ),
           ),
@@ -97,7 +93,8 @@ class PremiumBottomSheet extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.r),
         side: BorderSide(
-          color: isPopular ? AppColors.goldenSoft : Theme.of(context).dividerColor,
+          color:
+              isPopular ? AppColors.goldenSoft : Theme.of(context).dividerColor,
           width: isPopular ? 1.5 : 0.5,
         ),
       ),
@@ -114,7 +111,7 @@ class PremiumBottomSheet extends StatelessWidget {
                 isBestValue: isBestValue,
               ),
             SizedBox(height: (isPopular || isBestValue) ? 8.h : 0),
-            Text(title, style: AppTextStyles.manropeBold14),
+            Text(title, style: AppTextStyles.merriweatherBold12),
           ],
         ),
         subtitle: Column(
@@ -178,12 +175,12 @@ class PremiumBottomSheet extends StatelessWidget {
     return const SizedBox.shrink();
   }
 
-  void _handlePurchase(BuildContext context, String productId, String planName) {
+  void _handlePurchase(
+    BuildContext context,
+    String productId,
+    String planName,
+  ) {
     Navigator.pop(context);
     context.read<PurchaseBloc>().add(BuyNonConsumableProduct(productId));
-
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   SnackBar(content: Text('Purchasing $planName...')),
-    // );
   }
 }

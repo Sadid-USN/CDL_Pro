@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/constants/constants.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
@@ -8,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
 class PolicyPage extends StatelessWidget {
@@ -96,6 +98,52 @@ class PolicyPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if (index == 1)
+                            ElevatedButton(
+                              onPressed: () {
+                                AppLauncher.openLinkUrl(
+                                  AppConstants.tirmsOfUseUrl,
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: AppColors.lightPrimary,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24,
+                                  vertical: 12,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                elevation: 4,
+                               
+                              ),
+                              child:  Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.open_in_new, size: 18),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    LocaleKeys.followTheLink.tr(),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10.h,),
+
+                          // TextButton(
+                          //   onPressed: () {
+                          //     AppLauncher.openLinkUrl(
+                          //       AppConstants.tirmsOfUseUrl,
+                          //     );
+                          //     // AppLauncher.openLinkUrl(AppConstants.privacyPolicyUrl);
+                          //   },
+                          //   child: Text('LINK'),
+                          // ),
                           Text(
                             section.title,
                             style: AppTextStyles.merriweatherBold14.copyWith(
@@ -104,6 +152,7 @@ class PolicyPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           Text(section.content),
+                             
                         ],
                       ),
                     );
@@ -164,6 +213,43 @@ class PolicyPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+
+                               if (index == 1)
+                            ElevatedButton(
+                              onPressed: () {
+                                AppLauncher.openLinkUrl(
+                                  AppConstants.privacyPolicyUrl,
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: AppColors.lightPrimary,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24,
+                                  vertical: 12,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                elevation: 4,
+                               
+                              ),
+                              child:  Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.open_in_new, size: 18),
+                                  SizedBox(width: 8),
+                                  Text(
+                                  LocaleKeys.followTheLink.tr(),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10.h,),
                           Text(
                             section.title,
                             style: AppTextStyles.merriweatherBold14.copyWith(

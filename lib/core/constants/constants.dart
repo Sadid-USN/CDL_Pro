@@ -1,2 +1,2 @@
 export 'app_logos.dart';
-export 'app_titles.dart';
+export 'app_constants.dart';

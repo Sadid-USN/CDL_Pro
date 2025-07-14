@@ -1,0 +1,118 @@
+{
+  "chapters": {
+    "general_knowledge": {
+      "free_limit": 50,
+      "total": 800,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": "",
+             "id": "1"
+          }
+        }
+      }
+    },
+    "combination": {
+      "free_limit": 25,
+      "total": 190,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": ".",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": "",
+                "id": "1"
+          }
+        }
+      }
+    },
+    "airBrakes": {
+      "free_limit": 25,
+      "total": 150,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": ""
+            },
+            "correct_option": "",
+            "description": "",
+            "id": "1"
+          }
+        }
+      }
+    },
+    "tanker": {
+      "free_limit": 20,
+      "total": 107,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": "."
+            },
+            "correct_option": "",
+            "description": "",
+            "id": "1"
+          }
+        }
+      }
+    },
+    "doubleAndTriple": {
+      "free_limit": 20,
+      "total": 80,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": "."
+            },
+            "correct_option": "",
+            "description": "",
+            "id": "1"
+          }
+        }
+      }
+    },
+    "hazMat": {
+      "free_limit": 30,
+      "total": 60,
+      "questions": {
+        "1": {
+          "en": {
+            "question": "",
+            "options": {
+              "A": "",
+              "B": "",
+              "C": "."
+            },
+            "correct_option": "",
+            "description": "",
+            "id": "1"
+          }
+        }
+      }
+    }
+  }
+}

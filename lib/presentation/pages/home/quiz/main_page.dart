@@ -32,16 +32,16 @@ class MainPage extends StatelessWidget {
              SettingsRoute()],
           builder: (context, child) {
             final List<String> svgPictures = [
-                AppLogos.home,
+              AppLogos.home,
               AppLogos.profile,
               AppLogos.settings,
             
             ];
             final tabsRouter = AutoTabsRouter.of(context);
             final titles = [
+              LocaleKeys.home.tr(),
               LocaleKeys.profile.tr(),
               LocaleKeys.settings.tr(),
-              LocaleKeys.home.tr(),
             ];
 
             return AppScaffold(

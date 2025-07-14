@@ -207,72 +207,74 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     }
   }
 
-Future<void> _signInWithGoogle(
-  SignInWithGoogle event,
-  Emitter<ProfileState> emit,
-) async {
-  emit(state.copyWith(isLoading: true, errorMessage: null));
+  Future<void> _signInWithGoogle(
+    SignInWithGoogle event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(isLoading: true, errorMessage: null));
 
-  try {
-    // ⚠️ Никакого clientId здесь быть не должно!
-    final googleSignIn = GoogleSignIn(
-      scopes: ['email'],
-    );
+    try {
+      final googleSignIn = GoogleSignIn.instance;
+      await googleSignIn.initialize();
 
-    final googleUser = await googleSignIn.signIn();
-    if (googleUser == null) {
-      emit(state.copyWith(isLoading: false));
-      return;
+      late final GoogleSignInAccount googleUser;
+      try {
+        googleUser = await googleSignIn.authenticate();
+      } on Exception catch (e) {
+        debugPrint('Google Sign-In canceled or failed: $e');
+        emit(state.copyWith(isLoading: false));
+        return;
+      }
+
+      final idToken = googleUser.authentication.idToken;
+      if (idToken == null) {
+        emit(state.copyWith(isLoading: false));
+        return;
+      }
+
+      final credential = GoogleAuthProvider.credential(idToken: idToken);
+      final userCredential = await _auth.signInWithCredential(credential);
+
+      // При первом входе создаём документ
+      if (userCredential.additionalUserInfo?.isNewUser ?? false) {
+        await firebaseStore
+            .collection('users')
+            .doc(userCredential.user?.uid)
+            .set({
+              'email': userCredential.user?.email,
+              'createdAt': FieldValue.serverTimestamp(),
+            });
+      }
+
+      final token = await userCredential.user?.getIdToken();
+      if (token != null) await _storage.writeToken(token);
+
+      emit(
+        state.copyWith(
+          user: userCredential.user,
+          isLoading: false,
+          errorMessage: null,
+        ),
+      );
+
+      add(UpdateProfile(userCredential.user));
+    } on FirebaseAuthException catch (e) {
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseErrorHandler.fromCode(e.code),
+        ),
+      );
+    } catch (e) {
+      debugPrint('Google Sign-In Error: $e');
+      emit(
+        state.copyWith(
+          isLoading: false,
+          errorMessage: FirebaseAuthErrorType.unknown,
+        ),
+      );
     }
-
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    final userCredential = await _auth.signInWithCredential(credential);
-
-    // При первом входе создаём документ
-    if (userCredential.additionalUserInfo?.isNewUser ?? false) {
-      await firebaseStore
-          .collection('users')
-          .doc(userCredential.user?.uid)
-          .set({
-        'email': userCredential.user?.email,
-        'createdAt': FieldValue.serverTimestamp(),
-      });
-    }
-
-    final token = await userCredential.user?.getIdToken();
-    if (token != null) await _storage.writeToken(token);
-
-    emit(
-      state.copyWith(
-        user: userCredential.user,
-        isLoading: false,
-        errorMessage: null,
-      ),
-    );
-
-    add(UpdateProfile(userCredential.user));
-  } on FirebaseAuthException catch (e) {
-    emit(
-      state.copyWith(
-        isLoading: false,
-        errorMessage: FirebaseErrorHandler.fromCode(e.code),
-      ),
-    );
-  } catch (e) {
-    debugPrint('Google Sign-In Error: $e');
-    emit(
-      state.copyWith(
-        isLoading: false,
-        errorMessage: FirebaseAuthErrorType.unknown,
-      ),
-    );
   }
-}
 
   Future<void> _signInWithApple(
     SignInWithAppleEvent event,
@@ -282,7 +284,7 @@ Future<void> _signInWithGoogle(
 
     try {
       // Проверка платформы
-      if (!Platform.isIOS && !Platform.isMacOS) {
+      if (!Platform.isIOS) {
         emit(
           state.copyWith(
             isLoading: false,

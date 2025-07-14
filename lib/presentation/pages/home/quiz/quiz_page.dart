@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
@@ -36,13 +35,9 @@ class QuizPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<CDLTestsBloc>();
 
-   bloc.add(
-  LoadQuizEvent(
-    questions,
-    initialLanguage: 'en',
-    subcategory: categoryKey,
-  ),
-);
+    bloc.add(
+      LoadQuizEvent(questions, initialLanguage: 'en', subcategory: categoryKey),
+    );
 
     return _QuizPageContent(
       model: model,
@@ -75,7 +70,6 @@ class _QuizPageContent extends StatelessWidget {
       listener: (context, state) {
         if (state is QuizLoadedState) {
           context.read<CDLTestsBloc>().add(SaveQuizProgressEvent());
-          
         }
       },
       builder: (context, state) {
@@ -180,8 +174,8 @@ class _QuizPageContent extends StatelessWidget {
       if (isLoggedIn) {
         navigateToPage(
           context,
-          route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-          replace: true,
+          routeName: 'MainCategoryRoute',
+          popUntilNamed: true,
         );
       } else {
         navigateToPage(context, route: const ProfileRoute(), clearStack: true);
@@ -191,8 +185,8 @@ class _QuizPageContent extends StatelessWidget {
       if (!isLoggedIn) {
         navigateToPage(
           context,
-          route: OverviewCategoryRoute(categoryKey: categoryKey, model: model),
-          replace: true,
+          routeName: 'MainCategoryRoute',
+          popUntilNamed: true,
         );
         return true;
       }

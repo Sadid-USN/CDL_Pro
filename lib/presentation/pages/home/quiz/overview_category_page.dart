@@ -198,8 +198,9 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
     final limitedIds = questionIds.sublist(startIndex - 1, endIndex);
     return limitedIds.map((id) {
       final questionData = questionsMap[id];
+     
       if (questionData is Map<String, dynamic>) {
-        return Question.fromJson(questionData);
+        return Question.fromJson(questionData, key: '', );
       } else if (questionData is Question) {
         return questionData;
       } else {

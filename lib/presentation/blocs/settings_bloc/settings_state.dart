@@ -11,38 +11,35 @@ class SettingsState extends Equatable {
   final int tapCount;
   final bool isExpanded;
   final LoadingStatus loadingStatus;
-  final List<TestsDataModel> testsModel;
-  // final List<ChaptersModel> likedChapters;
-  final bool isDarkMode;
 
-// Новое поле для потока данных
+  // Данные CDL-тестов
+  final List<TestsDataModel> testsModel;
+
+  final bool isDarkMode;
 
   const SettingsState({
     required this.collectionStream,
     required this.selectedType,
+    required this.selectedLang,
     required this.tapCount,
     required this.isExpanded,
     required this.loadingStatus,
     required this.testsModel,
-    required this.selectedLang,
-    // required this.likedChapters,
+
     required this.isDarkMode,
- // Добавляем bookStream в конструктор
   });
 
   factory SettingsState.initial() {
     return const SettingsState(
       collectionStream: null,
-      selectedLang: AppLanguage.english,
       selectedType: AppDataType.cdlTests,
+      selectedLang: AppLanguage.english,
       tapCount: 0,
       isExpanded: false,
       loadingStatus: LoadingStatus.completed,
       testsModel: [],
-      // likedChapters: [],
-      isDarkMode: false,
 
-      
+      isDarkMode: false,
     );
   }
 
@@ -54,22 +51,19 @@ class SettingsState extends Equatable {
     bool? isExpanded,
     LoadingStatus? loadingStatus,
     List<TestsDataModel>? testsModel,
-    // List<ChaptersModel>? likedChapters,
+
     bool? isDarkMode,
-   // Добавляем bookStream в copyWith
   }) {
     return SettingsState(
       collectionStream: collectionStream ?? this.collectionStream,
-      selectedLang: selectedLang ?? this.selectedLang,
       selectedType: selectedType ?? this.selectedType,
+      selectedLang: selectedLang ?? this.selectedLang,
       tapCount: tapCount ?? this.tapCount,
       isExpanded: isExpanded ?? this.isExpanded,
       loadingStatus: loadingStatus ?? this.loadingStatus,
       testsModel: testsModel ?? this.testsModel,
-      // likedChapters: likedChapters ?? this.likedChapters,
-      isDarkMode: isDarkMode ?? this.isDarkMode,
 
-     // Обновляем bookStream
+      isDarkMode: isDarkMode ?? this.isDarkMode,
     );
   }
 
@@ -79,11 +73,10 @@ class SettingsState extends Equatable {
     selectedType,
     selectedLang,
     tapCount,
+    isExpanded,
     loadingStatus,
     testsModel,
-    // likedChapters,
-    isExpanded,
+
     isDarkMode,
- 
   ];
 }

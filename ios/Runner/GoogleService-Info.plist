@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>899513564439-m718et85g2avme8nhkbmih5isgllc6tv.apps.googleusercontent.com</string>
+	<string>899513564439-vnqhpi2jofgvt8mh7al5pptk13mlfc2e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.899513564439-m718et85g2avme8nhkbmih5isgllc6tv</string>
+	<string>com.googleusercontent.apps.899513564439-vnqhpi2jofgvt8mh7al5pptk13mlfc2e</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>899513564439-6tn82pec61gf403alog4kfv1vlcddg9q.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.darulasar.cdlPro</string>
+	<string>com.darulasar.cdlProApp</string>
 	<key>PROJECT_ID</key>
 	<string>cdl-pro-cb12c</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:899513564439:ios:49395974a48047a24a4b52</string>
+	<string>1:899513564439:ios:76bce552bd7211534a4b52</string>
 </dict>
 </plist>
