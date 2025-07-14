@@ -91,5 +91,6 @@ abstract class  LocaleKeys {
   static const selectLanguage = 'selectLanguage';
   static const subscriptionAutoRenew = 'subscriptionAutoRenew';
   static const effectiveDate = 'effectiveDate';
+  static const followTheLink = 'followTheLink';
 
 }

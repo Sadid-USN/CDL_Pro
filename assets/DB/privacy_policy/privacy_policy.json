@@ -1,6 +1,6 @@
 {
   "en": {
-    "effective_date": "2025-06-29",
+    "effective_date": "2025-07-14",
     "title": "Privacy Policy for CDL Pro",
     "sections": [
       {
@@ -9,7 +9,7 @@
       },
       {
         "title": "2. Purpose of Authentication",
-        "content": "We use authentication strictly for the following reasons:\n\n- Save Progress: To allow users to continue the quiz from where they left off, across devices or sessions.\n- User Feedback: To enable users to report errors or suggest improvements to the quiz content."
+        "content": "We use authentication strictly for the following reasons:\n\n- Save Progress: To allow users to continue the quiz from where they left off, across devices or sessions.\n- User Feedback: To enable users to report errors or suggest improvements to the quiz content. This helps us improve the quality of the app and its learning material."
       },
       {
         "title": "3. Data Sharing",
@@ -17,7 +17,7 @@
       },
       {
         "title": "4. Account Deletion and Sign-Out",
-        "content": "Users can delete their account at any time. Alternatively, they may sign out from the app. Account deletion will permanently remove all associated user data, including saved progress."
+        "content": "Yes, users can delete their account at any time. Alternatively, they may simply choose to sign out from the app. Account deletion will permanently remove all associated user data, including saved progress."
       },
       {
         "title": "5. Children's Privacy",
@@ -25,20 +25,24 @@
       },
       {
         "title": "6. Changes to This Policy",
-        "content": "We may update this Privacy Policy from time to time. Continued use of the app after any changes constitutes acceptance of the new policy."
+        "content": "We may update this Privacy Policy from time to time. When we do, we will notify users by updating the 'Effective Date' at the top of this document. Continued use of the app after any changes constitutes acceptance of the new policy."
       },
       {
         "title": "7. In-App Purchases and Subscriptions",
-        "content": "CDL Pro offers optional in-app subscriptions that provide access to premium content. Payments are processed securely through Google Play. We do not collect or store payment information."
+        "content": "CDL Pro offers optional in-app subscriptions that provide access to premium content, such as additional quiz categories and features. All payments are processed securely through Google Play or Apple App Store (based on your device). We do not collect or store any payment information. Users can manage or cancel their subscriptions at any time through their app store account settings."
+      },
+      {
+        "title": "8. Tracking Transparency and Sign in with Apple",
+        "content": "CDL Pro includes support for Sign in with Apple. For this feature to work properly, the app requests permission for tracking as required by Apple’s privacy framework (NSUserTrackingUsageDescription). CDL Pro does not use tracking for advertising purposes or to build user profiles. The tracking permission is requested solely to enable secure authentication through Sign in with Apple and to help ensure the proper functioning of this sign-in method."
       },
       {
         "title": "Contact Us",
-        "content": "Email: Ulamuyaman@gmail.com\nApp Settings: Use the \"Report a Problem\" feature in the app."
+        "content": "If you have any questions or concerns regarding this Privacy Policy or your data, please contact us at:\nEmail: ulamuyaman@gmail.com\nApp Settings: You can also contact us directly through the 'Report a Problem' feature in the app."
       }
     ]
   },
   "ru": {
-    "effective_date": "2025-06-29",
+    "effective_date": "2025-07-14",
     "title": "Политика конфиденциальности CDL Pro",
     "sections": [
       {
@@ -47,107 +51,119 @@
       },
       {
         "title": "2. Цель аутентификации",
-        "content": "Аутентификация используется исключительно для:\n\n- Сохранения прогресса: чтобы вы могли продолжить с того места, где остановились\n- Обратной связи: чтобы сообщать об ошибках и предлагать улучшения"
+        "content": "Аутентификация используется исключительно для:\n\n- Сохранения прогресса: чтобы вы могли продолжить викторину с того места, где остановились, на разных устройствах или сессиях.\n- Обратной связи: чтобы пользователи могли сообщать об ошибках или предлагать улучшения контента викторины, что помогает нам улучшить качество приложения и учебных материалов."
       },
       {
         "title": "3. Передача данных",
-        "content": "Мы не передаём, не продаём и не сдаём в аренду ваши личные данные третьим лицам. Все данные надёжно хранятся и обрабатываются в соответствии со стандартами отрасли."
+        "content": "Мы не передаём, не продаём и не сдаём в аренду ваши личные данные третьим лицам. Все данные пользователей надежно хранятся и обрабатываются в соответствии со стандартными отраслевыми практиками."
       },
       {
         "title": "4. Удаление аккаунта и выход",
-        "content": "Вы можете удалить аккаунт в любое время. Также можно просто выйти из приложения. Удаление приведёт к безвозвратному удалению всех данных, включая прогресс."
+        "content": "Да, пользователи могут удалить свой аккаунт в любое время. Также они могут просто выйти из приложения. Удаление аккаунта приведёт к постоянному удалению всех связанных данных, включая сохранённый прогресс."
       },
       {
         "title": "5. Конфиденциальность детей",
-        "content": "Приложение не предназначено для детей младше 13 лет. Мы не собираем данные о детях."
+        "content": "CDL Pro не предназначено для использования детьми младше 13 лет. Мы не собираем данные о детях осознанно."
       },
       {
         "title": "6. Изменения в политике",
-        "content": "Мы можем вносить изменения в политику конфиденциальности. Использование приложения после обновлений означает согласие с новой версией."
+        "content": "Мы можем обновлять эту Политику конфиденциальности время от времени. При обновлении мы уведомим пользователей, обновив дату вступления в силу в начале документа. Продолжение использования приложения после изменений означает согласие с новой политикой."
       },
       {
-        "title": "7. Подписки и покупки",
-        "content": "CDL Pro предлагает подписки для доступа к премиум-контенту. Платежи обрабатываются через Google Play. Мы не храним платёжные данные."
+        "title": "7. Покупки и подписки в приложении",
+        "content": "CDL Pro предлагает необязательные подписки в приложении, которые дают доступ к премиум-контенту, например, дополнительным категориям викторин и функциям. Все платежи обрабатываются безопасно через Google Play или Apple App Store (в зависимости от вашего устройства). Мы не собираем и не храним информацию о платежах. Пользователи могут управлять своими подписками или отменять их в любое время через настройки учетной записи магазина приложений."
+      },
+      {
+        "title": "8. Прозрачность отслеживания и вход через Apple",
+        "content": "CDL Pro поддерживает вход через Apple. Для правильной работы этой функции приложение запрашивает разрешение на отслеживание в соответствии с рамками конфиденциальности Apple (NSUserTrackingUsageDescription). CDL Pro не использует отслеживание для рекламы или создания профилей пользователей. Разрешение на отслеживание запрашивается исключительно для обеспечения безопасной аутентификации через Sign in with Apple и правильной работы этой функции входа."
       },
       {
         "title": "Связь с нами",
-        "content": "Email: Ulamuyaman@gmail.com\nВ настройках: используйте функцию \"Сообщить о проблеме\"."
+        "content": "Если у вас есть вопросы или опасения относительно этой Политики конфиденциальности или ваших данных, свяжитесь с нами:\nEmail: ulamuyaman@gmail.com\nНастройки приложения: Также вы можете связаться с нами напрямую через функцию 'Сообщить о проблеме' в приложении."
       }
     ]
   },
   "uk": {
-    "effective_date": "2025-06-29",
+    "effective_date": "2025-07-14",
     "title": "Політика конфіденційності CDL Pro",
     "sections": [
       {
         "title": "1. Особиста інформація, яку ми збираємо",
-        "content": "CDL Pro не збирає жодної особистої інформації, окрім тієї, що необхідна для автентифікації. Ви можете увійти через:\n\n- Email та пароль\n- Обліковий запис Google\n- Apple ID"
+        "content": "CDL Pro не збирає жодних особистих даних, окрім необхідних для автентифікації. Ви можете увійти через:\n\n- Email та пароль\n- Обліковий запис Google\n- Apple ID"
       },
       {
         "title": "2. Мета автентифікації",
-        "content": "Ми використовуємо автентифікацію виключно для:\n\n- Збереження прогресу\n- Надання зворотного зв’язку для покращення контенту"
+        "content": "Ми використовуємо автентифікацію виключно для:\n\n- Збереження прогресу: щоб користувачі могли продовжити вікторину з того місця, де зупинилися, на різних пристроях або сесіях.\n- Зворотний зв’язок: щоб користувачі могли повідомляти про помилки або пропонувати покращення вмісту вікторини, що допомагає нам підвищити якість додатка та навчальних матеріалів."
       },
       {
         "title": "3. Передача даних",
-        "content": "Ми не передаємо, не продаємо та не здаємо в оренду вашу інформацію третім сторонам. Дані зберігаються відповідно до стандартів галузі."
+        "content": "Ми не передаємо, не продаємо та не здаємо в оренду вашу особисту інформацію третім сторонам. Усі дані користувачів надійно зберігаються та обробляються відповідно до стандартних галузевих практик."
       },
       {
-        "title": "4. Видалення облікового запису",
-        "content": "Користувач може видалити акаунт у будь-який момент. Видалення видаляє всі дані безповоротно."
+        "title": "4. Видалення облікового запису та вихід",
+        "content": "Так, користувачі можуть видалити свій обліковий запис у будь-який момент. Також вони можуть просто вийти з додатка. Видалення облікового запису призведе до постійного видалення всіх пов’язаних даних, включаючи збережений прогрес."
       },
       {
         "title": "5. Конфіденційність дітей",
-        "content": "Програма не призначена для дітей до 13 років. Ми не збираємо дані про дітей."
+        "content": "CDL Pro не призначений для використання дітьми до 13 років. Ми не knowingly збираємо дані від дітей."
       },
       {
-        "title": "6. Зміни до політики",
-        "content": "Ми можемо змінювати політику конфіденційності. Подальше використання означає згоду з новими умовами."
+        "title": "6. Зміни до цієї політики",
+        "content": "Ми можемо оновлювати цю Політику конфіденційності час від часу. При оновленні ми повідомимо користувачів, змінивши дату набрання чинності на початку документа. Продовження використання додатка після змін означає прийняття нової політики."
       },
       {
-        "title": "7. Покупки в додатку",
-        "content": "Додаток має підписки на преміум-контент. Платежі здійснюються через Google Play. Ми не зберігаємо платіжні дані."
+        "title": "7. Покупки в додатку та підписки",
+        "content": "CDL Pro пропонує необов’язкові підписки в додатку, які надають доступ до преміум-контенту, наприклад, додаткових категорій вікторин та функцій. Усі платежі обробляються безпечно через Google Play або Apple App Store (залежно від вашого пристрою). Ми не збираємо та не зберігаємо жодної інформації про платежі. Користувачі можуть керувати своїми підписками або скасовувати їх у будь-який час через налаштування облікового запису в магазині додатків."
+      },
+      {
+        "title": "8. Прозорість відстеження та вхід через Apple",
+        "content": "CDL Pro підтримує вхід через Apple. Для правильної роботи цієї функції додаток запитує дозвіл на відстеження відповідно до рамок конфіденційності Apple (NSUserTrackingUsageDescription). CDL Pro не використовує відстеження для реклами чи створення профілів користувачів. Дозвіл на відстеження запитується виключно для забезпечення безпечної автентифікації через Sign in with Apple та правильної роботи цього методу входу."
       },
       {
         "title": "Зв’язок з нами",
-        "content": "Email: Ulamuyaman@gmail.com\nУ налаштуваннях: скористайтеся \"Повідомити про проблему\"."
+        "content": "Якщо у вас є питання чи занепокоєння щодо цієї Політики конфіденційності чи ваших даних, звертайтеся до нас:\nEmail: ulamuyaman@gmail.com\nНалаштування додатка: Також ви можете зв’язатися з нами напряму через функцію 'Повідомити про проблему' в додатку."
       }
     ]
   },
   "es": {
-    "effective_date": "2025-06-29",
+    "effective_date": "2025-07-14",
     "title": "Política de privacidad de CDL Pro",
     "sections": [
       {
         "title": "1. Información personal que recopilamos",
-        "content": "CDL Pro no recopila datos personales excepto los necesarios para la autenticación. Puede iniciar sesión mediante:\n\n- Correo electrónico y contraseña\n- Cuenta de Google\n- Apple ID"
+        "content": "CDL Pro no recopila datos personales más allá de lo necesario para la autenticación. Puede iniciar sesión usando uno de los siguientes métodos:\n\n- Correo electrónico y contraseña\n- Cuenta de Google\n- Apple ID"
       },
       {
         "title": "2. Propósito de la autenticación",
-        "content": "Usamos la autenticación solo para:\n\n- Guardar el progreso\n- Permitir comentarios para mejorar el contenido"
+        "content": "Usamos la autenticación estrictamente para los siguientes propósitos:\n\n- Guardar el progreso: Para permitir a los usuarios continuar la trivia desde donde la dejaron, en diferentes dispositivos o sesiones.\n- Retroalimentación de usuario: Para que los usuarios puedan reportar errores o sugerir mejoras en el contenido de la trivia, lo que nos ayuda a mejorar la calidad de la aplicación y sus materiales de aprendizaje."
       },
       {
         "title": "3. Compartición de datos",
-        "content": "No compartimos, vendemos ni alquilamos sus datos a terceros. Toda la información se almacena de forma segura."
+        "content": "No compartimos, vendemos ni alquilamos su información personal a terceros. Todos los datos de los usuarios se almacenan de manera segura y se manejan de acuerdo con las prácticas estándar de la industria."
       },
       {
-        "title": "4. Eliminación de cuenta",
-        "content": "Puede eliminar su cuenta en cualquier momento. Esto borrará permanentemente todos sus datos, incluido el progreso."
+        "title": "4. Eliminación de cuenta y cierre de sesión",
+        "content": "Sí, los usuarios pueden eliminar su cuenta en cualquier momento. Alternativamente, pueden simplemente cerrar sesión en la aplicación. La eliminación de la cuenta eliminará permanentemente todos los datos asociados, incluyendo el progreso guardado."
       },
       {
         "title": "5. Privacidad infantil",
-        "content": "CDL Pro no está destinado a menores de 13 años. No recopilamos datos de niños."
+        "content": "CDL Pro no está destinado a ser usado por niños menores de 13 años. No recopilamos datos de niños de manera consciente."
       },
       {
         "title": "6. Cambios en esta política",
-        "content": "Podemos actualizar esta política ocasionalmente. El uso continuo de la app implica aceptación."
+        "content": "Podemos actualizar esta Política de Privacidad de vez en cuando. Cuando lo hagamos, notificaremos a los usuarios actualizando la 'Fecha de entrada en vigor' en la parte superior de este documento. El uso continuo de la aplicación después de cualquier cambio constituye la aceptación de la nueva política."
       },
       {
-        "title": "7. Compras y suscripciones",
-        "content": "CDL Pro ofrece suscripciones para contenido premium. Los pagos se procesan a través de Google Play. No almacenamos información de pago."
+        "title": "7. Compras y suscripciones dentro de la aplicación",
+        "content": "CDL Pro ofrece suscripciones opcionales dentro de la aplicación que proporcionan acceso a contenido premium, como categorías adicionales de trivias y funciones. Todos los pagos se procesan de forma segura a través de Google Play o Apple App Store (según su dispositivo). No recopilamos ni almacenamos información de pago. Los usuarios pueden gestionar o cancelar sus suscripciones en cualquier momento a través de la configuración de su cuenta en la tienda de aplicaciones."
       },
       {
-        "title": "Contáctanos",
-        "content": "Correo: Ulamuyaman@gmail.com\nEn la app: Use la función \"Reportar un problema\"."
+        "title": "8. Transparencia en el seguimiento y entrada con Apple",
+        "content": "CDL Pro incluye soporte para Iniciar sesión con Apple. Para que esta función funcione correctamente, la aplicación solicita permiso para el seguimiento según lo requerido por el marco de privacidad de Apple (NSUserTrackingUsageDescription). CDL Pro no utiliza el seguimiento para fines publicitarios ni para crear perfiles de usuarios. El permiso de seguimiento se solicita únicamente para habilitar una autenticación segura a través de Iniciar sesión con Apple y asegurar el correcto funcionamiento de este método de inicio de sesión."
+      },
+      {
+        "title": "Contáctenos",
+        "content": "Si tiene alguna pregunta o preocupación respecto a esta Política de Privacidad o sus datos, contáctenos en:\nCorreo: ulamuyaman@gmail.com\nConfiguración de la aplicación: También puede contactarnos directamente a través de la función 'Reportar un problema' en la aplicación."
       }
     ]
   }

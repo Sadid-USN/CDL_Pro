@@ -1,138 +1,138 @@
 {
   "terms_of_use": {
     "en": {
-      "title": "Terms of Use",
+      "title": "CDL Pro Terms of Use EULA",
       "effective_date": "3/07/2025",
       "sections": [
         {
-          "title": "1. General",
-          "content": "The App is intended for individuals preparing for the Commercial Driver’s License (CDL) exams in the United States. The App is provided as-is without any warranties or guarantees. You agree to use the App only for lawful purposes and in accordance with all applicable laws and regulations."
+          "title": "1. Purpose of the Application",
+          "content": "CDL Pro is designed for individuals preparing for the Commercial Driver’s License (CDL) exams in the United States. The application is provided 'as-is' without warranties or guarantees. You agree to use CDL Pro only for lawful purposes and in compliance with all applicable laws and regulations. These Terms are concluded between you and [Sadid Idibekov], not with Apple Inc. Apple is not responsible for the CDL Pro application or its content. These Terms do not conflict with the Apple Media Services Terms and Conditions as of the Effective Date, which you have had the opportunity to review."
         },
         {
-          "title": "2. Payments and Subscriptions",
-          "content": "Certain features of the App are available only through a paid subscription. Subscription plans may be offered on a weekly, monthly, quarterly, semiannual, or annual basis. Payments are processed through Google Play or Apple App Store, depending on your device. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. You can manage or cancel your subscription at any time through your app store account settings."
+          "title": "2. Subscriptions and Payments",
+          "content": "Certain features require a paid subscription, available as: Weekly: $5.99, Monthly: $19.99, Quarterly (3 months): $49.99, Semi-annual (6 months): $79.99, Annual: $99.99. Payments are processed via Google Play or Apple App Store (based on your device). Subscriptions auto-renew unless canceled at least 24 hours before the current period ends. Prices are set in your app store and may vary by region. Manage or cancel subscriptions anytime through your app store account settings."
         },
         {
-          "title": "3. Content Usage",
-          "content": "All content within the App, including questions, translations, illustrations, and explanations, is for educational purposes only. You may not copy, reproduce, distribute, or sell any part of the App's content without prior written permission."
+          "title": "3. Content Usage Restrictions",
+          "content": "All CDL Pro content (questions, translations, illustrations, explanations) is for educational purposes only. You may not: Copy, reproduce, or distribute content, Sell or commercialize any materials without prior written permission. The license granted to you is a non-transferable license to use CDL Pro on any Apple-branded products you own or control, as permitted by the Usage Rules in the Apple Media Services Terms and Conditions. The application may be accessed and used by other accounts associated with you via Family Sharing or volume purchasing."
         },
         {
-          "title": "4. Disclaimer",
-          "content": "CDL Pro is provided for educational purposes only. We are not responsible for your exam outcome or inability to obtain a CDL permit. CDL Pro offers practice tests and study materials to help you prepare, but passing the exam ultimately depends on your individual effort and understanding of the material. Always verify information with official sources and consult your local DMV for the most up-to-date requirements. Use CDL Pro as a supplementary tool alongside proper training and official study guides."
+          "title": "4. Liability Disclaimer",
+          "content": "CDL Pro is an educational tool only. We: Do not guarantee exam success or CDL permit issuance, Provide practice tests and study aids, but your effort determines outcomes, Recommend verifying all information with official DMV sources, Use CDL Pro as a supplement to official training and guides, CDL Pro and its developers shall not be liable for any direct, indirect, or consequential damages arising from the use of this app. You are solely responsible for providing maintenance and support for CDL Pro. Apple has no obligation to furnish any maintenance or support services for the application. CDL Pro is provided without any warranties beyond what is required by law. If the application fails to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price. To the maximum extent permitted by law, Apple has no other warranty obligation, and any claims, losses, or damages are the sole responsibility of [Sadid Idibekov]. You acknowledge that [Sadid Idibekov], not Apple, is responsible for addressing any claims by you or third parties related to CDL Pro, including product liability, non-compliance with legal requirements, and claims under consumer protection or privacy laws. Liability is not limited beyond what is permitted by applicable law."
         },
         {
-          "title": "5. Privacy",
-          "content": "Your privacy is important to us. Please refer to our Privacy Policy for details on how we collect, use, and protect your information."
+          "title": "5. Privacy Policy",
+          "content": "Your data security matters. Review our Privacy Policy for details on data collection, usage, and protection."
         },
         {
-          "title": "6. Modifications",
-          "content": "We reserve the right to update or modify these Terms at any time. Continued use of the App after such changes means you accept the updated Terms."
+          "title": "6. Terms Modifications",
+          "content": "We reserve the right to update these Terms anytime. Continued use after changes constitutes acceptance of revised Terms. These Terms constitute a legally binding agreement between you and [Sadid Idibekov]. If a third party claims that CDL Pro or its use infringes their intellectual property rights, [Sadid Idibekov], not Apple, will be solely responsible for the investigation, defense, settlement, and discharge of any such claim. You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as a 'terrorist supporting' country, and you are not listed on any U.S. Government prohibited or restricted parties list. You must comply with applicable third-party terms, such as those of Google Play or Apple App Store, when using CDL Pro. You acknowledge that Apple Inc. and its subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance, Apple will have the right to enforce these Terms against you as a third-party beneficiary."
         },
         {
-          "title": "7. Contact",
-          "content": "If you have any questions or concerns about these Terms, please contact us at: ulamuyaman@gmail.com"
+          "title": "7. Contact Information",
+          "content": "Developer: Sadid Idibekov, Email: ulamuyaman@gmail.com."
         }
       ]
     },
     "ru": {
-      "title": "Условия использования",
+      "title": "Условия использования CDL Pro EULA",
       "effective_date": "3/07/2025",
       "sections": [
         {
-          "title": "1. Общее",
-          "content": "Приложение предназначено для пользователей, готовящихся к экзамену на получение CDL в США. Приложение предоставляется «как есть» без каких-либо гарантий. Вы соглашаетесь использовать приложение только в законных целях и в соответствии с действующим законодательством."
+          "title": "1. Назначение приложения",
+          "content": "CDL Pro предназначен для людей, готовящихся к экзаменам на получение коммерческих водительских прав (CDL) в США. Приложение предоставляется «как есть», без каких-либо гарантий. Вы соглашаетесь использовать CDL Pro только в законных целях и в соответствии со всеми применимыми законами и нормами. Эти Условия заключаются между вами и [Sadid Idibekov], а не с Apple Inc. Apple не несет ответственности за приложение CDL Pro или его контент. Эти Условия не противоречат Условиям использования Apple Media Services на дату вступления в силу, с которыми у вас была возможность ознакомиться."
         },
         {
-          "title": "2. Платежи и подписки",
-          "content": "Некоторые функции приложения доступны только по подписке. Подписки могут быть еженедельными, ежемесячными, квартальными, полугодовыми или годовыми. Платежи обрабатываются через Google Play или App Store в зависимости от вашего устройства. Подписка продлевается автоматически, если вы не отмените её как минимум за 24 часа до окончания текущего периода. Вы можете управлять подпиской или отменить её в настройках вашей учётной записи в магазине приложений."
+          "title": "2. Подписки и оплата",
+          "content": "Некоторые функции приложения доступны только по платной подписке. Подписки предлагаются на следующих условиях: Еженедельная: $5.99, Ежемесячная: $19.99, Квартальная (3 месяца): $49.99, Полугодовая (6 месяцев): $79.99, Годовая: $99.99. Оплата обрабатывается через Google Play или Apple App Store в зависимости от вашего устройства. Подписки автоматически продлеваются, если не отменены как минимум за 24 часа до окончания текущего периода. Цены устанавливаются в магазине приложений и могут варьироваться в зависимости от региона. Управляйте подпиской или отмените её в любое время через настройки учетной записи магазина приложений."
         },
         {
-          "title": "3. Использование контента",
-          "content": "Весь контент в приложении, включая вопросы, переводы, иллюстрации и пояснения, предназначен исключительно для образовательных целей. Запрещено копировать, распространять или продавать материалы приложения без письменного разрешения."
+          "title": "3. Ограничения использования контента",
+          "content": "Весь контент в CDL Pro, включая вопросы, переводы, иллюстрации и пояснения, предназначен только для образовательных целей. Запрещено: Копировать, воспроизводить или распространять контент, Продавать или коммерциализировать материалы без предварительного письменного разрешения. Лицензия, предоставляемая вам, является непередаваемой и позволяет использовать CDL Pro на любых продуктах Apple, которыми вы владеете или контролируете, в соответствии с Правилами использования в Условиях Apple Media Services. Приложение может использоваться другими учетными записями, связанными с вами, через Family Sharing или объемные покупки."
         },
         {
-          "title": "4. Отказ от ответственности",
-          "content": "CDL Pro предоставляется только в образовательных целях. Мы не несем ответственности за результаты экзамена или невозможность получить разрешение CDL. CDL Pro предлагает практические тесты и учебные материалы, которые помогут вам подготовиться, но сдача экзамена в конечном итоге зависит от ваших индивидуальных усилий и понимания материала. Всегда проверяйте информацию в официальных источниках и консультируйтесь с местным DMV для получения самых последних требований. Используйте CDL Pro в качестве дополнительного инструмента наряду с надлежащим обучением и официальными учебными пособиями."
+          "title": "4. Ограничение ответственности",
+          "content": "CDL Pro предоставляется исключительно в образовательных целях. Мы: Не гарантируем успешную сдачу экзамена или выдачу прав CDL, Предоставляем практические тесты и учебные материалы, но результат зависит от ваших усилий, Рекомендуем проверять информацию в официальных источниках DMV, Используйте CDL Pro как дополнительный инструмент вместе с официальными учебными пособиями. CDL Pro и его разработчики не несут ответственности за любые прямые, косвенные или последующие убытки, связанные с использованием приложения. Вы полностью отвечаете за предоставление технической поддержки и обслуживания CDL Pro. Apple не обязана предоставлять какую-либо поддержку или обслуживание для приложения. CDL Pro предоставляется без гарантий сверх того, что требуется законом. Если приложение не соответствует применимым гарантиям, вы можете уведомить Apple, и Apple вернет стоимость покупки. В максимальной степени, разрешенной законом, Apple не несет иных обязательств по гарантии, а любые претензии, убытки или ущерб являются единственной ответственностью [Sadid Idibekov]. Вы признаете, что [Sadid Idibekov], а не Apple, несет ответственность за рассмотрение любых претензий от вас или третьих лиц, связанных с CDL Pro, включая ответственность за продукцию, несоответствие правовым требованиям и претензии по защите потребителей или конфиденциальности. Ответственность не ограничивается сверх того, что разрешено законом."
         },
         {
           "title": "5. Конфиденциальность",
-          "content": "Ваша конфиденциальность важна для нас. См. Политику конфиденциальности, чтобы узнать, как мы собираем, используем и защищаем ваши данные."
+          "content": "Ваша конфиденциальность важна для нас. Подробности о сборе, использовании и защите ваших данных указаны в нашей Политике конфиденциальности."
         },
         {
-          "title": "6. Изменения",
-          "content": "Мы оставляем за собой право обновлять или изменять данные условия в любое время. Продолжая использовать приложение после таких изменений, вы соглашаетесь с обновлёнными условиями."
+          "title": "6. Изменения условий",
+          "content": "Мы оставляем за собой право обновлять эти Условия в любое время. Продолжение использования приложения после изменений означает ваше согласие с обновленными Условиями. Эти Условия составляют юридически обязывающее соглашение между вами и [Sadid Idibekov]. Если третья сторона заявит, что CDL Pro или его использование нарушает их интеллектуальные права, [Sadid Idibekov], а не Apple, будет единственно ответственен за расследование, защиту, урегулирование и выполнение любых таких претензий. Вы подтверждаете и гарантируете, что не находитесь в стране, подпадающей под эмбарго правительства США или обозначенной как страна, поддерживающая терроризм, и не включены в списки запрещенных или ограниченных лиц правительства США. Вы должны соблюдать применимые условия третьих сторон, такие как условия Google Play или Apple App Store, при использовании CDL Pro. Вы признаете, что Apple Inc. и ее дочерние компании являются третьими сторонами по этим Условиям, и по вашему принятию Apple получит право принудительно исполнять эти Условия против вас как третьей стороны."
         },
         {
-          "title": "7. Контакты",
-          "content": "Если у вас есть вопросы по этим условиям, свяжитесь с нами: ulamuyaman@gmail.com"
+          "title": "7. Контактная информация",
+          "content": "Разработчик: Sadid Idibekov, Email: ulamuyaman@gmail.com."
         }
       ]
     },
     "uk": {
-      "title": "Умови використання",
+      "title": "Умови використання CDL Pro EULA",
       "effective_date": "3/07/2025",
       "sections": [
         {
-          "title": "1. Загальні положення",
-          "content": "Додаток призначений для користувачів, які готуються до складання іспиту на отримання CDL у США. Додаток надається «як є» без будь-яких гарантій. Ви погоджуєтесь використовувати додаток лише в законних цілях та відповідно до чинного законодавства."
+          "title": "1. Призначення додатка",
+          "content": "CDL Pro призначений для підготовки до екзаменів на комерційні водійські права (CDL) у США. Додаток надається «як є», без гарантій. Ви погоджуєтеся використовувати CDL Pro лише для законних цілей та відповідно до чинного законодавства. Ці Умови укладаються між вами та [Sadid Idibekov], а не з Apple Inc. Apple не несе відповідальності за додаток CDL Pro або його контент. Ці Умови не суперечать Умовами використання Apple Media Services на дату набрання чинності, з якими у вас була можливість ознайомитися."
         },
         {
-          "title": "2. Платежі та підписки",
-          "content": "Деякі функції додатку доступні лише за передплатою. Плани передплати можуть бути щотижневими, щомісячними, квартальними, піврічними або річними. Оплата здійснюється через Google Play або Apple App Store залежно від вашого пристрою. Передплата автоматично поновлюється, якщо її не скасувати принаймні за 24 години до кінця поточного періоду. Ви можете керувати передплатою в налаштуваннях облікового запису."
+          "title": "2. Підписки та оплата",
+          "content": "Деякі функції доступні лише за платною підпискою. Підписки пропонуються на таких умовах: Тижнева: $5.99, Місячна: $19.99, Квартальна (3 місяці): $49.99, Піврічна (6 місяців): $79.99, Річна: $99.99. Оплата здійснюється через Google Play або Apple App Store залежно від вашого пристрою. Підписки автоматично поновлюються, якщо не скасовані за 24 години до кінця поточного періоду. Ціни встановлюються в магазині додатків і можуть варіюватися залежно від регіону. Керувати підпискою або скасувати її можна в будь-який час у налаштуваннях облікового запису."
         },
         {
-          "title": "3. Використання контенту",
-          "content": "Увесь контент додатку, включаючи запитання, переклади, ілюстрації та пояснення, надається виключно з освітньою метою. Заборонено копіювати, поширювати чи продавати контент без письмового дозволу."
+          "title": "3. Обмеження використання контенту",
+          "content": "Весь контент у CDL Pro (питання, переклади, ілюстрації, пояснення) призначений лише для навчальних цілей. Заборонено: Копіювати, розповсюджувати або відтворювати контент, Продавати або комерціалізувати матеріали без письмового дозволу. Ліцензія, що надається вам, є непередаваною і дозволяє використовувати CDL Pro на будь-яких продуктах Apple, якими ви володієте або контролюєте, відповідно до Правил використання в Умовах Apple Media Services. Додаток може використовуватися іншими обліковими записами, пов’язаними з вами, через Family Sharing або об’ємні покупки."
         },
         {
-          "title": "4. Відмова від відповідальності",
-          "content": "CDL Pro надається лише для освітніх цілей. Ми не несемо відповідальності за ваш результат іспиту чи неможливість отримати дозвіл CDL. CDL Pro пропонує практичні тести та навчальні матеріали, які допоможуть вам підготуватися, але успішне складання іспиту зрештою залежить від ваших індивідуальних зусиль та розуміння матеріалу. Завжди перевіряйте інформацію в офіційних джерелах та звертайтеся до місцевого DMV, щоб дізнатися про найактуальніші вимоги. Використовуйте CDL Pro як додатковий інструмент поряд із належним навчанням та офіційними навчальними посібниками."
+          "title": "4. Обмеження відповідальності",
+          "content": "CDL Pro — це лише допоміжний інструмент. Ми: Не гарантуємо успішну здачу екзамену чи видачу прав CDL, Пропонуємо практичні тести та навчальні матеріали, але результат залежить від ваших зусиль, Рекомендуємо перевіряти інформацію в офіційних джерелах DMV, Використовуйте CDL Pro як доповнення до офіційних навчальних посібників. CDL Pro та його розробники не несуть відповідальності за прямі, непрямі чи непередбачені збитки, пов’язані з використанням додатка. Ви повністю відповідаєте за надання технічної підтримки та обслуговування CDL Pro. Apple не зобов’язана надавати будь-яку підтримку чи обслуговування для додатка. CDL Pro надається без гарантій понад те, що вимагається законом. Якщо додаток не відповідає застосовним гарантіям, ви можете повідомити Apple, і Apple поверне вартість покупки. У максимальному обсязі, дозволеному законом, Apple не несе інших зобов’язань за гарантією, а будь-які претензії, збитки чи шкода є виключною відповідальністю [Sadid Idibekov]. Ви визнаєте, що [Sadid Idibekov], а не Apple, несе відповідальність за розгляд будь-яких претензій від вас або третіх осіб, пов’язаних із CDL Pro, включаючи відповідальність за продукцію, невідповідність правовим вимогам та претензії за захистом споживачів чи конфіденційністю. Відповідальність не обмежується понад те, що дозволено законом."
         },
         {
           "title": "5. Конфіденційність",
-          "content": "Ваша конфіденційність важлива для нас. Ознайомтесь із нашою Політикою конфіденційності, щоб дізнатись, як ми збираємо та захищаємо ваші дані."
+          "content": "Ваша конфіденційність важлива. Деталі про збір, використання та захист ваших даних наведено в нашій Політиці конфіденційності."
         },
         {
-          "title": "6. Зміни до умов",
-          "content": "Ми залишаємо за собою право змінювати ці умови в будь-який час. Продовжуючи використовувати додаток після змін, ви погоджуєтесь із оновленими умовами."
+          "title": "6. Зміни умов",
+          "content": "Ми залишаємо за собою право оновлювати ці Умови в будь-який час. Продовження використання після змін означає вашу згоду з оновленими Умовами. Ці Умови є юридично обов’язковою угодою між вами та [Sadid Idibekov]. Якщо третя сторона заявить, що CDL Pro або його використання порушує їхні інтелектуальні права, [Sadid Idibekov], а не Apple, буде єдиним відповідальним за розслідування, захист, врегулювання та виконання будь-яких таких претензій. Ви підтверджуєте та гарантуєте, що не перебуваєте в країні, яка підпадає під ембарго уряду США або позначена як країна, що підтримує тероризм, і не включені до списків заборонених або обмежених осіб уряду США. Ви повинні дотримуватися застосовних умов третіх сторін, таких як умови Google Play або Apple App Store, при використанні CDL Pro. Ви визнаєте, що Apple Inc. та її дочірні компанії є третьою стороною за цими Умовами, і після вашого прийняття Apple матиме право примусово виконувати ці Умови проти вас як третьої сторони."
         },
         {
-          "title": "7. Контакт",
-          "content": "З питаннями звертайтесь на email: ulamuyaman@gmail.com"
+          "title": "7. Контактна інформація",
+          "content": "Розробник: Sadid Idibekov, Email: ulamuyaman@gmail.com."
         }
       ]
     },
     "es": {
-      "title": "Términos de Uso",
+      "title": "Términos de uso de CDL Pro EULA",
       "effective_date": "3/07/2025",
       "sections": [
         {
-          "title": "1. General",
-          "content": "La aplicación está diseñada para personas que se preparan para los exámenes de CDL en los Estados Unidos. Se proporciona tal cual, sin garantías. Usted acepta usar la aplicación solo con fines legales y en conformidad con todas las leyes aplicables."
+          "title": "1. Propósito de la aplicación",
+          "content": "CDL Pro está diseñado para personas que se preparan para los exámenes de licencia de conducir comercial (CDL) en EE. UU. La aplicación se proporciona 'tal cual', sin garantías. Usted acepta usarla solo para fines legales y en cumplimiento con todas las leyes y regulaciones aplicables. Estos Términos se concluyen entre usted y [Sadid Idibekov], no con Apple Inc. Apple no es responsable de la aplicación CDL Pro ni de su contenido. Estos Términos no entran en conflicto con los Apple Media Services Terms and Conditions a la fecha de entrada en vigor, con los que ha tenido la oportunidad de familiarizarse."
         },
         {
-          "title": "2. Pagos y suscripciones",
-          "content": "Algunas funciones están disponibles solo mediante suscripción. Las suscripciones pueden ser semanales, mensuales, trimestrales, semestrales o anuales. Los pagos se procesan a través de Google Play o Apple App Store, según el dispositivo. Las suscripciones se renuevan automáticamente a menos que se cancelen al menos 24 horas antes del final del período actual. Puede gestionar o cancelar su suscripción desde los ajustes de su cuenta."
+          "title": "2. Suscripciones y pagos",
+          "content": "Algunas funciones requieren una suscripción paga, disponible como: Semanal: $5.99, Mensual: $19.99, Trimestral (3 meses): $49.99, Semestral (6 meses): $79.99, Anual: $99.99. Los pagos se procesan a través de Google Play o Apple App Store según su dispositivo. Las suscripciones se renuevan automáticamente a menos que se cancelen al menos 24 horas antes del final del período actual. Los precios se establecen en la tienda de aplicaciones y pueden variar por región. Administre o cancele sus suscripciones en cualquier momento a través de la configuración de su cuenta de la tienda de aplicaciones."
         },
         {
-          "title": "3. Uso del contenido",
-          "content": "Todo el contenido dentro de la aplicación, incluidas preguntas, traducciones, ilustraciones y explicaciones, es solo para fines educativos. No puede copiar, reproducir, distribuir ni vender ningún contenido sin autorización por escrito."
+          "title": "3. Restricciones de uso del contenido",
+          "content": "Todo el contenido de CDL Pro (preguntas, traducciones, ilustraciones, explicaciones) es solo para fines educativos. No puede: Copiar, reproducir o distribuir contenido, Vender o comercializar materiales sin permiso previo por escrito. La licencia otorgada es no transferible para usar CDL Pro en cualquier producto de marca Apple que posea o controle, según lo permitido por las Reglas de Uso en los Apple Media Services Terms and Conditions. La aplicación puede ser accedida y utilizada por otras cuentas asociadas con usted a través de Family Sharing o compras por volumen."
         },
         {
-          "title": "4. Renuncia de responsabilidad",
-          "content": "CDL Pro se ofrece únicamente con fines educativos. No nos responsabilizamos del resultado de su examen ni de la imposibilidad de obtener un permiso CDL. CDL Pro ofrece exámenes de práctica y materiales de estudio para ayudarle a prepararse, pero aprobar el examen depende en última instancia de su esfuerzo y comprensión del material. Siempre verifique la información con fuentes oficiales y consulte con su DMV local para conocer los requisitos más actualizados. Utilice CDL Pro como herramienta complementaria junto con la capacitación adecuada y las guías de estudio oficiales."
+          "title": "4. Limitación de responsabilidad",
+          "content": "CDL Pro es solo una herramienta educativa. Nosotros: No garantizamos el éxito en el examen ni la emisión de un permiso CDL, Ofrecemos pruebas prácticas y ayudas de estudio, pero el resultado depende de su esfuerzo, Recomendamos verificar toda la información con fuentes oficiales del DMV, Use CDL Pro como complemento a las guías y entrenamientos oficiales. CDL Pro y sus desarrolladores no serán responsables de daños directos, indirectos o consecuentes derivados del uso de la aplicación. Usted es el único responsable de proporcionar mantenimiento y soporte para CDL Pro. Apple no tiene ninguna obligación de ofrecer servicios de mantenimiento o soporte para la aplicación. CDL Pro se proporciona sin garantías más allá de lo requerido por la ley. Si la aplicación no cumple con alguna garantía aplicable, puede notificar a Apple, y Apple reembolsará el precio de compra. En la medida máxima permitida por la ley, Apple no tiene otras obligaciones de garantía, y cualquier reclamación, pérdida o daño será responsabilidad exclusiva de [Sadid Idibekov]. Usted reconoce que [Sadid Idibekov], no Apple, es responsable de abordar cualquier reclamación de usted o de terceros relacionada con CDL Pro, incluyendo responsabilidad por productos, incumplimiento de requisitos legales y reclamaciones bajo leyes de protección al consumidor o privacidad. La responsabilidad no se limita más allá de lo permitido por la ley aplicable."
         },
         {
           "title": "5. Privacidad",
-          "content": "Respetamos su privacidad. Consulte nuestra Política de Privacidad para obtener más detalles sobre cómo protegemos su información."
+          "content": "Su seguridad de datos es importante. Consulte nuestra Política de Privacidad para detalles sobre la recolección, uso y protección de sus datos."
         },
         {
-          "title": "6. Modificaciones",
-          "content": "Nos reservamos el derecho de modificar estos Términos en cualquier momento. El uso continuo de la aplicación constituye la aceptación de los términos actualizados."
+          "title": "6. Modificaciones de los términos",
+          "content": "Nos reservamos el derecho de actualizar estos Términos en cualquier momento. El uso continuo después de los cambios implica su aceptación de los Términos revisados. Estos Términos constituyen un acuerdo legalmente vinculante entre usted y [Sadid Idibekov]. Si un tercero reclama que CDL Pro o su uso infringe sus derechos de propiedad intelectual, [Sadid Idibekov], no Apple, será el único responsable de la investigación, defensa, resolución y cumplimiento de cualquier reclamación. Usted declara y garantiza que no se encuentra en un país sujeto a un embargo del gobierno de EE. UU. o designado como país que apoya el terrorismo, y no está incluido en ninguna lista de partes prohibidas o restringidas del gobierno de EE. UU. Debe cumplir con los términos aplicables de terceros, como los de Google Play o Apple App Store, al usar CDL Pro. Usted reconoce que Apple Inc. y sus subsidiarias son beneficiarios terceros de estos Términos, y al aceptar, Apple tendrá el derecho de hacer cumplir estos Términos contra usted como beneficiario tercero."
         },
         {
-          "title": "7. Contacto",
-          "content": "Si tiene preguntas, contáctenos en: ulamuyaman@gmail.com"
+          "title": "7. Información de contacto",
+          "content": "Desarrollador: Sadid Idibekov, Email: ulamuyaman@gmail.com."
         }
       ]
     }

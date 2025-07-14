@@ -86,5 +86,6 @@
   "language": "Idioma",
   "selectLanguage": "Seleccionar idioma",
   "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
-  "effectiveDate": "Fecha de vigencia: {effectiveDate}"
+  "effectiveDate": "Fecha de vigencia: {effectiveDate}",
+  "followTheLink": "Sigue el enlace"
 }

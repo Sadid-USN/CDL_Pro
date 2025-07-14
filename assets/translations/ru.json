@@ -86,5 +86,7 @@
   "language": "Язык",
   "selectLanguage": "Выберите язык",
   "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока.",
-   "effectiveDate": "Дата вступления в силу: {effectiveDate}"
+   "effectiveDate": "Дата вступления в силу: {effectiveDate}",
+    "followTheLink": "Перейте по ссылке"
+    
 }

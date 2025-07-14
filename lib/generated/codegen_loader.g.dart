@@ -102,7 +102,8 @@ class CodegenLoader extends AssetLoader{
   "language": "Язык",
   "selectLanguage": "Выберите язык",
   "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока.",
-  "effectiveDate": "Дата вступления в силу: {effectiveDate}"
+  "effectiveDate": "Дата вступления в силу: {effectiveDate}",
+  "followTheLink": "Перейте по ссылке"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -191,7 +192,8 @@ static const Map<String,dynamic> _uk = {
   "language": "Мова",
   "selectLanguage": "Оберіть мову",
   "subscriptionAutoRenew": "Підписка автоматично поновлюється в кінці терміну",
-  "effectiveDate": "Дата набуття чинності: {effectiveDate}"
+  "effectiveDate": "Дата набуття чинності: {effectiveDate}",
+  "followTheLink": "Перейдіть за посиланням"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -281,7 +283,8 @@ static const Map<String,dynamic> _en = {
   "selectLanguage": "Select Language",
   "language": "Language",
   "subscriptionAutoRenew": "Subscription automatically renews at the end of the term",
-  "effectiveDate": "Effective Date: {effectiveDate}"
+  "effectiveDate": "Effective Date: {effectiveDate}",
+  "followTheLink": "Follow the link"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -371,7 +374,8 @@ static const Map<String,dynamic> _es = {
   "language": "Idioma",
   "selectLanguage": "Seleccionar idioma",
   "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
-  "effectiveDate": "Fecha de vigencia: {effectiveDate}"
+  "effectiveDate": "Fecha de vigencia: {effectiveDate}",
+  "followTheLink": "Sigue el enlace"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

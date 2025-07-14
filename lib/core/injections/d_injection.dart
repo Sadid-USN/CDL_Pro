@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/data/impl/impl.dart';
 import 'package:cdl_pro/domain/domain.dart';
@@ -85,7 +84,12 @@ Future<void> initDependencies() async {
   final prefs = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPreferences>(prefs);
 
-  // 2. Firestore
+  // 2. DatabaseHelper
+  final dbHelper = DatabaseHelper.instance;
+  await dbHelper.database; // Инициализируем базу данных
+  getIt.registerSingleton<DatabaseHelper>(dbHelper);
+
+  // 3. Firestore
   getIt.registerLazySingleton<FirebaseFirestore>(
     () => FirebaseFirestore.instance,
   );
@@ -108,6 +112,9 @@ Future<void> initDependencies() async {
     ),
   );
 
+  /* ───────────────  UserHolder─────────────── */
+  getIt.registerLazySingleton<UserHolder>(() => UserHolder());
+
   /* ───────────────  APPLICATION BLoC’и / сервисы  ─────────────── */
   getIt.registerLazySingleton<SettingsBloc>(() => SettingsBloc());
 
@@ -125,8 +132,10 @@ Future<void> initDependencies() async {
   );
   // 4. CDLTestsBloc — регистрируем ПОСЛЕ всех его зависимостей
   getIt.registerLazySingleton<CDLTestsBloc>(
-    () => CDLTestsBloc(getIt<SharedPreferences>(), getIt<FirebaseFirestore>()),
+    () => CDLTestsBloc(
+      getIt<SharedPreferences>(),
+      getIt<FirebaseFirestore>(),
+      getIt<UserHolder>(),
+    ),
   );
-
-  /* ───────────────  (другие сервисы/репозитории, если нужны)  ─────────────── */
 }

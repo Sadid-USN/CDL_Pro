@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:cdl_pro/core/core.dart';
+import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
@@ -67,9 +68,7 @@ class MyApp extends StatelessWidget {
           return BlocListener<ProfileBloc, ProfileState>(
             listenWhen: (prev, curr) => prev.user?.uid != curr.user?.uid,
             listener: (context, state) {
-              context.read<CDLTestsBloc>().add(
-                SetUserUidEvent(state.user?.uid),
-              );
+              GetIt.I<UserHolder>().setUid(state.user?.uid);
             },
             child: ScreenUtilInit(
               minTextAdapt: true,

@@ -85,5 +85,6 @@
     "language": "Мова",
     "selectLanguage": "Оберіть мову",
     "subscriptionAutoRenew": "Підписка автоматично поновлюється в кінці терміну",
-     "effectiveDate": "Дата набуття чинності: {effectiveDate}"
+     "effectiveDate": "Дата набуття чинності: {effectiveDate}",
+     "followTheLink": "Перейдіть за посиланням"
 }

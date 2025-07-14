@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
+import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 
 class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   final InAppPurchase _iap = InAppPurchase.instance;
@@ -42,49 +43,52 @@ Future<void> _onCheckPastPurchases(
 
   try {
     if (Platform.isAndroid) {
-      // Android implementation
       final androidAddition = _iap.getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
       final purchasesResponse = await androidAddition.queryPastPurchases();
-      
+
       for (final purchase in purchasesResponse.pastPurchases) {
         if (productIds.contains(purchase.productID) &&
             (purchase.status == PurchaseStatus.purchased ||
-                purchase.status == PurchaseStatus.restored)) {
+             purchase.status == PurchaseStatus.restored)) {
           emit(PurchaseSuccess());
           return;
         }
       }
     } else if (Platform.isIOS) {
-      // iOS implementation - используем подписку на purchaseStream
-      // Вместо restorePurchases, который возвращает void
       final completer = Completer<bool>();
-      final subscription = _iap.purchaseStream.listen((purchases) {
+      late final StreamSubscription sub;
+
+      sub = _iap.purchaseStream.listen((purchases) {
+        bool found = false;
+
         for (final purchase in purchases) {
           if (productIds.contains(purchase.productID) &&
               (purchase.status == PurchaseStatus.purchased ||
                   purchase.status == PurchaseStatus.restored)) {
-            completer.complete(true);
-            return;
+            found = true;
+            break;
           }
         }
-        completer.complete(false);
+
+        if (!completer.isCompleted) {
+          completer.complete(found);
+          sub.cancel();
+        }
       });
 
-      // Запускаем восстановление покупок
       await _iap.restorePurchases();
-      
-      // Ждем результат с таймаутом
+
       final hasPurchases = await completer.future.timeout(
         const Duration(seconds: 5),
         onTimeout: () => false,
       );
 
-      await subscription.cancel();
-
       if (hasPurchases) {
         emit(PurchaseSuccess());
         return;
       }
+
+      await sub.cancel();
     }
   } catch (e) {
     debugPrint('Error checking past purchases: $e');
@@ -92,7 +96,9 @@ Future<void> _onCheckPastPurchases(
 
   emit(PurchaseInitial());
 }
-  Future<void> _onInit(
+
+
+Future<void> _onInit(
   InitializePurchase event,
   Emitter<PurchaseState> emit,
 ) async {
@@ -102,7 +108,7 @@ Future<void> _onCheckPastPurchases(
     return;
   }
 
-  // Инициализируем подписку на поток покупок
+  // Основная подписка на purchaseStream
   _subscription = _iap.purchaseStream.listen(
     (purchases) {
       add(HandlePurchaseUpdate(purchases));
@@ -112,41 +118,48 @@ Future<void> _onCheckPastPurchases(
     },
   );
 
-  // Для iOS сразу проверяем прошлые покупки при инициализации
   if (Platform.isIOS) {
     try {
+      // final storeKitAddition =
+      //     _iap.getPlatformAddition<InAppPurchaseStoreKitPlatformAddition>();
+
       emit(PremiumLoading());
-      
-      // Создаем Completer для ожидания результата восстановления
+
       final completer = Completer<bool>();
-      final tempSubscription = _iap.purchaseStream.listen((purchases) {
+      late final StreamSubscription tempSub;
+
+      tempSub = _iap.purchaseStream.listen((purchases) {
+        bool found = false;
+
         for (final purchase in purchases) {
           if (productIds.contains(purchase.productID) &&
               (purchase.status == PurchaseStatus.purchased ||
                   purchase.status == PurchaseStatus.restored)) {
-            completer.complete(true);
-            return;
+            found = true;
+            break;
           }
         }
-        completer.complete(false);
+
+        if (!completer.isCompleted) {
+          completer.complete(found);
+          tempSub.cancel();
+        }
       });
 
-      // Инициируем восстановление покупок
       await _iap.restorePurchases();
-      
-      // Ждем результат с таймаутом
+
       final hasPurchases = await completer.future.timeout(
         const Duration(seconds: 5),
         onTimeout: () => false,
       );
-
-      await tempSubscription.cancel();
 
       if (hasPurchases) {
         emit(PurchaseSuccess());
       } else {
         emit(PurchaseInitial());
       }
+
+      await tempSub.cancel();
     } catch (e) {
       debugPrint('Error during iOS purchase initialization: $e');
       emit(PurchaseInitial());
@@ -174,6 +187,9 @@ Future<void> _onCheckPastPurchases(
       emit(PremiumLoading());
 
       final response = await _iap.queryProductDetails({event.productId});
+
+      debugPrint('Queried products: ${response.productDetails}');
+      debugPrint('Not found IDs: ${response.notFoundIDs}');
       if (response.notFoundIDs.isNotEmpty) {
         emit(PurchaseFailure('Product not found'));
         return;

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
@@ -12,13 +13,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   // ───────────────────────────────── DEPENDENCIES ────────────────────────────
   final SharedPreferences _prefs;
-  // final AbstractUserRepo _userRepo;
   final FirebaseFirestore _firestore;
+  final UserHolder _userHolder; // CHANGED
 
   // ───────────────────────────────── INTERNAL STATE ──────────────────────────
 
-  String? _uid; // <—— Получаем из SetUserUidEvent
-  String? get uid => _uid;
+  // CHANGED: убираем uid
+  // String? _uid;
+  String? get uid => _userHolder.uid;
+
   List<Question> _quizQuestions = [];
   Map<String, String> _userAnswers = {};
   int _currentQuestionIndex = 0;
@@ -38,7 +41,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   Stream<Duration> get timerStream => _timerController.stream;
 
   // ───────────────────────────────── CONSTRUCTOR ─────────────────────────────
-  CDLTestsBloc(this._prefs, this._firestore) : super(CDLTestsInitial()) {
+  CDLTestsBloc(this._prefs, this._firestore, this._userHolder)
+      : super(CDLTestsInitial()) {
     // Quiz navigation
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
@@ -55,10 +59,12 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     on<StopTimerEvent>(_onStopTimer);
 
     // Auth
-    on<SetUserUidEvent>(_onSetUid);
+    // CHANGED: удаляем SetUserUidEvent
+    // on<SetUserUidEvent>(_onSetUid);
   }
 
-  // ──────────────────────────────── AUTH HANDLER ─────────────────────────────
+  // CHANGED: удаляем обработчик события SetUserUidEvent
+  /*
   void _onSetUid(SetUserUidEvent event, Emitter<AbstractCDLTestsState> emit) {
     _uid = event.uid;
     // При смене пользователя сбрасываем состояние
@@ -69,6 +75,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     _currentQuizId = null;
     _emitLoaded(emit);
   }
+  */
 
   // ──────────────────────────────── TIMER CONTROL ────────────────────────────
   void _onStartTimer(
@@ -139,98 +146,88 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   }
 
   // ──────────────────────────────── QUIZ LOADING ─────────────────────────────
- void _onLoadQuiz(
-  LoadQuizEvent event,
-  Emitter<AbstractCDLTestsState> emit,
-) async {
-  if (event.questions.isEmpty) return;
+  void _onLoadQuiz(
+    LoadQuizEvent event,
+    Emitter<AbstractCDLTestsState> emit,
+  ) async {
+    if (event.questions.isEmpty) return;
 
-  // 1. Установить подкатегорию и сгенерировать quizId ДО загрузки
-  _currentSubcategory = event.subcategory;
-  final quizId = _generateQuizId(event.questions, event.subcategory);
-  _currentQuizId = quizId;
+    _currentSubcategory = event.subcategory;
+    final quizId = _generateQuizId(event.questions, event.subcategory);
+    _currentQuizId = quizId;
 
-   // 2. Эмитим загрузочное состояние, чтобы скрыть старый UI
-  emit(QuizProgressLoading());
-  _currentQuestionIndex = 0;
-  _userAnswers = {};
-  _quizCompleted = false;
-  _selectedLanguage = 'en'; // если не загрузится, будет по умолчанию
-
-  // 3. Сброс таймера
-  _resetTimer();
-
-  // 4. Загрузка прогресса (если доступен)
-  if (!_ignoreProgressLoadOnce) {
-    await _loadProgress(quizId, event.subcategory);
-  } else {
-    _ignoreProgressLoadOnce = false;
-  }
-
-  // 5. Установка вопросов
-  _quizQuestions = event.questions;
-
-  // 6. Защита от выхода за пределы
-  if (_currentQuestionIndex >= _quizQuestions.length) {
+    emit(QuizProgressLoading());
     _currentQuestionIndex = 0;
+    _userAnswers = {};
+    _quizCompleted = false;
+    _selectedLanguage = 'en';
+
+    _resetTimer();
+
+    if (!_ignoreProgressLoadOnce) {
+      await _loadProgress(quizId, event.subcategory);
+    } else {
+      _ignoreProgressLoadOnce = false;
+    }
+
+    _quizQuestions = event.questions;
+
+    if (_currentQuestionIndex >= _quizQuestions.length) {
+      _currentQuestionIndex = 0;
+    }
+
+    _emitLoaded(emit);
   }
 
-  // 7. Эмитим состояние
-  _emitLoaded(emit);
-}
+  void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
+    _currentQuestionIndex = 0;
+    _userAnswers = {};
+    _quizCompleted = true;
+    _elapsedTime = Duration.zero;
+    _timerController.add(_elapsedTime);
 
-void _onResetQuiz(ResetQuizEvent event, Emitter<AbstractCDLTestsState> emit) {
-  _currentQuestionIndex = 0;
-  _userAnswers = {};
-  _quizCompleted = true;
-  _elapsedTime = Duration.zero;
-  _timerController.add(_elapsedTime);
+    final subcategory = _currentSubcategory;
+    final quizId = _currentQuizId;
 
-  final subcategory = _currentSubcategory;
-  final quizId = _currentQuizId;
+    _currentSubcategory = null;
+    _currentQuizId = null;
 
-  _currentSubcategory = null;
-  _currentQuizId = null;
+    _resetTimer();
+    _ignoreProgressLoadOnce = true;
 
-  _resetTimer();
-  _ignoreProgressLoadOnce = true;
+    _clearLocalProgress(subcategory, quizId);
+    _clearRemoteProgress(subcategory, quizId);
 
-  // удаляем локальный прогресс
-  _clearLocalProgress(subcategory, quizId);
-
-  // удаляем прогресс из Firestore
-  _clearRemoteProgress(subcategory, quizId);
-
-  _emitLoaded(emit);
-}
-
-
-Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
-  if (_uid == null || quizId == null || subcategory == null) return;
-
-  final settingsBloc = GetIt.I<SettingsBloc>();
-  final langCode = settingsBloc.currentLangCode;
-  final collectionName = _getCollectionNameByLanguage(langCode);
-
-  try {
-    await _firestore
-        .collection(collectionName)
-        .doc(_uid)
-        .collection(collectionName)
-        .doc(quizId)
-        .delete();
-    debugPrint('✅ Remote progress deleted for quizId=$quizId');
-  } catch (e) {
-    debugPrint('❌ Ошибка при удалении remote-прогресса: $e');
+    _emitLoaded(emit);
   }
-}
 
-  // ──────────────────────────────── SAVE/LOAD LOCAL ──────────────────────────
+  Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null || quizId == null || subcategory == null) return;
+
+    final settingsBloc = GetIt.I<SettingsBloc>();
+    final langCode = settingsBloc.currentLangCode;
+    final collectionName = _getCollectionNameByLanguage(langCode);
+
+    try {
+      await _firestore
+          .collection(collectionName)
+          .doc(uid)
+          .collection(collectionName)
+          .doc(quizId)
+          .delete();
+      debugPrint('✅ Remote progress deleted for quizId=$quizId');
+    } catch (e) {
+      debugPrint('❌ Ошибка при удалении remote-прогресса: $e');
+    }
+  }
+
   Future<void> _saveProgressToPrefs() async {
-      if (_uid == null || _currentQuizId == null || _currentSubcategory == null) {
-    return;
-  }
-    final baseKey = '${_uid!}_${_currentSubcategory!}_${_currentQuizId!}';
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null || _currentQuizId == null || _currentSubcategory == null) {
+      return;
+    }
+    final baseKey = '${uid}_${_currentSubcategory!}_${_currentQuizId!}';
 
     await _prefs.setInt('${baseKey}_currentPage', _currentQuestionIndex);
     await _prefs.setString('${baseKey}_userAnswers', jsonEncode(_userAnswers));
@@ -239,20 +236,20 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
   }
 
   Future<bool> _loadProgressFromPrefs(String quizId, String subcategory) async {
-    if (_uid == null) return false;
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null) return false;
     debugPrint(
       '📦 Loading progress for: subcategory=$subcategory, quizId=$quizId',
     );
 
-    final baseKey = '${_uid!}_${subcategory}_$quizId';
+    final baseKey = '${uid}_${subcategory}_$quizId';
     if (!_prefs.containsKey('${baseKey}_currentPage')) return false;
 
     _currentQuestionIndex = _prefs.getInt('${baseKey}_currentPage') ?? 0;
     final answersString = _prefs.getString('${baseKey}_userAnswers');
-    _userAnswers =
-        answersString != null
-            ? Map<String, String>.from(jsonDecode(answersString))
-            : {};
+    _userAnswers = answersString != null
+        ? Map<String, String>.from(jsonDecode(answersString))
+        : {};
     _selectedLanguage = _prefs.getString('${baseKey}_language') ?? 'en';
     _elapsedTime = Duration(
       seconds: _prefs.getInt('${baseKey}_elapsedTime') ?? 0,
@@ -262,17 +259,16 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
   }
 
   void _clearLocalProgress(String? subcategory, String? quizId) {
-  if (_uid == null || quizId == null || subcategory == null) return;
-  final baseKey = '${_uid!}_${subcategory}_$quizId';
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null || quizId == null || subcategory == null) return;
+    final baseKey = '${uid}_${subcategory}_$quizId';
 
-  _prefs.remove('${baseKey}_currentPage');
-  _prefs.remove('${baseKey}_userAnswers');
-  _prefs.remove('${baseKey}_language');
-  _prefs.remove('${baseKey}_elapsedTime');
-}
+    _prefs.remove('${baseKey}_currentPage');
+    _prefs.remove('${baseKey}_userAnswers');
+    _prefs.remove('${baseKey}_language');
+    _prefs.remove('${baseKey}_elapsedTime');
+  }
 
-
-  // ───────────────────────────────── SAVE REMOTE ─────────────────────────────
   void _onSaveQuizProgress(
     SaveQuizProgressEvent event,
     Emitter<AbstractCDLTestsState> emit,
@@ -283,7 +279,8 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
 
     await _saveProgressToPrefs();
 
-    if (_uid == null || _currentQuizId == null) return;
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null || _currentQuizId == null) return;
 
     final settingsBloc = GetIt.I<SettingsBloc>();
     final langCode = settingsBloc.currentLangCode;
@@ -301,7 +298,7 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
     try {
       await _firestore
           .collection(collectionName)
-          .doc(_uid)
+          .doc(uid)
           .collection(collectionName)
           .doc(_currentQuizId)
           .set(data, SetOptions(merge: true));
@@ -310,7 +307,6 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
     }
   }
 
-  // ───────────────────────────────── LOAD REMOTE ─────────────────────────────
   void _onLoadQuizProgress(
     LoadQuizProgressEvent event,
     Emitter<AbstractCDLTestsState> emit,
@@ -320,24 +316,22 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
   }
 
   Future<void> _loadProgress(String quizId, String subcategory) async {
-    // сначала SharedPreferences
     if (await _loadProgressFromPrefs(quizId, subcategory)) return;
 
-    // потом Firestore
-    if (_uid == null) return;
+    final uid = _userHolder.uid; // CHANGED
+    if (uid == null) return;
 
     final settingsBloc = GetIt.I<SettingsBloc>();
     final langCode = settingsBloc.currentLangCode;
     final collectionName = _getCollectionNameByLanguage(langCode);
 
     try {
-      final snapshot =
-          await _firestore
-              .collection(collectionName)
-              .doc(_uid)
-              .collection(collectionName)
-              .doc(quizId)
-              .get();
+      final snapshot = await _firestore
+          .collection(collectionName)
+          .doc(uid)
+          .collection(collectionName)
+          .doc(quizId)
+          .get();
 
       if (!snapshot.exists) return;
 
@@ -352,7 +346,6 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
     }
   }
 
-  // ───────────────────────────────── HELPERS ────────────────────────────────
   String _generateQuizId(List<Question> questions, String subcategory) {
     final firstQuestionId =
         questions.isNotEmpty ? questions.first.question.hashCode : 0;
@@ -396,7 +389,6 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
     }
   }
 
-  // ───────────────────────────────── CLEANUP ────────────────────────────────
   @override
   Future<void> close() {
     _timer?.cancel();
@@ -404,3 +396,5 @@ Future<void> _clearRemoteProgress(String? subcategory, String? quizId) async {
     return super.close();
   }
 }
+
+

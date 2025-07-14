@@ -5,8 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-
-
 class AuthService {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
@@ -16,9 +14,9 @@ class AuthService {
     FirebaseAuth? auth,
     FirebaseFirestore? firestore,
     SecureStorageService? storage,
-  })  : _auth = auth ?? FirebaseAuth.instance,
-        _firestore = firestore ?? FirebaseFirestore.instance,
-        _storage = storage ?? SecureStorageService();
+  }) : _auth = auth ?? FirebaseAuth.instance,
+       _firestore = firestore ?? FirebaseFirestore.instance,
+       _storage = storage ?? SecureStorageService();
 
   Future<User?> initializeUser() async {
     User? current = _auth.currentUser;
@@ -37,23 +35,23 @@ class AuthService {
   }
 
   Future<User?> signInWithGoogle() async {
-    final googleSignIn = Platform.isIOS
-        ? GoogleSignIn(
-            scopes: ['email'],
-            clientId: 'YOUR_IOS_CLIENT_ID.apps.googleusercontent.com',
-          )
-        : GoogleSignIn();
+    final googleSignIn = GoogleSignIn.instance;
+    await googleSignIn.initialize();
 
-    final googleUser = await googleSignIn.signIn();
-    if (googleUser == null) return null;
+    late GoogleSignInAccount googleUser;
+    try {
+      googleUser = await googleSignIn.authenticate();
+    } on Exception catch (e) {
+      print('Google sign-in failed: $e');
+      return null;
+    }
 
-    final googleAuth = await googleUser.authentication;
-    final cred = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
+    final idToken = googleUser.authentication.idToken;
+    if (idToken == null) return null;
 
+    final cred = GoogleAuthProvider.credential(idToken: idToken);
     final userCred = await _auth.signInWithCredential(cred);
+
     await _handleNewUser(userCred);
 
     final token = await userCred.user?.getIdToken();
@@ -101,9 +99,9 @@ class AuthService {
       scopes: [AppleIDAuthorizationScopes.email],
     );
 
-    final oauthCredential = OAuthProvider('apple.com').credential(
-      idToken: appleCredential.identityToken,
-    );
+    final oauthCredential = OAuthProvider(
+      'apple.com',
+    ).credential(idToken: appleCredential.identityToken);
 
     final userCred = await _auth.signInWithCredential(oauthCredential);
     await _handleNewUser(userCred);

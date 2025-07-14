@@ -1,46 +1,111 @@
 import 'package:equatable/equatable.dart';
 
+class TestsDataModel extends Equatable {
+  final Chapters chapters;
+
+  // Кэш для распарсенных вопросов
+  final Map<String, List<Question>> _questionsCache = {};
+
+  TestsDataModel({required this.chapters});
+
+  factory TestsDataModel.fromJson(Map<String, dynamic> json) {
+    return TestsDataModel(chapters: Chapters.fromJson(json['chapters']));
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'chapters': chapters.toJson()};
+  }
+
+  TestsDataModel copyWith({Chapters? chapters}) {
+    return TestsDataModel(chapters: chapters ?? this.chapters);
+  }
+
+  /// Получает все вопросы по ключу категории с кэшированием
+  List<Question> getQuestionsForCategory(String categoryKey) {
+    // Если вопросы уже есть в кэше — сразу возвращаем
+    if (_questionsCache.containsKey(categoryKey)) {
+      return _questionsCache[categoryKey]!;
+    }
+
+    // Получаем нужную категорию
+    final category = _getCategoryByKey(categoryKey);
+    if (category == null) return [];
+
+    // Кэшируем список вопросов из категории
+    _questionsCache[categoryKey] = category.parsedQuestions;
+
+    return category.parsedQuestions;
+  }
+
+  /// Получает TestChapter по ключу
+  TestChapter? _getCategoryByKey(String key) {
+    switch (key) {
+      case 'general_knowledge':
+        return chapters.generalKnowledge;
+      case 'combination':
+        return chapters.combination;
+      case 'airBrakes':
+        return chapters.airBrakes;
+      case 'tanker':
+        return chapters.tanker;
+      case 'doubleAndTriple':
+        return chapters.doubleAndTriple;
+      case 'hazMat':
+        return chapters.hazMat;
+      default:
+        return null;
+    }
+  }
+
+  /// Очищает кэш вопросов
+  void clearQuestionsCache() {
+    _questionsCache.clear();
+  }
+
+  @override
+  List<Object?> get props => [chapters];
+}
+
 class TestChapter extends Equatable {
   final int freeLimit;
   final int total;
   final Map<String, Question> questions;
+  final List<Question> parsedQuestions;
 
   const TestChapter({
     required this.freeLimit,
     required this.total,
     required this.questions,
+    required this.parsedQuestions,
   });
 
   factory TestChapter.fromJson(Map<String, dynamic> json) {
     final questions = <String, Question>{};
-
     final questionsJson = json['questions'] as Map<String, dynamic>? ?? {};
 
     questionsJson.forEach((key, questionData) {
       if (questionData is Map<String, dynamic>) {
-        if (questionData.containsKey('uk') ||
-            questionData.containsKey('en') ||
-            questionData.containsKey('ru') ||
-            questionData.containsKey('es')) {
-          // Это локализованный вопрос - извлекаем нужную локализацию
-          questions[key] = Question.fromJson(questionData);
+        // Handle both localized and non-localized questions
+        if (questionData.containsKey('en')) {
+          questions[key] = Question.fromJson(questionData['en'], key: key);
         } else {
-          // Это обычный вопрос
-          questions[key] = Question.fromJson(questionData);
+          questions[key] = Question.fromJson(questionData, key: key);
         }
       }
     });
+
+    /// ✅ Собираем список вопросов для быстрого доступа
+    final parsedQuestions = questions.values.toList();
 
     return TestChapter(
       freeLimit: json['free_limit'] as int? ?? 0,
       total: json['total'] as int? ?? 0,
       questions: questions,
+      parsedQuestions: parsedQuestions,
     );
   }
 
   Map<String, dynamic> toJson() {
-    // При преобразовании в JSON сохраняем структуру без локализации
-    // (если нужно сохранить локализацию, потребуется дополнительная логика)
     return {
       'free_limit': freeLimit,
       'total': total,
@@ -54,19 +119,20 @@ class TestChapter extends Equatable {
     int? freeLimit,
     int? total,
     Map<String, Question>? questions,
+    List<Question>? parsedQuestions,
   }) {
     return TestChapter(
       freeLimit: freeLimit ?? this.freeLimit,
       total: total ?? this.total,
       questions: questions ?? this.questions,
+      parsedQuestions: parsedQuestions ?? this.parsedQuestions,
     );
   }
 
   @override
-  List<Object?> get props => [freeLimit, total, questions];
+  List<Object?> get props => [freeLimit, total, questions, parsedQuestions];
 }
 
-// Обновленная модель Chapters с использованием унифицированной TestChapter
 class Chapters extends Equatable {
   final TestChapter generalKnowledge;
   final TestChapter combination;
@@ -141,6 +207,8 @@ class Question extends Equatable {
   final String correctOption;
   final String description;
   final List<String>? images;
+  final String? customId;
+  final String id; // Now we'll always have an ID
 
   const Question({
     required this.question,
@@ -148,36 +216,37 @@ class Question extends Equatable {
     required this.correctOption,
     required this.description,
     this.images,
+    this.customId,
+    required this.id, // Made required as it's now explicitly set
   });
-  String get id => '$question-$correctOption';
-  factory Question.fromJson(Map<String, dynamic> json) {
-    // Обработка локализованного вопроса
-    if (json.containsKey('uk') ||
-        json.containsKey('en') ||
-        json.containsKey('ru') ||
-        json.containsKey('es')) {
-      final localized = json['uk'] ?? json['en'] ?? json['ru'] ?? json['es'];
-      return Question(
-        question: localized['question'] as String? ?? '',
-        options: Map<String, String>.from(localized['options'] as Map? ?? {}),
-        correctOption: localized['correct_option'] as String? ?? '',
-        description: localized['description'] as String? ?? '',
-        images: (localized['images'] as List?)?.cast<String>(),
-      );
-    }
 
-    // Обычная структура
-    return Question(
-      question: json['question'] as String? ?? '',
-      options: Map<String, String>.from(json['options'] as Map? ?? {}),
-      correctOption: json['correct_option'] as String? ?? '',
-      description: json['description'] as String? ?? '',
-      images: (json['images'] as List?)?.cast<String>(),
-    );
-  }
+ factory Question.fromJson(Map<String, dynamic> json, {required String key}) {
+  // Если вопрос локализован (содержит 'en', 'ru', 'uk', 'es' и т.д.)
+  final supportedLocales = ['en', 'ru', 'uk', 'es'];
+  final localeKey = json.keys.firstWhere(
+    (k) => supportedLocales.contains(k),
+    orElse: () => 'en', // fallback на английский, если нет локали
+  );
 
+  // Если нашли локализацию — парсим её, иначе считаем, что вопрос нелокализован
+  final questionData = (localeKey != 'en') ? json[localeKey] : json;
+
+  // Получаем ID (если есть в данных, иначе используем ключ)
+  final id = questionData['id']?.toString() ?? key;
+
+  return Question(
+    id: id,
+    customId: id,
+    question: questionData['question'] as String? ?? '',
+    options: Map<String, String>.from(questionData['options'] as Map? ?? {}),
+    correctOption: questionData['correct_option'] as String? ?? '',
+    description: questionData['description'] as String? ?? '',
+    images: (questionData['images'] as List?)?.cast<String>(),
+  );
+}
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'question': question,
       'options': options,
       'correct_option': correctOption,
@@ -188,31 +257,11 @@ class Question extends Equatable {
 
   @override
   List<Object?> get props => [
+    id, // Now id is part of equality check
     question,
     options,
     correctOption,
     description,
     images,
   ];
-}
-
-class TestsDataModel extends Equatable {
-  final Chapters chapters;
-
-  const TestsDataModel({required this.chapters});
-
-  factory TestsDataModel.fromJson(Map<String, dynamic> json) {
-    return TestsDataModel(chapters: Chapters.fromJson(json['chapters']));
-  }
-
-  Map<String, dynamic> toJson() {
-    return {'chapters': chapters.toJson()};
-  }
-
-  TestsDataModel copyWith({Chapters? chapters}) {
-    return TestsDataModel(chapters: chapters ?? this.chapters);
-  }
-
-  @override
-  List<Object?> get props => [chapters];
 }
