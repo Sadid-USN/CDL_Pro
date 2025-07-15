@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
+import 'package:cdl_pro/presentation/blocs/onboarding/onboarding.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
@@ -62,22 +63,22 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ProfileBloc>(create: (context) => GetIt.I<ProfileBloc>()),
         BlocProvider<PurchaseBloc>(create: (_) => GetIt.I<PurchaseBloc>()),
+        BlocProvider<OnboardingCubit>(
+          create: (_) => GetIt.I<OnboardingCubit>()..checkOnboarding(),
+        ),
       ],
-      child: BlocBuilder<SettingsBloc, SettingsState>(
-        builder: (context, state) {
-          return BlocListener<ProfileBloc, ProfileState>(
-            listenWhen: (prev, curr) => prev.user?.uid != curr.user?.uid,
-            listener: (context, state) {
-              GetIt.I<UserHolder>().setUid(state.user?.uid);
-            },
-            child: ScreenUtilInit(
-              minTextAdapt: true,
-              builder: (context, child) {
+      child: ScreenUtilInit(
+        minTextAdapt: true,
+        builder:
+            (context, child) => BlocBuilder<SettingsBloc, SettingsState>(
+              builder: (context, settingsState) {
                 return MaterialApp.router(
                   theme: lightThemeData(),
                   darkTheme: darkThemeData(),
                   themeMode:
-                      state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                      settingsState.isDarkMode
+                          ? ThemeMode.dark
+                          : ThemeMode.light,
                   localizationsDelegates: context.localizationDelegates,
                   supportedLocales: context.supportedLocales,
                   locale: context.locale,
@@ -90,8 +91,6 @@ class MyApp extends StatelessWidget {
                 );
               },
             ),
-          );
-        },
       ),
     );
   }

@@ -75,6 +75,22 @@ class ImagesRouteArgs {
 }
 
 /// generated route for
+/// [InitialPage]
+class InitialRoute extends PageRouteInfo<void> {
+  const InitialRoute({List<PageRouteInfo>? children})
+    : super(InitialRoute.name, initialChildren: children);
+
+  static const String name = 'InitialRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const InitialPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MainCategoryPage]
 class MainCategoryRoute extends PageRouteInfo<void> {
   const MainCategoryRoute({List<PageRouteInfo>? children})
@@ -102,6 +118,22 @@ class MainRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const MainPage();
+    },
+  );
+}
+
+/// generated route for
+/// [OnBoardingPage]
+class OnBoardingRoute extends PageRouteInfo<void> {
+  const OnBoardingRoute({List<PageRouteInfo>? children})
+    : super(OnBoardingRoute.name, initialChildren: children);
+
+  static const String name = 'OnBoardingRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OnBoardingPage();
     },
   );
 }

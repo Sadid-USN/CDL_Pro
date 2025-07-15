@@ -92,5 +92,13 @@ abstract class  LocaleKeys {
   static const subscriptionAutoRenew = 'subscriptionAutoRenew';
   static const effectiveDate = 'effectiveDate';
   static const followTheLink = 'followTheLink';
+  static const welcomeTitle = 'welcomeTitle';
+  static const welcomeBody = 'welcomeBody';
+  static const registerTitle = 'registerTitle';
+  static const registerBody = 'registerBody';
+  static const startTitle = 'startTitle';
+  static const startBody = 'startBody';
+  static const skipButton = 'skipButton';
+  static const doneButton = 'doneButton';
 
 }

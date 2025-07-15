@@ -44,7 +44,7 @@ class CodegenLoader extends AssetLoader{
   "resetQuiz": "Сбросить викторину",
   "cancel": "Отмена",
   "reset": "Сбросить",
-  "exit": "Выйти из викторины",
+  "exit": "Выйти",
   "startTheQuizOverText": "Вы уверены, что хотите сбросить прогресс и начать викторину сначала?",
   "allQuestions": "Все вопросы",
   "congratulations": "Поздравляем! Вы успешно прошли тест.",
@@ -103,7 +103,15 @@ class CodegenLoader extends AssetLoader{
   "selectLanguage": "Выберите язык",
   "subscriptionAutoRenew": "Подписка автоматически продлевается по окончании срока.",
   "effectiveDate": "Дата вступления в силу: {effectiveDate}",
-  "followTheLink": "Перейте по ссылке"
+  "followTheLink": "Перейте по ссылке",
+  "welcomeTitle": "Добро пожаловать в CDL Pro",
+  "welcomeBody": "CDL Pro — ваш надежный помощник для подготовки к тестам DMV США. Поддерживает несколько языков, чтобы вы могли учиться комфортно!",
+  "registerTitle": "Регистрируйтесь!",
+  "registerBody": "Войдите в свой аккаунт, чтобы сохранять прогресс и отслеживать свои достижения на пути к получению CDL!",
+  "startTitle": "Начнем!",
+  "startBody": "Тренируйтесь с нашими тестами, изучайте правила дорожного движения и готовьтесь к экзамену DMV для получения пермита с уверенностью!",
+  "skipButton": "Пропустить",
+  "doneButton": "Готово"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -134,7 +142,7 @@ static const Map<String,dynamic> _uk = {
   "resetQuiz": "Скинути вікторину",
   "cancel": "Скасувати",
   "reset": "Скидання",
-  "exit": "Вихід з вікторини",
+  "exit": "Вихід",
   "startTheQuizOverText": "Ви впевнені, що хочете скинути прогрес і почати вікторину спочатку?",
   "allQuestions": "Всі питання",
   "congratulations": "Вітаємо! Ви успішно пройшли тест.",
@@ -193,7 +201,15 @@ static const Map<String,dynamic> _uk = {
   "selectLanguage": "Оберіть мову",
   "subscriptionAutoRenew": "Підписка автоматично поновлюється в кінці терміну",
   "effectiveDate": "Дата набуття чинності: {effectiveDate}",
-  "followTheLink": "Перейдіть за посиланням"
+  "followTheLink": "Перейдіть за посиланням",
+  "welcomeTitle": "Ласкаво просимо до CDL Pro",
+  "welcomeBody": "CDL Pro — ваш надійний помічник для підготовки до тестів DMV США. Підтримує кілька мов, щоб ви могли навчатися комфортно!",
+  "registerTitle": "Реєструйтеся!",
+  "registerBody": "Увійдіть у свій обліковий запис, щоб зберігати прогрес і відстежувати ваші досягнення на шляху до отримання CDL!",
+  "startTitle": "Почнемо!",
+  "startBody": "Тренуйтеся з нашими тестами, вивчайте правила дорожнього руху та готуйтеся до іспиту DMV для отримання перміта з впевненістю!",
+  "skipButton": "Пропустити",
+  "doneButton": "Готово"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -225,7 +241,7 @@ static const Map<String,dynamic> _en = {
   "resetQuiz": "Reset Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
-  "exit": "Exit the Quiz",
+  "exit": "Exit",
   "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?",
   "allQuestions": "All questions",
   "congratulations": "Congratulations! You have successfully passed the test.",
@@ -284,7 +300,15 @@ static const Map<String,dynamic> _en = {
   "language": "Language",
   "subscriptionAutoRenew": "Subscription automatically renews at the end of the term",
   "effectiveDate": "Effective Date: {effectiveDate}",
-  "followTheLink": "Follow the link"
+  "followTheLink": "Follow the link",
+  "welcomeTitle": "Welcome to CDL Pro!",
+  "welcomeBody": "CDL Pro is your reliable assistant for preparing for U.S. DMV tests. Supports multiple languages so you can study comfortably!",
+  "registerTitle": "Sign Up!",
+  "registerBody": "Log in to your account to save your progress and track your achievements on the path to getting your CDL!",
+  "startTitle": "Let's Get Started!",
+  "startBody": "Practice with our tests, study traffic rules, and prepare for the DMV exam with confidence to get your permit!",
+  "skipButton": "Skip",
+  "doneButton": "Done"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -316,7 +340,7 @@ static const Map<String,dynamic> _es = {
   "resetQuiz": "Reiniciar prueba",
   "cancel": "Cancelar",
   "reset": "Reiniciar",
-  "exit": "Salir del cuestionario",
+  "exit": "Salida",
   "startTheQuizOverText": "¿Estás seguro de que quieres reiniciar tu progreso y comenzar la prueba de nuevo?",
   "allQuestions": "Todas las preguntas",
   "congratulations": "¡Felicitaciones! Has aprobado el examen con éxito.",
@@ -375,7 +399,15 @@ static const Map<String,dynamic> _es = {
   "selectLanguage": "Seleccionar idioma",
   "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
   "effectiveDate": "Fecha de vigencia: {effectiveDate}",
-  "followTheLink": "Sigue el enlace"
+  "followTheLink": "Sigue el enlace",
+  "welcomeTitle": "¡Bienvenido a CDL Pro!",
+  "welcomeBody": "CDL Pro es tu asistente confiable para prepararte para los exámenes del DMV de EE. UU. ¡Soporta varios idiomas para que puedas estudiar cómodamente!",
+  "registerTitle": "¡Regístrate!",
+  "registerBody": "Inicia sesión en tu cuenta para guardar tu progreso y seguir tus logros en el camino hacia obtener tu CDL.",
+  "startTitle": "¡Empecemos!",
+  "startBody": "Practica con nuestros exámenes, estudia las reglas de tráfico y prepárate para el examen del DMV con confianza para obtener tu permiso.",
+  "skipButton": "Omitir",
+  "doneButton": "Listo"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
