@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/utils/enums.dart';
 import 'package:cdl_pro/domain/models/models.dart';
+import 'package:cdl_pro/presentation/pages/home/initial_page.dart';
+import 'package:cdl_pro/presentation/pages/home/onbording_page.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/quiz.dart';
 import 'package:cdl_pro/presentation/pages/pages.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,11 +15,19 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(
-      page: MainRoute.page,
-      path: "/",
+      path: '/',
+      page: InitialRoute.page,
       initial: true,
       children: [
-        AutoRoute(page: HomeRoute.page),
+        AutoRoute(path: 'onboarding', page: OnBoardingRoute.page),
+        AutoRoute(path: 'main', page: MainRoute.page),
+      ],
+    ),
+    AutoRoute(
+      page: MainRoute.page,
+      path: "/main",
+      children: [
+        AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: ProfileRoute.page),
         AutoRoute(page: SettingsRoute.page),
       ],
@@ -28,6 +38,5 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ImagesRoute.page),
     AutoRoute(page: SignUpRoute.page),
     AutoRoute(page: PolicyRoute.page),
-    
   ];
 }

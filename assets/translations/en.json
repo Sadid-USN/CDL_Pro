@@ -28,7 +28,7 @@
   "resetQuiz": "Reset Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
-  "exit": "Exit the Quiz",
+  "exit": "Exit",
   "startTheQuizOverText": "Are you sure you want to reset your progress and start the quiz over?",
   "allQuestions": "All questions",
   "congratulations": "Congratulations! You have successfully passed the test.",
@@ -87,6 +87,13 @@
   "language": "Language",
   "subscriptionAutoRenew": "Subscription automatically renews at the end of the term",
   "effectiveDate": "Effective Date: {effectiveDate}",
-  "followTheLink": "Follow the link"
-
+  "followTheLink": "Follow the link",
+  "welcomeTitle": "Welcome to CDL Pro!",
+  "welcomeBody": "CDL Pro is your reliable assistant for preparing for U.S. DMV tests. Supports multiple languages so you can study comfortably!",
+  "registerTitle": "Sign Up!",
+  "registerBody": "Log in to your account to save your progress and track your achievements on the path to getting your CDL!",
+  "startTitle": "Let's Get Started!",
+  "startBody": "Practice with our tests, study traffic rules, and prepare for the DMV exam with confidence to get your permit!",
+  "skipButton": "Skip",
+  "doneButton": "Done"
 }

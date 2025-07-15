@@ -2,6 +2,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/data/impl/impl.dart';
 import 'package:cdl_pro/domain/domain.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
+import 'package:cdl_pro/presentation/blocs/onboarding/onboarding.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign_bloc.dart';
@@ -138,4 +139,8 @@ Future<void> initDependencies() async {
       getIt<UserHolder>(),
     ),
   );
+  getIt.registerLazySingleton<OnboardingCubit>(
+  () => OnboardingCubit(prefs: prefs),
+);
+
 }

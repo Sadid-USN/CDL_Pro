@@ -28,7 +28,7 @@
   "resetQuiz": "Reiniciar prueba",
   "cancel": "Cancelar",
   "reset": "Reiniciar",
-  "exit": "Salir del cuestionario",
+  "exit": "Salida",
   "startTheQuizOverText": "¿Estás seguro de que quieres reiniciar tu progreso y comenzar la prueba de nuevo?",
   "allQuestions": "Todas las preguntas",
   "congratulations": "¡Felicitaciones! Has aprobado el examen con éxito.",
@@ -87,5 +87,13 @@
   "selectLanguage": "Seleccionar idioma",
   "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
   "effectiveDate": "Fecha de vigencia: {effectiveDate}",
-  "followTheLink": "Sigue el enlace"
+  "followTheLink": "Sigue el enlace",
+   "welcomeTitle": "¡Bienvenido a CDL Pro!",
+  "welcomeBody": "CDL Pro es tu asistente confiable para prepararte para los exámenes del DMV de EE. UU. ¡Soporta varios idiomas para que puedas estudiar cómodamente!",
+  "registerTitle": "¡Regístrate!",
+  "registerBody": "Inicia sesión en tu cuenta para guardar tu progreso y seguir tus logros en el camino hacia obtener tu CDL.",
+  "startTitle": "¡Empecemos!",
+  "startBody": "Practica con nuestros exámenes, estudia las reglas de tráfico y prepárate para el examen del DMV con confianza para obtener tu permiso.",
+  "skipButton": "Omitir",
+  "doneButton": "Listo"
 }

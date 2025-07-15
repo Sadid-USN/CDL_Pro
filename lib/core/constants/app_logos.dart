@@ -36,6 +36,7 @@ class AppLogos {
    static const String hazMat = 'assets/images/hazmat.png';
    static const String termOfUse = 'assets/icons/privacyPolicy.png';
    static const String privacyPolicyIcon = 'assets/icons/privacyPolicyIcon.png';
+   static const String truck = 'assets/icons/truck.png';
 
 
 
