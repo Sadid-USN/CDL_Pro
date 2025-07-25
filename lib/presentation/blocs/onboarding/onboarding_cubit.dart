@@ -38,3 +38,4 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     emit(OnboardingRequired());
   }
 }
+

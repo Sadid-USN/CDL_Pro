@@ -61,9 +61,9 @@ class OnBoardingPage extends StatelessWidget {
         context.read<OnboardingCubit>().completeOnboarding();
       },
       showSkipButton: true,
-      skip: const Text("Пропустить"),
-      next: const Icon(Icons.arrow_forward),
-      done: const Text("Готово", style: TextStyle(fontWeight: FontWeight.w600)),
+      skip:  Text(LocaleKeys.skipButton.tr()),
+      next: const Icon(Icons.arrow_forward_ios),
+      done:  Text(LocaleKeys.doneButton.tr(), style: TextStyle(fontWeight: FontWeight.w600)),
       dotsDecorator: DotsDecorator(
         size: Size(10.0, 10.0),
         color: Colors.grey,

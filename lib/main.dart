@@ -17,6 +17,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 import 'core/config/app_wrapper/localization_wrapper.dart';
 import 'presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'presentation/blocs/settings_bloc/settings.dart';
+import 'presentation/pages/home/onbording_page.dart';
 
 void main() async {
   runZonedGuarded(
@@ -61,36 +62,61 @@ class MyApp extends StatelessWidget {
         BlocProvider<RoadSignBloc>(
           create: (context) => GetIt.I<RoadSignBloc>(),
         ),
-        BlocProvider<ProfileBloc>(create: (context) => GetIt.I<ProfileBloc>()),
-        BlocProvider<PurchaseBloc>(create: (_) => GetIt.I<PurchaseBloc>()),
+        BlocProvider<ProfileBloc>(
+          create: (context) => GetIt.I<ProfileBloc>(),
+        ),
+        BlocProvider<PurchaseBloc>(
+          create: (_) => GetIt.I<PurchaseBloc>(),
+        ),
         BlocProvider<OnboardingCubit>(
           create: (_) => GetIt.I<OnboardingCubit>()..checkOnboarding(),
         ),
       ],
       child: ScreenUtilInit(
         minTextAdapt: true,
-        builder:
-            (context, child) => BlocBuilder<SettingsBloc, SettingsState>(
-              builder: (context, settingsState) {
-                return MaterialApp.router(
-                  theme: lightThemeData(),
-                  darkTheme: darkThemeData(),
-                  themeMode:
-                      settingsState.isDarkMode
+        builder: (context, child) {
+          return BlocBuilder<OnboardingCubit, OnboardingState>(
+            builder: (context, onboardingState) {
+              if (onboardingState is OnboardingLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              if (onboardingState is OnboardingRequired) {
+                return const OnBoardingPage();
+              }
+
+              // onboardingState is OnboardingCompleted
+              return BlocListener<ProfileBloc, ProfileState>(
+                listenWhen: (prev, curr) => prev.user?.uid != curr.user?.uid,
+                listener: (context, state) {
+                  GetIt.I<UserHolder>().setUid(state.user?.uid);
+                  debugPrint('🔐 UserHolder: UID updated -> ${state.user?.uid}');
+                },
+                child: BlocBuilder<SettingsBloc, SettingsState>(
+                  builder: (context, settingsState) {
+                    return MaterialApp.router(
+                      theme: lightThemeData(),
+                      darkTheme: darkThemeData(),
+                      themeMode: settingsState.isDarkMode
                           ? ThemeMode.dark
                           : ThemeMode.light,
-                  localizationsDelegates: context.localizationDelegates,
-                  supportedLocales: context.supportedLocales,
-                  locale: context.locale,
-                  debugShowCheckedModeBanner: false,
-                  title: 'CDL_pro',
-                  routerConfig: _autorouter.config(
-                    navigatorObservers:
-                        () => [TalkerRouteObserver(GetIt.I<Talker>())],
-                  ),
-                );
-              },
-            ),
+                      localizationsDelegates: context.localizationDelegates,
+                      supportedLocales: context.supportedLocales,
+                      locale: context.locale,
+                      debugShowCheckedModeBanner: false,
+                      title: 'CDL_pro',
+                      routerConfig: _autorouter.config(
+                        navigatorObservers: () => [
+                          TalkerRouteObserver(GetIt.I<Talker>()),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
