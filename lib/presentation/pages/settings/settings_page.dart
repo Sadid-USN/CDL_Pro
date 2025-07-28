@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cdl_pro/core/constants/constants.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';

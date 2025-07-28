@@ -41,8 +41,8 @@ class AuthService {
     late GoogleSignInAccount googleUser;
     try {
       googleUser = await googleSignIn.authenticate();
-    } on Exception catch (e) {
-      print('Google sign-in failed: $e');
+    } on Exception {
+  
       return null;
     }
 

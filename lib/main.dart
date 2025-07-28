@@ -53,65 +53,77 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SettingsBloc>(
-          create: (context) => GetIt.I<SettingsBloc>(),
-        ),
-        BlocProvider<CDLTestsBloc>(
-          create: (context) => GetIt.I<CDLTestsBloc>(),
-        ),
-        BlocProvider<RoadSignBloc>(
-          create: (context) => GetIt.I<RoadSignBloc>(),
-        ),
-        BlocProvider<ProfileBloc>(
-          create: (context) => GetIt.I<ProfileBloc>(),
-        ),
-        BlocProvider<PurchaseBloc>(
-          create: (_) => GetIt.I<PurchaseBloc>(),
-        ),
+        BlocProvider<SettingsBloc>(create: (_) => GetIt.I<SettingsBloc>()),
+        BlocProvider<CDLTestsBloc>(create: (_) => GetIt.I<CDLTestsBloc>()),
+        BlocProvider<RoadSignBloc>(create: (_) => GetIt.I<RoadSignBloc>()),
+        BlocProvider<ProfileBloc>(create: (_) => GetIt.I<ProfileBloc>()),
+        BlocProvider<PurchaseBloc>(create: (_) => GetIt.I<PurchaseBloc>()),
         BlocProvider<OnboardingCubit>(
           create: (_) => GetIt.I<OnboardingCubit>()..checkOnboarding(),
         ),
       ],
       child: ScreenUtilInit(
         minTextAdapt: true,
+        splitScreenMode: true,
         builder: (context, child) {
           return BlocBuilder<OnboardingCubit, OnboardingState>(
             builder: (context, onboardingState) {
               if (onboardingState is OnboardingLoading) {
-                return const Center(child: CircularProgressIndicator());
+                return const MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  home: Scaffold(
+                    body: Center(child: CircularProgressIndicator()),
+                  ),
+                );
               }
 
               if (onboardingState is OnboardingRequired) {
-                return const OnBoardingPage();
+                return LocalizationWrapper(
+                  child: MaterialApp(
+                    home: const OnBoardingPage(),
+                    localizationsDelegates: context.localizationDelegates,
+                    supportedLocales: context.supportedLocales,
+                    locale: context.locale,
+                    debugShowCheckedModeBanner: false,
+                  ),
+                );
               }
 
-              // onboardingState is OnboardingCompleted
+              // OnboardingCompleted
               return BlocListener<ProfileBloc, ProfileState>(
                 listenWhen: (prev, curr) => prev.user?.uid != curr.user?.uid,
                 listener: (context, state) {
                   GetIt.I<UserHolder>().setUid(state.user?.uid);
-                  debugPrint('🔐 UserHolder: UID updated -> ${state.user?.uid}');
+                  debugPrint(
+                    '🔐 UserHolder: UID updated -> ${state.user?.uid}',
+                  );
                 },
-                child: BlocBuilder<SettingsBloc, SettingsState>(
-                  builder: (context, settingsState) {
-                    return MaterialApp.router(
-                      theme: lightThemeData(),
-                      darkTheme: darkThemeData(),
-                      themeMode: settingsState.isDarkMode
-                          ? ThemeMode.dark
-                          : ThemeMode.light,
-                      localizationsDelegates: context.localizationDelegates,
-                      supportedLocales: context.supportedLocales,
-                      locale: context.locale,
-                      debugShowCheckedModeBanner: false,
-                      title: 'CDL_pro',
-                      routerConfig: _autorouter.config(
-                        navigatorObservers: () => [
-                          TalkerRouteObserver(GetIt.I<Talker>()),
-                        ],
-                      ),
-                    );
-                  },
+                child: ScreenUtilInit(
+                  minTextAdapt: true,
+                  splitScreenMode: true,
+                  child: BlocBuilder<SettingsBloc, SettingsState>(
+                    builder: (context, settingsState) {
+                      FlutterNativeSplash.remove();
+
+                      return MaterialApp.router(
+                        theme: lightThemeData(),
+                        darkTheme: darkThemeData(),
+                        themeMode:
+                            settingsState.isDarkMode
+                                ? ThemeMode.dark
+                                : ThemeMode.light,
+                        localizationsDelegates: context.localizationDelegates,
+                        supportedLocales: context.supportedLocales,
+                        locale: context.locale,
+                        debugShowCheckedModeBanner: false,
+                        title: 'CDL_pro',
+                        routerConfig: _autorouter.config(
+                          navigatorObservers:
+                              () => [TalkerRouteObserver(GetIt.I<Talker>())],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
             },

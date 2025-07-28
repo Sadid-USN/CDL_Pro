@@ -62,13 +62,13 @@ class PremiumBottomSheet extends StatelessWidget {
                       final isPopular = product == MyProduct.monthly;
                       final isBestValue = product == MyProduct.yearly;
 
-                      return _buildSubscriptionCard(
-                        context,
+                      return SubscriptionOptionCard(
                         title: product.titleKey.tr(),
                         price: product.price,
                         productId: product.productId,
                         isPopular: isPopular,
                         isBestValue: isBestValue,
+                        onPurchase: _handlePurchase,
                       );
                     }).toList(),
               ),
@@ -80,14 +80,37 @@ class PremiumBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildSubscriptionCard(
-    BuildContext context, {
-    required String title,
-    required String price,
-    required String productId,
-    bool isPopular = false,
-    bool isBestValue = false,
-  }) {
+  void _handlePurchase(
+    BuildContext context,
+    String productId,
+    String planName,
+  ) {
+    Navigator.pop(context);
+    context.read<PurchaseBloc>().add(BuyNonConsumableProduct(productId));
+  }
+}
+
+class SubscriptionOptionCard extends StatelessWidget {
+  final String title;
+  final String price;
+  final String productId;
+  final bool isPopular;
+  final bool isBestValue;
+  final void Function(BuildContext context, String productId, String title)
+  onPurchase;
+
+  const SubscriptionOptionCard({
+    super.key,
+    required this.title,
+    required this.price,
+    required this.productId,
+    this.isPopular = false,
+    this.isBestValue = false,
+    required this.onPurchase,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.only(bottom: 12.h),
       shape: RoundedRectangleBorder(
@@ -105,11 +128,7 @@ class PremiumBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (isPopular || isBestValue)
-              _buildBadge(
-                context,
-                isPopular: isPopular,
-                isBestValue: isBestValue,
-              ),
+              SubscriptionBadge(isPopular: isPopular, isBestValue: isBestValue),
             SizedBox(height: (isPopular || isBestValue) ? 8.h : 0),
             Text(title, style: AppTextStyles.merriweatherBold12),
           ],
@@ -131,16 +150,24 @@ class PremiumBottomSheet extends StatelessWidget {
           ],
         ),
         trailing: Text(price, style: AppTextStyles.robotoMonoBold14),
-        onTap: () => _handlePurchase(context, productId, title),
+        onTap: () => onPurchase(context, productId, title),
       ),
     );
   }
+}
 
-  Widget _buildBadge(
-    BuildContext context, {
-    bool isPopular = false,
-    bool isBestValue = false,
-  }) {
+class SubscriptionBadge extends StatelessWidget {
+  final bool isPopular;
+  final bool isBestValue;
+
+  const SubscriptionBadge({
+    super.key,
+    this.isPopular = false,
+    this.isBestValue = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     if (isPopular) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
@@ -172,15 +199,7 @@ class PremiumBottomSheet extends StatelessWidget {
         ),
       );
     }
-    return const SizedBox.shrink();
-  }
 
-  void _handlePurchase(
-    BuildContext context,
-    String productId,
-    String planName,
-  ) {
-    Navigator.pop(context);
-    context.read<PurchaseBloc>().add(BuyNonConsumableProduct(productId));
+    return const SizedBox.shrink();
   }
 }

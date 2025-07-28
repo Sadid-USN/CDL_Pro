@@ -70,7 +70,7 @@ class SettingsBloc extends Bloc<AbstractSettingsEvent, SettingsState> {
     final newThemeMode = !state.isDarkMode;
     await prefs.setBool('themeMode', newThemeMode);
     emit(state.copyWith(isDarkMode: newThemeMode));
-    print("UPDATE THEME --->> $newThemeMode");
+ 
   }
 
   void _onInitializeSettings(

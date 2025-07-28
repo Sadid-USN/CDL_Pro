@@ -1,114 +1,18 @@
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/domain/models/models.dart';
+import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:local_hero_transform/local_hero_transform.dart';
 
-class RoadSignView extends StatefulWidget {
+
+class RoadSignView extends StatelessWidget {
   final List<QueryDocumentSnapshot> docs;
 
   const RoadSignView({super.key, required this.docs});
-
-  @override
-  State<RoadSignView> createState() => _RoadSignViewState();
-}
-
-class _RoadSignViewState extends State<RoadSignView>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, vsync: this,   initialIndex: 1,);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final signs = _processDocs(widget.docs);
-
-    return Column(
-      children: [
-        const ZoomImageButton(),
-        _buildViewToggleButtons(),
-        Expanded(
-          child: LocalHeroViews(
-            tabController: _tabController,
-            textDirection: TextDirection.ltr,
-            itemCount: signs.length,
-            itemsModel:
-                (index) => ItemsModel(
-                  name: Text(signs[index].enTitle),
-                  title: Text(
-                    signs[index].ruTitle,
-                    style: AppTextStyles.merriweatherBold12.copyWith(
-                      color: AppColors.darkBackground,
-                    ),
-                  ),
-                  subTitle: const SizedBox(),
-                  favoriteIconButton: SizedBox.shrink(),
-                  image: DecorationImage(
-                    image: NetworkImage(signs[index].imageUrl),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-            onPressedCard: (int index) {
-              final isGridView = _tabController.index == 0;
-              _tabController.animateTo(isGridView ? 0 : 1);
-            },
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildViewToggleButtons() {
-   // final isGridView = _tabController.index == 0;
-
-    return AnimatedBuilder(
-      animation: _tabController.animation!,
-      builder: (context, _) {
-        final isGrid = _tabController.index == 0;
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-           
-              IconButton(
-                icon: Icon(
-                  Icons.grid_view,
-                  color: isGrid ? AppColors.lightPrimary : Colors.grey,
-                ),
-                onPressed: () {
-                  _tabController.animateTo(0);
-                },
-                tooltip: 'Grid view',
-              ),
-                 IconButton(
-                icon: Icon(
-                  Icons.list,
-                  color: isGrid ? Colors.grey : AppColors.lightPrimary,
-                ),
-                onPressed: () {
-                  _tabController.animateTo(1);
-                },
-                tooltip: 'List view',
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 
   List<RoadSignModel> _processDocs(List<QueryDocumentSnapshot> docs) {
     final data = docs.first.data() as Map<String, dynamic>;
@@ -119,5 +23,199 @@ class _RoadSignViewState extends State<RoadSignView>
         return RoadSignModel.fromJson(entry.key, value);
       }).toList()
       ..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final heightFactor = MediaQuery.of(context).size.height;
+    final signs = _processDocs(docs);
+
+    return BlocBuilder<RoadSignBloc, RoadSignState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            ZoomImageButton(),
+            _buildViewToggleButtons(context),
+
+            Expanded(
+              child:
+                  state.isGridView
+                      ? _buildGridView(context, signs, heightFactor)
+                      : _buildListView(context, signs, heightFactor),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildViewToggleButtons(BuildContext context) {
+    return Padding(
+      padding:  EdgeInsets.symmetric(vertical: 8.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.list, color:  AppColors.softBlack,),
+            onPressed: () {
+              context.read<RoadSignBloc>().add(
+                ToggleViewModeEvent(isGridView: false),
+              );
+            },
+            tooltip: 'List view',
+          ),
+          IconButton(
+            icon: const Icon(Icons.grid_view,  color: AppColors.softBlack,),
+            onPressed: () {
+              context.read<RoadSignBloc>().add(
+                ToggleViewModeEvent(isGridView: true),
+              );
+            },
+            tooltip: 'Grid view',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListView(
+    BuildContext context,
+    List<RoadSignModel> signs,
+    double heightFactor,
+  ) {
+    return ListView.builder(
+      padding:  EdgeInsets.all(12.0),
+      itemCount: signs.length,
+      itemBuilder: (context, index) {
+        final model = signs[index];
+        return _buildSignItem(context, model, heightFactor);
+      },
+    );
+  }
+
+  Widget _buildGridView(
+    BuildContext context,
+    List<RoadSignModel> signs,
+    double heightFactor,
+  ) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
+        childAspectRatio: 0.8,
+      ),
+      itemCount: signs.length,
+      itemBuilder: (context, index) {
+        final model = signs[index];
+        return _buildGridItem(context, model, heightFactor);
+      },
+    );
+  }
+
+  Widget _buildGridItem(
+    BuildContext context,
+    RoadSignModel model,
+    double heightFactor,
+  ) {
+    return Card(
+      elevation: 3,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.network(
+                model.imageUrl,
+                fit: BoxFit.contain,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(
+                    child: CircularProgressIndicator(
+                      value:
+                          loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                              : null,
+                    ),
+                  );
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(Icons.broken_image, size: 40);
+                },
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text(
+              model.enTitle,
+              style: AppTextStyles.merriweather10.copyWith(
+                color: AppColors.darkBackground,
+              ),
+            ),
+            subtitle: Text(
+              model.ruTitle,
+              style: AppTextStyles.merriweather10.copyWith(
+                color: AppColors.darkBackground,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSignItem(
+    BuildContext context,
+    RoadSignModel model,
+    double heightFactor,
+  ) {
+    return Column(
+      children: [
+        ListTile(
+          title: Text(model.enTitle),
+          subtitle: Text(
+            model.ruTitle,
+            style: AppTextStyles.merriweatherBold12.copyWith(
+              color: AppColors.darkBackground,
+            ),
+          ),
+        ),
+        Card(
+          elevation: 3,
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Image.network(
+              model.imageUrl,
+              fit: BoxFit.contain,
+              height: heightFactor * 0.3,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                    value:
+                        loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                  ),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.broken_image, size: 80);
+              },
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+      ],
+    );
   }
 }

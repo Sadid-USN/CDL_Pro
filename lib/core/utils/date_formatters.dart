@@ -35,8 +35,8 @@ class DateFormatters {
         // Убираем пробел между временем и AM/PM
         return formattedTime.replaceAll(RegExp(r'\s'), '');
       } catch (e) {
-        print('Ошибка при парсинге времени: $time, $e');
-        return '--'; // В случае ошибки возвращаем "--"
+ 
+        return '--'; 
       }
     }).toList();
   }
@@ -109,7 +109,7 @@ class DateFormatters {
           return true;
         }
       } catch (e) {
-        print('Error parsing time for $formattedPrayerTime: $e');
+       
       }
     }
     return false;
