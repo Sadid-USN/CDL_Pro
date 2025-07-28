@@ -50,7 +50,7 @@ class AppScaffold extends StatelessWidget {
           return;
         }
         // Логика при успешном закрытии страницы.
-        print("Page popped with result: $result");
+
       },
       child: Stack(
         children: [

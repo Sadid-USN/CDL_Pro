@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/config/app_wrapper/lifecycle_aware_widget.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/views/views.dart';
@@ -39,7 +40,7 @@ class MainCategoryPage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            context.router.pop();
+           context.router.pop();
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
@@ -89,7 +90,7 @@ class MainCategoryPage extends StatelessWidget {
                 case AppDataType.cdlTestsEs:
                   return CDLTestsView(docs: docs);
                 case AppDataType.roadSign:
-                  return RoadSignView(docs: docs);
+                  return LifecycleAwareWidget(child: RoadSignView(docs: docs));
                 case AppDataType.tripInseption:
                   return PreTripInspectionView(docs: docs);
                 case AppDataType.termsOfUse:

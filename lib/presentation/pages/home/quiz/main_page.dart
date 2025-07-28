@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
-import 'package:cdl_pro/presentation/blocs/onboarding/onboarding.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_state.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';

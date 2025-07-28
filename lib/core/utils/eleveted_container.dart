@@ -15,7 +15,6 @@ class ElevatedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
     return Material(
       elevation: 1.5,
       borderRadius: BorderRadius.only(
@@ -28,31 +27,32 @@ class ElevatedContainer extends StatelessWidget {
           bottomRight: Radius.circular(20.r),
         ),
         onTap: onTap,
-        child: Container(
-         
-          height: 150.h,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(assetImage),
-              fit: BoxFit.cover,
-            ),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.r),
-              bottomRight: Radius.circular(20.r),
-            ),
-          ),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-              decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.6),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(20.r),
-                ),
+        child: AspectRatio(
+          aspectRatio: 16 / 8,
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(assetImage),
+                fit: BoxFit.cover,
               ),
-              child: child,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                bottomRight: Radius.circular(20.r),
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(20.r),
+                  ),
+                ),
+                child: child,
+              ),
             ),
           ),
         ),

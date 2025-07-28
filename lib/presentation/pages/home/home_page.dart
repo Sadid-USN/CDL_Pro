@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cdl_pro/core/config/app_wrapper/lifecycle_aware_widget.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
@@ -16,75 +17,77 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsBloc, SettingsState>(
-      builder: (context, state) {
-        // Функция для получения правильного типа данных в зависимости от языка
-        AppDataType getLocalizedDataType(AppDataType baseType) {
-          if (baseType == AppDataType.cdlTests) {
-            switch (state.selectedLang) {
-              case AppLanguage.russian:
-                return AppDataType.cdlTestsRu;
-              case AppLanguage.ukrainian:
-                return AppDataType.cdlTestsUk;
-              case AppLanguage.spanish:
-                return AppDataType.cdlTestsEs;
-              case AppLanguage.english:
-                return AppDataType.cdlTests;
+    return LifecycleAwareWidget(
+      child: BlocBuilder<SettingsBloc, SettingsState>(
+        builder: (context, state) {
+          // Функция для получения правильного типа данных в зависимости от языка
+          AppDataType getLocalizedDataType(AppDataType baseType) {
+            if (baseType == AppDataType.cdlTests) {
+              switch (state.selectedLang) {
+                case AppLanguage.russian:
+                  return AppDataType.cdlTestsRu;
+                case AppLanguage.ukrainian:
+                  return AppDataType.cdlTestsUk;
+                case AppLanguage.spanish:
+                  return AppDataType.cdlTestsEs;
+                case AppLanguage.english:
+                  return AppDataType.cdlTests;
+              }
             }
+            return baseType; // For other types return as-is
           }
-          return baseType; // For other types return as-is
-        }
-
-        final collectionTypes = [
-          {
-            'label': LocaleKeys.cdlTests.tr(),
-            'type': getLocalizedDataType(AppDataType.cdlTests),
-            'assetImage': AppLogos.cdlTest,
-          },
-          {
-            'label': LocaleKeys.preTripInspection.tr(),
-            'type': AppDataType.tripInseption,
-            'assetImage': AppLogos.preTripInspection,
-          },
-          {
-            'label': LocaleKeys.roadSigns.tr(),
-            'type': AppDataType.roadSign,
-            'assetImage': AppLogos.roadSigns,
-          },
-        ];
-
-        return AnimationLimiter(
-          child: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 25.h),
-            separatorBuilder: (context, index) => SizedBox(height: 12.h),
-            itemCount: collectionTypes.length,
-            itemBuilder: (context, index) {
-              final item = collectionTypes[index];
-              final type = item['type'] as AppDataType;
-              return AnimationConfiguration.staggeredList(
-                position: index,
-                duration: const Duration(milliseconds: 600),
-                child: FlipAnimation(
-                  child: ElevatedContainer(
-                    assetImage: item["assetImage"] as String,
-                    onTap: () {
-                      context.read<SettingsBloc>().add(ChangeType(type));
-                      navigateToPage(context, route: MainCategoryRoute());
-                    },
-                    child: Text(
-                      item['label'] as String,
-
-                      style: AppTextStyles.merriweatherBold18.copyWith(
-                        color: AppColors.lightBackground,
+      
+          final collectionTypes = [
+            {
+              'label': LocaleKeys.cdlTests.tr(),
+              'type': getLocalizedDataType(AppDataType.cdlTests),
+              'assetImage': AppLogos.cdlTest,
+            },
+            {
+              'label': LocaleKeys.preTripInspection.tr(),
+              'type': AppDataType.tripInseption,
+              'assetImage': AppLogos.preTripInspection,
+            },
+            {
+              'label': LocaleKeys.roadSigns.tr(),
+              'type': AppDataType.roadSign,
+              'assetImage': AppLogos.roadSigns,
+            },
+          ];
+      
+          return AnimationLimiter(
+            child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 25.h),
+              separatorBuilder: (context, index) => SizedBox(height: 12.h),
+              itemCount: collectionTypes.length,
+              itemBuilder: (context, index) {
+                final item = collectionTypes[index];
+                final type = item['type'] as AppDataType;
+                return AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(milliseconds: 600),
+                  child: FlipAnimation(
+                    child: ElevatedContainer(
+                      assetImage: item["assetImage"] as String,
+                      onTap: () {
+                        context.read<SettingsBloc>().add(ChangeType(type));
+                        navigateToPage(context, route: MainCategoryRoute());
+                      },
+                      child: Text(
+                        item['label'] as String,
+      
+                        style: AppTextStyles.merriweatherBold18.copyWith(
+                          color: AppColors.lightBackground,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-        );
-      },
+                );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
