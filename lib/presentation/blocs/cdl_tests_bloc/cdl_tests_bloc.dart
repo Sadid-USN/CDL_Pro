@@ -18,8 +18,6 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
   // ───────────────────────────────── INTERNAL STATE ──────────────────────────
 
-  // CHANGED: убираем uid
-  // String? _uid;
   String? get uid => _userHolder.uid;
 
   List<Question> _quizQuestions = [];
@@ -76,7 +74,9 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     _emitLoaded(emit);
   }
   */
-
+  String generateQuizIdForQuestions(List<Question> questions, String subcategory) {
+    return _generateQuizId(questions, subcategory);
+  }
   // ──────────────────────────────── TIMER CONTROL ────────────────────────────
   void _onStartTimer(
     StartTimerEvent event,

@@ -100,5 +100,7 @@ abstract class  LocaleKeys {
   static const startBody = 'startBody';
   static const skipButton = 'skipButton';
   static const doneButton = 'doneButton';
+  static const restorePurchases = 'restorePurchases';
+  static const purchasePremium = 'purchasePremium';
 
 }

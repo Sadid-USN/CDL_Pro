@@ -44,14 +44,12 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BlocListener<ProfileBloc, ProfileState>(
       listener: (context, state) {
+        // Убрали очистку полей при изменении состояния
+        // Теперь поля сохраняют свои значения даже при ошибке
         if (state.rememberMe) {
           final bloc = context.read<ProfileBloc>();
-          emailController.text = bloc.getSavedEmail() ?? '';
-          passwordController.text = bloc.getSavedPassword() ?? '';
-        } else {
-          // Очищаем только если пользователь точно отключил "Запомнить меня"
-          emailController.clear();
-          passwordController.clear();
+          emailController.text = bloc.getSavedEmail() ?? emailController.text;
+          passwordController.text = bloc.getSavedPassword() ?? passwordController.text;
         }
       },
       child: BlocBuilder<ProfileBloc, ProfileState>(
@@ -72,15 +70,13 @@ class _ProfilePageState extends State<ProfilePage> {
 
           return state.user == null
               ? LoginView(
-                formKey: _formKey,
-                emailController: emailController,
-                passwordController: passwordController,
-                error: state.errorMessage,
-                state: state,
-              )
-              : ProfileView(
-             
-                user: state.user!);
+                  formKey: _formKey,
+                  emailController: emailController,
+                  passwordController: passwordController,
+                  error: state.errorMessage,
+                  state: state,
+                )
+              : ProfileView(user: state.user!);
         },
       ),
     );

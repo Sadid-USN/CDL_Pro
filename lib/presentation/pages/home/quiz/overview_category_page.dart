@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
+
 @RoutePage()
 class OverviewCategoryPage extends StatefulWidget {
   final String? categoryKey;
@@ -33,6 +34,7 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
     context.read<PurchaseBloc>().add(CheckPastPurchases());
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -112,16 +114,17 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                                 : const Icon(Icons.arrow_forward_ios),
                         onTap: () {
                           if (isPremium) {
+                            final questions = _getQuestionsForRange(
+                              questionsMap,
+                              1,
+                              totalQuestions,
+                            );
                             navigateToPage(
                               context,
                               route: QuizRoute(
                                 chapterTitle: title,
                                 startIndex: 1,
-                                questions: _getQuestionsForRange(
-                                  questionsMap,
-                                  1,
-                                  totalQuestions,
-                                ),
+                                questions: questions,
                                 categoryKey: widget.categoryKey!,
                                 model: widget.model!,
                               ),
@@ -136,6 +139,12 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                   }
 
                   final card = cards[index];
+                  final questions = _getQuestionsForRange(
+                    questionsMap,
+                    card.startIndex,
+                    card.endIndex,
+                  );
+
                   return Card(
                     margin: const EdgeInsets.only(bottom: 12),
                     child: ListTile(
@@ -144,9 +153,17 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                         style: AppTextStyles.robotoMono12,
                       ),
                       title: Text(card.title),
-                      subtitle: Text(
-                        card.range,
-                        style: AppTextStyles.robotoMono10,
+                      subtitle: Row(
+                        
+                        children: [
+                          Text(card.range, style: AppTextStyles.robotoMono10),
+                          SizedBox(width: 20.w,),
+                          BuildProgressIndicator(
+                            subcategory: widget.categoryKey!,
+                            questions: questions,
+                            categoryKey: widget.categoryKey!,
+                          ),
+                        ],
                       ),
                       trailing:
                           card.isLocked
@@ -172,7 +189,7 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                                 card.endIndex,
                               ),
                               categoryKey: widget.categoryKey!,
-                           model: widget.model!,
+                              model: widget.model!,
                             ),
                             replace: true,
                           );
@@ -198,9 +215,9 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
     final limitedIds = questionIds.sublist(startIndex - 1, endIndex);
     return limitedIds.map((id) {
       final questionData = questionsMap[id];
-     
+
       if (questionData is Map<String, dynamic>) {
-        return Question.fromJson(questionData, key: '', );
+        return Question.fromJson(questionData, key: '');
       } else if (questionData is Question) {
         return questionData;
       } else {

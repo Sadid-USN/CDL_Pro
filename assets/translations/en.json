@@ -95,5 +95,7 @@
   "startTitle": "Let's Get Started!",
   "startBody": "Practice with our tests, study traffic rules, and prepare for the DMV exam with confidence to get your permit!",
   "skipButton": "Skip",
-  "doneButton": "Done"
+  "doneButton": "Done",
+  "restorePurchases": "Restore Purchases",
+  "purchasePremium": "Purchase Premium"
 }

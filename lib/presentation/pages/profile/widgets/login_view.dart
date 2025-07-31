@@ -135,6 +135,8 @@ class LoginView extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
+                      emailController.clear();
+                      passwordController.clear();
                       context.router.push(const SignUpRoute());
                     },
                     child: Text(
