@@ -40,6 +40,7 @@ class PremiumBottomSheet extends StatelessWidget {
             height: 70.h,
             fit: BoxFit.contain,
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -52,6 +53,19 @@ class PremiumBottomSheet extends StatelessWidget {
               ),
             ],
           ),
+
+            TextButton(
+              onPressed: () {
+                context.read<PurchaseBloc>().add(RestorePurchase());
+              },
+              child: Text(
+                LocaleKeys.restorePurchases.tr(),
+                style: AppTextStyles.merriweather14.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
           SizedBox(height: 8.h),
           Expanded(
             child: SingleChildScrollView(
@@ -85,8 +99,8 @@ class PremiumBottomSheet extends StatelessWidget {
     String productId,
     String planName,
   ) {
-    Navigator.pop(context);
-    context.read<PurchaseBloc>().add(BuyNonConsumableProduct(productId));
+  
+     context.read<PurchaseBloc>().add(BuySubscriptionProduct(productId));
   }
 }
 
@@ -147,6 +161,7 @@ class SubscriptionOptionCard extends StatelessWidget {
               LocaleKeys.subscriptionAutoRenew.tr(),
               style: AppTextStyles.manrope8,
             ),
+          
           ],
         ),
         trailing: Text(price, style: AppTextStyles.robotoMonoBold14),

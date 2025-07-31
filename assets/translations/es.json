@@ -95,5 +95,7 @@
   "startTitle": "¡Empecemos!",
   "startBody": "Practica con nuestros exámenes, estudia las reglas de tráfico y prepárate para el examen del DMV con confianza para obtener tu permiso.",
   "skipButton": "Omitir",
-  "doneButton": "Listo"
+  "doneButton": "Listo",
+    "restorePurchases": "Restaurar compras",
+    "purchasePremium": "Prima de compra"
 }

@@ -111,7 +111,9 @@ class CodegenLoader extends AssetLoader{
   "startTitle": "Начнем!",
   "startBody": "Тренируйтесь с нашими тестами, изучайте правила дорожного движения и готовьтесь к экзамену DMV для получения пермита с уверенностью!",
   "skipButton": "Пропустить",
-  "doneButton": "Готово"
+  "doneButton": "Готово",
+  "restorePurchases": "Восстановить покупки",
+  "purchasePremium": "Купить Премиум"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -209,7 +211,9 @@ static const Map<String,dynamic> _uk = {
   "startTitle": "Почнемо!",
   "startBody": "Тренуйтеся з нашими тестами, вивчайте правила дорожнього руху та готуйтеся до іспиту DMV для отримання перміта з впевненістю!",
   "skipButton": "Пропустити",
-  "doneButton": "Готово"
+  "doneButton": "Готово",
+  "restorePurchases": "Відновлення покупок",
+  "purchasePremium": "Придбати преміум"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -308,7 +312,9 @@ static const Map<String,dynamic> _en = {
   "startTitle": "Let's Get Started!",
   "startBody": "Practice with our tests, study traffic rules, and prepare for the DMV exam with confidence to get your permit!",
   "skipButton": "Skip",
-  "doneButton": "Done"
+  "doneButton": "Done",
+  "restorePurchases": "Restore Purchases",
+  "purchasePremium": "Purchase Premium"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -407,7 +413,9 @@ static const Map<String,dynamic> _es = {
   "startTitle": "¡Empecemos!",
   "startBody": "Practica con nuestros exámenes, estudia las reglas de tráfico y prepárate para el examen del DMV con confianza para obtener tu permiso.",
   "skipButton": "Omitir",
-  "doneButton": "Listo"
+  "doneButton": "Listo",
+  "restorePurchases": "Restaurar compras",
+  "purchasePremium": "Prima de compra"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

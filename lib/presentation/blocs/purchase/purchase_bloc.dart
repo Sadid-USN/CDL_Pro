@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
+import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
+import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 
 class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   final InAppPurchase _iap = InAppPurchase.instance;
@@ -14,6 +16,8 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     on<InitializePurchase>(_onInit);
     on<RestorePurchase>(_onRestore);
     on<BuyNonConsumableProduct>(_onBuyNonConsumable);
+    on<BuySubscriptionProduct>(_onBuySubscription);
+
     on<HandlePurchaseUpdate>(_onHandlePurchaseUpdate);
     on<CheckPastPurchases>(_onCheckPastPurchases);
     on<CancelLoading>(_onCancelLoading);
@@ -27,152 +31,186 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     'three_months_subscription',
   };
 
+  Future<void> _onBuySubscription(
+    BuySubscriptionProduct event,
+    Emitter<PurchaseState> emit,
+  ) async {
+    try {
+      emit(PremiumLoading());
+
+      final response = await _iap.queryProductDetails({event.productId});
+      if (response.notFoundIDs.isNotEmpty) {
+        emit(PurchaseFailure('Subscription not found'));
+        return;
+      }
+
+      final productDetails = response.productDetails.first;
+      final purchaseParam = PurchaseParam(productDetails: productDetails);
+
+      // Для подписок используется buyNonConsumable
+      await _iap.buyNonConsumable(purchaseParam: purchaseParam);
+
+      Future.delayed(const Duration(seconds: 1), () {
+        if (state is PremiumLoading) {
+          add(CancelLoading());
+        }
+      });
+    } catch (e) {
+      emit(PurchaseFailure('Subscription purchase failed: $e'));
+    }
+  }
+
   void _onCancelLoading(CancelLoading event, Emitter<PurchaseState> emit) {
     emit(PurchaseInitial());
   }
 
-Future<void> _onCheckPastPurchases(
-  CheckPastPurchases event,
-  Emitter<PurchaseState> emit,
-) async {
-  final available = await _iap.isAvailable();
-  if (!available) return;
+  Future<bool> _verifyPurchase(PurchaseDetails purchase) async {
+    // Базовая проверка для App Store: наличие локальных данных
+    return purchase.verificationData.localVerificationData.isNotEmpty;
+  }
 
-  emit(PremiumLoading());
+  Future<void> _onCheckPastPurchases(
+    CheckPastPurchases event,
+    Emitter<PurchaseState> emit,
+  ) async {
+    final available = await _iap.isAvailable();
+    if (!available) return;
 
-  try {
-    if (Platform.isAndroid) {
-      final androidAddition = _iap.getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
-      final purchasesResponse = await androidAddition.queryPastPurchases();
+    emit(PremiumLoading());
 
-      for (final purchase in purchasesResponse.pastPurchases) {
-        if (productIds.contains(purchase.productID) &&
-            (purchase.status == PurchaseStatus.purchased ||
-             purchase.status == PurchaseStatus.restored)) {
+    try {
+      if (Platform.isAndroid) {
+        final androidAddition =
+            _iap.getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
+        final purchasesResponse = await androidAddition.queryPastPurchases();
+
+        for (final purchase in purchasesResponse.pastPurchases) {
+          if (productIds.contains(purchase.productID) &&
+              (purchase.status == PurchaseStatus.purchased ||
+                  purchase.status == PurchaseStatus.restored)) {
+            emit(PurchaseSuccess());
+            return;
+          }
+        }
+      } else if (Platform.isIOS) {
+        final completer = Completer<bool>();
+        late final StreamSubscription sub;
+
+        sub = _iap.purchaseStream.listen((purchases) {
+          bool found = false;
+
+          for (final purchase in purchases) {
+            if (productIds.contains(purchase.productID) &&
+                (purchase.status == PurchaseStatus.purchased ||
+                    purchase.status == PurchaseStatus.restored)) {
+              found = true;
+              break;
+            }
+          }
+
+          if (!completer.isCompleted) {
+            completer.complete(found);
+            sub.cancel();
+          }
+        });
+
+        await _iap.restorePurchases();
+
+        final hasPurchases = await completer.future.timeout(
+          const Duration(seconds: 5),
+          onTimeout: () => false,
+        );
+
+        if (hasPurchases) {
           emit(PurchaseSuccess());
           return;
         }
+
+        await sub.cancel();
       }
-    } else if (Platform.isIOS) {
-      final completer = Completer<bool>();
-      late final StreamSubscription sub;
-
-      sub = _iap.purchaseStream.listen((purchases) {
-        bool found = false;
-
-        for (final purchase in purchases) {
-          if (productIds.contains(purchase.productID) &&
-              (purchase.status == PurchaseStatus.purchased ||
-                  purchase.status == PurchaseStatus.restored)) {
-            found = true;
-            break;
-          }
-        }
-
-        if (!completer.isCompleted) {
-          completer.complete(found);
-          sub.cancel();
-        }
-      });
-
-      await _iap.restorePurchases();
-
-      final hasPurchases = await completer.future.timeout(
-        const Duration(seconds: 5),
-        onTimeout: () => false,
-      );
-
-      if (hasPurchases) {
-        emit(PurchaseSuccess());
-        return;
-      }
-
-      await sub.cancel();
+    } catch (e) {
+      debugPrint('Error checking past purchases: $e');
     }
-  } catch (e) {
-    debugPrint('Error checking past purchases: $e');
+
+    emit(PurchaseInitial());
   }
 
-  emit(PurchaseInitial());
-}
+  Future<void> _onInit(
+    InitializePurchase event,
+    Emitter<PurchaseState> emit,
+  ) async {
+    final available = await _iap.isAvailable();
+    if (!available) {
+      emit(PurchaseFailure('In-app purchases not available'));
+      return;
+    }
 
+    _subscription = _iap.purchaseStream.listen(
+      (purchases) {
+        add(HandlePurchaseUpdate(purchases));
+      },
+      onError: (error) {
+        emit(PurchaseFailure('Stream error: $error'));
+      },
+    );
 
-Future<void> _onInit(
-  InitializePurchase event,
-  Emitter<PurchaseState> emit,
-) async {
-  final available = await _iap.isAvailable();
-  if (!available) {
-    emit(PurchaseFailure('In-app purchases not available'));
-    return;
-  }
+    if (Platform.isIOS) {
+      try {
+        final storeKitAddition =
+            _iap.getPlatformAddition<InAppPurchaseStoreKitPlatformAddition>();
+        await storeKitAddition.setDelegate(_ExamplePaymentQueueDelegate());
 
-  // Основная подписка на purchaseStream
-  _subscription = _iap.purchaseStream.listen(
-    (purchases) {
-      add(HandlePurchaseUpdate(purchases));
-    },
-    onError: (error) {
-      emit(PurchaseFailure('Stream error: $error'));
-    },
-  );
+        emit(PremiumLoading());
 
-  if (Platform.isIOS) {
-    try {
-      // final storeKitAddition =
-      //     _iap.getPlatformAddition<InAppPurchaseStoreKitPlatformAddition>();
+        final completer = Completer<bool>();
+        late final StreamSubscription tempSub;
 
-      emit(PremiumLoading());
+        tempSub = _iap.purchaseStream.listen((purchases) {
+          bool found = false;
 
-      final completer = Completer<bool>();
-      late final StreamSubscription tempSub;
-
-      tempSub = _iap.purchaseStream.listen((purchases) {
-        bool found = false;
-
-        for (final purchase in purchases) {
-          if (productIds.contains(purchase.productID) &&
-              (purchase.status == PurchaseStatus.purchased ||
-                  purchase.status == PurchaseStatus.restored)) {
-            found = true;
-            break;
+          for (final purchase in purchases) {
+            if (productIds.contains(purchase.productID) &&
+                (purchase.status == PurchaseStatus.purchased ||
+                    purchase.status == PurchaseStatus.restored)) {
+              found = true;
+              break;
+            }
           }
+
+          if (!completer.isCompleted) {
+            completer.complete(found);
+            tempSub.cancel();
+          }
+        });
+
+        await _iap.restorePurchases();
+
+        final hasPurchases = await completer.future.timeout(
+          const Duration(seconds: 5),
+          onTimeout: () => false,
+        );
+
+        if (hasPurchases) {
+          emit(PurchaseSuccess());
+        } else {
+          emit(PurchaseInitial());
         }
 
-        if (!completer.isCompleted) {
-          completer.complete(found);
-          tempSub.cancel();
-        }
-      });
-
-      await _iap.restorePurchases();
-
-      final hasPurchases = await completer.future.timeout(
-        const Duration(seconds: 5),
-        onTimeout: () => false,
-      );
-
-      if (hasPurchases) {
-        emit(PurchaseSuccess());
-      } else {
+        await tempSub.cancel();
+      } catch (e) {
+        debugPrint('Error during iOS purchase initialization: $e');
         emit(PurchaseInitial());
       }
-
-      await tempSub.cancel();
-    } catch (e) {
-      debugPrint('Error during iOS purchase initialization: $e');
-      emit(PurchaseInitial());
     }
   }
-}
 
   Future<void> _onRestore(
     RestorePurchase event,
     Emitter<PurchaseState> emit,
   ) async {
     try {
+      emit(PremiumLoading());
       await _iap.restorePurchases();
-      emit(PurchaseRestored());
     } catch (e) {
       emit(PurchaseFailure('Restore failed: $e'));
     }
@@ -186,9 +224,6 @@ Future<void> _onInit(
       emit(PremiumLoading());
 
       final response = await _iap.queryProductDetails({event.productId});
-
-      debugPrint('Queried products: ${response.productDetails}');
-      debugPrint('Not found IDs: ${response.notFoundIDs}');
       if (response.notFoundIDs.isNotEmpty) {
         emit(PurchaseFailure('Product not found'));
         return;
@@ -223,7 +258,12 @@ Future<void> _onInit(
 
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:
-          emit(PurchaseSuccess());
+          final isValid = await _verifyPurchase(purchase);
+          if (isValid) {
+            emit(PurchaseSuccess());
+          } else {
+            emit(PurchaseFailure('Invalid purchase'));
+          }
           break;
 
         case PurchaseStatus.error:
@@ -242,5 +282,21 @@ Future<void> _onInit(
   Future<void> close() {
     _subscription.cancel();
     return super.close();
+  }
+}
+
+/// Делегат для iOS (StoreKit)
+class _ExamplePaymentQueueDelegate implements SKPaymentQueueDelegateWrapper {
+  @override
+  bool shouldContinueTransaction(
+    SKPaymentTransactionWrapper transaction,
+    SKStorefrontWrapper storefront,
+  ) {
+    return true; // Разрешаем все транзакции
+  }
+
+  @override
+  bool shouldShowPriceConsent() {
+    return false;
   }
 }

@@ -3,11 +3,13 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
 class SettingsPage extends StatelessWidget {
@@ -23,10 +25,39 @@ class SettingsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // PremiumBottomSheet(),
+
               // App Settings Section
               _buildSectionHeader(context, LocaleKeys.settings.tr()),
               _buildSettingsCard(
                 children: [
+                  CustomListTile(
+                    title: LocaleKeys.purchasePremium.tr(),
+
+                    leadingIcon: Icon(
+                      Icons.workspace_premium_outlined,
+                      color: AppColors.whiteColor,
+                    ),
+                    trailingIcon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16.h,
+                      color: AppColors.whiteColor,
+                    ),
+                    onTap: () {
+                      // Открываем PremiumBottomSheet
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => PremiumBottomSheet(),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(12.r),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+
                   LangChangeButton(localBloc: settingsBloc),
 
                   CustomListTile(
@@ -155,8 +186,7 @@ class SettingsPage extends StatelessWidget {
                     style: TextStyle(color: Colors.red, fontSize: 16),
                   ),
               ],
-              SizedBox(height: 50,)
-            
+              SizedBox(height: 50),
             ],
           ),
         );
@@ -227,14 +257,12 @@ class SettingsPage extends StatelessWidget {
         AppLauncher.contactUs();
         break;
       case 2:
-       
         navigateToPage(
           context,
           route: PolicyRoute(type: PolicyType.termsOfUse),
         );
         break;
       case 3:
-
         navigateToPage(
           context,
           route: PolicyRoute(type: PolicyType.privacyPolicy),

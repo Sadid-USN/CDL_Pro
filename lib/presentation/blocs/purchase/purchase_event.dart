@@ -24,6 +24,12 @@ class BuyNonConsumableProduct extends PurchaseEvent {
   List<Object?> get props => [productId];
 }
 
+class BuySubscriptionProduct extends PurchaseEvent {
+  final String productId;
+  BuySubscriptionProduct(this.productId);
+}
+
+
 class HandlePurchaseUpdate extends PurchaseEvent {
   final List<PurchaseDetails> purchases;
   HandlePurchaseUpdate(this.purchases);
