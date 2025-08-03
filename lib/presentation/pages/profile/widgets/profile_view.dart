@@ -4,6 +4,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/pages/profile/widgets/widgets.dart';
+import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
 import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -167,48 +168,3 @@ class ProfileView extends StatelessWidget {
 }
 
 /// Custom clipper for the curved bottom edge of the header
-
-class CustomActionButton extends StatelessWidget {
-  final String text;
-  final IconData? leadingIcon;
-  final IconData? trailingIcon;
-  final Color? backgroundColor;
-  final void Function()? onTap;
-  final bool isDestructive;
-
-  const CustomActionButton({
-    super.key,
-    required this.text,
-    this.leadingIcon,
-    this.trailingIcon,
-    this.backgroundColor,
-    this.onTap,
-    this.isDestructive = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-      leading: leadingIcon != null
-          ? Icon(leadingIcon, color: AppColors.greyshade600)
-          : null,
-      title: Text(
-        text,
-        style: AppTextStyles.regular12.copyWith(
-          color: isDestructive
-              ? AppColors.errorColor.withValues(alpha: 0.9)
-              : AppColors.lightPrimary,
-        ),
-      ),
-      trailing: trailingIcon != null
-          ? Icon(trailingIcon, color: AppColors.greyshade600)
-          : null,
-      tileColor: Colors.transparent, // <-- убираем фон
-      hoverColor: Colors.transparent, // <-- убираем подсветку при наведении (Web/Desktop)
-      splashColor: Colors.transparent, // <-- убираем ripple-эффект
-    
-    );
-  }
-}
