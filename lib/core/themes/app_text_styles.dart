@@ -12,7 +12,7 @@ class AppTextStyles {
         color: color,
       );
 
-  static TextStyle regular(double size, {Color color = Colors.black54}) =>
+  static TextStyle regular(double size, {Color color = AppColors.softBlack}) =>
       TextStyle(
         fontSize: size.sp,
         fontWeight: FontWeight.normal,

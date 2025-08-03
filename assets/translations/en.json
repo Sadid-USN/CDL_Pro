@@ -98,5 +98,9 @@
   "doneButton": "Done",
   "restorePurchases": "Restore Purchases",
   "purchasePremium": "Purchase Premium",
-  "copied": "Copied"
+  "copied": "Copied",
+  "updateAvailable": "Update Available",
+  "updateMessage": "A new version of the app is available. Update now to enjoy the latest features and improvements.",
+  "later": "Later",
+  "updateNow": "Update Now"
 }

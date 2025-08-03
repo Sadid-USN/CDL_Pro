@@ -6,3 +6,4 @@ export 'utils/date_formatters.dart';
 export 'utils/app_show_snacbar.dart';
 export 'utils/eleveted_container.dart';
 export 'utils/version_service.dart';
+export 'utils/version_update_banner.dart';
