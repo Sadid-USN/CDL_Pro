@@ -74,7 +74,7 @@ class CodegenLoader extends AssetLoader{
   "incorrectEmailOrPassword": "Неверный email или пароль",
   "loginError": "Ошибка входа",
   "logOut": "Выйти",
-  "deleteAccount": "Удалить аккаунт",
+  "deleteAccount": "удалить",
   "rememberMe": "Запомнить меня",
   "logInToSaveProgress": "Войдите в аккаунт, чтобы сохранить прогресс.",
   "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста.",
@@ -97,7 +97,7 @@ class CodegenLoader extends AssetLoader{
   "rateUs": "Оцените нас",
   "contactUs": "Свяжитесь с нами",
   "termsOfUse": "Условия использования",
-  "privacyPolicy": "Политика конфиденциальности",
+  "privacyPolicy": "Конфиденциальность",
   "version": "Версия",
   "language": "Язык",
   "selectLanguage": "Выберите язык",
@@ -113,7 +113,8 @@ class CodegenLoader extends AssetLoader{
   "skipButton": "Пропустить",
   "doneButton": "Готово",
   "restorePurchases": "Восстановить покупки",
-  "purchasePremium": "Купить Премиум"
+  "purchasePremium": "Купить Премиум",
+  "copied": "Скопировано"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -174,7 +175,7 @@ static const Map<String,dynamic> _uk = {
   "incorrectEmailOrPassword": "Невірний email або пароль",
   "loginError": "Помилка входу",
   "logOut": "Вийти",
-  "deleteAccount": "Видалити акаунт",
+  "deleteAccount": "видалити",
   "rememberMe": "Пам'ятай мене",
   "logInToSaveProgress": "Увійдіть до облікового запису, щоб зберегти прогрес.",
   "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту.",
@@ -197,7 +198,7 @@ static const Map<String,dynamic> _uk = {
   "rateUs": "Оцініть нас",
   "contactUs": "Зв'яжіться з нами",
   "termsOfUse": "Умови використання",
-  "privacyPolicy": "Політика конфіденційності",
+  "privacyPolicy": "Конфіденційність",
   "version": "Версія",
   "language": "Мова",
   "selectLanguage": "Оберіть мову",
@@ -213,7 +214,8 @@ static const Map<String,dynamic> _uk = {
   "skipButton": "Пропустити",
   "doneButton": "Готово",
   "restorePurchases": "Відновлення покупок",
-  "purchasePremium": "Придбати преміум"
+  "purchasePremium": "Придбати преміум",
+  "copied": "Скопійовано"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -275,7 +277,7 @@ static const Map<String,dynamic> _en = {
   "incorrectEmailOrPassword": "Incorrect Email or Password",
   "loginError": "Login Error",
   "logOut": "Log Out",
-  "deleteAccount": "Delete Account",
+  "deleteAccount": "delete",
   "delete": "Delete",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
@@ -298,7 +300,7 @@ static const Map<String,dynamic> _en = {
   "rateUs": "Rate Us",
   "contactUs": "Contact Us",
   "termsOfUse": "Terms of Use",
-  "privacyPolicy": "Privacy Policy",
+  "privacyPolicy": "Privacy",
   "version": "Version",
   "selectLanguage": "Select Language",
   "language": "Language",
@@ -314,7 +316,8 @@ static const Map<String,dynamic> _en = {
   "skipButton": "Skip",
   "doneButton": "Done",
   "restorePurchases": "Restore Purchases",
-  "purchasePremium": "Purchase Premium"
+  "purchasePremium": "Purchase Premium",
+  "copied": "Copied"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -376,7 +379,7 @@ static const Map<String,dynamic> _es = {
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
-  "deleteAccount": "Eliminar cuenta",
+  "deleteAccount": "borrar",
   "rememberMe": "Acuérdate de mí",
   "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
   "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test.",
@@ -399,7 +402,7 @@ static const Map<String,dynamic> _es = {
   "rateUs": "Califícanos",
   "contactUs": "Contáctanos",
   "termsOfUse": "Términos de uso",
-  "privacyPolicy": "Política de privacidad",
+  "privacyPolicy": "Privacidad",
   "version": "Versión",
   "language": "Idioma",
   "selectLanguage": "Seleccionar idioma",
@@ -415,7 +418,8 @@ static const Map<String,dynamic> _es = {
   "skipButton": "Omitir",
   "doneButton": "Listo",
   "restorePurchases": "Restaurar compras",
-  "purchasePremium": "Prima de compra"
+  "purchasePremium": "Prima de compra",
+  "copied": "Сopiada"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

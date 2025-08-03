@@ -27,6 +27,8 @@ class AppTextStyles {
   static final bold20 = bold(20.sp);
   static final bold24 = bold(24.sp);
 
+  static final regular8 = regular(8.sp);
+  static final regular10 = regular(10.sp);
   static final regular12 = regular(12.sp);
   static final regular14 = regular(14.sp);
   static final regular16 = regular(16.sp);

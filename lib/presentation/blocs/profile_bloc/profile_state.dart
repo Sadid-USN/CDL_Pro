@@ -11,6 +11,7 @@ class ProfileState extends Equatable {
   final FirebaseAuthErrorType? errorMessage;
   final bool isNewUser;
   final bool rememberMe;
+  final bool obscurePassword;
 
   const ProfileState({
     this.user,
@@ -20,6 +21,7 @@ class ProfileState extends Equatable {
     this.errorMessage,
     this.isNewUser = true,
     this.rememberMe = false,
+    this.obscurePassword = true,
   });
 
   ProfileState copyWith({
@@ -31,6 +33,7 @@ class ProfileState extends Equatable {
     bool? isNewUser,
     AbstractProfileEvent? lastEvent,
     bool? rememberMe,
+    bool? obscurePassword,
     bool? shouldClearLoginFields,
   }) {
     return ProfileState(
@@ -41,7 +44,7 @@ class ProfileState extends Equatable {
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage ?? this.errorMessage,
       isNewUser: isNewUser ?? this.isNewUser,
-      // lastEvent: lastEvent ?? this.lastEvent,
+      obscurePassword: obscurePassword ?? this.obscurePassword,
     );
   }
 
@@ -54,5 +57,6 @@ class ProfileState extends Equatable {
     rememberMe,
     savedEmail,
     savedPassword,
+    obscurePassword
   ];
 }

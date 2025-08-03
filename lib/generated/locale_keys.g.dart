@@ -102,5 +102,6 @@ abstract class  LocaleKeys {
   static const doneButton = 'doneButton';
   static const restorePurchases = 'restorePurchases';
   static const purchasePremium = 'purchasePremium';
+  static const copied = 'copied';
 
 }

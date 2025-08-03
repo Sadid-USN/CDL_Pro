@@ -7,6 +7,12 @@ abstract class AbstractProfileEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
+class ResetAuthError extends AbstractProfileEvent {
+  const ResetAuthError();
+  
+  @override
+  List<Object?> get props => [];
+}
 
 class RememberMeChanged extends AbstractProfileEvent {
   final bool rememberMe;
@@ -53,7 +59,9 @@ class UpdateProfile extends AbstractProfileEvent {
   @override
   List<Object?> get props => [user];
 }
-
+class TogglePasswordVisibility extends AbstractProfileEvent {
+  const TogglePasswordVisibility();
+}
 class SignOut extends AbstractProfileEvent {}
 
 class SignInWithGoogle extends AbstractProfileEvent {}
