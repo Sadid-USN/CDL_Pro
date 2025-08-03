@@ -20,69 +20,75 @@ class _VersionUpdateBannerState extends State<VersionUpdateBanner> {
 
     if (!_dialogShown) {
       _dialogShown = true;
-      _showUpdateDialog();
+      _checkForUpdate();
     }
   }
 
-  Future<void> _showUpdateDialog() async {
+  Future<void> _checkForUpdate() async {
     final versionService = GetIt.I<VersionService>();
-    final data = await versionService.fetchLatestVersion();
-    if (!mounted || data == null) return;
+    final needsUpdate = await versionService.isUpdateRequired();
 
+    if (!mounted || !needsUpdate) return;
+
+    final data = await versionService.fetchLatestVersion();
+    if (data == null) return;
+
+    _showUpdateDialog(data, versionService);
+  }
+
+  Future<void> _showUpdateDialog(
+      Map<String, dynamic> data, VersionService versionService) async {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder:
-          (context) => AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            const Icon(Icons.download, color: Colors.blue),
+            const SizedBox(width: 8),
+            Text(
+              LocaleKeys.updateAvailable.tr(),
+              style: AppTextStyles.bold14,
             ),
-            backgroundColor: Colors.white,
-            title: Row(
-              children: [
-                Icon(Icons.download, color: AppColors.greyshade400),
-                SizedBox(width: 8),
-                Text(
-                  LocaleKeys.updateAvailable.tr(),
-                  style: AppTextStyles.bold14,
-                ),
-              ],
-            ),
-            content: Text(
-              LocaleKeys.updateMessage.tr(),
-              style: AppTextStyles.regular10,
-              textAlign: TextAlign.start,
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(LocaleKeys.later.tr()),
-              ),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.simpleGreen,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                onPressed: () async {
-                  await versionService.openStore(data);
-                },
-                icon: const Icon(Icons.download, color: Colors.white),
-                label: Text(
-                  LocaleKeys.updateNow.tr(),
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
+          ],
+        ),
+        content: Text(
+          LocaleKeys.updateMessage.tr(),
+          style: AppTextStyles.regular10,
+          textAlign: TextAlign.start,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(LocaleKeys.later.tr()),
           ),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.simpleGreen,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            onPressed: () async {
+              await versionService.openStore(data);
+            },
+            icon: const Icon(Icons.download, color: Colors.white),
+            label: Text(
+              LocaleKeys.updateNow.tr(),
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox.shrink(); // сам виджет ничего не занимает
+    return const SizedBox.shrink(); // Ничего не занимает в UI
   }
 }

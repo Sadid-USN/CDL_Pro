@@ -119,11 +119,10 @@ class ProfileView extends StatelessWidget {
             ),
           ],
         ),
-        const Spacer(),
-
+        Spacer(),
         Center(
           child: SizedBox(
-            width: MediaQuery.sizeOf(context).width / 5,
+            width: MediaQuery.sizeOf(context).width / 4,
             child: FutureBuilder<String>(
               future: AppVersionUtil.getAppVersion(),
               builder: (context, snapshot) {
