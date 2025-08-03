@@ -58,7 +58,7 @@
   "incorrectEmailOrPassword": "Неверный email или пароль",
   "loginError": "Ошибка входа",
   "logOut": "Выйти",
-  "deleteAccount": "Удалить аккаунт",
+  "deleteAccount": "удалить",
   "rememberMe": "Запомнить меня",
   "logInToSaveProgress": "Войдите в аккаунт, чтобы сохранить прогресс.",
   "dontLoseProgress": "Не теряйте свои достижения! Авторизуйтесь, чтобы сохранить прогресс теста.",
@@ -81,7 +81,7 @@
   "rateUs": "Оцените нас",
   "contactUs": "Свяжитесь с нами",
   "termsOfUse": "Условия использования",
-  "privacyPolicy": "Политика конфиденциальности",
+  "privacyPolicy": "Конфиденциальность",
   "version": "Версия",
   "language": "Язык",
   "selectLanguage": "Выберите язык",
@@ -97,5 +97,6 @@
   "skipButton": "Пропустить",
   "doneButton": "Готово",
   "restorePurchases": "Восстановить покупки",
-  "purchasePremium": "Купить Премиум"
+  "purchasePremium": "Купить Премиум",
+  "copied": "Скопировано"
 }

@@ -167,6 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                     TextButton(
                       onPressed: () {
+                        
                         navigateToPage(
                           context,
                           route: ProfileRoute(),

@@ -58,7 +58,7 @@
   "incorrectEmailOrPassword": "Incorrect Email or Password",
   "loginError": "Login Error",
   "logOut": "Log Out",
-  "deleteAccount": "Delete Account",
+  "deleteAccount": "delete",
   "delete": "Delete",
   "rememberMe": "Remember me",
   "logInToSaveProgress": "Login to save your progress.",
@@ -81,7 +81,7 @@
   "rateUs": "Rate Us",
   "contactUs": "Contact Us",
   "termsOfUse": "Terms of Use",
-  "privacyPolicy": "Privacy Policy",
+  "privacyPolicy": "Privacy",
   "version": "Version",
   "selectLanguage": "Select Language",
   "language": "Language",
@@ -97,5 +97,6 @@
   "skipButton": "Skip",
   "doneButton": "Done",
   "restorePurchases": "Restore Purchases",
-  "purchasePremium": "Purchase Premium"
+  "purchasePremium": "Purchase Premium",
+  "copied": "Copied"
 }

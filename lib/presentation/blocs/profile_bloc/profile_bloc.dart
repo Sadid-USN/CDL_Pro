@@ -45,10 +45,26 @@ class ProfileBloc extends Bloc<AbstractProfileEvent, ProfileState> {
     on<SignOut>(_signOut);
     on<DeleteAccount>(_deleteAccount);
     on<RememberMeChanged>(_onRememberMeChanged);
+    on<TogglePasswordVisibility>(_togglePasswordVisibility);
+     on<ResetAuthError>(_resetAuthError);
 
     if (initializeOnCreate) {
       add(InitializeProfile());
     }
+  }
+
+   Future<void> _resetAuthError(
+    ResetAuthError event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(errorMessage: null));
+  }
+
+  Future<void> _togglePasswordVisibility(
+    TogglePasswordVisibility event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(state.copyWith(obscurePassword: !state.obscurePassword));
   }
 
   // ───────── геттеры ─────────

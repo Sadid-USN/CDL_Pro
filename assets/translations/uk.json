@@ -57,7 +57,7 @@
     "incorrectEmailOrPassword": "Невірний email або пароль",
     "loginError": "Помилка входу",
     "logOut": "Вийти",
-    "deleteAccount": "Видалити акаунт",
+    "deleteAccount": "видалити",
     "rememberMe": "Пам'ятай мене",
     "logInToSaveProgress": "Увійдіть до облікового запису, щоб зберегти прогрес.",
     "dontLoseProgress": "Не втрачайте свої досягнення! Увійдіть, щоб зберегти прогрес тесту.",
@@ -80,7 +80,7 @@
     "rateUs": "Оцініть нас",
     "contactUs": "Зв'яжіться з нами",
     "termsOfUse": "Умови використання",
-    "privacyPolicy": "Політика конфіденційності",
+    "privacyPolicy": "Конфіденційність",
     "version": "Версія",
     "language": "Мова",
     "selectLanguage": "Оберіть мову",
@@ -96,5 +96,6 @@
     "skipButton": "Пропустити",
     "doneButton": "Готово",
     "restorePurchases": "Відновлення покупок",
-    "purchasePremium": "Придбати преміум"
+    "purchasePremium": "Придбати преміум",
+      "copied": "Скопійовано"
 }

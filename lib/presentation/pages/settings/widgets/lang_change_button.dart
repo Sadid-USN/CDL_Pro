@@ -2,6 +2,7 @@ import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cdl_pro/presentation/pages/profile/widgets/widgets.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -31,18 +32,13 @@ class LangChangeButton extends StatelessWidget {
 
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
-        return CustomListTile(
-          isDarkMode: state.isDarkMode,
-          title: LocaleKeys.language.tr(),
-          // subtitle: localBloc.getSelectedLangTitle(state.selectedLang),
-          trailingIcon: Icon(
-            Icons.arrow_forward_ios_rounded,
+        return CustomActionButton(
 
-            color: AppColors.whiteColor,
-          ),
-
+          text: LocaleKeys.language.tr(),
+          trailingIcon: Icons.language_outlined,
           onTap: () {
             showMenu<AppLanguage>(
+           
               context: context,
               position: PopupMenuPositionHelper.getPopupPosition(context),
               items:
@@ -54,7 +50,6 @@ class LangChangeButton extends StatelessWidget {
                   }).toList(),
             ).then((language) {
               if (language != null && context.mounted) {
-                // Передаем context здесь, а не в асинхронном методе
                 _onLanguageSelected(language, context);
               }
             });
@@ -64,8 +59,6 @@ class LangChangeButton extends StatelessWidget {
     );
   }
 }
-
-
 
 // class LangChangeButton extends StatelessWidget {
 //   final SettingsBloc localBloc;

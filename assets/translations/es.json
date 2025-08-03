@@ -58,7 +58,7 @@
   "incorrectEmailOrPassword": "Dirección de correo electrónico o contraseña incorrecta",
   "loginError": "Error de inicio de sesión",
   "logOut": "Cerrar sesión",
-  "deleteAccount": "Eliminar cuenta",
+  "deleteAccount": "borrar",
   "rememberMe": "Acuérdate de mí",
   "logInToSaveProgress": "Inicia sesión para guardar tu progreso.",
   "dontLoseProgress": "¡No pierdas tus logros! Inicia sesión para guardar el progreso del test.",
@@ -81,7 +81,7 @@
   "rateUs": "Califícanos",
   "contactUs": "Contáctanos",
   "termsOfUse": "Términos de uso",
-  "privacyPolicy": "Política de privacidad",
+  "privacyPolicy": "Privacidad",
   "version": "Versión",
   "language": "Idioma",
   "selectLanguage": "Seleccionar idioma",
@@ -97,5 +97,6 @@
   "skipButton": "Omitir",
   "doneButton": "Listo",
     "restorePurchases": "Restaurar compras",
-    "purchasePremium": "Prima de compra"
+    "purchasePremium": "Prima de compra",
+      "copied": "Сopiada"
 }
