@@ -9,7 +9,7 @@ class VersionService {
   VersionService(this.dio);
 
   static const String versionUrl =
-      "https://raw.githubusercontent.com/username/repo/main/version.json";
+      "https://github.com/Sadid-USN/CDL_Pro/blob/main/version.json";
 
   Future<Map<String, dynamic>?> fetchLatestVersion() async {
     try {
