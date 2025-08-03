@@ -88,7 +88,7 @@
   "subscriptionAutoRenew": "La suscripción se renueva automáticamente al final del plazo.",
   "effectiveDate": "Fecha de vigencia: {effectiveDate}",
   "followTheLink": "Sigue el enlace",
-   "welcomeTitle": "¡Bienvenido a CDL Pro!",
+  "welcomeTitle": "¡Bienvenido a CDL Pro!",
   "welcomeBody": "CDL Pro es tu asistente confiable para prepararte para los exámenes del DMV de EE. UU. ¡Soporta varios idiomas para que puedas estudiar cómodamente!",
   "registerTitle": "¡Regístrate!",
   "registerBody": "Inicia sesión en tu cuenta para guardar tu progreso y seguir tus logros en el camino hacia obtener tu CDL.",
@@ -96,7 +96,11 @@
   "startBody": "Practica con nuestros exámenes, estudia las reglas de tráfico y prepárate para el examen del DMV con confianza para obtener tu permiso.",
   "skipButton": "Omitir",
   "doneButton": "Listo",
-    "restorePurchases": "Restaurar compras",
-    "purchasePremium": "Prima de compra",
-      "copied": "Сopiada"
+  "restorePurchases": "Restaurar compras",
+  "purchasePremium": "Prima de compra",
+  "copied": "Сopiada",
+  "updateAvailable": "Actualización disponible",
+  "updateMessage": "Una nueva versión de la aplicación está disponible. Actualiza ahora para disfrutar de las últimas funciones y mejoras.",
+  "later": "Más tarde",
+  "updateNow": "Actualizar ahora"
 }

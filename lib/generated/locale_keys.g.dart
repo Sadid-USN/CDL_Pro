@@ -103,5 +103,9 @@ abstract class  LocaleKeys {
   static const restorePurchases = 'restorePurchases';
   static const purchasePremium = 'purchasePremium';
   static const copied = 'copied';
+  static const updateAvailable = 'updateAvailable';
+  static const updateMessage = 'updateMessage';
+  static const later = 'later';
+  static const updateNow = 'updateNow';
 
 }

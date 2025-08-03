@@ -47,33 +47,38 @@ class MainPage extends StatelessWidget {
                 centerTitle: true,
                 title: Padding(
                   padding: EdgeInsets.only(top: 10.h),
-                  child: AnimatedTextKit(
-                    //! BUTTON FOR TESTIN OnBoardingPage
-                    // ElevatedButton(
-                    //   onPressed: () async {
-                    //     await context
-                    //         .read<OnboardingCubit>()
-                    //         .resetOnboarding();
-                    //     if (context.mounted) {
-                    //       ScaffoldMessenger.of(context).showSnackBar(
-                    //         const SnackBar(
-                    //           content: Text('Onboarding reset!'),
-                    //         ),
-                    //       );
-                    //     }
-                    //   },
-                    //   child: Text('Reset boarding'),
-                    // ),
-                    animatedTexts: [
-                      ColorizeAnimatedText(
-                        'CDL Pro',
-                        textStyle: AppTextStyles.merriweatherBold20,
+                  child: Column(
+                    children: [
+                      VersionUpdateBanner(),
+                      AnimatedTextKit(
+                        //! BUTTON FOR TESTIN OnBoardingPage
+                        // ElevatedButton(
+                        //   onPressed: () async {
+                        //     await context
+                        //         .read<OnboardingCubit>()
+                        //         .resetOnboarding();
+                        //     if (context.mounted) {
+                        //       ScaffoldMessenger.of(context).showSnackBar(
+                        //         const SnackBar(
+                        //           content: Text('Onboarding reset!'),
+                        //         ),
+                        //       );
+                        //     }
+                        //   },
+                        //   child: Text('Reset boarding'),
+                        // ),
+                        animatedTexts: [
+                          ColorizeAnimatedText(
+                            'CDL Pro',
+                            textStyle: AppTextStyles.merriweatherBold20,
 
-                        colors: colorizeColors,
+                            colors: colorizeColors,
+                          ),
+                        ],
+                        isRepeatingAnimation: true,
+                        totalRepeatCount: 3,
                       ),
                     ],
-                    isRepeatingAnimation: true,
-                    totalRepeatCount: 3,
                   ),
                 ),
               ),

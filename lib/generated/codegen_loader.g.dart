@@ -114,7 +114,11 @@ class CodegenLoader extends AssetLoader{
   "doneButton": "Готово",
   "restorePurchases": "Восстановить покупки",
   "purchasePremium": "Купить Премиум",
-  "copied": "Скопировано"
+  "copied": "Скопировано",
+  "updateAvailable": "Доступно обновление",
+  "updateMessage": "Доступна новая версия приложения. Обновитесь сейчас, чтобы получить новые функции и улучшения.",
+  "later": "Позже",
+  "updateNow": "Обновить сейчас"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -215,7 +219,11 @@ static const Map<String,dynamic> _uk = {
   "doneButton": "Готово",
   "restorePurchases": "Відновлення покупок",
   "purchasePremium": "Придбати преміум",
-  "copied": "Скопійовано"
+  "copied": "Скопійовано",
+  "updateAvailable": "Доступне оновлення",
+  "updateMessage": "Доступна нова версія програми. Оновіться зараз, щоб отримати нові функції та покращення.",
+  "later": "Пізніше",
+  "updateNow": "Оновити зараз"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -317,7 +325,11 @@ static const Map<String,dynamic> _en = {
   "doneButton": "Done",
   "restorePurchases": "Restore Purchases",
   "purchasePremium": "Purchase Premium",
-  "copied": "Copied"
+  "copied": "Copied",
+  "updateAvailable": "Update Available",
+  "updateMessage": "A new version of the app is available. Update now to enjoy the latest features and improvements.",
+  "later": "Later",
+  "updateNow": "Update Now"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -419,7 +431,11 @@ static const Map<String,dynamic> _es = {
   "doneButton": "Listo",
   "restorePurchases": "Restaurar compras",
   "purchasePremium": "Prima de compra",
-  "copied": "Сopiada"
+  "copied": "Сopiada",
+  "updateAvailable": "Actualización disponible",
+  "updateMessage": "Una nueva versión de la aplicación está disponible. Actualiza ahora para disfrutar de las últimas funciones y mejoras.",
+  "later": "Más tarde",
+  "updateNow": "Actualizar ahora"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

@@ -33,41 +33,7 @@ class ProfileView extends StatelessWidget {
 
         return Column(
           children: [
-            if (needsUpdate)
-              Container(
-                padding: const EdgeInsets.all(12),
-                margin:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                decoration: BoxDecoration(
-                  color: Colors.redAccent,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.system_update, color: Colors.white),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        "A new version is available. Please update the app!",
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () async {
-                        final data =
-                            await versionService.fetchLatestVersion();
-                        if (data != null) {
-                          await versionService.openStore(data);
-                        }
-                      },
-                      child: const Text(
-                        "Update",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            if (needsUpdate) VersionUpdateBanner(),
 
             UserProfileHeader(
               photoUrl: user.photoURL,
@@ -126,33 +92,32 @@ class ProfileView extends StatelessWidget {
                   onTap: () async {
                     final confirmed = await showDialog<bool>(
                       context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text(
-                          LocaleKeys.attention.tr(),
-                          style: AppTextStyles.regular14.copyWith(
-                            color: AppColors.errorColor,
-                          ),
-                        ),
-                        content: Text(
-                          LocaleKeys.deleteAccountAlert.tr(),
-                          style: AppTextStyles.regular12,
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () =>
-                                Navigator.pop(context, false),
-                            child: Text(LocaleKeys.cancel.tr()),
-                          ),
-                          TextButton(
-                            onPressed: () =>
-                                Navigator.pop(context, true),
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.red,
+                      builder:
+                          (context) => AlertDialog(
+                            title: Text(
+                              LocaleKeys.attention.tr(),
+                              style: AppTextStyles.regular14.copyWith(
+                                color: AppColors.errorColor,
+                              ),
                             ),
-                            child: Text(LocaleKeys.delete.tr()),
+                            content: Text(
+                              LocaleKeys.deleteAccountAlert.tr(),
+                              style: AppTextStyles.regular12,
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, false),
+                                child: Text(LocaleKeys.cancel.tr()),
+                              ),
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, true),
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Colors.red,
+                                ),
+                                child: Text(LocaleKeys.delete.tr()),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
                     );
 
                     if (confirmed == true && context.mounted) {
