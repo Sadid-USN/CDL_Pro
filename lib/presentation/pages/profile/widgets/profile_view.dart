@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -23,72 +24,109 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final email = user.email ?? '';
+    final versionService = GetIt.I<VersionService>();
 
-    return Column(
-      children: [
-        UserProfileHeader(
-          photoUrl: user.photoURL,
-          displayName: user.displayName ?? '',
-          email: user.email ?? '',
-          uid: user.uid,
-          isGoogleUser: user.providerData.any(
-            (info) => info.providerId == 'google.com',
-          ),
-          initials:
-              email.isNotEmpty ? email.substring(0, 2).toUpperCase() : 'US',
-        ),
-        SizedBox(height: 16.h),
-        Column(
+    return FutureBuilder<bool>(
+      future: versionService.isUpdateRequired(),
+      builder: (context, snapshot) {
+        final needsUpdate = snapshot.data ?? false;
+
+        return Column(
           children: [
-            CustomActionButton(
-              text: LocaleKeys.privacyPolicy.tr(),
-              leadingIcon: Icons.privacy_tip_outlined,
-              onTap: () {
-                navigateToPage(
-                  context,
-                  route: PolicyRoute(type: PolicyType.privacyPolicy),
-                );
-              },
-              trailingIcon: null,
-            ),
-            CustomActionButton(
-              text: LocaleKeys.termsOfUse.tr(),
-              leadingIcon: Icons.description_outlined,
-              onTap: () {
-                navigateToPage(
-                  context,
-                  route: PolicyRoute(type: PolicyType.termsOfUse),
-                );
-              },
-              trailingIcon: null,
-            ),
-            CustomActionButton(
-              text: LocaleKeys.contactUs.tr(),
-              leadingIcon: Icons.email_outlined,
-              onTap: () {
-                AppLauncher.contactUs();
-              },
-              trailingIcon: null,
-            ),
-            CustomActionButton(
-              text: LocaleKeys.logOut.tr(),
-              leadingIcon: Icons.logout,
-              onTap: () {
-                context.read<ProfileBloc>().add(SignOut());
-                _showPlatformSnackBar(context);
-              },
-              trailingIcon: null,
-            ),
+            if (needsUpdate)
+              Container(
+                padding: const EdgeInsets.all(12),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.system_update, color: Colors.white),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        "A new version is available. Please update the app!",
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        final data =
+                            await versionService.fetchLatestVersion();
+                        if (data != null) {
+                          await versionService.openStore(data);
+                        }
+                      },
+                      child: const Text(
+                        "Update",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
-            CustomActionButton(
-              text: LocaleKeys.deleteAccount.tr(),
-              leadingIcon: Icons.delete_outline,
-              isDestructive: true,
-              onTap: () async {
-                final confirmed = await showDialog<bool>(
-                  context: context,
-                  builder:
-                      (context) => AlertDialog(
+            UserProfileHeader(
+              photoUrl: user.photoURL,
+              displayName: user.displayName ?? '',
+              email: user.email ?? '',
+              uid: user.uid,
+              isGoogleUser: user.providerData.any(
+                (info) => info.providerId == 'google.com',
+              ),
+              initials:
+                  email.isNotEmpty ? email.substring(0, 2).toUpperCase() : 'US',
+            ),
+            SizedBox(height: 16.h),
+
+            Column(
+              children: [
+                CustomActionButton(
+                  text: LocaleKeys.privacyPolicy.tr(),
+                  leadingIcon: Icons.privacy_tip_outlined,
+                  onTap: () {
+                    navigateToPage(
+                      context,
+                      route: PolicyRoute(type: PolicyType.privacyPolicy),
+                    );
+                  },
+                ),
+                CustomActionButton(
+                  text: LocaleKeys.termsOfUse.tr(),
+                  leadingIcon: Icons.description_outlined,
+                  onTap: () {
+                    navigateToPage(
+                      context,
+                      route: PolicyRoute(type: PolicyType.termsOfUse),
+                    );
+                  },
+                ),
+                CustomActionButton(
+                  text: LocaleKeys.contactUs.tr(),
+                  leadingIcon: Icons.email_outlined,
+                  onTap: () {
+                    AppLauncher.contactUs();
+                  },
+                ),
+                CustomActionButton(
+                  text: LocaleKeys.logOut.tr(),
+                  leadingIcon: Icons.logout,
+                  onTap: () {
+                    context.read<ProfileBloc>().add(SignOut());
+                    _showPlatformSnackBar(context);
+                  },
+                ),
+                CustomActionButton(
+                  text: LocaleKeys.deleteAccount.tr(),
+                  leadingIcon: Icons.delete_outline,
+                  isDestructive: true,
+                  onTap: () async {
+                    final confirmed = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
                         title: Text(
                           LocaleKeys.attention.tr(),
                           style: AppTextStyles.regular14.copyWith(
@@ -101,11 +139,13 @@ class ProfileView extends StatelessWidget {
                         ),
                         actions: [
                           TextButton(
-                            onPressed: () => Navigator.pop(context, false),
+                            onPressed: () =>
+                                Navigator.pop(context, false),
                             child: Text(LocaleKeys.cancel.tr()),
                           ),
                           TextButton(
-                            onPressed: () => Navigator.pop(context, true),
+                            onPressed: () =>
+                                Navigator.pop(context, true),
                             style: TextButton.styleFrom(
                               foregroundColor: Colors.red,
                             ),
@@ -113,33 +153,35 @@ class ProfileView extends StatelessWidget {
                           ),
                         ],
                       ),
-                );
+                    );
 
-                if (confirmed == true && context.mounted) {
-                  context.read<ProfileBloc>().add(DeleteAccount());
-                }
-              },
+                    if (confirmed == true && context.mounted) {
+                      context.read<ProfileBloc>().add(DeleteAccount());
+                    }
+                  },
+                ),
+              ],
+            ),
+            const Spacer(),
+
+            Center(
+              child: SizedBox(
+                width: MediaQuery.sizeOf(context).width / 5,
+                child: FutureBuilder<String>(
+                  future: AppVersionUtil.getAppVersion(),
+                  builder: (context, snapshot) {
+                    return CustomActionButton(
+                      text: snapshot.data ?? '--',
+                      trailingIcon: null,
+                      onTap: null,
+                    );
+                  },
+                ),
+              ),
             ),
           ],
-        ),
-        Spacer(),
-
-        Center(
-          child: SizedBox(
-            width: MediaQuery.sizeOf(context).width / 5,
-            child: FutureBuilder<String>(
-              future: AppVersionUtil.getAppVersion(),
-              builder: (context, snapshot) {
-                return CustomActionButton(
-                  text: snapshot.data ?? '--',
-                  trailingIcon: null,
-                  onTap: null,
-                );
-              },
-            ),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 
@@ -150,7 +192,7 @@ class ProfileView extends StatelessWidget {
         CustomSnackBar.success(
           message: LocaleKeys.loggedOutText.tr(),
           backgroundColor: AppColors.lightPrimary,
-          textStyle: TextStyle(color: Colors.white),
+          textStyle: const TextStyle(color: Colors.white),
         ),
       );
     } else {
@@ -160,7 +202,7 @@ class ProfileView extends StatelessWidget {
         CustomSnackBar.success(
           message: LocaleKeys.loggedOutText.tr(),
           backgroundColor: AppColors.lightPrimary,
-          textStyle: TextStyle(color: Colors.white),
+          textStyle: const TextStyle(color: Colors.white),
         ),
       );
     }
