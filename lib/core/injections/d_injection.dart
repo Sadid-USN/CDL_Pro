@@ -1,3 +1,4 @@
+import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/data/impl/impl.dart';
 import 'package:cdl_pro/domain/domain.dart';
@@ -38,6 +39,8 @@ Future<void> initDependencies() async {
 
   await EasyLocalization.ensureInitialized();
 
+
+
   /* ───────────────  FIREBASE CORE  ─────────────── */
   await Firebase.initializeApp();
   // if (Platform.isAndroid) {
@@ -66,6 +69,11 @@ Future<void> initDependencies() async {
       ),
     ),
   );
+
+
+  // ───────────────  VersionService  ─────────────── 
+getIt.registerLazySingleton<VersionService>(() => VersionService(dio));
+
 
   /* ───────────────  Flutter Error Hook  ─────────────── */
   FlutterError.onError =
