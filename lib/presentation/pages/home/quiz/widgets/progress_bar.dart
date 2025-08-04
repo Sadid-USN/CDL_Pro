@@ -21,6 +21,8 @@ class ProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+      final progress = allQuestions > 0 ? (questionNumber - 1) / allQuestions : 0;
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: EdgeInsets.only(left: 8.w, bottom: 2.h, top: 2.h),
@@ -31,28 +33,57 @@ class ProgressBar extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(8.r),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '$questionNumber ${LocaleKeys.outOf.tr()} $allQuestions/',
-                style: AppTextStyles.robotoMono16,
+              Row(
+                children: [
+                  Text(
+                    '$questionNumber ${LocaleKeys.outOf.tr()} $allQuestions/',
+                    style: AppTextStyles.robotoMono16,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    '$incorrectCount',
+                    style: AppTextStyles.robotoMono16.copyWith(
+                      color: Colors.red,
+                    ),
+                  ),
+                  Text(
+                    '/$correctCount',
+                    style: AppTextStyles.robotoMono16.copyWith(
+                      color: Colors.green,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(width: 4),
-              Text(
-                '$incorrectCount',
-                style: AppTextStyles.robotoMono16.copyWith(color: Colors.red),
-              ),
-              Text(
-                '/$correctCount',
-                style: AppTextStyles.robotoMono16.copyWith(color: Colors.green),
-              ),
+
+              const ResetButton(),
             ],
           ),
+          SizedBox(height: 5.h,),
 
-          const ResetButton(),
+          Padding(
+            padding:  EdgeInsets.only(right: 8.w),
+            child: TweenAnimationBuilder(
+              tween: Tween<double>(begin: progress.toDouble(), end: progress.toDouble()),
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOut,
+              builder: (context, value, _) {
+                return LinearProgressIndicator(
+                  value: value,
+                  backgroundColor: AppColors.subtleBlack,
+                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.simpleGreen),
+                  minHeight: 6.h,
+                  borderRadius: BorderRadius.circular(4.r),
+                );
+              },
+            ),
+          ),
+        
+        
         ],
       ),
     );

@@ -61,19 +61,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     // on<SetUserUidEvent>(_onSetUid);
   }
 
-  // CHANGED: удаляем обработчик события SetUserUidEvent
-  /*
-  void _onSetUid(SetUserUidEvent event, Emitter<AbstractCDLTestsState> emit) {
-    _uid = event.uid;
-    // При смене пользователя сбрасываем состояние
-    _currentQuestionIndex = 0;
-    _userAnswers = {};
-    _quizCompleted = false;
-    _currentSubcategory = null;
-    _currentQuizId = null;
-    _emitLoaded(emit);
-  }
-  */
+
   String generateQuizIdForQuestions(List<Question> questions, String subcategory) {
     return _generateQuizId(questions, subcategory);
   }
@@ -134,6 +122,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
       _clearLocalProgress(_currentSubcategory, _currentQuizId);
     }
     _emitLoaded(emit);
+    
   }
 
   void _onAnswerQuestion(

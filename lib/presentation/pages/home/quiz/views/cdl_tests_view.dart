@@ -172,7 +172,6 @@ class _CategoryCard extends StatelessWidget {
 
   const _CategoryCard({
     required this.image,
-
     required this.title,
     required this.totalQuestions,
     required this.freeQuestions,
@@ -181,72 +180,80 @@ class _CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(image),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.black.withValues(alpha: 0.2),
-            BlendMode.darken, // или multiply, overlay и др.
-          ),
-        ),
-        borderRadius: BorderRadius.circular(12),
-      ),
+    return Material(
+      elevation: 1.5,
+      borderRadius: BorderRadius.circular(100.r), // Circular shape
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(100.r),
         onTap: onTap,
-        child: Padding(
-          padding: EdgeInsets.all(12.r),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-
+        child: Container(
+          height: 100.h, // Match the height of ElevatedContainer
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(60.r),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [AppColors.greyshade400, AppColors.lightPrimary],
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              DecoratedBox(
+        
+              Container(
+                margin: EdgeInsets.only(left: 10.w, right: 10.w),
+                width: 70.w,
+                height: 70.w,
                 decoration: BoxDecoration(
-                  color: AppColors.softBlack.withValues(alpha: 0.5),
-                  borderRadius: BorderRadius.circular(
-                    8,
-                  ), // Закругление 8 градусов
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 5,
-                  ), // Отступы для текста
-                  child: Text(
-                    title,
-                    style: AppTextStyles.regular16.copyWith(
-                      color: AppColors.lightBackground,
-                    ),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(image),
+                    fit: BoxFit.cover,
                   ),
+                  border: Border.all(color: Colors.white, width: 2.w),
                 ),
               ),
-              SizedBox(height: 20.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  _buildInfoChip(
-                    premium: true,
-                    LocaleKeys.total.tr(
-                      namedArgs: {"totalQuestions": "$totalQuestions"},
-                    ),
 
-                    // 'Total: $totalQuestions'
-                    AppColors.darkBackground,
-                  ),
-                  SizedBox(width: 5.w),
-                  _buildInfoChip(
-                    LocaleKeys.free.tr(
-                      namedArgs: {"freeQuestions": "$freeQuestions"},
+             SizedBox(width: 10.w,),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title
+                    Text(
+                      title,
+                      style: AppTextStyles.merriweather14.copyWith(
+                        color: AppColors.lightBackground,
+                      ),
                     ),
-                    AppColors.lightPrimary,
-
-                    // 'Free: $freeQuestions',
-                  ),
-                ],
+                
+                    SizedBox(height: 10.h),
+                
+                    // Chips row
+                    Row(
+                      children: [
+                        _buildInfoChip(
+                          premium: true,
+                          LocaleKeys.total.tr(
+                            namedArgs: {"totalQuestions": "$totalQuestions"},
+                          ),
+                          AppColors.black54
+                        ),
+                        SizedBox(width: 5.w),
+                        _buildInfoChip(
+                          LocaleKeys.free.tr(
+                            namedArgs: {"freeQuestions": "$freeQuestions"},
+                          ),
+                       AppColors.black54
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+
+              SizedBox(width: 10.w),
             ],
           ),
         ),
@@ -263,25 +270,22 @@ class _CategoryCard extends StatelessWidget {
           if (premium)
             SvgPicture.asset(
               AppLogos.premium,
-              height: 15.h,
+              height: 12.h,
               colorFilter: ColorFilter.mode(
                 AppColors.goldenSoft,
                 BlendMode.srcIn,
               ),
             ),
-
-          // Подстрой цвет под фон
           SizedBox(width: 4.w),
           Text(
             text,
-            style: AppTextStyles.robotoMono10.copyWith(
+            style: AppTextStyles.bold8.copyWith(
               color: AppColors.lightBackground,
             ),
           ),
         ],
       ),
       side: BorderSide.none,
-      // padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
