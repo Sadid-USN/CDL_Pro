@@ -20,6 +20,7 @@ class AppTextStyles {
       );
 
   // Готовые стили
+  static final bold8 = bold(8.sp);
   static final bold12 = bold(12.sp);
   static final bold14 = bold(14.sp);
   static final bold16 = bold(16.sp);

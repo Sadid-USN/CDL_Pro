@@ -4,14 +4,11 @@ import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/purchase/purchase.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
-import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
-
 
 @RoutePage()
 class OverviewCategoryPage extends StatefulWidget {
@@ -34,7 +31,6 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
     context.read<PurchaseBloc>().add(CheckPastPurchases());
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -89,141 +85,22 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
                 padding: EdgeInsets.only(bottom: 50.h),
                 itemCount: cards.length + 1,
                 itemBuilder: (context, index) {
-                  if (index == cards.length) {
-                    return Card(
-                      child: ListTile(
-                        leading: Text(
-                          "#$totalQuestions",
-                          style: AppTextStyles.robotoMonoBold12,
-                        ),
-                        title: Text(LocaleKeys.allQuestions.tr()),
-                        subtitle: Text(
-                          '1-$totalQuestions',
-                          style: AppTextStyles.robotoMono10,
-                        ),
-                        trailing:
-                            !isPremium
-                                ? SvgPicture.asset(
-                                  AppLogos.lockClosed,
-                                  height: 25.h,
-                                  colorFilter: const ColorFilter.mode(
-                                    AppColors.softBlack,
-                                    BlendMode.srcIn,
-                                  ),
-                                )
-                                : const Icon(Icons.arrow_forward_ios),
-                        onTap: () {
-                          if (isPremium) {
-                            final questions = _getQuestionsForRange(
-                              questionsMap,
-                              1,
-                              totalQuestions,
-                            );
-                            navigateToPage(
-                              context,
-                              route: QuizRoute(
-                                chapterTitle: title,
-                                startIndex: 1,
-                                questions: questions,
-                                categoryKey: widget.categoryKey!,
-                                model: widget.model!,
-                              ),
-                              replace: true,
-                            );
-                          } else {
-                            _showPremiumSheet(context);
-                          }
-                        },
-                      ),
-                    );
-                  }
-
-                  final card = cards[index];
-                  final questions = _getQuestionsForRange(
-                    questionsMap,
-                    card.startIndex,
-                    card.endIndex,
-                  );
-
-                  return Card(
-                    margin: const EdgeInsets.only(bottom: 12),
-                    child: ListTile(
-                      leading: Text(
-                        '#${index + 1}',
-                        style: AppTextStyles.robotoMono12,
-                      ),
-                      title: Text(card.title),
-                      subtitle: Row(
-                        
-                        children: [
-                          Text(card.range, style: AppTextStyles.robotoMono10),
-                          SizedBox(width: 20.w,),
-                          BuildProgressIndicator(
-                            subcategory: widget.categoryKey!,
-                            questions: questions,
-                            categoryKey: widget.categoryKey!,
-                          ),
-                        ],
-                      ),
-                      trailing:
-                          card.isLocked
-                              ? SvgPicture.asset(
-                                AppLogos.lockClosed,
-                                height: 25.h,
-                                colorFilter: const ColorFilter.mode(
-                                  AppColors.lightPrimary,
-                                  BlendMode.srcIn,
-                                ),
-                              )
-                              : const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        if (!card.isLocked) {
-                          navigateToPage(
-                            context,
-                            route: QuizRoute(
-                              chapterTitle: title,
-                              startIndex: card.startIndex,
-                              questions: _getQuestionsForRange(
-                                questionsMap,
-                                card.startIndex,
-                                card.endIndex,
-                              ),
-                              categoryKey: widget.categoryKey!,
-                              model: widget.model!,
-                            ),
-                            replace: true,
-                          );
-                        } else {
-                          _showPremiumSheet(context);
-                        }
-                      },
-                    ),
+                  return QuizSectionItems(
+                    isPremium: isPremium,
+                    title: title,
+                    categoryKey: widget.categoryKey!,
+                    questionsMap: questionsMap,
+                    totalQuestions: totalQuestions,
+                    cards: cards,
+                    index: index,
+                    model: widget.model!,
+                    context: context,
                   );
                 },
               );
         },
       ),
     );
-  }
-
-  List<Question> _getQuestionsForRange(
-    Map<String, dynamic> questionsMap,
-    int startIndex,
-    int endIndex,
-  ) {
-    final questionIds = questionsMap.keys.toList();
-    final limitedIds = questionIds.sublist(startIndex - 1, endIndex);
-    return limitedIds.map((id) {
-      final questionData = questionsMap[id];
-
-      if (questionData is Map<String, dynamic>) {
-        return Question.fromJson(questionData, key: '');
-      } else if (questionData is Question) {
-        return questionData;
-      } else {
-        throw Exception('Invalid question data format for id $id');
-      }
-    }).toList();
   }
 
   dynamic _getCategoryByKey(Chapters chapters, String key) {
@@ -262,14 +139,6 @@ class _OverviewCategoryPageState extends State<OverviewCategoryPage> {
       default:
         return key;
     }
-  }
-
-  void _showPremiumSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (context) => PremiumBottomSheet(),
-    );
   }
 
   List<CardItem> _generateCardItems(

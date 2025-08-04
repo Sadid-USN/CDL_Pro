@@ -5,6 +5,7 @@ import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -59,24 +60,32 @@ class BuildProgressIndicator extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(text: '🕗 ', style: AppTextStyles.robotoMono12),
-          TextSpan(
-            text: '$totalQuestions / ',
-            style: AppTextStyles.robotoMono12,
-          ),
-          TextSpan(
-            text: '$wrongCount ',
-            style: AppTextStyles.robotoMono12.copyWith(color: Colors.red),
-          ),
-          TextSpan(text: ' / ', style: AppTextStyles.merriweather12),
-          TextSpan(
-            text: ' $correctCount',
-            style: AppTextStyles.robotoMono12.copyWith(color: Colors.green),
-          ),
-        ],
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.r),
+        color: Colors.grey.shade200,
+      ),
+      height: 25,
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(text: '🕗 ', style: AppTextStyles.robotoMono12),
+            TextSpan(
+              text: '$totalQuestions / ',
+              style: AppTextStyles.robotoMono12,
+            ),
+            TextSpan(
+              text: '$wrongCount ',
+              style: AppTextStyles.robotoMono12.copyWith(color: Colors.red),
+            ),
+            TextSpan(text: ' / ', style: AppTextStyles.merriweather12),
+            TextSpan(
+              text: ' $correctCount',
+              style: AppTextStyles.robotoMono12.copyWith(color: Colors.green),
+            ),
+          ],
+        ),
       ),
     );
   }
