@@ -129,6 +129,7 @@ class _QuizPageContent extends StatelessWidget {
         chapterTitle: chapterTitle,
         questions: questions,
         startIndex: startIndex,
+        categoryKey: categoryKey,
       );
     }
     return const Center(child: CircularProgressIndicator());
@@ -201,6 +202,7 @@ class SingleQuestionView extends StatelessWidget {
   final String chapterTitle;
   final List<Question> questions;
   final int startIndex;
+  final String categoryKey;
 
   const SingleQuestionView({
     super.key,
@@ -209,6 +211,7 @@ class SingleQuestionView extends StatelessWidget {
     required this.chapterTitle,
     required this.questions,
     required this.startIndex,
+    required this.categoryKey,
   });
 
   @override
@@ -249,6 +252,11 @@ class SingleQuestionView extends StatelessWidget {
           isFirstQuestion: state.currentPage == 0,
           isLastQuestion: state.currentPage == state.allQuestions.length - 1,
           isAnswered: isAnswered,
+          chapterTitle: chapterTitle,
+          categoryKey: categoryKey,
+          model: model,
+          allQuestions: state.allQuestions,
+          userAnswers: state.userAnswers,
         ),
       ],
     );
