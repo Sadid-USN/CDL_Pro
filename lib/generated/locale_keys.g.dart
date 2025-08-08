@@ -107,5 +107,6 @@ abstract class  LocaleKeys {
   static const updateMessage = 'updateMessage';
   static const later = 'later';
   static const updateNow = 'updateNow';
+  static const workOnMistakes = 'workOnMistakes';
 
 }

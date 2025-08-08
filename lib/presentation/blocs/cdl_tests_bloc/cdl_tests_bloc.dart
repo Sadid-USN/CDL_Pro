@@ -4,6 +4,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   String? _currentQuizId;
   String? _currentSubcategory;
   bool _ignoreProgressLoadOnce = false;
+  List<Question> _mistakeQuestions = [];
+  List<Question> get mistakeQuestions => _mistakeQuestions;
 
   Timer? _timer;
   Duration _elapsedTime = Duration.zero;
@@ -60,6 +63,37 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     // CHANGED: удаляем SetUserUidEvent
     // on<SetUserUidEvent>(_onSetUid);
   }
+
+  
+void _collectMistakes() {
+  _mistakeQuestions = _quizQuestions.where((q) {
+    final userAnswer = _userAnswers[q.question];
+    return userAnswer != null && userAnswer != q.correctOption;
+  }).toList();
+}
+
+
+void workOnMistakes(
+  BuildContext context, {
+  required String chapterTitle,
+  required String categoryKey,
+  required TestsDataModel model,
+}) {
+  if (_mistakeQuestions.isEmpty) return;
+
+  navigateToPage(
+    context,
+    route: QuizRoute( // ← твой сгенерированный AutoRoute
+      chapterTitle: chapterTitle,
+      questions: _mistakeQuestions,
+      startIndex: 0,
+      categoryKey: categoryKey,
+      model: model,
+    ),
+  );
+}
+
+
 
 
   String generateQuizIdForQuestions(List<Question> questions, String subcategory) {
