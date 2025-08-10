@@ -103,5 +103,6 @@
   "updateMessage": "Una nueva versión de la aplicación está disponible. Actualiza ahora para disfrutar de las últimas funciones y mejoras.",
   "later": "Más tarde",
   "updateNow": "Actualizar ahora",
-  "workOnMistakes": "Trabajar en los errores"
+  "workOnMistakes": "Trabajar en los errores",
+  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?"
 }

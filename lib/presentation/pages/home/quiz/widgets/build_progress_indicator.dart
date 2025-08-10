@@ -79,7 +79,7 @@ class BuildProgressIndicator extends StatelessWidget {
               text: '$wrongCount ',
               style: AppTextStyles.robotoMono10.copyWith(color: Colors.red),
             ),
-            TextSpan(text: ' /', style: AppTextStyles.robotoMono10),
+            TextSpan(text:'/', style: AppTextStyles.robotoMono10),
             TextSpan(
               text: ' $correctCount',
               style: AppTextStyles.robotoMono10.copyWith(color: Colors.green),

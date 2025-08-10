@@ -141,7 +141,7 @@ class NextBackButtons extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.r),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -155,20 +155,22 @@ class NextBackButtons extends StatelessWidget {
                           ? Icons.emoji_events_rounded
                           : Icons.error_outline_rounded,
                       size: 70.sp,
-                      color: passed ? AppColors.simpleGreen : AppColors.errorColor,
+                      color:
+                          passed ? AppColors.simpleGreen : AppColors.errorColor,
                     ),
                     SizedBox(height: 16.h),
                     Text(
                       passed
                           ? LocaleKeys.congratulations.tr()
                           : LocaleKeys.sorryYouFailed.tr(),
-                      style: passed
-                          ? AppTextStyles.merriweatherBold16.copyWith(
-                              color: AppColors.simpleGreen,
-                            )
-                          : AppTextStyles.merriweatherBold16.copyWith(
-                              color: AppColors.errorColor,
-                            ),
+                      style:
+                          passed
+                              ? AppTextStyles.merriweatherBold16.copyWith(
+                                color: AppColors.simpleGreen,
+                              )
+                              : AppTextStyles.merriweatherBold16.copyWith(
+                                color: AppColors.errorColor,
+                              ),
                       textAlign: TextAlign.center,
                     ),
                     if (!passed) ...[
@@ -205,10 +207,11 @@ class NextBackButtons extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            final mistakeQuestions = allQuestions.where((q) {
-                              final ans = userAnswers[q.question];
-                              return ans != null && ans != q.correctOption;
-                            }).toList();
+                            final mistakeQuestions =
+                                allQuestions.where((q) {
+                                  final ans = userAnswers[q.question];
+                                  return ans != null && ans != q.correctOption;
+                                }).toList();
 
                             if (mistakeQuestions.isEmpty) return;
 
@@ -224,7 +227,10 @@ class NextBackButtons extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.errorColor,
+                            backgroundColor:
+                                errorRate < 0.1
+                                    ? AppColors.simpleGreen
+                                    : AppColors.errorColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r),
                             ),

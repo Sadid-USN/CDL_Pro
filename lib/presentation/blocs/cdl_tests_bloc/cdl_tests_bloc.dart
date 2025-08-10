@@ -29,7 +29,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   String? _currentQuizId;
   String? _currentSubcategory;
   bool _ignoreProgressLoadOnce = false;
-  List<Question> _mistakeQuestions = [];
+  final List<Question> _mistakeQuestions = [];
   List<Question> get mistakeQuestions => _mistakeQuestions;
 
   Timer? _timer;
@@ -43,7 +43,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
   // ───────────────────────────────── CONSTRUCTOR ─────────────────────────────
   CDLTestsBloc(this._prefs, this._firestore, this._userHolder)
-      : super(CDLTestsInitial()) {
+    : super(CDLTestsInitial()) {
     // Quiz navigation
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
@@ -58,47 +58,35 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     // Timer
     on<StartTimerEvent>(_onStartTimer);
     on<StopTimerEvent>(_onStopTimer);
-
-    // Auth
-    // CHANGED: удаляем SetUserUidEvent
-    // on<SetUserUidEvent>(_onSetUid);
   }
 
-  
-void _collectMistakes() {
-  _mistakeQuestions = _quizQuestions.where((q) {
-    final userAnswer = _userAnswers[q.question];
-    return userAnswer != null && userAnswer != q.correctOption;
-  }).toList();
-}
+  void workOnMistakes(
+    BuildContext context, {
+    required String chapterTitle,
+    required String categoryKey,
+    required TestsDataModel model,
+  }) {
+    if (_mistakeQuestions.isEmpty) return;
 
+    navigateToPage(
+      context,
+      route: QuizRoute(
+        chapterTitle: chapterTitle,
+        questions: _mistakeQuestions,
+        startIndex: 0,
+        categoryKey: categoryKey,
+        model: model,
+      ),
+    );
+  }
 
-void workOnMistakes(
-  BuildContext context, {
-  required String chapterTitle,
-  required String categoryKey,
-  required TestsDataModel model,
-}) {
-  if (_mistakeQuestions.isEmpty) return;
-
-  navigateToPage(
-    context,
-    route: QuizRoute( // ← твой сгенерированный AutoRoute
-      chapterTitle: chapterTitle,
-      questions: _mistakeQuestions,
-      startIndex: 0,
-      categoryKey: categoryKey,
-      model: model,
-    ),
-  );
-}
-
-
-
-
-  String generateQuizIdForQuestions(List<Question> questions, String subcategory) {
+  String generateQuizIdForQuestions(
+    List<Question> questions,
+    String subcategory,
+  ) {
     return _generateQuizId(questions, subcategory);
   }
+
   // ──────────────────────────────── TIMER CONTROL ────────────────────────────
   void _onStartTimer(
     StartTimerEvent event,
@@ -156,7 +144,6 @@ void workOnMistakes(
       _clearLocalProgress(_currentSubcategory, _currentQuizId);
     }
     _emitLoaded(emit);
-    
   }
 
   void _onAnswerQuestion(
@@ -270,9 +257,10 @@ void workOnMistakes(
 
     _currentQuestionIndex = _prefs.getInt('${baseKey}_currentPage') ?? 0;
     final answersString = _prefs.getString('${baseKey}_userAnswers');
-    _userAnswers = answersString != null
-        ? Map<String, String>.from(jsonDecode(answersString))
-        : {};
+    _userAnswers =
+        answersString != null
+            ? Map<String, String>.from(jsonDecode(answersString))
+            : {};
     _selectedLanguage = _prefs.getString('${baseKey}_language') ?? 'en';
     _elapsedTime = Duration(
       seconds: _prefs.getInt('${baseKey}_elapsedTime') ?? 0,
@@ -349,12 +337,13 @@ void workOnMistakes(
     final collectionName = _getCollectionNameByLanguage(langCode);
 
     try {
-      final snapshot = await _firestore
-          .collection(collectionName)
-          .doc(uid)
-          .collection(collectionName)
-          .doc(quizId)
-          .get();
+      final snapshot =
+          await _firestore
+              .collection(collectionName)
+              .doc(uid)
+              .collection(collectionName)
+              .doc(quizId)
+              .get();
 
       if (!snapshot.exists) return;
 
@@ -419,5 +408,3 @@ void workOnMistakes(
     return super.close();
   }
 }
-
-

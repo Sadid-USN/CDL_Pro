@@ -108,5 +108,6 @@ abstract class  LocaleKeys {
   static const later = 'later';
   static const updateNow = 'updateNow';
   static const workOnMistakes = 'workOnMistakes';
+  static const areYouSureYouWantToRestartQuiz = 'areYouSureYouWantToRestartQuiz';
 
 }

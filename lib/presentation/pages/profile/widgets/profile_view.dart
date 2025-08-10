@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/profile_bloc/profile.dart';
 import 'package:cdl_pro/presentation/pages/profile/widgets/widgets.dart';
 import 'package:cdl_pro/presentation/pages/settings/widgets/widgets.dart';
@@ -119,6 +120,58 @@ class ProfileView extends StatelessWidget {
             ),
           ],
         ),
+
+        Container(
+          color: Colors.black38,
+          height: 100,
+          child: BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
+            builder: (context, state) {
+              if (state is QuizLoadedState &&
+                  state.mistakesByCategory.isNotEmpty) {
+                final categories = state.mistakesByCategory.entries.toList();
+
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    final categoryKey = categories[index].key;
+                    final mistakes = categories[index].value;
+
+                    return Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            categoryKey,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${mistakes.length} mistakes',
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              }
+
+              return const Center(
+                child: Text(
+                  'No mistakes recorded',
+                  style: TextStyle(color: Colors.white),
+                ),
+              );
+            },
+          ),
+        ),
+
         Spacer(),
         Center(
           child: SizedBox(
