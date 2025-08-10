@@ -12,7 +12,7 @@
   "combination": "Прицепы и Сцепки",
   "airBrakes": "Пневматические тормоза",
   "tanker": "Цистерны",
-  "doubleAndTriple": "Двойные/тройные прицепы",
+  "doubleAndTriple": "Прицепы",
   "hazMat": "Опасные грузы",
   "total": "Всего {totalQuestions}",
   "free": "Бесплатно {freeQuestions}",
@@ -102,5 +102,7 @@
   "updateAvailable": "Доступно обновление",
   "updateMessage": "Доступна новая версия приложения. Обновитесь сейчас, чтобы получить новые функции и улучшения.",
   "later": "Позже",
-  "updateNow": "Обновить сейчас"
+  "updateNow": "Обновить сейчас",
+  "workOnMistakes": "Работать над ошибками",
+  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?"
 }

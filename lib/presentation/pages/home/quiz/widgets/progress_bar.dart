@@ -83,7 +83,7 @@ class ProgressBar extends StatelessWidget {
             ),
           ),
         
-        
+          SizedBox(height: 5.h,),
         ],
       ),
     );

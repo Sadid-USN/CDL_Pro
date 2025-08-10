@@ -7,6 +7,7 @@ abstract class AbstractCDLTestsState extends Equatable {
   @override
   List<Object?> get props => [];
 }
+
 class CDLTestsInitial extends AbstractCDLTestsState {}
 
 class QuizInitialState extends AbstractCDLTestsState {
@@ -23,12 +24,16 @@ class QuizLoadedState extends AbstractCDLTestsState {
   final bool quizCompleted;
   final bool isLoadingProgress;
 
+  // новое поле
+  final Map<String, List<Question>> mistakesByCategory;
+
   const QuizLoadedState({
     required this.allQuestions,
     required this.userAnswers,
     required this.currentPage,
     required this.quizCompleted,
     this.isLoadingProgress = false,
+    this.mistakesByCategory = const {},
   });
 
   QuizLoadedState copyWith({
@@ -37,6 +42,7 @@ class QuizLoadedState extends AbstractCDLTestsState {
     int? currentPage,
     bool? quizCompleted,
     bool? isLoadingProgress,
+    Map<String, List<Question>>? mistakesByCategory,
   }) {
     return QuizLoadedState(
       allQuestions: allQuestions ?? this.allQuestions,
@@ -44,6 +50,7 @@ class QuizLoadedState extends AbstractCDLTestsState {
       currentPage: currentPage ?? this.currentPage,
       quizCompleted: quizCompleted ?? this.quizCompleted,
       isLoadingProgress: isLoadingProgress ?? this.isLoadingProgress,
+      mistakesByCategory: mistakesByCategory ?? this.mistakesByCategory,
     );
   }
 
@@ -54,15 +61,8 @@ class QuizLoadedState extends AbstractCDLTestsState {
     currentPage,
     quizCompleted,
     isLoadingProgress,
+    mistakesByCategory,
   ];
 }
 
 class QuizProgressLoading extends AbstractCDLTestsState {}
-
-
-
-
-
-
-
-

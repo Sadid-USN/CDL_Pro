@@ -28,7 +28,7 @@ class CodegenLoader extends AssetLoader{
   "combination": "Прицепы и Сцепки",
   "airBrakes": "Пневматические тормоза",
   "tanker": "Цистерны",
-  "doubleAndTriple": "Двойные/тройные прицепы",
+  "doubleAndTriple": "Прицепы",
   "hazMat": "Опасные грузы",
   "total": "Всего {totalQuestions}",
   "free": "Бесплатно {freeQuestions}",
@@ -118,7 +118,9 @@ class CodegenLoader extends AssetLoader{
   "updateAvailable": "Доступно обновление",
   "updateMessage": "Доступна новая версия приложения. Обновитесь сейчас, чтобы получить новые функции и улучшения.",
   "later": "Позже",
-  "updateNow": "Обновить сейчас"
+  "updateNow": "Обновить сейчас",
+  "workOnMistakes": "Работать над ошибками",
+  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -134,7 +136,7 @@ static const Map<String,dynamic> _uk = {
   "combination": "Причепи та зчіпки",
   "airBrakes": "Пневматичні гальма",
   "tanker": "Цистерни",
-  "doubleAndTriple": "Подвійні/потрійні причепи",
+  "doubleAndTriple": "Причепи",
   "hazMat": "Небезпечні вантажі",
   "total": "Всього  {totalQuestions}",
   "free": "Безкоштовно {freeQuestions}",
@@ -223,7 +225,9 @@ static const Map<String,dynamic> _uk = {
   "updateAvailable": "Доступне оновлення",
   "updateMessage": "Доступна нова версія програми. Оновіться зараз, щоб отримати нові функції та покращення.",
   "later": "Пізніше",
-  "updateNow": "Оновити зараз"
+  "updateNow": "Оновити зараз",
+  "workOnMistakes": "Працювати над помилками",
+  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -329,7 +333,9 @@ static const Map<String,dynamic> _en = {
   "updateAvailable": "Update Available",
   "updateMessage": "A new version of the app is available. Update now to enjoy the latest features and improvements.",
   "later": "Later",
-  "updateNow": "Update Now"
+  "updateNow": "Update Now",
+  "workOnMistakes": "Work On Mistakes",
+  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -435,7 +441,9 @@ static const Map<String,dynamic> _es = {
   "updateAvailable": "Actualización disponible",
   "updateMessage": "Una nueva versión de la aplicación está disponible. Actualiza ahora para disfrutar de las últimas funciones y mejoras.",
   "later": "Más tarde",
-  "updateNow": "Actualizar ahora"
+  "updateNow": "Actualizar ahora",
+  "workOnMistakes": "Trabajar en los errores",
+  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }

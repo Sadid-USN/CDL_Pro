@@ -61,7 +61,7 @@ class BuildProgressIndicator extends StatelessWidget {
     }
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      padding: EdgeInsets.symmetric(vertical: 1, horizontal: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
         color: Colors.grey.shade200,
@@ -70,19 +70,19 @@ class BuildProgressIndicator extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           children: [
-            TextSpan(text: '🕗 ', style: AppTextStyles.robotoMono12),
+            TextSpan(text: '🕗 ', style: AppTextStyles.robotoMono10),
             TextSpan(
               text: '$totalQuestions / ',
-              style: AppTextStyles.robotoMono12,
+              style: AppTextStyles.robotoMono10,
             ),
             TextSpan(
               text: '$wrongCount ',
-              style: AppTextStyles.robotoMono12.copyWith(color: Colors.red),
+              style: AppTextStyles.robotoMono10.copyWith(color: Colors.red),
             ),
-            TextSpan(text: ' / ', style: AppTextStyles.merriweather12),
+            TextSpan(text:'/', style: AppTextStyles.robotoMono10),
             TextSpan(
               text: ' $correctCount',
-              style: AppTextStyles.robotoMono12.copyWith(color: Colors.green),
+              style: AppTextStyles.robotoMono10.copyWith(color: Colors.green),
             ),
           ],
         ),

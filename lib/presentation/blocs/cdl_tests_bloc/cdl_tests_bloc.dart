@@ -4,6 +4,7 @@ import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings.dart';
+import 'package:cdl_pro/router/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,8 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
   String? _currentQuizId;
   String? _currentSubcategory;
   bool _ignoreProgressLoadOnce = false;
+  final List<Question> _mistakeQuestions = [];
+  List<Question> get mistakeQuestions => _mistakeQuestions;
 
   Timer? _timer;
   Duration _elapsedTime = Duration.zero;
@@ -40,7 +43,7 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
   // ───────────────────────────────── CONSTRUCTOR ─────────────────────────────
   CDLTestsBloc(this._prefs, this._firestore, this._userHolder)
-      : super(CDLTestsInitial()) {
+    : super(CDLTestsInitial()) {
     // Quiz navigation
     on<LoadQuizEvent>(_onLoadQuiz);
     on<AnswerQuestionEvent>(_onAnswerQuestion);
@@ -55,16 +58,35 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     // Timer
     on<StartTimerEvent>(_onStartTimer);
     on<StopTimerEvent>(_onStopTimer);
-
-    // Auth
-    // CHANGED: удаляем SetUserUidEvent
-    // on<SetUserUidEvent>(_onSetUid);
   }
 
+  void workOnMistakes(
+    BuildContext context, {
+    required String chapterTitle,
+    required String categoryKey,
+    required TestsDataModel model,
+  }) {
+    if (_mistakeQuestions.isEmpty) return;
 
-  String generateQuizIdForQuestions(List<Question> questions, String subcategory) {
+    navigateToPage(
+      context,
+      route: QuizRoute(
+        chapterTitle: chapterTitle,
+        questions: _mistakeQuestions,
+        startIndex: 0,
+        categoryKey: categoryKey,
+        model: model,
+      ),
+    );
+  }
+
+  String generateQuizIdForQuestions(
+    List<Question> questions,
+    String subcategory,
+  ) {
     return _generateQuizId(questions, subcategory);
   }
+
   // ──────────────────────────────── TIMER CONTROL ────────────────────────────
   void _onStartTimer(
     StartTimerEvent event,
@@ -122,7 +144,6 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
       _clearLocalProgress(_currentSubcategory, _currentQuizId);
     }
     _emitLoaded(emit);
-    
   }
 
   void _onAnswerQuestion(
@@ -236,9 +257,10 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
 
     _currentQuestionIndex = _prefs.getInt('${baseKey}_currentPage') ?? 0;
     final answersString = _prefs.getString('${baseKey}_userAnswers');
-    _userAnswers = answersString != null
-        ? Map<String, String>.from(jsonDecode(answersString))
-        : {};
+    _userAnswers =
+        answersString != null
+            ? Map<String, String>.from(jsonDecode(answersString))
+            : {};
     _selectedLanguage = _prefs.getString('${baseKey}_language') ?? 'en';
     _elapsedTime = Duration(
       seconds: _prefs.getInt('${baseKey}_elapsedTime') ?? 0,
@@ -315,12 +337,13 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     final collectionName = _getCollectionNameByLanguage(langCode);
 
     try {
-      final snapshot = await _firestore
-          .collection(collectionName)
-          .doc(uid)
-          .collection(collectionName)
-          .doc(quizId)
-          .get();
+      final snapshot =
+          await _firestore
+              .collection(collectionName)
+              .doc(uid)
+              .collection(collectionName)
+              .doc(quizId)
+              .get();
 
       if (!snapshot.exists) return;
 
@@ -385,5 +408,3 @@ class CDLTestsBloc extends Bloc<AbstractCDLTestsEvent, AbstractCDLTestsState> {
     return super.close();
   }
 }
-
-

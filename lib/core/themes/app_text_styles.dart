@@ -78,6 +78,7 @@ class AppTextStyles {
   static final robotoMono14 = robotoMono(14.sp);
   static final robotoMono16 = robotoMono(16.sp);
   static final robotoMono18 = robotoMono(18.sp);
+  static final robotoMonoBold10 = robotoMono(12.sp, weight: FontWeight.bold);
   static final robotoMonoBold12 = robotoMono(12.sp, weight: FontWeight.bold);
   static final robotoMonoBold14 = robotoMono(14.sp, weight: FontWeight.bold);
   static final robotoMonoBold16 = robotoMono(16.sp, weight: FontWeight.bold);

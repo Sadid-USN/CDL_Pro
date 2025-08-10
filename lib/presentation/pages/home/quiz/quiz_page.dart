@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
@@ -6,7 +5,6 @@ import 'package:cdl_pro/domain/models/models.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
 import 'package:cdl_pro/presentation/blocs/cdl_tests_bloc/cdl_tests.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
-import 'package:cdl_pro/router/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -80,9 +78,9 @@ class _QuizPageContent extends StatelessWidget {
               onPopInvokedWithResult: (didPop, result) async {
                 if (!didPop) {
                   // только Для Android показываем диалог при нажатии системной кнопки
-                  if (Platform.isAndroid) {
-                    _showExitConfirmation(context);
-                  }
+               
+                    ExitConfirmationDialog.showAndHandle(context);
+           
                 }
               },
               child: Scaffold(
@@ -90,7 +88,7 @@ class _QuizPageContent extends StatelessWidget {
                   title: _buildAppBarTitle(state),
                   leading: IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () => _showExitConfirmation(context),
+                    onPressed: () =>  ExitConfirmationDialog.showAndHandle(context),
                   ),
                 ),
                 body: _buildBody(state),
@@ -129,6 +127,7 @@ class _QuizPageContent extends StatelessWidget {
         chapterTitle: chapterTitle,
         questions: questions,
         startIndex: startIndex,
+        categoryKey: categoryKey,
       );
     }
     return const Center(child: CircularProgressIndicator());
@@ -142,57 +141,9 @@ class _QuizPageContent extends StatelessWidget {
   //   );
   // }
 
-  Future<bool> _showExitConfirmation(BuildContext context) async {
-    final uid = context.read<CDLTestsBloc>().uid;
-    final bool isLoggedIn = uid != null;
+  
 
-    final exitText =
-        isLoggedIn ? LocaleKeys.exit.tr() : LocaleKeys.dontLoseProgress.tr();
-    final confirmText =
-        isLoggedIn ? LocaleKeys.yes.tr() : LocaleKeys.login.tr();
-    final cancelText = isLoggedIn ? LocaleKeys.no.tr() : LocaleKeys.exit.tr();
 
-    bool userChoice = false;
-
-    await showConfirmationDialog(
-      context: context,
-      title: exitText,
-      description: isLoggedIn ? LocaleKeys.areYouSureYouWantToExit.tr() : '',
-      cancelText: cancelText,
-      confirmText: confirmText,
-      onConfirm: () => userChoice = true,
-    );
-
-    if (!context.mounted) return false;
-
-    if (userChoice) {
-      // Сохраняем прогресс перед выходом (если пользователь авторизован)
-      if (isLoggedIn) {
-        context.read<CDLTestsBloc>().add(SaveQuizProgressEvent());
-      }
-
-      if (isLoggedIn) {
-        navigateToPage(
-          context,
-          routeName: 'MainCategoryRoute',
-          popUntilNamed: true,
-        );
-      } else {
-        navigateToPage(context, route: const ProfileRoute(), clearStack: true);
-      }
-      return true;
-    } else {
-      if (!isLoggedIn) {
-        navigateToPage(
-          context,
-          routeName: 'MainCategoryRoute',
-          popUntilNamed: true,
-        );
-        return true;
-      }
-      return false;
-    }
-  }
 }
 
 class SingleQuestionView extends StatelessWidget {
@@ -201,6 +152,7 @@ class SingleQuestionView extends StatelessWidget {
   final String chapterTitle;
   final List<Question> questions;
   final int startIndex;
+  final String categoryKey;
 
   const SingleQuestionView({
     super.key,
@@ -209,6 +161,7 @@ class SingleQuestionView extends StatelessWidget {
     required this.chapterTitle,
     required this.questions,
     required this.startIndex,
+    required this.categoryKey,
   });
 
   @override
@@ -249,6 +202,11 @@ class SingleQuestionView extends StatelessWidget {
           isFirstQuestion: state.currentPage == 0,
           isLastQuestion: state.currentPage == state.allQuestions.length - 1,
           isAnswered: isAnswered,
+          chapterTitle: chapterTitle,
+          categoryKey: categoryKey,
+          model: model,
+          allQuestions: state.allQuestions,
+          userAnswers: state.userAnswers,
         ),
       ],
     );
@@ -432,24 +390,25 @@ class QuestionOptions extends StatelessWidget {
     String? userAnswer,
     bool isCorrect,
   ) {
-    return question.options.entries.map((entry) {
+    final sortedEntries =
+        question.options.entries.toList()
+          ..sort((a, b) => a.key.compareTo(b.key)); // Сортируем по A,B,C,D
+
+    return sortedEntries.map((entry) {
       final optionKey = entry.key;
       final optionText = entry.value;
       final isSelected = userAnswer == optionKey;
       final isCorrectOption = optionKey == question.correctOption;
 
       Color backgroundColor = Colors.white;
-
       Color? iconColor;
 
       if (isAnswered) {
         if (isCorrectOption) {
           backgroundColor = AppColors.greenSoft;
-
           iconColor = AppColors.simpleGreen;
         } else if (isSelected) {
           backgroundColor = AppColors.errorColor.withValues(alpha: 0.4);
-
           iconColor = AppColors.errorColor;
         }
       }
@@ -477,7 +436,6 @@ class QuestionOptions extends StatelessWidget {
                   color: AppColors.darkBackground,
                 ),
               ),
-
               SizedBox(width: 7.w),
               Expanded(
                 child: Text(

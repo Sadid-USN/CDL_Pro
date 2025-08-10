@@ -12,7 +12,7 @@
   "combination": "Причепи та зчіпки",
   "airBrakes": "Пневматичні гальма",
   "tanker": "Цистерни",
-  "doubleAndTriple": "Подвійні/потрійні причепи",
+  "doubleAndTriple": "Причепи",
   "hazMat": "Небезпечні вантажі",
   "total": "Всього  {totalQuestions}",
   "free": "Безкоштовно {freeQuestions}",
@@ -101,5 +101,7 @@
   "updateAvailable": "Доступне оновлення",
   "updateMessage": "Доступна нова версія програми. Оновіться зараз, щоб отримати нові функції та покращення.",
   "later": "Пізніше",
-  "updateNow": "Оновити зараз"
+  "updateNow": "Оновити зараз",
+  "workOnMistakes": "Працювати над помилками",
+  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?"
 }

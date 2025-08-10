@@ -102,5 +102,8 @@
   "updateAvailable": "Update Available",
   "updateMessage": "A new version of the app is available. Update now to enjoy the latest features and improvements.",
   "later": "Later",
-  "updateNow": "Update Now"
+  "updateNow": "Update Now",
+  "workOnMistakes": "Work On Mistakes",
+  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz"
+
 }
