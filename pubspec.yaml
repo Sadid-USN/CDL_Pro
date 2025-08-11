@@ -2,7 +2,7 @@ name: cdl_pro
 description: "CDL Pro is a quiz-based app to help you prepare for the CDL exam with interactive tests and explanations."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.20+39
+version: 1.0.21+40
 
 environment:
   sdk: ^3.7.0
