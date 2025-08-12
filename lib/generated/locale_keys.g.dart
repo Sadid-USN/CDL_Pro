@@ -28,7 +28,7 @@ abstract class  LocaleKeys {
   static const outOf = 'outOf';
   static const explanation = 'explanation';
   static const completeTheTest = 'completeTheTest';
-  static const nextQuestion = 'nextQuestion';
+  static const next = 'next';
   static const resetQuiz = 'resetQuiz';
   static const cancel = 'cancel';
   static const reset = 'reset';

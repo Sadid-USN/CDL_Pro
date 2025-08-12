@@ -78,18 +78,20 @@ class _QuizPageContent extends StatelessWidget {
               onPopInvokedWithResult: (didPop, result) async {
                 if (!didPop) {
                   // только Для Android показываем диалог при нажатии системной кнопки
-               
-                    ExitConfirmationDialog.showAndHandle(context);
-           
+
+                  ExitConfirmationDialog.showAndHandle(context);
                 }
               },
               child: Scaffold(
                 appBar: AppBar(
+                  //
                   title: _buildAppBarTitle(state),
                   leading: IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () =>  ExitConfirmationDialog.showAndHandle(context),
+                    onPressed:
+                        () => ExitConfirmationDialog.showAndHandle(context),
                   ),
+                  actions: [const ResetButton()],
                 ),
                 body: _buildBody(state),
               ),
@@ -140,10 +142,6 @@ class _QuizPageContent extends StatelessWidget {
   //     clearStack: true,
   //   );
   // }
-
-  
-
-
 }
 
 class SingleQuestionView extends StatelessWidget {
@@ -243,126 +241,90 @@ class QuestionCard extends StatelessWidget {
 
     return BlocBuilder<CDLTestsBloc, AbstractCDLTestsState>(
       builder: (context, state) {
-        return StreamBuilder<Duration>(
-          stream: context.read<CDLTestsBloc>().timerStream,
-          initialData: Duration.zero,
-          builder: (context, snapshot) {
-            final elapsedTime = snapshot.data ?? Duration.zero;
-            return Card(
-              color: AppColors.lightBackground,
-              margin: const EdgeInsets.only(bottom: 16),
-              child: Padding(
-                padding: EdgeInsets.all(12.r),
-                child: Column(
+        return Padding(
+          padding: EdgeInsets.all(12.r),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [],
+              ),
+              const SizedBox(height: 8),
+        
+              ProgressBar(
+                questionNumber: questionNumber,
+                allQuestions: allQuestions.length,
+                incorrectCount: incorrectCount,
+                correctCount: correctCount,
+              ),
+              AuthReminderBanner(),
+        
+              SizedBox(height: 8.h),
+              Text(
+                question.question,
+                style: AppTextStyles.merriweather16.copyWith(
+                  color: AppColors.softBlack,
+                ),
+              ),
+              SizedBox(height: 16.h),
+              ...QuestionOptions.buildOptions(
+                context,
+                question,
+                isAnswered,
+                userAnswer,
+                isCorrect,
+              ),
+              if (isAnswered) ...[
+                const SizedBox(height: 16),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          LocaleKeys.question.tr(
-                            namedArgs: {
-                              "questionNumber": questionNumber.toString(),
-                            },
+                        SvgPicture.asset(
+                          AppLogos.explanation,
+                          height: 30.h,
+                          colorFilter: ColorFilter.mode(
+                            AppColors.lightPrimary,
+                            BlendMode.srcIn,
                           ),
-                          style: AppTextStyles.merriweatherBold14,
                         ),
-
                         Text(
-                          DateFormatters.formatDuration(elapsedTime),
-                          style: AppTextStyles.robotoMono14,
+                          LocaleKeys.explanation.tr(),
+                          style: AppTextStyles.merriweatherBold14.copyWith(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).textTheme.titleMedium?.color,
+                          ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
-
-                    ProgressBar(
-                      questionNumber: questionNumber,
-                      allQuestions: allQuestions.length,
-                      incorrectCount: incorrectCount,
-                      correctCount: correctCount,
-                    ),
-                    AuthReminderBanner(),
-
-                    // if (context.read<CDLTestsBloc>().uid == null)
-                    //   Padding(
-                    //     padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
-                    //     child: Text(
-                    //       LocaleKeys.logInToSaveProgress.tr(),
-                    //       style: AppTextStyles.merriweather10.copyWith(
-                    //         color: AppColors.errorColor,
-                    //       ),
-                    //     ),
-                    //   ),
                     SizedBox(height: 8.h),
-                    Text(
-                      question.question,
-                      style: AppTextStyles.merriweather16.copyWith(
-                        color: AppColors.softBlack,
-                      ),
-                    ),
-                    SizedBox(height: 16.h),
-                    ...QuestionOptions.buildOptions(
-                      context,
-                      question,
-                      isAnswered,
-                      userAnswer,
-                      isCorrect,
-                    ),
-                    if (isAnswered) ...[
-                      const SizedBox(height: 16),
-                      Column(
+                    Padding(
+                      padding: EdgeInsets.only(left: 32.w),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                AppLogos.explanation,
-                                height: 30.h,
-                                colorFilter: ColorFilter.mode(
-                                  AppColors.lightPrimary,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                              Text(
-                                LocaleKeys.explanation.tr(),
-                                style: AppTextStyles.merriweatherBold14
-                                    .copyWith(
-                                      color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.titleMedium?.color,
-                                    ),
-                              ),
-                            ],
+                          Text(
+                            question.description,
+                            style: AppTextStyles.merriweatherBold14,
                           ),
-                          SizedBox(height: 8.h),
-                          Padding(
-                            padding: EdgeInsets.only(left: 32.w),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  question.description,
-                                  style: AppTextStyles.merriweatherBold14,
-                                ),
-                                SizedBox(height: 12.h),
-                                if (question.images?.isNotEmpty ?? false)
-                                  GalleryButton(images: question.images),
-                              ],
-                            ),
-                          ),
+                          SizedBox(height: 12.h),
+                          if (question.images?.isNotEmpty ?? false)
+                            GalleryButton(images: question.images),
                         ],
                       ),
-                    ],
+                    ),
                   ],
                 ),
-              ),
-            );
-          },
+              ],
+            ],
+          ),
         );
       },
     );
@@ -414,6 +376,7 @@ class QuestionOptions extends StatelessWidget {
       }
 
       return InkWell(
+        borderRadius: BorderRadius.circular(30.r),
         onTap:
             !isAnswered
                 ? () => context.read<CDLTestsBloc>().add(
@@ -424,7 +387,7 @@ class QuestionOptions extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 8.h),
           decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(30.r),
           ),
           padding: const EdgeInsets.all(12),
           child: Row(
@@ -448,7 +411,7 @@ class QuestionOptions extends StatelessWidget {
               if (isAnswered && (isSelected || isCorrectOption))
                 SvgPicture.asset(
                   isCorrectOption ? AppLogos.correct : AppLogos.wrong,
-                  height: 20.h,
+                  height: 16.h,
                   colorFilter:
                       iconColor != null
                           ? ColorFilter.mode(iconColor, BlendMode.srcIn)

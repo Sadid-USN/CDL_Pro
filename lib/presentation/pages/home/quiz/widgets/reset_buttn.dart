@@ -1,5 +1,7 @@
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
+import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,22 +11,19 @@ class ResetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        _showResetConfirmationDialog(context);
-      },
-      style: ElevatedButton.styleFrom(
-        shape: const CircleBorder(),
-
-        elevation: 3,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-      ),
-      child: SvgPicture.asset(
-        AppLogos.reset,
-        height: 22.h,
-        colorFilter: ColorFilter.mode(
-          AppColors.lightBackground,
-          BlendMode.srcIn,
+    return Padding(
+      padding: EdgeInsets.only(right: 5.w),
+      child: TextButton(
+        onPressed: () {
+          _showResetConfirmationDialog(context);
+        },
+        style: TextButton.styleFrom(
+          foregroundColor: Theme.of(context).colorScheme.primary, // цвет текста
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        ),
+        child: Text(
+          LocaleKeys.reset.tr(),
+          style: AppTextStyles.merriweatherBold12,
         ),
       ),
     );

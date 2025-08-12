@@ -23,8 +23,8 @@
   "no": "No",
   "outOf": "Out of",
   "explanation": "Explanation:",
-  "completeTheTest": "Complete the test",
-  "nextQuestion": "Next question",
+  "completeTheTest": "Complete",
+  "next": "Next",
   "resetQuiz": "Reset Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
@@ -105,5 +105,4 @@
   "updateNow": "Update Now",
   "workOnMistakes": "Work On Mistakes",
   "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz"
-
 }
