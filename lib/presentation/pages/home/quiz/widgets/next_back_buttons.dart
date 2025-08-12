@@ -59,18 +59,23 @@ class NextBackButtons extends StatelessWidget {
             Expanded(
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                child: SizedBox(
+                       width: 135.w,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.1,
+                      backgroundColor: AppColors.lightBackground,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.r),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 12.h,
+                      ),
                     ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16.w,
-                      vertical: 12.h,
-                    ),
+                    onPressed: () => bloc.add(PreviousQuestionsEvent()),
+                    child: Text('Previos',   style:AppTextStyles.manropeBold12,),
                   ),
-                  onPressed: () => bloc.add(PreviousQuestionsEvent()),
-                  child: const Icon(Icons.arrow_back_ios),
                 ),
               ),
             )
@@ -81,24 +86,27 @@ class NextBackButtons extends StatelessWidget {
           if (isAnswered)
             Align(
               alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.r),
+              child: SizedBox(
+                  width: 135.w,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(30.r),
+                    ),
+                    padding:  EdgeInsets.symmetric(
+                         horizontal: 16.w,
+                        vertical: 12.h,
+                    ),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 12,
+                  onPressed: () {
+                    _handleNextPressed(context, bloc);
+                  },
+                  child: Text(
+                    isLastQuestion
+                        ? LocaleKeys.completeTheTest.tr()
+                        : LocaleKeys.next.tr(),
+                    style:AppTextStyles.manropeBold12.copyWith(color: AppColors.lightBackground),
                   ),
-                ),
-                onPressed: () {
-                  _handleNextPressed(context, bloc);
-                },
-                child: Text(
-                  isLastQuestion
-                      ? LocaleKeys.completeTheTest.tr()
-                      : LocaleKeys.nextQuestion.tr(),
-                  style: const TextStyle(fontSize: 16),
                 ),
               ),
             ),
