@@ -134,7 +134,9 @@ getIt.registerLazySingleton<VersionService>(() => VersionService(dio));
           ..add(CheckPastPurchases()),
   );
 
-  getIt.registerLazySingleton<RoadSignBloc>(() => RoadSignBloc([]));
+getIt.registerLazySingleton<RoadSignBloc>(
+  () => RoadSignBloc(getIt<SharedPreferences>(), []),
+);
 
   getIt.registerLazySingleton<ProfileBloc>(
     () => ProfileBloc(initializeOnCreate: true, prefs: prefs),

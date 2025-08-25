@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cdl_pro/core/core.dart';
 import 'package:cdl_pro/core/utils/utils.dart';
 import 'package:cdl_pro/generated/locale_keys.g.dart';
+import 'package:cdl_pro/presentation/blocs/onboarding/onboarding.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:cdl_pro/presentation/blocs/settings_bloc/settings_state.dart';
 import 'package:cdl_pro/presentation/pages/home/quiz/widgets/widgets.dart';
@@ -49,24 +50,24 @@ class MainPage extends StatelessWidget {
                   padding: EdgeInsets.only(top: 10.h),
                   child: Column(
                     children: [
+                      // //! BUTTON FOR TESTIN OnBoardingPage
+                      // ElevatedButton(
+                      //   onPressed: () async {
+                      //     await context
+                      //         .read<OnboardingCubit>()
+                      //         .resetOnboarding();
+                      //     if (context.mounted) {
+                      //       ScaffoldMessenger.of(context).showSnackBar(
+                      //         const SnackBar(
+                      //           content: Text('Onboarding reset!'),
+                      //         ),
+                      //       );
+                      //     }
+                      //   },
+                      //   child: Text('Reset boarding'),
+                      // ),
                       VersionUpdateBanner(),
                       AnimatedTextKit(
-                        //! BUTTON FOR TESTIN OnBoardingPage
-                        // ElevatedButton(
-                        //   onPressed: () async {
-                        //     await context
-                        //         .read<OnboardingCubit>()
-                        //         .resetOnboarding();
-                        //     if (context.mounted) {
-                        //       ScaffoldMessenger.of(context).showSnackBar(
-                        //         const SnackBar(
-                        //           content: Text('Onboarding reset!'),
-                        //         ),
-                        //       );
-                        //     }
-                        //   },
-                        //   child: Text('Reset boarding'),
-                        // ),
                         animatedTexts: [
                           ColorizeAnimatedText(
                             'CDL Pro',

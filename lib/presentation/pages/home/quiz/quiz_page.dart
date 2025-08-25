@@ -312,7 +312,8 @@ class QuestionCard extends StatelessWidget {
                         children: [
                           Text(
                             question.description,
-                            style: AppTextStyles.merriweatherBold14,
+                            style: AppTextStyles.inter14,
+                   
                           ),
                           SizedBox(height: 12.h),
                           if (question.images?.isNotEmpty ?? false)

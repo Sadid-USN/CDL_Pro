@@ -1,28 +1,30 @@
 import 'package:cdl_pro/domain/models/models.dart';
 import 'package:equatable/equatable.dart';
 
-// Конкретное состояние
 class RoadSignState extends Equatable {
-  final double imageHeightFactor;
   final List<RoadSignModel> signs;
-  final bool isGridView; 
+  final Map<String, Map<String, String>> userAnswers;
+  final int currentIndex;
 
   const RoadSignState({
-     this.isGridView = false,
-    required this.imageHeightFactor, required this.signs});
+    this.signs = const [],
+    this.userAnswers = const {},
+    this.currentIndex = 0,
+  });
 
   @override
-  List<Object?> get props => [imageHeightFactor, signs, isGridView];
+  List<Object?> get props => [signs, userAnswers, currentIndex];
 
   RoadSignState copyWith({
-    double? imageHeightFactor,
     List<RoadSignModel>? signs,
-    bool ? isGridView ,
+    Map<String, Map<String, String>>? userAnswers,
+    int? currentIndex,
   }) {
     return RoadSignState(
-      isGridView: isGridView ?? this.isGridView,
-      imageHeightFactor: imageHeightFactor ?? this.imageHeightFactor,
       signs: signs ?? this.signs,
+      userAnswers: userAnswers ?? this.userAnswers,
+      currentIndex: currentIndex ?? this.currentIndex,
     );
   }
 }
+

@@ -90,7 +90,7 @@ class MainCategoryPage extends StatelessWidget {
                 case AppDataType.cdlTestsEs:
                   return CDLTestsView(docs: docs);
                 case AppDataType.roadSign:
-                  return LifecycleAwareWidget(child: RoadSignView(docs: docs));
+                  return RoadSignView(docs: docs);
                 case AppDataType.tripInseption:
                   return PreTripInspectionView(docs: docs);
                 case AppDataType.termsOfUse:

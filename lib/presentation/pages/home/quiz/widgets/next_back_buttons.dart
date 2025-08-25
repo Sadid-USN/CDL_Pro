@@ -13,7 +13,6 @@ class NextBackButtons extends StatelessWidget {
   final bool isFirstQuestion;
   final bool isLastQuestion;
   final bool isAnswered;
-
   // Навигационные параметры
   final String chapterTitle;
   final String categoryKey;
@@ -74,7 +73,7 @@ class NextBackButtons extends StatelessWidget {
                       ),
                     ),
                     onPressed: () => bloc.add(PreviousQuestionsEvent()),
-                    child: Text('Previos',   style:AppTextStyles.manropeBold12,),
+                    child: Text(LocaleKeys.previous.tr(),   style:AppTextStyles.manropeBold12,),
                   ),
                 ),
               ),
