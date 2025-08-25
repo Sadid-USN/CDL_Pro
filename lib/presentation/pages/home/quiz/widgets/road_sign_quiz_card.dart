@@ -5,6 +5,7 @@ import 'package:cdl_pro/presentation/blocs/road_sign_bloc/road_sign.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RoadSignQuizCard extends StatelessWidget {
   final void Function()? onPressed;
@@ -45,7 +46,6 @@ class RoadSignQuizCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // --- Прогресс ---
-                    // --- Прогресс с кнопкой сброса ---
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -93,7 +93,6 @@ class RoadSignQuizCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
 
-                    // --- КАРТИНКА С ОКРУГЛЁННЫМИ КРАЯМИ ---
                     if (sign.imageUrl.isNotEmpty) ...[
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
@@ -143,58 +142,75 @@ class RoadSignQuizCard extends StatelessWidget {
                         if (optionKey == quiz.correctAnswer) {
                           bg = Colors.green.shade200;
                         } else if (optionKey == userAnswer) {
-                          bg = Colors.red.shade200;
+                          bg = AppColors.errorColor;
                         }
                       }
 
-                      return InkWell(
-                        onTap:
-                            !isAnswered
-                                ? () => context.read<RoadSignBloc>().add(
-                                  AnswerRoadSignQuestionEvent(
-                                    signId: sign.id,
-                                    language: language,
-                                    selectedOption: optionKey,
-                                  ),
-                                )
-                                : null,
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          margin: const EdgeInsets.symmetric(vertical: 4),
-                          decoration: BoxDecoration(
-                            color: bg,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.grey.shade400),
+                      return Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ElevatedButton(
+                          onPressed:
+                              !isAnswered
+                                  ? () => context.read<RoadSignBloc>().add(
+                                    AnswerRoadSignQuestionEvent(
+                                      signId: sign.id,
+                                      language: language,
+                                      selectedOption: optionKey,
+                                    ),
+                                  )
+                                  : null,
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStateProperty.all(bg),
+                            elevation: WidgetStateProperty.all(0),
+                            padding: WidgetStateProperty.all(
+                              const EdgeInsets.all(12),
+                            ),
+
+                            minimumSize: WidgetStateProperty.all(
+                              Size(MediaQuery.sizeOf(context).width, 48),
+                            ),
+                            alignment: Alignment.centerLeft,
                           ),
-                          child: Text('$optionKey. $optionText'),
+                          child: Text(
+                            '$optionKey. $optionText',
+                            style: AppTextStyles.interBold12.copyWith(
+                              color: AppColors.softBlack,
+                            ),
+                          ),
                         ),
                       );
                     }),
-
                     // --- Объяснение после ответа ---
                     if (isAnswered) ...[
                       const SizedBox(height: 16),
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(12),
+                        padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(12.r),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               LocaleKeys.explanation.tr(),
-                              style: AppTextStyles.merriweatherBold14.copyWith(
+                              style: AppTextStyles.interBold12.copyWith(
                                 color:
                                     Theme.of(
                                       context,
                                     ).textTheme.titleMedium?.color,
                               ),
                             ),
-                            const SizedBox(width: 8), // небольшой отступ
-                            Text(quiz.explanation, softWrap: true),
+                            const SizedBox(height: 8), // небольшой отступ
+                            Text(
+                              quiz.explanation,
+                              style: AppTextStyles.interBold12.copyWith(
+                                height: 1.5,
+                              ),
+
+                              softWrap: true,
+                            ),
                           ],
                         ),
                       ),
