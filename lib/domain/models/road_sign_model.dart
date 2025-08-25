@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 
-// Модель для всего ответа
+// Модель для ответа с дорожными знаками
 class RoadSignResponse extends Equatable {
   final int total;
   final Map<String, RoadSignModel> signs;
@@ -41,51 +41,92 @@ class RoadSignResponse extends Equatable {
   }
 }
 
-// Модель для отдельного знака
 class RoadSignModel extends Equatable {
   final String id;
-  final String enTitle;
-  final String ruTitle;
   final String imageUrl;
+  final Map<String, QuizModel> quiz; // 'en', 'ru', 'uk', 'es'
 
   const RoadSignModel({
     required this.id,
-    required this.enTitle,
-    required this.ruTitle,
     required this.imageUrl,
+    required this.quiz,
   });
 
-  factory RoadSignModel.fromJson(String id, Map<String, dynamic> json) {
-    return RoadSignModel(
-      id: id,
-      enTitle: json['enTitle'] ?? '',
-      ruTitle: json['ruTitle'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+factory RoadSignModel.fromJson(String id, Map<String, dynamic> json) {
+  final quiz = <String, QuizModel>{};
+  
+  // Проверяем все возможные языки
+  for (final lang in ['en', 'ru', 'uk', 'es']) {
+    if (json[lang] != null && json[lang] is Map<String, dynamic>) {
+      quiz[lang] = QuizModel.fromJson(Map<String, dynamic>.from(json[lang]));
+    }
+  }
+
+  return RoadSignModel(
+    id: id,
+    imageUrl: json['imageUrl'] ?? '',
+    quiz: quiz,
+  );
+}
+
+  Map<String, dynamic> toJson() {
+    return {
+      'imageUrl': imageUrl,
+      ...quiz.map((lang, quizData) => MapEntry(lang, quizData.toJson())),
+    };
+  }
+
+  @override
+  List<Object?> get props => [id, imageUrl, quiz];
+}
+
+
+// Модель для викторины на конкретном языке
+class QuizModel extends Equatable {
+  final String question;
+  final Map<String, String> options; // ключи: 'A', 'B', 'C'
+  final String correctAnswer;
+  final String explanation;
+
+  const QuizModel({
+    required this.question,
+    required this.options,
+    required this.correctAnswer,
+    required this.explanation,
+  });
+
+  factory QuizModel.fromJson(Map<String, dynamic> json) {
+    return QuizModel(
+      question: json['question'] ?? '',
+      options: Map<String, String>.from(json['options'] ?? {}),
+      correctAnswer: json['correctAnswer'] ?? '',
+      explanation: json['explanation'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'enTitle': enTitle,
-      'ruTitle': ruTitle,
-      'imageUrl': imageUrl,
+      'question': question,
+      'options': options,
+      'correctAnswer': correctAnswer,
+      'explanation': explanation,
     };
   }
 
   @override
-  List<Object?> get props => [id, enTitle, ruTitle, imageUrl];
+  List<Object?> get props => [question, options, correctAnswer, explanation];
 
-  RoadSignModel copyWith({
-    String? id,
-    String? enTitle,
-    String? ruTitle,
-    String? imageUrl,
+  QuizModel copyWith({
+    String? question,
+    Map<String, String>? options,
+    String? correctAnswer,
+    String? explanation,
   }) {
-    return RoadSignModel(
-      id: id ?? this.id,
-      enTitle: enTitle ?? this.enTitle,
-      ruTitle: ruTitle ?? this.ruTitle,
-      imageUrl: imageUrl ?? this.imageUrl,
+    return QuizModel(
+      question: question ?? this.question,
+      options: options ?? this.options,
+      correctAnswer: correctAnswer ?? this.correctAnswer,
+      explanation: explanation ?? this.explanation,
     );
   }
 }

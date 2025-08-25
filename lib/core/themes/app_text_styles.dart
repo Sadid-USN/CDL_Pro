@@ -6,18 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTextStyles {
   // Заголовки (Bold)
   static TextStyle bold(double size, {Color color = Colors.black54}) =>
-      TextStyle(
-        fontSize: size.sp,
-        fontWeight: FontWeight.bold,
-        color: color,
-      );
+      TextStyle(fontSize: size.sp, fontWeight: FontWeight.bold, color: color);
 
   static TextStyle regular(double size, {Color color = AppColors.softBlack}) =>
-      TextStyle(
-        fontSize: size.sp,
-        fontWeight: FontWeight.normal,
-        color: color,
-      );
+      TextStyle(fontSize: size.sp, fontWeight: FontWeight.normal, color: color);
 
   // Готовые стили
   static final bold8 = bold(8.sp);
@@ -37,13 +29,15 @@ class AppTextStyles {
   static final regular20 = regular(20.sp);
 
   // Стили с GoogleFonts - Merriweather
-  static TextStyle merriweather(double size,
-          {Color color = AppColors.lightPrimary, FontWeight weight = FontWeight.w400}) =>
-      GoogleFonts.merriweather(
-        fontSize: size.sp,
-        fontWeight: weight,
-        color: color,
-      );
+  static TextStyle merriweather(
+    double size, {
+    Color color = AppColors.lightPrimary,
+    FontWeight weight = FontWeight.w400,
+  }) => GoogleFonts.merriweather(
+    fontSize: size.sp,
+    fontWeight: weight,
+    color: color,
+  );
 
   static final merriweather8 = merriweather(8.sp);
   static final merriweather10 = merriweather(10.sp);
@@ -52,25 +46,68 @@ class AppTextStyles {
   static final merriweather16 = merriweather(16.sp);
   static final merriweather18 = merriweather(18.sp);
 
-  static final merriweatherBold12 =
-      merriweather(12.sp, weight: FontWeight.bold);
-  static final merriweatherBold14 =
-      merriweather(14.sp, weight: FontWeight.bold);
-  static final merriweatherBold16 =
-      merriweather(16.sp, weight: FontWeight.bold);
-  static final merriweatherBold18 =
-      merriweather(18.sp, weight: FontWeight.bold);
-  static final merriweatherBold20 =
-      merriweather(20.sp, weight: FontWeight.bold);
+  static final merriweatherBold12 = merriweather(
+    12.sp,
+    weight: FontWeight.bold,
+  );
+  static final merriweatherBold14 = merriweather(
+    14.sp,
+    weight: FontWeight.bold,
+  );
+  static final merriweatherBold16 = merriweather(
+    16.sp,
+    weight: FontWeight.bold,
+  );
+  static final merriweatherBold18 = merriweather(
+    18.sp,
+    weight: FontWeight.bold,
+  );
+  static final merriweatherBold20 = merriweather(
+    20.sp,
+    weight: FontWeight.bold,
+  );
 
   // Стили с GoogleFonts - Roboto Mono
-  static TextStyle robotoMono(double size,
-          {Color color = AppColors.lightPrimary, FontWeight weight = FontWeight.w400}) =>
-      GoogleFonts.robotoMono(
-        fontSize: size.sp,
-        fontWeight: weight,
-        color: color,
-      );
+  static TextStyle robotoMono(
+    double size, {
+    Color color = AppColors.lightPrimary,
+    FontWeight weight = FontWeight.w400,
+  }) => GoogleFonts.robotoMono(
+    fontSize: size.sp,
+    fontWeight: weight,
+    color: color,
+  );
+ // Inter style
+static TextStyle inter(
+  double size, {
+  Color color = AppColors.lightPrimary,
+  FontWeight weight = FontWeight.w400,
+}) =>
+    GoogleFonts.inter(
+      height: 1.35,
+      fontSize: size.sp,
+      fontWeight: weight,
+      color: color,
+    );
+
+// Готовые стили Inter
+static final inter8 = inter(8.sp);
+static final inter10 = inter(10.sp);
+static final inter12 = inter(12.sp);
+static final inter14 = inter(14.sp);
+static final inter16 = inter(16.sp);
+static final inter18 = inter(18.sp);
+static final inter20 = inter(20.sp);
+
+// Жирные версии Inter
+static final interBold8 = inter(8.sp, weight: FontWeight.bold);
+static final interBold10 = inter(10.sp, weight: FontWeight.bold);
+static final interBold12 = inter(12.sp, weight: FontWeight.bold);
+static final interBold14 = inter(14.sp, weight: FontWeight.bold);
+static final interBold16 = inter(16.sp, weight: FontWeight.bold);
+static final interBold18 = inter(18.sp, weight: FontWeight.bold);
+static final interBold20 = inter(20.sp, weight: FontWeight.bold);
+
 
   static final robotoMono8 = robotoMono(8.sp);
   static final robotoMono10 = robotoMono(10.sp);
@@ -83,15 +120,13 @@ class AppTextStyles {
   static final robotoMonoBold14 = robotoMono(14.sp, weight: FontWeight.bold);
   static final robotoMonoBold16 = robotoMono(16.sp, weight: FontWeight.bold);
 
- // Manrope style
-  static TextStyle manrope(double size, {
-    Color color = AppColors.lightPrimary, 
+  // Manrope style
+  static TextStyle manrope(
+    double size, {
+    Color color = AppColors.lightPrimary,
     FontWeight weight = FontWeight.w400,
-  }) => GoogleFonts.manrope(
-    fontSize: size.sp,
-    fontWeight: weight,
-    color: color,
-  );
+  }) =>
+      GoogleFonts.manrope(fontSize: size.sp, fontWeight: weight, color: color);
 
   // Готовые стили Manrope
   static final manrope8 = manrope(8.sp);
@@ -101,6 +136,9 @@ class AppTextStyles {
   static final manrope16 = manrope(16.sp);
   static final manrope18 = manrope(18.sp);
   static final manrope20 = manrope(20.sp);
+
+  // inter
+
 
   // Жирные версии
   static final manropeBold12 = manrope(12.sp, weight: FontWeight.bold);
@@ -113,4 +151,3 @@ class AppTextStyles {
   static final manropeSemiBold14 = manrope(14.sp, weight: FontWeight.w600);
   static final manropeMedium16 = manrope(16.sp, weight: FontWeight.w500);
 }
-

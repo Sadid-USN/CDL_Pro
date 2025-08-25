@@ -29,6 +29,7 @@ abstract class  LocaleKeys {
   static const explanation = 'explanation';
   static const completeTheTest = 'completeTheTest';
   static const next = 'next';
+  static const previous = 'previous';
   static const resetQuiz = 'resetQuiz';
   static const cancel = 'cancel';
   static const reset = 'reset';
@@ -109,5 +110,7 @@ abstract class  LocaleKeys {
   static const updateNow = 'updateNow';
   static const workOnMistakes = 'workOnMistakes';
   static const areYouSureYouWantToRestartQuiz = 'areYouSureYouWantToRestartQuiz';
+
+  static var resetQuizConfirm;
 
 }
