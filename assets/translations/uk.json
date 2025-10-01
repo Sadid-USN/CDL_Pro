@@ -104,5 +104,7 @@
   "later": "Пізніше",
   "updateNow": "Оновити зараз",
   "workOnMistakes": "Працювати над помилками",
-  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?"
+  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?",
+  "listOfSigns": "Список знаків",
+  "quiz": "Вікторина"
 }

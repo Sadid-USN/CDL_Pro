@@ -105,5 +105,7 @@
   "later": "Позже",
   "updateNow": "Обновить сейчас",
   "workOnMistakes": "Работать над ошибками",
-  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?"
+  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?",
+  "listOfSigns": "Список знаков",
+    "quiz": "Викторина"
 }

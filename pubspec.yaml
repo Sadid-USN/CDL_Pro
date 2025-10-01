@@ -45,10 +45,10 @@ dependencies:
   lottie: ^3.3.1
   dropdown_button2: ^2.3.9
 
-  rflutter_alert: ^2.0.7
+
   flutter_native_splash: ^2.4.6
   firebase_auth: 5.5.4
-  google_sign_in: ^7.1.0
+  google_sign_in: ^7.2.0
   email_validator: ^3.0.0
   cryptography: ^2.7.0
   flutter_secure_storage: ^9.2.4

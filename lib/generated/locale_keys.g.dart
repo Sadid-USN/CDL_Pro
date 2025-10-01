@@ -110,7 +110,7 @@ abstract class  LocaleKeys {
   static const updateNow = 'updateNow';
   static const workOnMistakes = 'workOnMistakes';
   static const areYouSureYouWantToRestartQuiz = 'areYouSureYouWantToRestartQuiz';
-
-  static var resetQuizConfirm;
+  static const listOfSigns = 'listOfSigns';
+  static const quiz = 'quiz';
 
 }

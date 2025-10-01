@@ -81,18 +81,19 @@ factory RoadSignModel.fromJson(String id, Map<String, dynamic> json) {
 }
 
 
-// Модель для викторины на конкретном языке
 class QuizModel extends Equatable {
   final String question;
   final Map<String, String> options; // ключи: 'A', 'B', 'C'
   final String correctAnswer;
   final String explanation;
+  final String signName; // ← ДОБАВЛЕНО ПОЛЕ
 
   const QuizModel({
     required this.question,
     required this.options,
     required this.correctAnswer,
     required this.explanation,
+    required this.signName, // ← ДОБАВЛЕНО В КОНСТРУКТОР
   });
 
   factory QuizModel.fromJson(Map<String, dynamic> json) {
@@ -101,6 +102,7 @@ class QuizModel extends Equatable {
       options: Map<String, String>.from(json['options'] ?? {}),
       correctAnswer: json['correctAnswer'] ?? '',
       explanation: json['explanation'] ?? '',
+      signName: json['signName'] ?? '', // ← ДОБАВЛЕНО ПАРСИНГ
     );
   }
 
@@ -110,23 +112,34 @@ class QuizModel extends Equatable {
       'options': options,
       'correctAnswer': correctAnswer,
       'explanation': explanation,
+      'signName': signName, // ← ДОБАВЛЕНО В СЕРИАЛИЗАЦИЮ
     };
   }
 
   @override
-  List<Object?> get props => [question, options, correctAnswer, explanation];
+  List<Object?> get props => [
+    question, 
+    options, 
+    correctAnswer, 
+    explanation, 
+    signName // ← ДОБАВЛЕНО В EQUATABLE
+  ];
 
   QuizModel copyWith({
     String? question,
     Map<String, String>? options,
     String? correctAnswer,
     String? explanation,
+    String? signName, // ← ДОБАВЛЕНО В COPYWITH
   }) {
     return QuizModel(
       question: question ?? this.question,
       options: options ?? this.options,
       correctAnswer: correctAnswer ?? this.correctAnswer,
       explanation: explanation ?? this.explanation,
+      signName: signName ?? this.signName, // ← ДОБАВЛЕНО
     );
   }
 }
+
+

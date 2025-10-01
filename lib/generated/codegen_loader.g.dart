@@ -121,7 +121,9 @@ class CodegenLoader extends AssetLoader{
   "later": "Позже",
   "updateNow": "Обновить сейчас",
   "workOnMistakes": "Работать над ошибками",
-  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?"
+  "areYouSureYouWantToRestartQuiz": "Вы уверены, что хотите начать тест заново?",
+  "listOfSigns": "Список знаков",
+  "quiz": "Викторина"
 };
 static const Map<String,dynamic> _uk = {
   "home": "Головна",
@@ -229,7 +231,9 @@ static const Map<String,dynamic> _uk = {
   "later": "Пізніше",
   "updateNow": "Оновити зараз",
   "workOnMistakes": "Працювати над помилками",
-  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?"
+  "areYouSureYouWantToRestartQuiz": "Ви впевнені, що хочете перезапустити вікторину?",
+  "listOfSigns": "Список знаків",
+  "quiz": "Вікторина"
 };
 static const Map<String,dynamic> _en = {
   "home": "Home",
@@ -260,6 +264,7 @@ static const Map<String,dynamic> _en = {
   "next": "Next",
   "previous": "Previous",
   "resetQuiz": "Reset Quiz",
+  "quiz": "Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
   "exit": "Exit",
@@ -338,7 +343,8 @@ static const Map<String,dynamic> _en = {
   "later": "Later",
   "updateNow": "Update Now",
   "workOnMistakes": "Work On Mistakes",
-  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz"
+  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz",
+  "listOfSigns": "List of signs"
 };
 static const Map<String,dynamic> _es = {
   "home": "Inicio",
@@ -447,7 +453,9 @@ static const Map<String,dynamic> _es = {
   "later": "Más tarde",
   "updateNow": "Actualizar ahora",
   "workOnMistakes": "Trabajar en los errores",
-  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?"
+  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?",
+  "listOfSigns": "Lista de señales",
+  "quiz": "Prueba"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": _ru, "uk": _uk, "en": _en, "es": _es};
 }
