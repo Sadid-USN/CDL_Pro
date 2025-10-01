@@ -99,69 +99,73 @@ class SettingsPage extends StatelessWidget {
               //     ),
               //   ],
               // ),
-              GestureDetector(
-                onTap: () {
-                  settingsBloc.add(IncrementTapCount());
-                },
-                child: Container(
-                  color: Colors.amber,
-                  height: 150,
-                  child: SizedBox(
-                    height: 55,
-                    //   width: double.infinity / 2,
-                    child: Center(
-                      child: Text(
-                        "${state.tapCount}/7",
-                        style: const TextStyle(
-                          color: Colors.transparent,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+
+
+
+              // GestureDetector(
+              //   onTap: () {
+              //     settingsBloc.add(IncrementTapCount());
+              //   },
+              //   child: Container(
+              //     color: Colors.amber,
+              //     height: 150,
+              //     child: SizedBox(
+              //       height: 55,
+              //       //   width: double.infinity / 2,
+              //       child: Center(
+              //         child: Text(
+              //           "${state.tapCount}/7",
+              //           style: const TextStyle(
+              //             color: Colors.transparent,
+              //             fontSize: 15,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               //! ЗАКОМЕНТИРОВАТЬ ПЕРЕД РЕЛИЗОМ
-              if (state.tapCount >= 7) ...[
-                DropdownButton<AppDataType>(
-                  value: state.selectedType,
-                  onChanged: (newType) {
-                    if (newType != null) {
-                      settingsBloc.add(ChangeType(newType));
-                    }
-                  },
-                  items:
-                      AppDataType.values.map((language) {
-                        return DropdownMenuItem<AppDataType>(
-                          value: language,
-                          child: Text(
-                            language.name.toUpperCase(),
-                            style: const TextStyle(color: Colors.black54),
-                          ),
-                        );
-                      }).toList(),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    settingsBloc.add(UploadData());
-                  },
-                  child: const Text("Загрузить данные"),
-                ),
-                if (state.loadingStatus == LoadingStatus.loading)
-                  const CircularProgressIndicator(),
-                if (state.loadingStatus == LoadingStatus.completed)
-                  const Text(
-                    "Данные успешно загружены!",
-                    style: TextStyle(color: Colors.green, fontSize: 16),
-                  ),
-                if (state.loadingStatus == LoadingStatus.error)
-                  const SelectableText(
-                    "Ошибка загрузки данных",
-                    style: TextStyle(color: Colors.red, fontSize: 16),
-                  ),
-              ],
+              // if (state.tapCount >= 7) ...[
+              //   DropdownButton<AppDataType>(
+              //     value: state.selectedType,
+              //     onChanged: (newType) {
+              //       if (newType != null) {
+              //         settingsBloc.add(ChangeType(newType));
+              //       }
+              //     },
+              //     items:
+              //         AppDataType.values.map((language) {
+              //           return DropdownMenuItem<AppDataType>(
+              //             value: language,
+              //             child: Text(
+              //               language.name.toUpperCase(),
+              //               style: const TextStyle(color: Colors.black54),
+              //             ),
+              //           );
+              //         }).toList(),
+              //   ),
+              //   const SizedBox(height: 20),
+              //   ElevatedButton(
+              //     onPressed: () {
+              //       settingsBloc.add(UploadData());
+              //     },
+              //     child: const Text("Загрузить данные"),
+              //   ),
+              //   if (state.loadingStatus == LoadingStatus.loading)
+              //     const CircularProgressIndicator(),
+              //   if (state.loadingStatus == LoadingStatus.completed)
+              //     const Text(
+              //       "Данные успешно загружены!",
+              //       style: TextStyle(color: Colors.green, fontSize: 16),
+              //     ),
+              //   if (state.loadingStatus == LoadingStatus.error)
+              //     const SelectableText(
+              //       "Ошибка загрузки данных",
+              //       style: TextStyle(color: Colors.red, fontSize: 16),
+              //     ),
+              // ],
+            
               SizedBox(height: 50),
             ],
           ),
