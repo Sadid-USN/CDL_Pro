@@ -7,10 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class RoadSignBloc extends Bloc<AbstractRoadSignEvent, RoadSignState> {
   static const _prefsKey = 'road_sign_answers';
   static const _indexKey = 'road_sign_current_index';
+  static const _modeKey = 'road_sign_mode';
   final SharedPreferences prefs;
 
   RoadSignBloc(this.prefs, List<RoadSignModel> signs)
-      : super(RoadSignState(signs: signs, currentIndex: 0)) {
+    : super(RoadSignState(signs: signs, currentIndex: 0)) {
+    on<LoadRoadSignsEvent>((event, emit) {
+      emit(state.copyWith(signs: event.signs));
+    });
     on<AnswerRoadSignQuestionEvent>((event, emit) async {
       final answers = Map<String, Map<String, String>>.from(state.userAnswers);
       answers[event.signId] = Map<String, String>.from(
@@ -20,6 +24,11 @@ class RoadSignBloc extends Bloc<AbstractRoadSignEvent, RoadSignState> {
 
       emit(state.copyWith(userAnswers: answers));
       await _saveAnswers(answers);
+    });
+
+    on<ToggleModeEvent>((event, emit) async {
+      emit(state.copyWith(isQuizMode: event.isQuizMode));
+      await prefs.setBool(_modeKey, event.isQuizMode);
     });
 
     on<NextSignEvent>((event, emit) async {
@@ -41,7 +50,15 @@ class RoadSignBloc extends Bloc<AbstractRoadSignEvent, RoadSignState> {
     on<LoadSavedAnswersEvent>((event, emit) async {
       final savedAnswers = _loadAnswers() ?? {};
       final savedIndex = prefs.getInt(_indexKey) ?? 0;
-      emit(state.copyWith(userAnswers: savedAnswers, currentIndex: savedIndex));
+      final savedMode = prefs.getBool(_modeKey) ?? true;
+
+      emit(
+        state.copyWith(
+          userAnswers: savedAnswers,
+          currentIndex: savedIndex,
+          isQuizMode: savedMode,
+        ),
+      );
     });
 
     on<ResetQuizEvent>((event, emit) async {

@@ -46,8 +46,8 @@ class SettingsPage extends StatelessWidget {
               CustomActionButton(
                 text:
                     state.isDarkMode
-                        ? LocaleKeys.dark.tr()
-                        : LocaleKeys.light.tr(),
+                        ? LocaleKeys.light.tr()
+                        : LocaleKeys.dark.tr(),
                 trailingIcon:
                     state.isDarkMode
                         ? Icons.dark_mode_outlined
@@ -99,25 +99,30 @@ class SettingsPage extends StatelessWidget {
               //     ),
               //   ],
               // ),
-
               GestureDetector(
                 onTap: () {
                   settingsBloc.add(IncrementTapCount());
                 },
-                child: SizedBox(
-                  height: 55,
-                  //   width: double.infinity / 2,
-                  child: Center(
-                    child: Text(
-                      "${state.tapCount}/7",
-                      style: const TextStyle(
-                        color: Colors.transparent,
-                        fontSize: 15,
+                child: Container(
+                  color: Colors.amber,
+                  height: 150,
+                  child: SizedBox(
+                    height: 55,
+                    //   width: double.infinity / 2,
+                    child: Center(
+                      child: Text(
+                        "${state.tapCount}/7",
+                        style: const TextStyle(
+                          color: Colors.transparent,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
+
+              //! ЗАКОМЕНТИРОВАТЬ ПЕРЕД РЕЛИЗОМ
               if (state.tapCount >= 7) ...[
                 DropdownButton<AppDataType>(
                   value: state.selectedType,

@@ -27,6 +27,7 @@
   "next": "Next",
   "previous": "Previous",
   "resetQuiz": "Reset Quiz",
+  "quiz": "Quiz",
   "cancel": "Cancel",
   "reset": "Reset",
   "exit": "Exit",
@@ -105,5 +106,7 @@
   "later": "Later",
   "updateNow": "Update Now",
   "workOnMistakes": "Work On Mistakes",
-  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz"
+  "areYouSureYouWantToRestartQuiz": "Are you sure you want to restart Quiz",
+  "listOfSigns": "List of signs"
+
 }

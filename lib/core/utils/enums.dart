@@ -11,16 +11,12 @@ enum AppDataType {
   privacyPolicy,
 }
 
-
-
 enum AppLanguage { english, russian, ukrainian, spanish }
+
 enum PrayerTimeStatus { initial, loading, loaded, error }
-enum PolicyType {termsOfUse,privacyPolicy,
-}
-enum MyProduct {
-  weekly,
-  monthly,
-  threeMonths,
-  sixMonths,
-  yearly,
-}
+
+enum PolicyType { termsOfUse, privacyPolicy }
+
+enum MyProduct { weekly, monthly, threeMonths, sixMonths, yearly }
+
+enum RoadSignScreenMode { selection, list, quiz }

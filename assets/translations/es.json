@@ -25,7 +25,7 @@
   "explanation": "Explicación:",
   "completeTheTest": "Completar",
   "next": "Siguiente",
-   "previous": "Previa",
+  "previous": "Previa",
   "resetQuiz": "Reiniciar prueba",
   "cancel": "Cancelar",
   "reset": "Reiniciar",
@@ -105,5 +105,7 @@
   "later": "Más tarde",
   "updateNow": "Actualizar ahora",
   "workOnMistakes": "Trabajar en los errores",
-  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?"
+  "areYouSureYouWantToRestartQuiz": "¿Estás segura de que quieres reiniciar el cuestionario?",
+  "listOfSigns": "Lista de señales",
+  "quiz": "Prueba"
 }
