@@ -1,4 +1,4 @@
-# Dhikr_pro
+# CDL Pro
 
 # flutter_native_splash comand
 flutter pub run flutter_native_splash:create
@@ -49,13 +49,5 @@ flutter build appbundle --release -t lib/main_dev.dart --flavor dev
 ### run flutter launcher icons
 >dart run flutter_native_splash:create
 
-## Dev environment (note: do the same for Stg and Prod)
-### dev - kg.smartuchet.mobile.dev
-### prod - kg.smartuchet.mobile
-> link https://codewithandrea.com/articles/flutter-flavors-for-firebase-apps/
-> flutterfire config \
---project=smartuchet-21161 \
---out=lib/firebase_options_prod.dart \
---ios-bundle-id=kg.smartuchet.mobile \
---android-app-id=kg.smartuchet.mobile
+
 

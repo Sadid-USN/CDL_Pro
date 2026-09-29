@@ -60,7 +60,9 @@ class RoadSignView extends StatelessWidget {
                         final double totalWidth = constraints.maxWidth;
                         final double itemWidth = totalWidth / 2;
 
-                        return AnimatedContainer(
+                        return 
+                        
+                        AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                           width:
@@ -130,6 +132,8 @@ class RoadSignView extends StatelessWidget {
                             ],
                           ),
                         );
+                      
+                      
                       },
                     ),
                   ),

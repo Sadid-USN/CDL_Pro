@@ -43,6 +43,7 @@ abstract class  LocaleKeys {
   static const wrongAnswers = 'wrongAnswers';
   static const youNeedMorePractice = 'youNeedMorePractice';
   static const startAgain = 'startAgain';
+  static const start = 'start';
   static const finishTest = 'finishTest';
   static const view = 'view';
   static const gallery = 'gallery';
