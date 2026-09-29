@@ -28,6 +28,13 @@ class AppLogos {
    static const String cdlTest = 'assets/images/cdl_tests.png';
    static const String roadSigns = 'assets/images/road_signs.png';
    static const String preTripInspection = 'assets/images/pre_trip_inspection.png';
+
+   static const String cdlTest1 = 'assets/images/cdl_tests1.png';
+   static const String roadSigns1 = 'assets/images/road_signs1.png';
+   static const String preTripInspection1 = 'assets/images/pre_trip_inspection1.png';
+
+
+
    static const String generalKnowlage = 'assets/images/general_knowlage.png';
    static const String tanker = 'assets/images/tanker.png';
    static const String combination = 'assets/images/combination.png';

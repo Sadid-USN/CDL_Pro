@@ -36,25 +36,25 @@ class HomePage extends StatelessWidget {
             }
             return baseType; // For other types return as-is
           }
-      
+
           final collectionTypes = [
             {
               'label': LocaleKeys.cdlTests.tr(),
               'type': getLocalizedDataType(AppDataType.cdlTests),
-              'assetImage': AppLogos.cdlTest,
+              'assetImage': AppLogos.cdlTest1,
             },
             {
               'label': LocaleKeys.preTripInspection.tr(),
               'type': AppDataType.tripInseption,
-              'assetImage': AppLogos.preTripInspection,
+              'assetImage': AppLogos.preTripInspection1,
             },
             {
               'label': LocaleKeys.roadSigns.tr(),
               'type': AppDataType.roadSign,
-              'assetImage': AppLogos.roadSigns,
+              'assetImage': AppLogos.roadSigns1,
             },
           ];
-      
+
           return AnimationLimiter(
             child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 25.h),
@@ -68,18 +68,12 @@ class HomePage extends StatelessWidget {
                   duration: const Duration(milliseconds: 600),
                   child: FlipAnimation(
                     child: ElevatedContainer(
-                      assetImage: item["assetImage"] as String,
-                      onTap: () {
+                      imagePath: item["assetImage"] as String,
+                      onPressed: () {
                         context.read<SettingsBloc>().add(ChangeType(type));
                         navigateToPage(context, route: MainCategoryRoute());
                       },
-                      child: Text(
-                        item['label'] as String,
-      
-                        style: AppTextStyles.merriweatherBold18.copyWith(
-                          color: AppColors.lightBackground,
-                        ),
-                      ),
+                      label: item['label'] as String,
                     ),
                   ),
                 );
